@@ -31,6 +31,35 @@ OUT = ROOT / "census.yml"
 DIRECTORY = "https://akiya-portal.net/link_{slug}/"
 DIR_SLUG = {"ibaraki": "ibaragi", "shizuoka": "sizuoka", "hyogo": "hyougo", "kochi": "kouchi", "oita": "ooita"}
 LIST_WORDS = re.compile(r"(物件一覧|物件情報|登録物件|物件を探す|物件検索|空き家情報|空家情報|売買物件|一覧を見る|物件紹介)")
+TERMS_LINK = re.compile(r"(サイトポリシー|サイトの利用|利用規約|ご利用について|このサイトについて|当サイトについて|著作権|免責|リンク・著作権)")
+# a terms page forbids automated extraction if one of these appears in it
+TERMS_BAN = re.compile(r"(スクレイピング|クローリング|自動(的に|で)?(収集|取得|抽出)|機械的に(収集|取得|抽出)|ロボット.{0,10}(禁止|ご遠慮))")
+_terms_cache: dict[str, str | None] = {}
+
+
+def terms_ban(http: Http, robots, soup, base: str) -> str | None:
+    """Look for the site's policy/terms page and return the clause if it forbids scraping."""
+    host = urlparse(base).netloc
+    if host in _terms_cache:
+        return _terms_cache[host]
+    found = None
+    for a in soup.find_all("a", href=True):
+        if not TERMS_LINK.search(a.get_text()):
+            continue
+        u = urljoin(base, a["href"]).split("#")[0]
+        if urlparse(u).netloc != host or ab.SKIP_EXT.search(u) or not robots.allowed(u):
+            continue
+        h = http.get(u)
+        if h:
+            text = norm(BeautifulSoup(h, "lxml").get_text(" "))
+            m = TERMS_BAN.search(text)
+            if m:
+                found = text[max(0, m.start() - 40): m.end() + 40]
+        break
+    _terms_cache[host] = found
+    return found
+
+
 SOCIAL = re.compile(r"(twitter|x\.com|facebook|instagram|line\.me|google|youtube|amazon|rakuten|akiya-portal\.net)")
 
 
@@ -77,6 +106,9 @@ def probe(http: Http, robots: ab.Robots, seed: dict) -> dict:
     if not html:
         return {**entry, "status": "unreachable"}
     soup = BeautifulSoup(html, "lxml")
+    ban = terms_ban(http, robots, soup, url)
+    if ban:
+        return {**entry, "status": "terms", "note": ban[:120]}
     if soup.find("a", href=re.compile(r"(homes\.co\.jp/akiyabank|akiya-athome\.jp)")) and not ab.detail_links(html, url, {"list": url}):
         return {**entry, "status": "delegated", "note": "rimanda a LIFULL/At Home"}
 
@@ -122,6 +154,9 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--pref", action="append")
     ap.add_argument("--limit", type=int, default=0)
+    ap.add_argument("--retry-unreachable", action="store_true",
+                    help="re-probe only the sites marked unreachable (e.g. from a Japanese connection); "
+                         "sites that start working are tagged needs_jp")
     a = ap.parse_args()
     prefs = a.pref or SLUGS
     http = Http(delay=1.5, max_requests=12000, timeout=20)
@@ -130,11 +165,16 @@ def main():
     manual_hosts = {urlparse(u).netloc for s in manual for u in ab.as_list(s["list"])}
     old = {e["list"]: e for e in (yaml.safe_load(OUT.read_text(encoding="utf-8")) or {}).get("sites", [])} if OUT.exists() else {}
 
-    seeds = harvest(http, prefs)
+    if a.retry_unreachable:
+        seeds = [{"prefecture": e["prefecture"], "name": e["name"], "url": e["list"]}
+                 for e in old.values() if e["status"] == "unreachable" and e["prefecture"] in prefs]
+        prefs_kept = [e for e in old.values() if not (e["status"] == "unreachable" and e["prefecture"] in prefs)]
+    else:
+        seeds = harvest(http, prefs)
     if a.limit:
         seeds = seeds[: a.limit]
     log.info("%d seed links", len(seeds))
-    results = [e for e in old.values() if e["prefecture"] not in prefs]
+    results = prefs_kept if a.retry_unreachable else [e for e in old.values() if e["prefecture"] not in prefs]
     for i, seed in enumerate(seeds, 1):
         if urlparse(seed["url"]).netloc in manual_hosts:
             continue
@@ -147,11 +187,16 @@ def main():
             r = {"id": seed["url"], "prefecture": seed["prefecture"], "name": seed["name"], "list": seed["url"],
                  "status": "error", "note": str(e)[:80]}
         http.blocked = 0
+        prev = old.get(seed["url"])
+        if not a.retry_unreachable and r["status"] == "unreachable" and prev and prev.get("needs_jp"):
+            r = prev  # Japan-only site checked from a Japanese connection: keep that result
+        if a.retry_unreachable and r["status"] not in ("unreachable", "error"):
+            r["needs_jp"] = True  # reachable only from a Japanese connection
         results.append(r)
         if i % 25 == 0:
             log.info("%d/%d probed", i, len(seeds))
     # de-duplicate by list page, keep the best status
-    rank = {"ok": 0, "todo": 1, "pdf": 2, "delegated": 3, "robots": 4, "blocked": 5, "unreachable": 6, "error": 7}
+    rank = {"ok": 0, "todo": 1, "pdf": 2, "delegated": 3, "terms": 4, "robots": 4, "blocked": 5, "unreachable": 6, "error": 7}
     best: dict[str, dict] = {}
     for r in results:
         k = r["list"]

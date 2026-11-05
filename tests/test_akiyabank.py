@@ -66,3 +66,10 @@ def test_detail_links_regex_and_heuristic():
     assert ab.detail_links(html, "https://n.jp/list/", s) == ["https://n.jp/akiya/123/", "https://n.jp/akiya/124/"]
     heur = ab.detail_links(html, "https://n.jp/list/", site("niigata"))
     assert "https://n.jp/akiya/123/" in heur and not any(u.endswith(".pdf") or "homes.co.jp" in u for u in heur)
+
+
+def test_census_terms_detection():
+    from scraper import census
+    assert census.TERMS_BAN.search("当サイトの情報を自動的に収集する行為は禁止します")
+    assert census.TERMS_BAN.search("スクレイピング行為を禁止します")
+    assert not census.TERMS_BAN.search("当サイトへのリンクは自由です。著作権は市に帰属します。")

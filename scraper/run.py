@@ -34,14 +34,14 @@ def load_cfg() -> dict:
     return yaml.safe_load((ROOT / "config.yml").read_text(encoding="utf-8"))
 
 
-def load_sites() -> list[dict]:
+def load_sites(jp: bool = False) -> list[dict]:
     """Hand-curated sites (akiyabanks.yml) first, then the ones the monthly census found working."""
-    sites = yaml.safe_load((ROOT / "akiyabanks.yml").read_text(encoding="utf-8"))["sites"]
+    sites = [] if jp else yaml.safe_load((ROOT / "akiyabanks.yml").read_text(encoding="utf-8"))["sites"]
     census = ROOT / "census.yml"
     if census.exists():
         known = {u for s in sites for u in akiyabank.as_list(s["list"])}
         for e in (yaml.safe_load(census.read_text(encoding="utf-8")) or {}).get("sites", []):
-            if e.get("status") == "ok" and e["list"] not in known:
+            if e.get("status") == "ok" and e["list"] not in known and bool(e.get("needs_jp")) == jp:
                 sites.append({**e, "max_pages": 1})
     return sites
 
