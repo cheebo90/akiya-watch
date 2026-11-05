@@ -22,12 +22,13 @@ USER_AGENT = (
 class Http:
     """Single session with a fixed delay between requests, retries and a request budget."""
 
-    def __init__(self, delay: float = 2.0, max_requests: int = 5000, timeout: int = 30):
+    def __init__(self, delay: float = 2.0, max_requests: int = 5000, timeout: int = 30, retries: int = 3):
         self.s = requests.Session()
         self.s.headers.update({"User-Agent": USER_AGENT, "Accept-Language": "ja,en;q=0.8"})
         self.delay = delay
         self.max_requests = max_requests
         self.timeout = timeout
+        self.retries = retries
         self.count = 0
         self.errors = 0
         self.blocked = 0
@@ -36,7 +37,7 @@ class Http:
     def get(self, url: str, **kw) -> Optional[str]:
         if self.count >= self.max_requests:
             raise BudgetExceeded(url)
-        for attempt in range(3):
+        for attempt in range(self.retries):
             wait = self.delay + random.uniform(0, self.delay / 2) - (time.time() - self._last)
             if wait > 0:
                 time.sleep(wait)
@@ -45,8 +46,14 @@ class Http:
             try:
                 r = self.s.get(url, timeout=self.timeout, **kw)
             except requests.RequestException as e:
-                log.warning("GET %s failed (%s), attempt %d", url, e, attempt + 1)
-                time.sleep(5 * (attempt + 1))
+                msg = str(e)
+                if any(x in msg for x in ("NameResolution", "getaddrinfo", "Name or service not known",
+                                          "nodename nor servname", "SSLError", "CERTIFICATE")):
+                    log.warning("GET %s: site does not exist / bad certificate, skipped", url)
+                    break  # dead domain or broken TLS: retrying won't help
+                log.warning("GET %s failed (%s), attempt %d", url, e.__class__.__name__, attempt + 1)
+                if attempt + 1 < self.retries:
+                    time.sleep(5 * (attempt + 1))
                 continue
             if r.status_code == 200:
                 r.encoding = r.apparent_encoding if r.encoding in (None, "ISO-8859-1") else r.encoding

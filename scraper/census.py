@@ -19,8 +19,12 @@ import re
 from pathlib import Path
 from urllib.parse import urljoin, urlparse
 
+import warnings
+
 import yaml
-from bs4 import BeautifulSoup
+from bs4 import BeautifulSoup, XMLParsedAsHTMLWarning
+
+warnings.filterwarnings("ignore", category=XMLParsedAsHTMLWarning)
 
 from .common import Blocked, Http, log, norm
 from .prefectures import SLUGS
@@ -159,7 +163,7 @@ def main():
                          "sites that start working are tagged needs_jp")
     a = ap.parse_args()
     prefs = a.pref or SLUGS
-    http = Http(delay=1.5, max_requests=12000, timeout=20)
+    http = Http(delay=1.5, max_requests=12000, timeout=12, retries=2)
     robots = ab.Robots(http)
     manual = yaml.safe_load((ROOT / "akiyabanks.yml").read_text(encoding="utf-8"))["sites"]
     manual_hosts = {urlparse(u).netloc for s in manual for u in ab.as_list(s["list"])}

@@ -183,3 +183,17 @@ def test_yahoo_list():
     assert b.prefecture == "oita" and b.price_yen == 4_800_000 and b.land_m2 == 300 and b.year_built is None
     n = yahoo.parse_list(read("yahoo_list.html"), "new/house")[0]
     assert n.new_build and n.url.startswith("https://realestate.yahoo.co.jp/new/house/")
+
+
+def test_http_dead_domain_no_retry(monkeypatch):
+    import requests
+    from scraper.common import Http
+    calls = []
+
+    def boom(*a, **k):
+        calls.append(1)
+        raise requests.ConnectionError("NameResolutionError: Failed to resolve 'x.jp' ([Errno 11001] getaddrinfo failed)")
+
+    h = Http(delay=0)
+    monkeypatch.setattr(h.s, "get", boom)
+    assert h.get("http://x.jp/") is None and len(calls) == 1
