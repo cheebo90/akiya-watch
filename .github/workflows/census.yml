@@ -3,6 +3,9 @@ name: Censimento akiya bank
 on:
   schedule:
     - cron: "41 15 3 * *"   # il 3 di ogni mese
+  push:
+    branches: [main]
+    paths: ["trigger/census.json"]
   workflow_dispatch:
     inputs:
       prefs:
@@ -28,7 +31,10 @@ jobs:
       - name: Visita i siti delle akiya bank
         run: |
           ARGS=""
-          for p in ${{ github.event.inputs.prefs }}; do ARGS="$ARGS --pref $p"; done
+          PREFS="${{ github.event.inputs.prefs }}"
+          if [ -z "$PREFS" ] && [ "${{ github.event_name }}" = "push" ] && [ -f trigger/census.json ]; then
+            PREFS=$(python3 -c "import json;print(' '.join(json.load(open('trigger/census.json')).get('prefs',[])))"); fi
+          for p in $PREFS; do ARGS="$ARGS --pref $p"; done
           python -m scraper.census $ARGS
       - name: Salva il censimento
         run: |

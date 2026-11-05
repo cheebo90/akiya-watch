@@ -3,6 +3,9 @@ name: Aggiorna annunci
 on:
   schedule:
     - cron: "17 18 * * *"   # ogni giorno alle 18:17 UTC = 05:17 a Sydney (04:17 con l'ora solare)
+  push:
+    branches: [main]
+    paths: ["trigger/scrape.json"]   # avvio da remoto: basta modificare questo file
   workflow_dispatch:
     inputs:
       sources:
@@ -19,13 +22,28 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
+  plan:
+    runs-on: ubuntu-latest
+    outputs:
+      sources: ${{ steps.s.outputs.sources }}
+    steps:
+      - uses: actions/checkout@v4
+      - id: s
+        run: |
+          DEFAULT='["lifull","athome:1/2","athome:2/2","suumo:1/3","suumo:2/3","suumo:3/3","akiyabank"]'
+          if [ -n "${{ github.event.inputs.sources }}" ]; then SRC='${{ github.event.inputs.sources }}'
+          elif [ "${{ github.event_name }}" = "push" ] && [ -f trigger/scrape.json ]; then SRC=$(python3 -c "import json;print(json.dumps(json.load(open('trigger/scrape.json'))['sources']))")
+          else SRC="$DEFAULT"; fi
+          echo "sources=$SRC" >> "$GITHUB_OUTPUT"; echo "Fonti: $SRC"
+
   scrape:
+    needs: plan
     runs-on: ubuntu-latest
     timeout-minutes: 340
     strategy:
       fail-fast: false
       matrix:
-        source: ${{ fromJSON(github.event.inputs.sources || '["lifull","athome:1/2","athome:2/2","suumo:1/3","suumo:2/3","suumo:3/3","akiyabank"]') }}
+        source: ${{ fromJSON(needs.plan.outputs.sources) }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
