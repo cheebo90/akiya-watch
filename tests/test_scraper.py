@@ -197,3 +197,15 @@ def test_http_dead_domain_no_retry(monkeypatch):
     h = Http(delay=0)
     monkeypatch.setattr(h.s, "get", boom)
     assert h.get("http://x.jp/") is None and len(calls) == 1
+
+
+def test_geo_fill_round_robin_and_bad_answers():
+    from scraper import geo
+
+    class H:
+        def get_json(self, url):
+            return {"error": "x"} if "bad" in url else [{"geometry": {"coordinates": [131.5, 33.2]}}]
+
+    L = {f"k{i}": {"address": f"大分県{'bad' if i == 0 else ''}{i}町", "prefecture": "oita" if i % 2 else "chiba"} for i in range(4)}
+    n = geo.fill(H(), L, {}, minutes=1)
+    assert n == 4 and L["k1"]["latlng"] == [33.2, 131.5] and all("latlng" in v for v in L.values())

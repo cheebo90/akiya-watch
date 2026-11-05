@@ -169,7 +169,11 @@ def cmd_merge(cfg: dict, pw: str):
             l["active"] = False
 
     first_run = not state.get("runs")
-    geocoded = geo.fill(http, state["listings"], state["geocache"])
+    try:
+        geocoded = geo.fill(http, state["listings"], state["geocache"])
+    except Exception:  # noqa: BLE001  never lose a merge because of the map
+        log.exception("geocoding failed, continuing without it")
+        geocoded = 0
     new = [state["listings"][k] for k in new_keys if k not in quiet]
     if first_run:
         log.info("first run: %d listings stored, alerts skipped (everything would be 'new')", len(new))
@@ -178,7 +182,10 @@ def cmd_merge(cfg: dict, pw: str):
                         f"Primo giro completato: {len(state['listings'])} annunci in archivio. "
                         "Da domani ti avviso solo per quelli nuovi.", click=os.getenv("APP_URL"))
     else:
-        notify.send(new, cfg, aud_per_jpy, os.getenv("APP_URL"), warnings)
+        try:
+            notify.send(new, cfg, aud_per_jpy, os.getenv("APP_URL"), warnings)
+        except Exception:  # noqa: BLE001
+            log.exception("alerts failed, continuing")
 
     state["runs"] = (state.get("runs") or [])[-60:] + [{
         "at": dt.datetime.now(dt.timezone.utc).isoformat(timespec="minutes"),
