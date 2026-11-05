@@ -1,9 +1,10 @@
 # akiya-watch — configurazione
 # Modifica questo file direttamente su GitHub: le modifiche valgono dal giro successivo.
 
-# Budget massimo (dollari australiani). Lo script legge solo annunci fino a questo prezzo
-# (arrotondato per eccesso alle fasce di prezzo dei portali).
+# Il tuo budget (dollari australiani): usato dagli avvisi e come filtro iniziale dell'app.
 budget_aud: 80000
+# Tetto dell'archivio (yen): lo script salva solo annunci fino a questo prezzo.
+max_price_yen: 13500000
 
 # Prefetture da leggere: "all" oppure una lista, es. [kagoshima, miyazaki, kumamoto, oita, fukuoka]
 prefectures: all
@@ -13,10 +14,12 @@ sources:
     enabled: true
   athome:                 # athome.co.jp (case e appartamenti usati)
     enabled: true
-    categories: [kodate/chuko, mansion/chuko]
+    # case usate, appartamenti usati, case nuove, appartamenti con inquilino (con rendimento),
+    # negozi, uffici, edifici interi / palazzine
+    categories: [kodate/chuko, mansion/chuko, kodate/shinchiku, mansion/ownerchange, buy_store, buy_office, buy_other]
   suumo:                  # SUUMO (solo pagine per città, consentite dal robots.txt)
     enabled: true
-    categories: [chukoikkodate, ms/chuko]
+    categories: [chukoikkodate, ms/chuko, ikkodate]   # ikkodate = case nuove
   akiyabank:              # akiya bank di prefetture e comuni (elenco siti in akiyabanks.yml)
     enabled: true
 
@@ -26,8 +29,8 @@ request_delay_sec: 2.0
 max_requests_per_run: 9000
 
 # Avvisi: un annuncio NUOVO che rispetta almeno uno di questi filtri genera una notifica.
-# Campi possibili: max_price_aud, min_price_aud, types [house, apartment, land, akiya],
-# prefectures [...], min_building_m2, min_land_m2, max_walk_min, built_after
+# Campi possibili: max_price_aud, min_price_aud, types [house, apartment, land, akiya, building, commercial],
+# prefectures [...], min_building_m2, min_land_m2, max_walk_min, built_after, min_yield_pct, new_build (true/false)
 alerts:
   - name: Casa sotto budget
     max_price_aud: 80000
@@ -38,6 +41,10 @@ alerts:
     types: [apartment]
     min_building_m2: 30
     max_walk_min: 15
+
+  - name: Investimento con rendimento dichiarato alto
+    max_price_aud: 120000
+    min_yield_pct: 10
 
 max_push_per_run: 15
 email_digest: true

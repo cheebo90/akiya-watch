@@ -15,15 +15,16 @@ const fmtNum = (n, d = 0) => n == null ? "—" : Number(n).toLocaleString("it-IT
 
 const PREFS = [["hokkaido","Hokkaido","北海道"],["aomori","Aomori","青森県"],["iwate","Iwate","岩手県"],["miyagi","Miyagi","宮城県"],["akita","Akita","秋田県"],["yamagata","Yamagata","山形県"],["fukushima","Fukushima","福島県"],["ibaraki","Ibaraki","茨城県"],["tochigi","Tochigi","栃木県"],["gunma","Gunma","群馬県"],["saitama","Saitama","埼玉県"],["chiba","Chiba","千葉県"],["tokyo","Tokyo","東京都"],["kanagawa","Kanagawa","神奈川県"],["niigata","Niigata","新潟県"],["toyama","Toyama","富山県"],["ishikawa","Ishikawa","石川県"],["fukui","Fukui","福井県"],["yamanashi","Yamanashi","山梨県"],["nagano","Nagano","長野県"],["gifu","Gifu","岐阜県"],["shizuoka","Shizuoka","静岡県"],["aichi","Aichi","愛知県"],["mie","Mie","三重県"],["shiga","Shiga","滋賀県"],["kyoto","Kyoto","京都府"],["osaka","Osaka","大阪府"],["hyogo","Hyogo","兵庫県"],["nara","Nara","奈良県"],["wakayama","Wakayama","和歌山県"],["tottori","Tottori","鳥取県"],["shimane","Shimane","島根県"],["okayama","Okayama","岡山県"],["hiroshima","Hiroshima","広島県"],["yamaguchi","Yamaguchi","山口県"],["tokushima","Tokushima","徳島県"],["kagawa","Kagawa","香川県"],["ehime","Ehime","愛媛県"],["kochi","Kochi","高知県"],["fukuoka","Fukuoka","福岡県"],["saga","Saga","佐賀県"],["nagasaki","Nagasaki","長崎県"],["kumamoto","Kumamoto","熊本県"],["oita","Oita","大分県"],["miyazaki","Miyazaki","宮崎県"],["kagoshima","Kagoshima","鹿児島県"],["okinawa","Okinawa","沖縄県"]];
 const PREF = Object.fromEntries(PREFS.map(([s, en, ja]) => [s, { en, ja }]));
-const TYPE = { house: ["Casa", "#2f6b4a"], akiya: ["Akiya bank", "#b7862b"], apartment: ["Appartamento", "#3f5f9a"], land: ["Terreno", "#8a6d5a"] };
-const SOURCE = { lifull: "LIFULL Akiya Bank", athome: "athome", suumo: "SUUMO" };
+const TYPE = { house: ["Casa", "#2f6b4a"], akiya: ["Akiya bank", "#b7862b"], apartment: ["Appartamento", "#3f5f9a"], land: ["Terreno", "#8a6d5a"],
+  building: ["Edificio intero", "#7a3f8f"], commercial: ["Commerciale", "#b14a3a"] };
+const SOURCE = { lifull: "LIFULL Akiya Bank", athome: "athome", suumo: "SUUMO", akiyabank: "Akiya bank pubblica" };
 const EXTRA_IT = { "物件名": "Nome", "地目": "Categoria terreno", "都市計画": "Piano urbanistico", "現況": "Stato attuale", "引き渡し状況": "Consegna", "備考": "Note", "小学校": "Scuola elementare", "中学校": "Scuola media" };
 const PAGE = 60;
 
 let DATA = null, VIEW = "list", shown = PAGE, map = null, cluster = null;
 const favs = new Set(store.get("favs", []));
 const seen = new Set(store.get("seen", []));
-const DEFAULT_FILTERS = { maxAud: 80000, type: [], pref: [], minBuild: "", minLand: "", maxWalk: "", builtAfter: "", q: "", withPhotos: false, hideSeen: false };
+const DEFAULT_FILTERS = { maxAud: 80000, type: [], pref: [], minBuild: "", minLand: "", maxWalk: "", builtAfter: "", q: "", withPhotos: false, hideSeen: false, newOnly: false, withYield: false };
 let F = { ...DEFAULT_FILTERS, ...store.get("filters", {}) };
 const ASSUME_DEFAULT = { rentPerM2: "", buyCostPct: 8, taxPct: 1.0, mgmtPct: 8, maintAud: 800, vacancyPct: 10 };
 let A = { ...ASSUME_DEFAULT, ...store.get("assume", {}) };
@@ -94,6 +95,8 @@ function filtered() {
       if (F.maxWalk && (p.walk_min == null || p.walk_min > +F.maxWalk)) return false;
       if (F.builtAfter && (p.year_built || 0) < +F.builtAfter) return false;
       if (F.withPhotos && !p.images?.length) return false;
+      if (F.newOnly && !p.new_build) return false;
+      if (F.withYield && !p.yield_pct) return false;
       if (F.hideSeen && seen.has(p.id)) return false;
       if (q && !(`${p.title} ${p.address} ${prefName(p.prefecture)} ${p.access} ${p.layout}`.toLowerCase().includes(q))) return false;
     }
@@ -106,6 +109,7 @@ function filtered() {
     price_desc: (p) => -(p.price_yen ?? 0),
     ppm: (p) => ppm(p) ?? 1e15,
     yield: (p) => -(yieldOf(p, rents[p.id])?.net ?? -1e9),
+    declared: (p) => -(p.yield_pct ?? -1),
     size: (p) => -(p.building_m2 ?? 0),
   }[s];
   return list.sort((a, b) => key(a) - key(b));
@@ -116,7 +120,7 @@ function activeFilterCount() {
   if (F.maxAud !== DEFAULT_FILTERS.maxAud) n++;
   for (const k of ["type", "pref"]) if (F[k].length) n++;
   for (const k of ["minBuild", "minLand", "maxWalk", "builtAfter", "q"]) if (F[k]) n++;
-  if (F.withPhotos) n++; if (F.hideSeen) n++;
+  if (F.withPhotos) n++; if (F.hideSeen) n++; if (F.newOnly) n++; if (F.withYield) n++;
   return n;
 }
 
@@ -131,6 +135,7 @@ function card(p) {
   if (p.layout) bits.push(p.layout);
   if (p.year_built) bits.push(String(p.year_built));
   if (p.walk_min != null) bits.push(`${p.walk_min}′ stazione`);
+  if (p.subtype && !["中古一戸建て", "中古マンション"].includes(p.subtype)) bits.push(p.subtype);
   return `<article class="card ${seen.has(p.id) ? "seen" : ""}" data-id="${p.id}">
     <div class="ph">${img ? `<img loading="lazy" referrerpolicy="no-referrer" src="${esc(img)}" alt="" onerror="this.remove()">` : "Nessuna foto"}</div>
     <button class="fav ${favs.has(p.id) ? "on" : ""}" data-fav="${p.id}" aria-label="Preferito">${favs.has(p.id) ? "★" : "☆"}</button>
@@ -140,6 +145,8 @@ function card(p) {
       <div class="addr">${esc(p.address)}</div>
       <div class="badges">
         ${isNew(p) ? '<span class="badge new">Nuovo</span>' : ""}
+        ${p.yield_pct ? `<span class="badge yield">Rend. ${p.yield_pct.toFixed(1)}%</span>` : ""}
+        ${p.new_build ? '<span class="badge">Nuova costruzione</span>' : ""}
         ${drop ? '<span class="badge drop">Prezzo ribassato</span>' : ""}
         ${p.active === false ? '<span class="badge gone">Non più online</span>' : ""}
         ${p.links.map((l) => `<span class="badge">${esc(SOURCE[l.source] || l.source)}</span>`).join("")}
@@ -196,7 +203,8 @@ function openDetail(id) {
   const imgs = p.images || [];
   const rows = [
     ["Prezzo", `${fmtAud(p.price_aud)} · ${fmtYen(p.price_yen)}`],
-    ["Tipo", (TYPE[p.type] || [p.type])[0]],
+    ["Tipo", (TYPE[p.type] || [p.type])[0] + (p.subtype ? ` (${p.subtype})` : "") + (p.new_build ? " · nuova costruzione" : "")],
+    ...(p.yield_pct ? [["Rendimento dichiarato", `${p.yield_pct.toFixed(2)}% lordo (dal venditore: da verificare)`]] : []),
     ["Prefettura", p.prefecture ? `${prefName(p.prefecture)} (${PREF[p.prefecture]?.ja || ""})` : "—"],
     ["Indirizzo", p.address],
     ["Superficie casa", p.building_m2 ? `${fmtNum(p.building_m2, 1)} m²` : "—"],
@@ -211,7 +219,8 @@ function openDetail(id) {
   const hist = (p.price_history || []).map(([d, y]) => `<li>${new Date(d).toLocaleDateString("it-IT")}: ${fmtYen(y)} → ${fmtYen(p.price_yen)}</li>`).join("");
   const gmaps = p.latlng ? `https://www.google.com/maps/search/?api=1&query=${p.latlng[0]},${p.latlng[1]}` : `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(p.address)}`;
   const tr = (u) => `https://translate.google.com/translate?sl=ja&tl=it&u=${encodeURIComponent(u)}`;
-  const rentDefault = rents[p.id] ?? (A.rentPerM2 && p.building_m2 ? Math.round(A.rentPerM2 * p.building_m2) : "");
+  const rentDefault = rents[p.id] ?? (p.yield_pct && p.price_yen ? Math.round(p.price_yen * p.yield_pct / 100 / 12)
+    : A.rentPerM2 && p.building_m2 ? Math.round(A.rentPerM2 * p.building_m2) : "");
   const d = $("#detail");
   d.innerHTML = `<form method="dialog">
     <header class="sheet-head"><h2>${fmtAud(p.price_aud)} <span class="muted" style="font-weight:400;font-size:14px">${esc((TYPE[p.type] || [p.type])[0])} · ${esc(prefName(p.prefecture))}</span></h2>
@@ -267,6 +276,7 @@ function initFilters() {
     [...sel.options].forEach((o) => (o.selected = F.pref.includes(o.value)));
     for (const k of ["minBuild", "minLand", "maxWalk", "builtAfter", "q"]) form.elements[k].value = F[k];
     form.elements.withPhotos.checked = F.withPhotos; form.elements.hideSeen.checked = F.hideSeen;
+    form.elements.newOnly.checked = F.newOnly; form.elements.withYield.checked = F.withYield;
   };
   form.elements.maxAud.addEventListener("input", (e) => (out.textContent = fmtAud(+e.target.value)));
   $("#btn-filters").onclick = () => { write(); $("#filters").showModal(); };
@@ -280,6 +290,7 @@ function initFilters() {
       minBuild: form.elements.minBuild.value, minLand: form.elements.minLand.value,
       maxWalk: form.elements.maxWalk.value, builtAfter: form.elements.builtAfter.value,
       q: form.elements.q.value, withPhotos: form.elements.withPhotos.checked, hideSeen: form.elements.hideSeen.checked,
+      newOnly: form.elements.newOnly.checked, withYield: form.elements.withYield.checked,
     };
     store.set("filters", F); shown = PAGE; render();
   });

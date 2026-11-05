@@ -11,7 +11,8 @@ import requests
 from .common import log
 from .prefectures import BY_SLUG
 
-TYPE_IT = {"house": "Casa", "apartment": "Appartamento", "land": "Terreno", "akiya": "Akiya"}
+TYPE_IT = {"house": "Casa", "apartment": "Appartamento", "land": "Terreno", "akiya": "Akiya",
+           "building": "Edificio intero", "commercial": "Commerciale"}
 
 
 def matches(l: dict, f: dict, aud_per_jpy: float) -> bool:
@@ -36,6 +37,10 @@ def matches(l: dict, f: dict, aud_per_jpy: float) -> bool:
         return False
     if f.get("built_after") and (l.get("year_built") or 0) < f["built_after"]:
         return False
+    if f.get("min_yield_pct") and (l.get("yield_pct") or 0) < f["min_yield_pct"]:
+        return False
+    if f.get("new_build") is not None and bool(l.get("new_build")) != bool(f["new_build"]):
+        return False
     return True
 
 
@@ -50,6 +55,10 @@ def describe(l: dict, aud_per_jpy: float) -> str:
         bits.append(f"anno {l['year_built']}")
     if l.get("walk_min") is not None:
         bits.append(f"{l['walk_min']} min a piedi dalla stazione")
+    if l.get("yield_pct"):
+        bits.append(f"rendimento dichiarato {l['yield_pct']:.1f}%")
+    if l.get("new_build"):
+        bits.append("nuova costruzione")
     return " · ".join(bits)
 
 

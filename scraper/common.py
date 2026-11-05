@@ -160,7 +160,27 @@ def parse_layout(s: Optional[str]) -> str:
 
 # ---------------------------------------------------------------- schema
 
-TYPES = ("house", "apartment", "land", "akiya")
+TYPES = ("house", "apartment", "land", "akiya", "building", "commercial")
+
+
+def parse_yield(s: Optional[str]) -> Optional[float]:
+    """'利回り 22.00%' / '表面利回り：8.5％' -> 22.0 / 8.5"""
+    m = re.search(r"利回り\D{0,8}?(\d{1,2}(?:\.\d+)?)\s*%", norm(s))
+    return float(m.group(1)) if m else None
+
+
+def type_from_kind(kind: str, default: str = "commercial") -> str:
+    """Japanese property kind (種目) -> our type."""
+    k = norm(kind)
+    if re.search(r"一棟|ビル|アパート|寮|社宅", k):
+        return "building"
+    if re.search(r"マンション", k):
+        return "apartment"
+    if re.search(r"一戸建|住宅(?!付き店舗)|戸建", k) and not re.search(r"店舗|事務所", k.replace("店舗付き住宅", "")):
+        return "house"
+    if re.search(r"土地|地$", k):
+        return "land"
+    return default
 
 
 @dataclass
@@ -180,6 +200,9 @@ class Listing:
     access: str = ""
     walk_min: Optional[int] = None
     images: list = field(default_factory=list)
+    yield_pct: Optional[float] = None   # gross yield declared by the seller (表面利回り)
+    new_build: bool = False
+    subtype: str = ""                   # Japanese kind as listed, e.g. 売店舗, 一棟売アパート
     extra: dict = field(default_factory=dict)   # raw label -> value (Japanese)
 
     @property

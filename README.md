@@ -1,6 +1,14 @@
 # Akiya Watch
 
-App personale per cercare case e akiya in Giappone su **LIFULL HOME'S Akiya Bank**, **athome.co.jp** e **SUUMO**, con mappa, filtri in dollari australiani, preferiti, stima del rendimento e avvisi per i nuovi annunci.
+App personale per cercare immobili in vendita in Giappone fino a 13,5 milioni di yen, con mappa, filtri in dollari australiani, preferiti, rendimento e avvisi per i nuovi annunci.
+
+| Fonte | Cosa | Stato |
+|---|---|---|
+| athome.co.jp | case e appartamenti usati, case nuove, appartamenti con inquilino (rendimento), negozi, uffici, edifici interi | attiva |
+| SUUMO | case e appartamenti usati, case nuove (solo pagine per città, consentite dal robots.txt) | attiva |
+| Akiya bank pubbliche | portali prefetturali + comuni trovati dal censimento mensile | attiva |
+| LIFULL HOME'S Akiya Bank | akiya delle banche comunali | bloccata dalla protezione anti-bot del sito |
+| Rakumachi, Kenbiya | portali investimento | esclusi: accesso dall'estero negato / robots.txt
 
 - **Script** (`scraper/`): ogni giorno legge le tre fonti con calma (una richiesta ogni ~2 secondi), unisce i doppioni, ricava la posizione per la mappa (geocoder GSI) e converte i prezzi in AUD (cambio BCE).
 - **App** (`web/`): app web installabile su Android e computer, pubblicata su GitHub Pages.

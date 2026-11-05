@@ -72,6 +72,8 @@ def test_budget_rounding():
     assert max_man({"budget_aud": 80000}, 100.0) == 1000
     assert max_man({"budget_aud": 80000}, 110.0) == 1000
     assert max_man({"budget_aud": 80000}, 130.0) == 1500
+    assert max_man({"budget_aud": 80000, "max_price_yen": 13_500_000}, 111.0) == 1500
+    assert max_man({"budget_aud": 80000, "max_price_yen": 10_000_000}, 111.0) == 1000
 
 
 def test_encrypt_roundtrip():
@@ -135,3 +137,25 @@ def test_http_stops_on_bot_protection(monkeypatch):
 def test_athome_diagnose_empty_page():
     d = athome.diagnose("<html><head><title>アクセス制限</title></head><body>しばらくお待ちください</body></html>")
     assert "アクセス" in d and "title=" in d
+
+
+def test_athome_ownerchange_yield():
+    [l] = athome.parse_list(read("athome_ownerchange.html"), "mansion/ownerchange", "oita")
+    assert l.price_yen == 1_200_000 and l.yield_pct == 22.0 and l.type == "apartment"
+    assert l.building_m2 == 18.5 and l.address == "大分県別府市北浜2丁目" and l.url.endswith("/mansion/1153941731/")
+
+
+def test_athome_business_cards():
+    shop, block = athome.parse_list(read("athome_business.html"), "buy_store", "oita")
+    assert shop.type == "commercial" and shop.subtype == "売住宅付き店舗" and shop.price_yen == 3_490_000
+    assert shop.building_m2 == 134.76 and shop.land_m2 == 61.37 and shop.year_built == 1973
+    assert shop.address == "大分県臼杵市大字臼杵" and shop.walk_min == 13 and shop.yield_pct is None
+    assert shop.url == "https://www.athome.co.jp/buy_store/6981234567/"
+    assert block.type == "building" and block.price_yen == 12_800_000 and block.yield_pct == 11.2
+
+
+def test_suumo_new_houses_skip_land():
+    html = read("suumo_list.html").replace("/chukoikkodate/chiba/sc_katori/nc_21643383/", "/ikkodate/chiba/sc_katori/nc_1/")
+    html += html.replace("/ikkodate/chiba/sc_katori/nc_1/", "/tochi/chiba/sc_katori/nc_2/")
+    [l] = suumo.parse_list(html, "ikkodate", "chiba")
+    assert l.new_build and l.type == "house" and l.source_id == "1"

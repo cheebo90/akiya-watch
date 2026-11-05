@@ -53,16 +53,21 @@ def passphrase() -> str:
     return p
 
 
+def max_price_yen(cfg: dict, rate_jpy_per_aud: float) -> int:
+    """Archive ceiling: `max_price_yen` if set, otherwise the AUD budget converted."""
+    return int(cfg.get("max_price_yen") or cfg["budget_aud"] * rate_jpy_per_aud)
+
+
 def max_man(cfg: dict, rate_jpy_per_aud: float) -> int:
-    """Budget in 万円, rounded up to the next 500万 step used by the portals' price filters."""
-    yen = cfg["budget_aud"] * rate_jpy_per_aud
-    man = int(yen // 10_000) + 1
+    """Archive ceiling in 万円, rounded up to the next 500万 step used by the portals' price filters."""
+    man = max_price_yen(cfg, rate_jpy_per_aud) // 10_000 + (1 if max_price_yen(cfg, rate_jpy_per_aud) % 10_000 else 0)
     return ((man + 499) // 500) * 500
 
 
-def cmd_scrape(source: str, cfg: dict, pw: str):
+def cmd_scrape(source: str, cfg: dict, pw: str, part: str = "1/1"):
     scfg = cfg["sources"][source]
-    out = DATA / f"raw-{source}.enc"
+    i, n = (int(x) for x in part.split("/"))
+    out = DATA / f"raw-{source}-{i}.enc"
     if not scfg.get("enabled", True):
         log.info("%s disabled", source)
         store.save_encrypted({"source": source, "completed": False, "listings": [], "skipped": True}, out, pw)
@@ -71,7 +76,8 @@ def cmd_scrape(source: str, cfg: dict, pw: str):
     state = store.load_state(STATE, pw)
     rate = fx.aud_to_jpy(http, state.get("fx_aud_jpy"))
     mm = max_man(cfg, rate)
-    prefs = select(cfg.get("prefectures"))
+    cap = max_price_yen(cfg, rate)
+    prefs = select(cfg.get("prefectures"))[i - 1::n]  # a part = every n-th prefecture
     known = {k for k in state["listings"] if k.startswith(source + ":")}
     log.info("%s: %d prefectures, max %d万円", source, len(prefs), mm)
 
@@ -89,6 +95,8 @@ def cmd_scrape(source: str, cfg: dict, pw: str):
     listings, completed, blocked, t0 = {}, True, None, time.time()
     try:
         for l in gen:
+            if l.price_yen and l.price_yen > cap:
+                continue  # portals round the price filter up (and some show "related" listings): enforce the ceiling
             listings[l.key] = l.to_dict()
     except BudgetExceeded:
         completed = False
@@ -119,13 +127,20 @@ def cmd_merge(cfg: dict, pw: str):
                    for s in SOURCES}
     warnings, new_keys, summary, quiet = [], [], {}, set()
     for s in SOURCES:
-        f = DATA / f"raw-{s}.enc"
-        if not f.exists():
+        files = sorted(DATA.glob(f"raw-{s}-*.enc")) + sorted(DATA.glob(f"raw-{s}.enc"))  # also the old single-file name
+        if not files:
             warnings.append(f"Nessun dato da {s} in questo giro.")
             continue
-        raw = store.decrypt(json.loads(f.read_text()), pw)
-        if raw.get("skipped"):
+        parts = [store.decrypt(json.loads(f.read_text()), pw) for f in files]
+        for f in files:
+            f.unlink()
+        if all(p.get("skipped") for p in parts):
             continue
+        raw = {"listings": [l for p in parts for l in p.get("listings", [])],
+               "requests": sum(p.get("requests") or 0 for p in parts),
+               "errors": sum(p.get("errors") or 0 for p in parts),
+               "completed": all(p.get("completed") for p in parts),
+               "blocked": "; ".join(p["blocked"] for p in parts if p.get("blocked")) or None}
         items = raw["listings"]
         summary[s] = {"found": len(items), "requests": raw.get("requests"), "errors": raw.get("errors"),
                       "completed": raw.get("completed"), "blocked": raw.get("blocked")}
@@ -142,7 +157,6 @@ def cmd_merge(cfg: dict, pw: str):
         if prev_counts.get(s, 0) == 0 and added:
             quiet |= set(added)  # first time we read this source: everything is "new", don't alert
         store.mark_inactive(state, s, {i["key"] for i in items}, bool(raw.get("completed")))
-        f.unlink()
 
     week_ago = (dt.date.today() - dt.timedelta(days=7)).isoformat()
     for l in state["listings"].values():
@@ -179,12 +193,13 @@ def main():
     sub = ap.add_subparsers(dest="cmd", required=True)
     sc = sub.add_parser("scrape")
     sc.add_argument("--source", choices=SOURCES, required=True)
+    sc.add_argument("--part", default="1/1", help="i/n: read every n-th prefecture starting from the i-th")
     sub.add_parser("merge")
     sub.add_parser("all")
     a = ap.parse_args()
     cfg, pw = load_cfg(), passphrase()
     if a.cmd == "scrape":
-        cmd_scrape(a.source, cfg, pw)
+        cmd_scrape(a.source, cfg, pw, a.part)
     elif a.cmd == "merge":
         cmd_merge(cfg, pw)
     else:

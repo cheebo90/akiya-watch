@@ -55,6 +55,7 @@
           <option value="price">Prezzo ↑</option>
           <option value="price_desc">Prezzo ↓</option>
           <option value="ppm">Prezzo / m² ↑</option>
+          <option value="declared">Rendimento dichiarato ↓</option>
           <option value="yield">Rendimento stimato ↓</option>
           <option value="size">Superficie casa ↓</option>
         </select>
@@ -72,13 +73,15 @@
     <header class="sheet-head"><h2>Filtri</h2><button class="btn ghost" value="close" aria-label="Chiudi">✕</button></header>
     <div class="sheet-body">
       <label class="field">Prezzo massimo (A$)
-        <div class="range"><input type="range" name="maxAud" min="5000" max="200000" step="5000"><output></output></div>
+        <div class="range"><input type="range" name="maxAud" min="5000" max="130000" step="5000"><output></output></div>
       </label>
       <fieldset class="field"><legend>Tipo</legend>
         <div class="chips">
           <label><input type="checkbox" name="type" value="house"><span>Casa</span></label>
           <label><input type="checkbox" name="type" value="akiya"><span>Akiya bank</span></label>
           <label><input type="checkbox" name="type" value="apartment"><span>Appartamento</span></label>
+          <label><input type="checkbox" name="type" value="building"><span>Edificio intero</span></label>
+          <label><input type="checkbox" name="type" value="commercial"><span>Commerciale</span></label>
           <label><input type="checkbox" name="type" value="land"><span>Terreno</span></label>
         </div>
       </fieldset>
@@ -92,6 +95,8 @@
         <label class="field">Costruita dopo il<input type="number" name="builtAfter" min="1900" max="2030" inputmode="numeric"></label>
       </div>
       <label class="field">Cerca nel testo <input type="search" name="q" placeholder="es. 鹿児島, 古民家, Beppu"></label>
+      <label class="check"><input type="checkbox" name="withYield"> Solo con rendimento dichiarato (con inquilino)</label>
+      <label class="check"><input type="checkbox" name="newOnly"> Solo nuove costruzioni</label>
       <label class="check"><input type="checkbox" name="withPhotos"> Solo con foto</label>
       <label class="check"><input type="checkbox" name="hideSeen"> Nascondi già visti</label>
     </div>

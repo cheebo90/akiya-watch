@@ -117,3 +117,5 @@ code { background: var(--surface-2); padding: 1px 6px; border-radius: 6px; }
   .fav { top: auto; bottom: 6px; left: 6px; right: auto; width: 32px; height: 32px; font-size: 15px; }
   .addr { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 }
+
+.badge.yield { background: var(--accent-soft); color: var(--text); font-weight: 600; }

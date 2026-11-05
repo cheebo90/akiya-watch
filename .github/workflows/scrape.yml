@@ -7,7 +7,7 @@ on:
     inputs:
       sources:
         description: "Fonti da leggere (JSON)"
-        default: '["lifull","athome","suumo","akiyabank"]'
+        default: '["lifull","athome:1/2","athome:2/2","suumo:1/3","suumo:2/3","suumo:3/3","akiyabank"]'
 
 permissions:
   contents: write
@@ -25,7 +25,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        source: ${{ fromJSON(github.event.inputs.sources || '["lifull","athome","suumo","akiyabank"]') }}
+        source: ${{ fromJSON(github.event.inputs.sources || '["lifull","athome:1/2","athome:2/2","suumo:1/3","suumo:2/3","suumo:3/3","akiyabank"]') }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -34,12 +34,14 @@ jobs:
       - name: Leggi ${{ matrix.source }}
         env:
           AKIYA_PASSPHRASE: ${{ secrets.AKIYA_PASSPHRASE }}
-        run: python -m scraper.run scrape --source ${{ matrix.source }}
+        run: |
+          SRC="${{ matrix.source }}"
+          python -m scraper.run scrape --source "${SRC%%:*}" --part "$( [[ "$SRC" == *:* ]] && echo "${SRC#*:}" || echo 1/1 )"
       - uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: raw-${{ matrix.source }}
-          path: data/raw-${{ matrix.source }}.enc
+          name: raw-${{ strategy.job-index }}
+          path: data/raw-*.enc
           if-no-files-found: ignore
           retention-days: 3
 

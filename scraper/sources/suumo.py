@@ -18,7 +18,7 @@ from ..common import (Http, Listing, log, norm, parse_area_m2, parse_layout,
 
 BASE = "https://suumo.jp"
 NAME = "suumo"
-CATEGORIES = {"chukoikkodate": "house", "ms/chuko": "apartment"}
+CATEGORIES = {"chukoikkodate": "house", "ms/chuko": "apartment", "ikkodate": "house"}  # ikkodate = new houses
 
 
 def city_index_url(cat: str, pref: str) -> str:
@@ -49,6 +49,8 @@ def parse_list(html: str, cat: str, pref: str) -> list[Listing]:
         if not a:
             continue
         href = a["href"].split("?")[0]
+        if href.startswith("/tochi/"):
+            continue  # land lots shown among new-house results: not requested
         sid = re.search(r"nc_(\d+)", href).group(1)
         fields = {}
         for dl in unit.select("dl"):
@@ -69,6 +71,7 @@ def parse_list(html: str, cat: str, pref: str) -> list[Listing]:
             source_id=sid,
             url=urljoin(BASE, href),
             type=CATEGORIES[cat],
+            new_build=cat == "ikkodate",
             price_yen=parse_price_yen(fields.get("販売価格") or fields.get("価格")),
             address=fields.get("所在地", ""),
             prefecture=pref,
