@@ -20,6 +20,7 @@ const TYPE = { house: ["Casa", "#2f6b4a"], akiya: ["Akiya bank", "#b7862b"], apa
 const SOURCE = { lifull: "LIFULL Akiya Bank", athome: "athome", suumo: "SUUMO", akiyabank: "Akiya bank pubblica", yahoo: "Yahoo! 不動産" };
 const EXTRA_IT = { "物件名": "Nome", "地目": "Categoria terreno", "都市計画": "Piano urbanistico", "現況": "Stato attuale", "引き渡し状況": "Consegna", "備考": "Note", "小学校": "Scuola elementare", "中学校": "Scuola media" };
 const PAGE = 60;
+const RETIRED = new Set(["athome", "lifull"]);
 
 let DATA = null, VIEW = "list", shown = PAGE, map = null, cluster = null;
 const favs = new Set(store.get("favs", []));
@@ -88,6 +89,7 @@ function filtered() {
     if (VIEW === "new" && !isNew(p)) return false;
     if (VIEW !== "favs") {
       if (p.active === false) return false;
+      if (p.links.every((l) => RETIRED.has(l.source))) return false;  // sources switched off (no photos, blocked)
       if (F.maxAud && p.price_aud != null && p.price_aud > F.maxAud) return false;
       if (F.type.length && !F.type.includes(p.type)) return false;
       if (F.pref.length && !F.pref.includes(p.prefecture)) return false;
