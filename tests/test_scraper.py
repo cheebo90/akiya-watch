@@ -159,3 +159,8 @@ def test_suumo_new_houses_skip_land():
     html += html.replace("/ikkodate/chiba/sc_katori/nc_1/", "/tochi/chiba/sc_katori/nc_2/")
     [l] = suumo.parse_list(html, "ikkodate", "chiba")
     assert l.new_build and l.type == "house" and l.source_id == "1"
+
+
+def test_athome_challenge_page():
+    page = "<html><head><title>【アットホーム】認証中</title></head><body>認証にご協力ください。</body></html>"
+    assert athome.is_challenge(page) and not athome.is_challenge(read("athome_list.html"))

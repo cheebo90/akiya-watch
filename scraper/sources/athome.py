@@ -157,6 +157,9 @@ def scrape(http: Http, prefs: list[str], categories: list[str], max_man: int,
                 html = http.get(list_url(cat, pref, page, max_man))
                 if not html:
                     break
+                if is_challenge(html):
+                    log.warning("athome %s %s: verification page. %s", cat, pref, diagnose(html))
+                    raise Blocked("athome: pagina di verifica anti-bot (認証中)")
                 items = parse_list(html, cat, pref)
                 if not items:
                     if page == 1 and cat in _CORE:
@@ -172,6 +175,12 @@ def scrape(http: Http, prefs: list[str], categories: list[str], max_man: int,
                     break
                 page += 1
             log.info("athome %s %s: %d pages", cat, pref, page)
+
+
+def is_challenge(html: str) -> bool:
+    """athome's bot check: '【アットホーム】認証中' — 'please help us verify'."""
+    head = html[:3000]
+    return "認証中" in head or "認証にご協力ください" in html[:8000]
 
 
 def diagnose(html: str) -> str:

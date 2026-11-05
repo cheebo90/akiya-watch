@@ -1,4 +1,4 @@
 {
-  "sources": ["lifull","athome:1/2","athome:2/2","suumo:1/3","suumo:2/3","suumo:3/3","akiyabank"],
-  "requested": "2026-11-05 giro completo + test athome"
+  "sources": ["athome:1/2"],
+  "requested": "2026-11-05 test athome a ritmo lento (15 s)"
 }

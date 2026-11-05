@@ -14,6 +14,9 @@ sources:
     enabled: true
   athome:                 # athome.co.jp (case e appartamenti usati)
     enabled: true
+    # athome mostra una verifica anti-bot se le richieste sono rapide: qui si va a ritmo "umano".
+    # Se compare comunque la verifica, lo script si ferma subito: in quel caso metti enabled: false.
+    request_delay_sec: 15
     # case usate, appartamenti usati, case nuove, appartamenti con inquilino (con rendimento),
     # negozi, uffici, edifici interi / palazzine
     categories: [kodate/chuko, mansion/chuko, kodate/shinchiku, mansion/ownerchange, buy_store, buy_office, buy_other]

@@ -72,7 +72,8 @@ def cmd_scrape(source: str, cfg: dict, pw: str, part: str = "1/1"):
         log.info("%s disabled", source)
         store.save_encrypted({"source": source, "completed": False, "listings": [], "skipped": True}, out, pw)
         return
-    http = Http(delay=float(cfg.get("request_delay_sec", 2.0)), max_requests=int(cfg.get("max_requests_per_run", 9000)))
+    http = Http(delay=float(scfg.get("request_delay_sec", cfg.get("request_delay_sec", 2.0))),
+                max_requests=int(cfg.get("max_requests_per_run", 9000)))
     state = store.load_state(STATE, pw)
     rate = fx.aud_to_jpy(http, state.get("fx_aud_jpy"))
     mm = max_man(cfg, rate)
