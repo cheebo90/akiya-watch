@@ -22,12 +22,12 @@ import yaml
 from . import fx, geo, notify, store
 from .common import Blocked, BudgetExceeded, Http, log
 from .prefectures import select
-from .sources import akiyabank, athome, lifull, suumo
+from .sources import akiyabank, athome, lifull, suumo, yahoo
 
 ROOT = Path(__file__).resolve().parent.parent
 DATA = ROOT / "data"
 STATE = DATA / "state.enc"
-SOURCES = ("lifull", "athome", "suumo", "akiyabank")
+SOURCES = ("lifull", "athome", "suumo", "akiyabank", "yahoo")
 
 
 def load_cfg() -> dict:
@@ -78,7 +78,8 @@ def cmd_scrape(source: str, cfg: dict, pw: str, part: str = "1/1"):
     rate = fx.aud_to_jpy(http, state.get("fx_aud_jpy"))
     mm = max_man(cfg, rate)
     cap = max_price_yen(cfg, rate)
-    prefs = select(cfg.get("prefectures"))[i - 1::n]  # a part = every n-th prefecture
+    all_prefs = select(cfg.get("prefectures"))
+    prefs = all_prefs[i - 1::n]  # a part = every n-th prefecture (yahoo: every n-th page instead)
     known = {k for k in state["listings"] if k.startswith(source + ":")}
     log.info("%s: %d prefectures, max %d万円", source, len(prefs), mm)
 
@@ -86,6 +87,8 @@ def cmd_scrape(source: str, cfg: dict, pw: str, part: str = "1/1"):
         gen = lifull.scrape(http, prefs, known)
     elif source == "athome":
         gen = athome.scrape(http, prefs, scfg.get("categories", list(athome.CATEGORIES)), mm)
+    elif source == "yahoo":
+        gen = yahoo.scrape(http, scfg.get("categories", list(yahoo.CATEGORIES)), all_prefs, (i, n))
     elif source == "suumo":
         gen = suumo.scrape(http, prefs, scfg.get("categories", list(suumo.CATEGORIES)), mm)
     else:
@@ -130,7 +133,8 @@ def cmd_merge(cfg: dict, pw: str):
     for s in SOURCES:
         files = sorted(DATA.glob(f"raw-{s}-*.enc")) + sorted(DATA.glob(f"raw-{s}.enc"))  # also the old single-file name
         if not files:
-            warnings.append(f"Nessun dato da {s} in questo giro.")
+            if cfg["sources"].get(s, {}).get("enabled", False) and os.getenv("FULL_RUN") == "1":
+                warnings.append(f"Nessun dato da {s} in questo giro.")
             continue
         parts = [store.decrypt(json.loads(f.read_text()), pw) for f in files]
         for f in files:

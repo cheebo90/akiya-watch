@@ -171,3 +171,15 @@ def test_suumo_hokkaido_slug():
     html = '<a href="/chukoikkodate/hokkaido_/sc_sapporoshichuo/">札幌市中央区</a>'
     assert suumo.parse_city_index(html, "chukoikkodate", "hokkaido") == ["sc_sapporoshichuo"]
     assert "/hokkaido_/sc_x/" in suumo.list_url("chukoikkodate", "hokkaido", "sc_x", 1, 1500)
+
+
+def test_yahoo_list():
+    from scraper.sources import yahoo
+    a, b = yahoo.parse_list(read("yahoo_list.html"), "used/house")
+    assert a.source_id == "b0024605395" and a.url == "https://realestate.yahoo.co.jp/used/house/detail_corp/b0024605395/"
+    assert a.price_yen == 11_800_000 and a.prefecture == "osaka" and a.address == "大阪府枚方市東山1丁目"
+    assert (a.land_m2, a.building_m2, a.layout, a.year_built, a.walk_min) == (100.36, 86.26, "4LDK", 2003, 28)
+    assert a.images and "yimg.jp" in a.images[0]
+    assert b.prefecture == "oita" and b.price_yen == 4_800_000 and b.land_m2 == 300 and b.year_built is None
+    n = yahoo.parse_list(read("yahoo_list.html"), "new/house")[0]
+    assert n.new_build and n.url.startswith("https://realestate.yahoo.co.jp/new/house/")

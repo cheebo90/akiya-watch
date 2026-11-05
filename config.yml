@@ -23,6 +23,9 @@ sources:
   suumo:                  # SUUMO (solo pagine per città, consentite dal robots.txt)
     enabled: true
     categories: [chukoikkodate, ms/chuko, ikkodate]   # ikkodate = case nuove
+  yahoo:                  # Yahoo! 不動産: elenchi nazionali (robots.txt consente le pagine ?page=)
+    enabled: true
+    categories: [used/house, new/house, used/mansion]
   akiyabank:              # akiya bank di prefetture e comuni (elenco siti in akiyabanks.yml)
     enabled: true
 

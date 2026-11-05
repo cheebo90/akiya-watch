@@ -17,7 +17,7 @@ const PREFS = [["hokkaido","Hokkaido","北海道"],["aomori","Aomori","青森県
 const PREF = Object.fromEntries(PREFS.map(([s, en, ja]) => [s, { en, ja }]));
 const TYPE = { house: ["Casa", "#2f6b4a"], akiya: ["Akiya bank", "#b7862b"], apartment: ["Appartamento", "#3f5f9a"], land: ["Terreno", "#8a6d5a"],
   building: ["Edificio intero", "#7a3f8f"], commercial: ["Commerciale", "#b14a3a"] };
-const SOURCE = { lifull: "LIFULL Akiya Bank", athome: "athome", suumo: "SUUMO", akiyabank: "Akiya bank pubblica" };
+const SOURCE = { lifull: "LIFULL Akiya Bank", athome: "athome", suumo: "SUUMO", akiyabank: "Akiya bank pubblica", yahoo: "Yahoo! 不動産" };
 const EXTRA_IT = { "物件名": "Nome", "地目": "Categoria terreno", "都市計画": "Piano urbanistico", "現況": "Stato attuale", "引き渡し状況": "Consegna", "備考": "Note", "小学校": "Scuola elementare", "中学校": "Scuola media" };
 const PAGE = 60;
 

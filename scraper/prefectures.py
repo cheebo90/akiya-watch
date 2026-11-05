@@ -57,7 +57,8 @@ SLUGS = [p[0] for p in PREFECTURES]
 
 def slug_from_address(address: str) -> str:
     for slug, _en, ja, _r in PREFECTURES:
-        if address.startswith(ja) or address.startswith(ja.rstrip("県府都")):
+        short = ja if slug == "hokkaido" else ja[:-1]  # 千葉県 -> 千葉, 京都府 -> 京都, 東京都 -> 東京
+        if address.startswith(ja) or (len(short) >= 2 and address.startswith(short) and not address.startswith(short + "市")):
             return slug
     return ""
 
