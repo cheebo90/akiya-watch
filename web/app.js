@@ -75,7 +75,8 @@ function yieldOf(p, rentYenMonth) {
 }
 const rents = store.get("rents", {});
 const ppm = (p) => p.price_yen && (p.building_m2 || p.land_m2) ? p.price_yen / (p.building_m2 || p.land_m2) : null;
-const isNew = (p) => DATA.new_keys?.some((k) => p.keys?.includes(k)) || daysSince(p.first_seen) <= 2;
+let NEW_KEYS = new Set();
+const isNew = (p) => (p._new ??= (p.keys || []).some((k) => NEW_KEYS.has(k)) || daysSince(p.first_seen) <= 2);
 const daysSince = (d) => (Date.now() - new Date(d).getTime()) / 864e5;
 const prefName = (s) => PREF[s] ? PREF[s].en : s;
 
@@ -104,7 +105,7 @@ function filtered() {
   });
   const s = $("#sort").value;
   const key = {
-    new: (p) => -new Date(p.first_seen).getTime(),
+    new: (p) => -p._t,
     price: (p) => p.price_yen ?? 1e15,
     price_desc: (p) => -(p.price_yen ?? 0),
     ppm: (p) => ppm(p) ?? 1e15,
@@ -338,6 +339,8 @@ function route() {
 }
 
 function boot() {
+  NEW_KEYS = new Set(DATA.new_keys || []);
+  for (const p of DATA.properties) p._t = new Date(p.first_seen).getTime();
   $("#lock").hidden = true; $("#app").hidden = false;
   const last = DATA.runs?.at(-1);
   $("#stats").textContent = `${fmtNum(DATA.count)} immobili · agg. ${new Date(DATA.generated).toLocaleDateString("it-IT")} · 1 A$ = ¥${fmtNum(1 / DATA.aud_per_jpy, 1)}`;

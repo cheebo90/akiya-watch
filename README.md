@@ -4,10 +4,10 @@ App personale per cercare immobili in vendita in Giappone fino a 13,5 milioni di
 
 | Fonte | Cosa | Stato |
 |---|---|---|
-| athome.co.jp | case e appartamenti usati, case nuove, appartamenti con inquilino (rendimento), negozi, uffici, edifici interi | attiva |
+| athome.co.jp | case e appartamenti usati, case nuove, con inquilino, commerciale | esclusa: verifica anti-bot dopo 6 pagine (anche da rete di casa, a 15 s) |
 | SUUMO | case e appartamenti usati, case nuove (solo pagine per città, consentite dal robots.txt) | attiva |
 | Akiya bank pubbliche | portali prefetturali + comuni trovati dal censimento mensile | attiva |
-| LIFULL HOME'S Akiya Bank | akiya delle banche comunali | bloccata dalla protezione anti-bot del sito |
+| LIFULL HOME'S Akiya Bank | akiya delle banche comunali | esclusa: 403 anche da rete di casa |
 | Rakumachi, Kenbiya | portali investimento | esclusi: accesso dall'estero negato / robots.txt
 
 - **Script** (`scraper/`): ogni giorno legge le tre fonti con calma (una richiesta ogni ~2 secondi), unisce i doppioni, ricava la posizione per la mappa (geocoder GSI) e converte i prezzi in AUD (cambio BCE).

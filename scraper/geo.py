@@ -31,14 +31,14 @@ def geocode(http, address: str):
             log.warning("geocode %s failed: %s", q, e)
             return None
         finally:
-            time.sleep(0.25)
+            time.sleep(0.1)
         if res:
             lng, lat = res[0]["geometry"]["coordinates"]
             return [round(lat, 5), round(lng, 5)]
     return None
 
 
-def fill(http, listings: dict, cache: dict, limit: int = 4000) -> int:
+def fill(http, listings: dict, cache: dict, limit: int = 25000) -> int:
     done = 0
     for l in listings.values():
         if l.get("latlng") or not l.get("address"):

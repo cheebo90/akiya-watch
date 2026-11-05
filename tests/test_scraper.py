@@ -164,3 +164,10 @@ def test_suumo_new_houses_skip_land():
 def test_athome_challenge_page():
     page = "<html><head><title>【アットホーム】認証中</title></head><body>認証にご協力ください。</body></html>"
     assert athome.is_challenge(page) and not athome.is_challenge(read("athome_list.html"))
+
+
+def test_suumo_hokkaido_slug():
+    assert suumo.city_index_url("chukoikkodate", "hokkaido").endswith("/chukoikkodate/hokkaido_/city/")
+    html = '<a href="/chukoikkodate/hokkaido_/sc_sapporoshichuo/">札幌市中央区</a>'
+    assert suumo.parse_city_index(html, "chukoikkodate", "hokkaido") == ["sc_sapporoshichuo"]
+    assert "/hokkaido_/sc_x/" in suumo.list_url("chukoikkodate", "hokkaido", "sc_x", 1, 1500)

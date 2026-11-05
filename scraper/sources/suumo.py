@@ -18,15 +18,23 @@ from ..common import (Http, Listing, log, norm, parse_area_m2, parse_layout,
 
 BASE = "https://suumo.jp"
 NAME = "suumo"
+# SUUMO's URL slug differs from ours for Hokkaido only
+SLUG = {"hokkaido": "hokkaido_"}
+
+
+def slug(pref: str) -> str:
+    return SLUG.get(pref, pref)
+
+
 CATEGORIES = {"chukoikkodate": "house", "ms/chuko": "apartment", "ikkodate": "house"}  # ikkodate = new houses
 
 
 def city_index_url(cat: str, pref: str) -> str:
-    return f"{BASE}/{cat}/{pref}/city/"
+    return f"{BASE}/{cat}/{slug(pref)}/city/"
 
 
 def parse_city_index(html: str, cat: str, pref: str) -> list[str]:
-    pat = re.compile(rf"^/{re.escape(cat)}/{pref}/(sc_[a-z0-9_]+)/$")
+    pat = re.compile(rf"^/{re.escape(cat)}/{re.escape(slug(pref))}/(sc_[a-z0-9_]+)/$")
     soup = BeautifulSoup(html, "lxml")
     cities = []
     for a in soup.find_all("a", href=True):
@@ -37,7 +45,7 @@ def parse_city_index(html: str, cat: str, pref: str) -> list[str]:
 
 
 def list_url(cat: str, pref: str, city: str, page: int, max_man: int) -> str:
-    u = f"{BASE}/{cat}/{pref}/{city}/?kt={max_man}&pc=100"
+    u = f"{BASE}/{cat}/{slug(pref)}/{city}/?kt={max_man}&pc=100"
     return u if page == 1 else f"{u}&page={page}"
 
 
