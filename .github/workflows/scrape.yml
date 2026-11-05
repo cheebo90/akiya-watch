@@ -46,6 +46,7 @@ jobs:
         source: ${{ fromJSON(needs.plan.outputs.sources) }}
     steps:
       - uses: actions/checkout@v4
+        with: { ref: main }
       - uses: actions/setup-python@v5
         with: { python-version: "3.12", cache: pip }
       - run: pip install -r requirements.txt
@@ -72,6 +73,7 @@ jobs:
       url: ${{ steps.deploy.outputs.page_url }}
     steps:
       - uses: actions/checkout@v4
+        with: { ref: main }
       - uses: actions/setup-python@v5
         with: { python-version: "3.12", cache: pip }
       - run: pip install -r requirements.txt
@@ -99,5 +101,5 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add -f data/state.enc web/data.enc
           git commit -m "Aggiornamento annunci $(date -u +%F)" || { echo "nessuna modifica"; exit 0; }
-          git pull --rebase -X theirs origin main
+          git pull --rebase origin main || { echo "::error::archivio cambiato durante il giro, non sovrascrivo"; exit 1; }
           git push origin HEAD:main

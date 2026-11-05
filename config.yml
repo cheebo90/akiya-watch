@@ -11,9 +11,9 @@ prefectures: all
 
 sources:
   lifull:                 # LIFULL HOME'S Akiya Bank (akiya delle banche comunali)
-    enabled: true
+    enabled: false        # 5/11/2026: protezione anti-bot (AWS WAF) sui server GitHub. Da provare dal computer di casa.
   athome:                 # athome.co.jp (case e appartamenti usati)
-    enabled: true
+    enabled: false        # 5/11/2026: pagina di verifica "認証中" anche a 15 s/richiesta. Da provare dal computer di casa.
     # athome mostra una verifica anti-bot se le richieste sono rapide: qui si va a ritmo "umano".
     # Se compare comunque la verifica, lo script si ferma subito: in quel caso metti enabled: false.
     request_delay_sec: 15
