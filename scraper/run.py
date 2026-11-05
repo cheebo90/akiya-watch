@@ -20,7 +20,7 @@ from pathlib import Path
 import yaml
 
 from . import fx, geo, notify, store
-from .common import BudgetExceeded, Http, log
+from .common import Blocked, BudgetExceeded, Http, log
 from .prefectures import select
 from .sources import athome, lifull, suumo
 
@@ -70,20 +70,25 @@ def cmd_scrape(source: str, cfg: dict, pw: str):
     else:
         gen = suumo.scrape(http, prefs, scfg.get("categories", list(suumo.CATEGORIES)), mm)
 
-    listings, completed, t0 = {}, True, time.time()
+    listings, completed, blocked, t0 = {}, True, None, time.time()
     try:
         for l in gen:
             listings[l.key] = l.to_dict()
     except BudgetExceeded:
         completed = False
         log.warning("%s: request budget reached, run incomplete", source)
+    except Blocked as e:
+        completed = False
+        blocked = str(e)
+        log.warning("%s: blocked by the site's bot protection (%s); stopped", source, e)
     log.info("%s: %d listings, %d requests, %d errors, %.0f min",
              source, len(listings), http.count, http.errors, (time.time() - t0) / 60)
     # A run with many failed requests is treated as incomplete so nothing gets marked as sold.
     if http.count and http.errors / http.count > 0.2:
         completed = False
     store.save_encrypted({"source": source, "completed": completed, "listings": list(listings.values()),
-                          "requests": http.count, "errors": http.errors, "rate": rate}, out, pw)
+                          "requests": http.count, "errors": http.errors, "rate": rate,
+                          "blocked": blocked}, out, pw)
 
 
 def cmd_merge(cfg: dict, pw: str):
@@ -105,7 +110,10 @@ def cmd_merge(cfg: dict, pw: str):
             continue
         items = raw["listings"]
         summary[s] = {"found": len(items), "requests": raw.get("requests"), "errors": raw.get("errors"),
-                      "completed": raw.get("completed")}
+                      "completed": raw.get("completed"), "blocked": raw.get("blocked")}
+        if raw.get("blocked"):
+            warnings.append(f"{s}: il sito ha attivato la protezione anti-bot, lettura interrotta "
+                            f"({len(items)} annunci letti prima del blocco).")
         # Sudden collapse => probably blocked; don't touch existing data.
         if prev_counts[s] > 50 and len(items) < prev_counts[s] * 0.3:
             warnings.append(f"{s}: trovati solo {len(items)} annunci (prima {prev_counts[s]}). "

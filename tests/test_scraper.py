@@ -117,3 +117,16 @@ def test_alert_filters():
     assert not notify.matches(l, {"prefectures": ["kagoshima"]}, rate)
     assert not notify.matches(l, {"max_walk_min": 5}, rate)
     assert not notify.matches(l, {"min_building_m2": 100}, rate)
+
+
+def test_http_stops_on_bot_protection(monkeypatch):
+    from scraper.common import Blocked, Http
+
+    class R:
+        status_code, text, encoding = 202, "<script src='x.awswaf.com/challenge.js'>", "utf-8"
+
+    h = Http(delay=0)
+    monkeypatch.setattr(h.s, "get", lambda *a, **k: R())
+    assert h.get("https://example.jp/1") is None
+    with pytest.raises(Blocked):
+        h.get("https://example.jp/2")

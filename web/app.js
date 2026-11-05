@@ -287,7 +287,7 @@ function initFilters() {
 
 function renderSettings() {
   const last = DATA.runs?.at(-1);
-  const src = last ? Object.entries(last.sources || {}).map(([s, v]) => `<li>${esc(SOURCE[s] || s)}: ${fmtNum(v.found)} annunci${v.completed === false ? " (giro incompleto)" : ""}</li>`).join("") : "";
+  const src = last ? Object.entries(last.sources || {}).map(([s, v]) => `<li>${esc(SOURCE[s] || s)}: ${fmtNum(v.found)} annunci${v.blocked ? " (bloccato dalla protezione anti-bot del sito)" : v.completed === false ? " (giro incompleto)" : ""}</li>`).join("") : "";
   const warn = (last?.warnings || []).map((w) => `<li>⚠️ ${esc(w)}</li>`).join("");
   $("#view-settings").innerHTML = `
     <section><h3>Ipotesi per il rendimento</h3>

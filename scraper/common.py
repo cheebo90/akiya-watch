@@ -30,6 +30,7 @@ class Http:
         self.timeout = timeout
         self.count = 0
         self.errors = 0
+        self.blocked = 0
         self._last = 0.0
 
     def get(self, url: str, **kw) -> Optional[str]:
@@ -52,7 +53,14 @@ class Http:
                 return r.text
             if r.status_code == 404:
                 return None
-            if r.status_code in (403, 429, 503):
+            # 202 = AWS WAF challenge page, 403 = refused: the site doesn't want automated access -> stop.
+            if r.status_code in (202, 403) or "awswaf" in r.text[:5000].lower():
+                self.blocked += 1
+                log.warning("GET %s -> %d: bot protection, stopping this source", url, r.status_code)
+                if self.blocked >= 2:
+                    raise Blocked(f"{r.status_code} su {url}")
+                return None
+            if r.status_code in (429, 503):
                 log.warning("GET %s -> %d (blocked/throttled), attempt %d", url, r.status_code, attempt + 1)
                 time.sleep(20 * (attempt + 1))
                 continue
@@ -70,6 +78,10 @@ class Http:
 
 class BudgetExceeded(Exception):
     pass
+
+
+class Blocked(Exception):
+    """The site answered with a bot-protection challenge or refusal; we stop instead of insisting."""
 
 
 # ---------------------------------------------------------------- parsing helpers
