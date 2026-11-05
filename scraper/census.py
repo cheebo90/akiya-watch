@@ -85,6 +85,29 @@ def harvest(http: Http, prefs: list[str]) -> list[dict]:
     return seeds
 
 
+AKIYA_LINK = re.compile(r"(空き家バンク|空家バンク|空き家情報|空き家・空き地|空家情報|空き家物件)")
+
+
+def find_moved(http: Http, robots, dead_url: str):
+    """Return (url, html) of the akiya-bank page linked from the dead link's home page, if any."""
+    pu = urlparse(dead_url)
+    root = f"{pu.scheme}://{pu.netloc}/"
+    if not robots.allowed(root):
+        return None
+    home = http.get(root)
+    if not home:
+        return None
+    soup = BeautifulSoup(home, "lxml")
+    for a in soup.find_all("a", href=True):
+        if AKIYA_LINK.search(a.get_text()):
+            u = urljoin(root, a["href"]).split("#")[0]
+            if u.startswith("http") and not ab.SKIP_EXT.search(u) and robots.allowed(u):
+                h = http.get(u)
+                if h:
+                    return u, h
+    return None
+
+
 def detail_regex(urls: list[str]) -> str | None:
     """Generalise successful listing URLs into one regex (digits -> \\d+), if they share a shape."""
     shapes = set()
@@ -108,7 +131,13 @@ def probe(http: Http, robots: ab.Robots, seed: dict) -> dict:
         return {**entry, "status": "robots"}
     html = http.get(url)
     if not html:
-        return {**entry, "status": "unreachable"}
+        # dead link: municipalities move their pages. Look for the akiya-bank link on the site's home page.
+        moved = find_moved(http, robots, url)
+        if not moved:
+            return {**entry, "status": "unreachable"}
+        url, html = moved
+        entry = {**entry, "list": url, "moved_from": seed["url"]}
+        host = urlparse(url).netloc
     soup = BeautifulSoup(html, "lxml")
     ban = terms_ban(http, robots, soup, url)
     if ban:
