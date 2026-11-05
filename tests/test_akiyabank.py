@@ -73,3 +73,5 @@ def test_census_terms_detection():
     assert census.TERMS_BAN.search("当サイトの情報を自動的に収集する行為は禁止します")
     assert census.TERMS_BAN.search("スクレイピング行為を禁止します")
     assert not census.TERMS_BAN.search("当サイトへのリンクは自由です。著作権は市に帰属します。")
+    assert not census.TERMS_BAN.search("本サイトでは、IPアドレス、閲覧環境等の情報を自動的に収集します。")
+    assert census.TERMS_BAN.search("プログラム等により自動的に情報を取得する行為はご遠慮ください。")

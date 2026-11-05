@@ -37,7 +37,9 @@ DIR_SLUG = {"ibaraki": "ibaragi", "shizuoka": "sizuoka", "hyogo": "hyougo", "koc
 LIST_WORDS = re.compile(r"(物件一覧|物件情報|登録物件|物件を探す|物件検索|空き家情報|空家情報|売買物件|一覧を見る|物件紹介)")
 TERMS_LINK = re.compile(r"(サイトポリシー|サイトの利用|利用規約|ご利用について|このサイトについて|当サイトについて|著作権|免責|リンク・著作権)")
 # a terms page forbids automated extraction if one of these appears in it
-TERMS_BAN = re.compile(r"(スクレイピング|クローリング|自動(的に|で)?(収集|取得|抽出)|機械的に(収集|取得|抽出)|ロボット.{0,10}(禁止|ご遠慮))")
+# (privacy pages also say the SITE "automatically collects" visitors' IPs: only count it when it's a prohibition)
+TERMS_BAN = re.compile(r"(スクレイピング|クローリング|(自動(的に|で)?|機械的に|プログラム)[^。]{0,12}(収集|取得|抽出|アクセス)[^。]{0,40}(禁止|禁じ|ご遠慮|行わないで|お断り)"
+                       r"|ロボット[^。]{0,15}(禁止|ご遠慮|お断り))")
 _terms_cache: dict[str, str | None] = {}
 
 

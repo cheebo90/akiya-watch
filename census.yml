@@ -1399,8 +1399,8 @@ sites:
   prefecture: miyagi
   name: 空き家等対策について
   list: https://www.pref.miyagi.jp/soshiki/juutaku/akiyataisaku.html
-  status: terms
-  note: 用して利用者のドメイン名やIPアドレス、ブラウザの種類、本サイトの閲覧等の情報を自動的に収集します。これらの情報はホームページの利用状況に関する統計分析のため活用するのであ
+  status: todo
+  note: da ricontrollare (falso positivo del controllo regolamento)
 - id: miyagi-www-town-kami-miyagi-jp-10661a
   prefecture: miyagi
   name: 加美町空き家バンク
@@ -3019,8 +3019,8 @@ sites:
   prefecture: tokyo
   name: 東京都空家情報サイト
   list: https://www.juutakuseisaku.metro.tokyo.lg.jp/akiya/
-  status: terms
-  note: サイトでは、インターネットドメイン名、IPアドレス、本サイトの閲覧環境等の情報を自動的に収集します。 収集する利用者の皆様の情報は、当サイトのユーザビリティーの向上を目的と
+  status: todo
+  note: da ricontrollare (falso positivo del controllo regolamento)
 - id: tokyo-www-town-okutama-tokyo-jp-e5f84a
   prefecture: tokyo
   name: 奥多摩町0円空家バンク
@@ -7772,14 +7772,14 @@ sites:
   name: 垂水市公式ウェブサイト 空き家バンク
   list: http://www.city.tarumizu.lg.jp/hisho/kurashi/sangyo/teju/akiya/index.html
   moved_from: http://www.city.tarumizu.lg.jp/chiiki/kurashi/sangyo/teju/sokushin.html
-  status: terms
-  note: 覧された方のIPアドレスやCookie情報、その他ホームページ閲覧にかかる情報を自動的に収集しています。これらのアクセス情報については、アクセス件数の集計などサイト運営上の
+  status: todo
+  note: da ricontrollare (falso positivo del controllo regolamento)
 - id: kagoshima-www-city-amami-lg-jp-99e422
   prefecture: kagoshima
   name: 奄美市空き家バンク
   list: http://www.city.amami.lg.jp/pjsenryaku/akiyabank/akiyariyoukibou.html
-  status: terms
-  note: 覧された方のIPアドレスやCookie情報、その他ホームページ閲覧にかかる情報を自動的に収集しています。これらのアクセス情報については、アクセス件数の集計などサイト運営上の
+  status: todo
+  note: da ricontrollare (falso positivo del controllo regolamento)
 - id: kagoshima-www-town-isen-kagoshima-jp-04c695
   prefecture: kagoshima
   name: Uターン・Iターン移住・定住。空き家情報
