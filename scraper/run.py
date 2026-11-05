@@ -133,7 +133,8 @@ def cmd_merge(cfg: dict, pw: str):
     for s in SOURCES:
         files = sorted(DATA.glob(f"raw-{s}-*.enc")) + sorted(DATA.glob(f"raw-{s}.enc"))  # also the old single-file name
         if not files:
-            if cfg["sources"].get(s, {}).get("enabled", False) and os.getenv("FULL_RUN") == "1":
+            expected = [x for x in os.getenv("EXPECT_SOURCES", "").split(",") if x]
+            if s in expected and cfg["sources"].get(s, {}).get("enabled", False):
                 warnings.append(f"Nessun dato da {s} in questo giro.")
             continue
         parts = [store.decrypt(json.loads(f.read_text()), pw) for f in files]

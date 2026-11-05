@@ -21,29 +21,43 @@ concurrency:
   group: scrape
   cancel-in-progress: false
 
+# Portali (SUUMO, Yahoo) e akiya bank sono separati: l'app si aggiorna appena finiscono i portali,
+# le akiya bank (più lente) si aggiungono con una seconda unione quando arrivano.
 jobs:
   plan:
     runs-on: ubuntu-latest
     outputs:
-      sources: ${{ steps.s.outputs.sources }}
+      portals: ${{ steps.s.outputs.portals }}
+      akiya: ${{ steps.s.outputs.akiya }}
+      expect: ${{ steps.s.outputs.expect }}
     steps:
       - uses: actions/checkout@v4
+        with: { ref: main }
       - id: s
         run: |
           DEFAULT='["suumo:1/4","suumo:2/4","suumo:3/4","suumo:4/4","yahoo:1/3","yahoo:2/3","yahoo:3/3","akiyabank"]'
           if [ -n "${{ github.event.inputs.sources }}" ]; then SRC='${{ github.event.inputs.sources }}'
           elif [ "${{ github.event_name }}" = "push" ] && [ -f trigger/scrape.json ]; then SRC=$(python3 -c "import json;print(json.dumps(json.load(open('trigger/scrape.json'))['sources']))")
           else SRC="$DEFAULT"; fi
-          echo "sources=$SRC" >> "$GITHUB_OUTPUT"; echo "Fonti: $SRC"
+          python3 - "$SRC" "${{ github.event_name }}" >> "$GITHUB_OUTPUT" <<'PY'
+          import json, sys
+          src = json.loads(sys.argv[1]); scheduled = sys.argv[2] == "schedule"
+          portals = [s for s in src if not s.startswith("akiyabank")]
+          print("portals=" + json.dumps(portals))
+          print("akiya=" + ("true" if any(s.startswith("akiyabank") for s in src) else "false"))
+          print("expect=" + (",".join(sorted({s.split(":")[0] for s in portals})) if scheduled else ""))
+          PY
+          cat "$GITHUB_OUTPUT"
 
   scrape:
     needs: plan
+    if: needs.plan.outputs.portals != '[]'
     runs-on: ubuntu-latest
     timeout-minutes: 340
     strategy:
       fail-fast: false
       matrix:
-        source: ${{ fromJSON(needs.plan.outputs.sources) }}
+        source: ${{ fromJSON(needs.plan.outputs.portals) }}
     steps:
       - uses: actions/checkout@v4
         with: { ref: main }
@@ -59,14 +73,37 @@ jobs:
       - uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: raw-${{ strategy.job-index }}
+          name: raw-p-${{ strategy.job-index }}
+          path: data/raw-*.enc
+          if-no-files-found: ignore
+          retention-days: 3
+
+  akiyabank:
+    needs: plan
+    if: needs.plan.outputs.akiya == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 340
+    steps:
+      - uses: actions/checkout@v4
+        with: { ref: main }
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.12", cache: pip }
+      - run: pip install -r requirements.txt
+      - name: Leggi akiya bank
+        env:
+          AKIYA_PASSPHRASE: ${{ secrets.AKIYA_PASSPHRASE }}
+        run: python -m scraper.run scrape --source akiyabank
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: raw-akiyabank
           path: data/raw-*.enc
           if-no-files-found: ignore
           retention-days: 3
 
   merge:
-    needs: scrape
-    if: always()
+    needs: [plan, scrape]
+    if: always() && needs.scrape.result != 'skipped'
     runs-on: ubuntu-latest
     environment:
       name: github-pages
@@ -78,7 +115,7 @@ jobs:
         with: { python-version: "3.12", cache: pip }
       - run: pip install -r requirements.txt
       - uses: actions/download-artifact@v4
-        with: { path: data, pattern: "raw-*", merge-multiple: true }
+        with: { path: data, pattern: "raw-p-*", merge-multiple: true }
       - name: Unisci, geolocalizza, avvisa
         id: merge
         env:
@@ -88,7 +125,7 @@ jobs:
           SMTP_PASS: ${{ secrets.SMTP_PASS }}
           EMAIL_TO: ${{ secrets.EMAIL_TO }}
           APP_URL: https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/
-          FULL_RUN: ${{ github.event_name == 'schedule' && '1' || '0' }}
+          EXPECT_SOURCES: ${{ needs.plan.outputs.expect }}
         run: python -m scraper.run merge
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
@@ -102,5 +139,46 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add -f data/state.enc web/data.enc
           git commit -m "Aggiornamento annunci $(date -u +%F)" || { echo "nessuna modifica"; exit 0; }
+          git pull --rebase origin main || { echo "::error::archivio cambiato durante il giro, non sovrascrivo"; exit 1; }
+          git push origin HEAD:main
+
+  merge-akiyabank:
+    needs: [merge, akiyabank]
+    if: always() && needs.akiyabank.result == 'success'
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+        with: { ref: main }   # dopo la prima unione: parte dall'archivio appena salvato
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.12", cache: pip }
+      - run: pip install -r requirements.txt
+      - uses: actions/download-artifact@v4
+        with: { path: data, name: raw-akiyabank }
+      - name: Unisci le akiya bank
+        id: merge
+        env:
+          AKIYA_PASSPHRASE: ${{ secrets.AKIYA_PASSPHRASE }}
+          NTFY_TOPIC: ${{ secrets.NTFY_TOPIC }}
+          SMTP_USER: ${{ secrets.SMTP_USER }}
+          SMTP_PASS: ${{ secrets.SMTP_PASS }}
+          EMAIL_TO: ${{ secrets.EMAIL_TO }}
+          APP_URL: https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/
+          EXPECT_SOURCES: akiyabank
+        run: python -m scraper.run merge
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with: { path: web }
+      - id: deploy
+        uses: actions/deploy-pages@v4
+      - name: Salva dati cifrati
+        if: always() && steps.merge.outcome == 'success'
+        run: |
+          git config user.name "akiya-watch bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -f data/state.enc web/data.enc
+          git commit -m "Aggiornamento akiya bank $(date -u +%F)" || { echo "nessuna modifica"; exit 0; }
           git pull --rebase origin main || { echo "::error::archivio cambiato durante il giro, non sovrascrivo"; exit 1; }
           git push origin HEAD:main
