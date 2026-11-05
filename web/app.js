@@ -140,7 +140,7 @@ function card(p) {
   if (p.walk_min != null) bits.push(`${p.walk_min}′ stazione`);
   if (p.subtype && !["中古一戸建て", "中古マンション"].includes(p.subtype)) bits.push(p.subtype);
   return `<article class="card ${seen.has(p.id) ? "seen" : ""}" data-id="${p.id}">
-    <div class="ph">${img ? `<img loading="lazy" referrerpolicy="no-referrer" src="${esc(img)}" alt="" onerror="this.replaceWith('Foto sul sito originale')">` : "Nessuna foto"}</div>
+    <div class="ph">${img ? `<img loading="lazy" referrerpolicy="no-referrer" src="${esc(img)}" alt="" onerror="this.parentNode.classList.add('nophoto')">` : ""}<a class="orig" target="_blank" rel="noopener" href="${esc(p.links[0].url)}">Foto sul sito originale ↗</a></div>
     <button class="fav ${favs.has(p.id) ? "on" : ""}" data-fav="${p.id}" aria-label="Preferito">${favs.has(p.id) ? "★" : "☆"}</button>
     <div class="body">
       <div class="price">${fmtAud(p.price_aud)}<small>${fmtYen(p.price_yen)}</small></div>
@@ -351,6 +351,7 @@ function boot() {
   $$(".tabs button").forEach((b) => (b.onclick = () => setView(b.dataset.view)));
   $("#more").onclick = () => { shown += PAGE; render(); };
   $("#cards").addEventListener("click", (e) => {
+    if (e.target.closest("a.orig")) return;  // let the link open the source site
     const f = e.target.closest("[data-fav]");
     if (f) { e.stopPropagation(); toggleFav(f.dataset.fav); render(); return; }
     const c = e.target.closest(".card");

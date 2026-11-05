@@ -119,3 +119,9 @@ code { background: var(--surface-2); padding: 1px 6px; border-radius: 6px; }
 }
 
 .badge.yield { background: var(--accent-soft); color: var(--text); font-weight: 600; }
+
+/* photo missing or blocked: link to the listing on its site */
+.card .ph { position: relative; }
+.card .ph .orig { display: none; font-size: 12px; text-decoration: none; padding: 6px 10px; border-radius: 999px; background: var(--surface); border: 1px solid var(--line); color: var(--text); }
+.card .ph:not(:has(img)) .orig, .card .ph.nophoto .orig { display: inline-block; }
+.card .ph.nophoto img { display: none; }
