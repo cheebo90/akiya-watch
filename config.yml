@@ -17,6 +17,8 @@ sources:
   suumo:                  # SUUMO (solo pagine per città, consentite dal robots.txt)
     enabled: true
     categories: [chukoikkodate, ms/chuko]
+  akiyabank:              # akiya bank di prefetture e comuni (elenco siti in akiyabanks.yml)
+    enabled: true
 
 # Pausa tra una richiesta e l'altra (secondi). Non scendere sotto 1.5: è una questione di rispetto per i siti.
 request_delay_sec: 2.0

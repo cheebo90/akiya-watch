@@ -69,6 +69,10 @@ def merge(state: dict, scraped: list[dict]) -> list[str]:
     for d in scraped:
         k = d["key"]
         old = L.get(k)
+        if d.get("extra", {}).get("_seen_only"):
+            if old is not None:
+                old["last_seen"], old["active"] = now, True
+            continue
         if old is None:
             d["first_seen"] = now
             new_keys.append(k)

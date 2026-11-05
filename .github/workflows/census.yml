@@ -1,0 +1,39 @@
+name: Censimento akiya bank
+
+on:
+  schedule:
+    - cron: "41 15 3 * *"   # il 3 di ogni mese
+  workflow_dispatch:
+    inputs:
+      prefs:
+        description: "Prefetture (vuoto = tutto il Giappone), es. oita kumamoto"
+        default: ""
+
+permissions:
+  contents: write
+
+concurrency:
+  group: census
+  cancel-in-progress: false
+
+jobs:
+  census:
+    runs-on: ubuntu-latest
+    timeout-minutes: 340
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.12", cache: pip }
+      - run: pip install -r requirements.txt
+      - name: Visita i siti delle akiya bank
+        run: |
+          ARGS=""
+          for p in ${{ github.event.inputs.prefs }}; do ARGS="$ARGS --pref $p"; done
+          python -m scraper.census $ARGS
+      - name: Salva il censimento
+        run: |
+          git config user.name "akiya-watch bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add census.yml
+          git commit -m "Censimento akiya bank $(date -u +%F)" || echo "nessuna modifica"
+          git pull --rebase -q && git push

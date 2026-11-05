@@ -1,0 +1,42 @@
+# Akiya bank verificate a mano. Il censimento mensile (census.yml) aggiunge da solo quelle che riesce a leggere.
+# Campi: id, name, prefecture, list (pagina elenco), pages (suffisso per le pagine successive, {n} = numero),
+#        detail (regex dei link alle schede), max_pages, max_details (schede nuove lette al giorno), status
+sites:
+  - id: hokkaido-pref
+    name: 北海道空き家情報バンク
+    prefecture: hokkaido
+    list: https://www.hokkaido-akiya.com/index?usePage=1
+    pages: "&page={n}"
+    detail: "/detail\\?id=\\d+$"
+    max_pages: 700          # ~670 pagine da 8, più recenti prima
+    max_details: 500        # il primo riempimento richiede ~10 giorni
+    status: ok
+
+  - id: ibaraki-pref
+    name: いばらき移住定住ポータル Re:BARAKI 空き家バンク
+    prefecture: ibaraki
+    list: https://iju-ibaraki.jp/residence/
+    detail: "/residence/akiya/\\d+\\.html$"
+    max_pages: 1
+    max_details: 300
+    status: ok
+
+  - id: niigata-pref
+    name: 新潟県 空き家情報検索システム（にいがた暮らし）
+    prefecture: niigata
+    list: https://niigatakurashi.com/akiya-search/
+    pages: "page/{n}/"
+    detail: "niigatakurashi\\.com/akiya/\\d+/$"
+    max_pages: 20
+    max_details: 200
+    status: ok
+
+  - id: mie-pref
+    name: 美し国みえ 移住ポータル 空き家バンク
+    prefecture: mie
+    list: https://www.ijyu.pref.mie.lg.jp/bank/
+    pages: "page/{n}/"
+    detail: "/bank/\\d+/$"
+    max_pages: 15
+    max_details: 200
+    status: ok

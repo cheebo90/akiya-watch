@@ -22,16 +22,28 @@ import yaml
 from . import fx, geo, notify, store
 from .common import Blocked, BudgetExceeded, Http, log
 from .prefectures import select
-from .sources import athome, lifull, suumo
+from .sources import akiyabank, athome, lifull, suumo
 
 ROOT = Path(__file__).resolve().parent.parent
 DATA = ROOT / "data"
 STATE = DATA / "state.enc"
-SOURCES = ("lifull", "athome", "suumo")
+SOURCES = ("lifull", "athome", "suumo", "akiyabank")
 
 
 def load_cfg() -> dict:
     return yaml.safe_load((ROOT / "config.yml").read_text(encoding="utf-8"))
+
+
+def load_sites() -> list[dict]:
+    """Hand-curated sites (akiyabanks.yml) first, then the ones the monthly census found working."""
+    sites = yaml.safe_load((ROOT / "akiyabanks.yml").read_text(encoding="utf-8"))["sites"]
+    census = ROOT / "census.yml"
+    if census.exists():
+        known = {u for s in sites for u in akiyabank.as_list(s["list"])}
+        for e in (yaml.safe_load(census.read_text(encoding="utf-8")) or {}).get("sites", []):
+            if e.get("status") == "ok" and e["list"] not in known:
+                sites.append({**e, "max_pages": 1})
+    return sites
 
 
 def passphrase() -> str:
@@ -67,8 +79,12 @@ def cmd_scrape(source: str, cfg: dict, pw: str):
         gen = lifull.scrape(http, prefs, known)
     elif source == "athome":
         gen = athome.scrape(http, prefs, scfg.get("categories", list(athome.CATEGORIES)), mm)
-    else:
+    elif source == "suumo":
         gen = suumo.scrape(http, prefs, scfg.get("categories", list(suumo.CATEGORIES)), mm)
+    else:
+        sites = load_sites()
+        urls = {l["url"] for l in state["listings"].values() if l["source"] == "akiyabank"}
+        gen = akiyabank.scrape(http, sites, prefs, urls)
 
     listings, completed, blocked, t0 = {}, True, None, time.time()
     try:
@@ -86,6 +102,8 @@ def cmd_scrape(source: str, cfg: dict, pw: str):
     # A run with many failed requests is treated as incomplete so nothing gets marked as sold.
     if http.count and http.errors / http.count > 0.2:
         completed = False
+    if source == "akiyabank":
+        completed = False  # many small sites: a listing goes inactive only after a week unseen (see merge)
     store.save_encrypted({"source": source, "completed": completed, "listings": list(listings.values()),
                           "requests": http.count, "errors": http.errors, "rate": rate,
                           "blocked": blocked}, out, pw)
@@ -99,7 +117,7 @@ def cmd_merge(cfg: dict, pw: str):
     aud_per_jpy = 1 / rate
     prev_counts = {s: sum(1 for l in state["listings"].values() if l["source"] == s and l.get("active", True))
                    for s in SOURCES}
-    warnings, new_keys, summary = [], [], {}
+    warnings, new_keys, summary, quiet = [], [], {}, set()
     for s in SOURCES:
         f = DATA / f"raw-{s}.enc"
         if not f.exists():
@@ -119,13 +137,21 @@ def cmd_merge(cfg: dict, pw: str):
             warnings.append(f"{s}: trovati solo {len(items)} annunci (prima {prev_counts[s]}). "
                             f"Forse il sito blocca lo script: i dati vecchi sono stati mantenuti.")
             raw["completed"] = False
-        new_keys += store.merge(state, items)
+        added = store.merge(state, items)
+        new_keys += added
+        if prev_counts.get(s, 0) == 0 and added:
+            quiet |= set(added)  # first time we read this source: everything is "new", don't alert
         store.mark_inactive(state, s, {i["key"] for i in items}, bool(raw.get("completed")))
         f.unlink()
 
+    week_ago = (dt.date.today() - dt.timedelta(days=7)).isoformat()
+    for l in state["listings"].values():
+        if l["source"] == "akiyabank" and l.get("last_seen", "") < week_ago:
+            l["active"] = False
+
     first_run = not state.get("runs")
     geocoded = geo.fill(http, state["listings"], state["geocache"])
-    new = [state["listings"][k] for k in new_keys]
+    new = [state["listings"][k] for k in new_keys if k not in quiet]
     if first_run:
         log.info("first run: %d listings stored, alerts skipped (everything would be 'new')", len(new))
         if os.getenv("NTFY_TOPIC"):

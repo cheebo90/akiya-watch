@@ -140,6 +140,9 @@ def parse_year(s: Optional[str]) -> Optional[int]:
     if m:
         n = 1 if m.group(2) == "元" else int(m.group(2))
         return _ERAS[m.group(1)] + n
+    m = re.fullmatch(r"\s*(19\d{2}|20\d{2})\s*", s)  # bare year, e.g. '1985'
+    if m:
+        return int(m.group(1))
     return None
 
 

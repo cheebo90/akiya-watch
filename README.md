@@ -24,6 +24,15 @@ App personale per cercare case e akiya in Giappone su **LIFULL HOME'S Akiya Bank
 4. **Notifiche sul telefono**: installa l'app **ntfy** dal Play Store e iscriviti al topic scelto in `NTFY_TOPIC`.
 5. **App**: apri `https://cheebo90.github.io/akiya-watch/` in Chrome sul telefono → menu ⋮ → **Installa app**.
 
+## Akiya bank di prefetture e comuni
+
+- `akiyabanks.yml`: siti verificati a mano (portali prefetturali di Hokkaido, Ibaraki, Niigata e Mie).
+- `census.yml`: generato ogni mese da **Actions → Censimento akiya bank**. Parte dall'elenco di link comunali di
+  akiya-portal.net, visita ogni sito una volta (rispettando robots.txt) e attiva da solo quelli dove riconosce le schede.
+  Stati: `ok` (letto ogni giorno), `todo` (da sistemare a mano), `pdf` (elenco in PDF), `delegated` (ospitato da LIFULL/At Home),
+  `robots` (vietato dal sito), `blocked`, `unreachable`.
+- Per sistemare un sito `todo`, copialo in `akiyabanks.yml` indicando la pagina elenco e la regex delle schede.
+
 ## Personalizzare
 
 Modifica `config.yml` direttamente su GitHub: budget, prefetture, fonti e filtri degli avvisi.

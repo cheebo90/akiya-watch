@@ -7,7 +7,7 @@ on:
     inputs:
       sources:
         description: "Fonti da leggere (JSON)"
-        default: '["lifull","athome","suumo"]'
+        default: '["lifull","athome","suumo","akiyabank"]'
 
 permissions:
   contents: write
@@ -25,7 +25,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        source: ${{ fromJSON(github.event.inputs.sources || '["lifull","athome","suumo"]') }}
+        source: ${{ fromJSON(github.event.inputs.sources || '["lifull","athome","suumo","akiyabank"]') }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
