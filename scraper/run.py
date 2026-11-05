@@ -164,6 +164,11 @@ def cmd_merge(cfg: dict, pw: str):
             quiet |= set(added)  # first time we read this source: everything is "new", don't alert
         store.mark_inactive(state, s, {i["key"] for i in items}, bool(raw.get("completed")))
 
+    # sources switched off in config.yml: their leftover listings are hidden (kept only in favourites)
+    off = {s for s in SOURCES if not cfg["sources"].get(s, {}).get("enabled", True)}
+    for l in state["listings"].values():
+        if l["source"] in off:
+            l["active"] = False
     week_ago = (dt.date.today() - dt.timedelta(days=7)).isoformat()
     for l in state["listings"].values():
         if l["source"] == "akiyabank" and l.get("last_seen", "") < week_ago:
