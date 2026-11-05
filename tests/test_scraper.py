@@ -130,3 +130,8 @@ def test_http_stops_on_bot_protection(monkeypatch):
     assert h.get("https://example.jp/1") is None
     with pytest.raises(Blocked):
         h.get("https://example.jp/2")
+
+
+def test_athome_diagnose_empty_page():
+    d = athome.diagnose("<html><head><title>アクセス制限</title></head><body>しばらくお待ちください</body></html>")
+    assert "アクセス" in d and "title=" in d

@@ -12,7 +12,7 @@ from urllib.parse import urljoin
 
 from bs4 import BeautifulSoup
 
-from ..common import (Http, Listing, log, norm, parse_area_m2, parse_layout,
+from ..common import (Blocked, Http, Listing, log, norm, parse_area_m2, parse_layout,
                       parse_price_yen, parse_walk_min, parse_year)
 from ..prefectures import ja_name
 
@@ -92,18 +92,37 @@ def has_next(html: str, page: int) -> bool:
 
 def scrape(http: Http, prefs: list[str], categories: list[str], max_man: int,
            max_pages: int = 40) -> Iterator[Listing]:
+    empty_streak = 0
     for cat in categories:
         for pref in prefs:
             page = 1
             while page <= max_pages:
+                http.s.cookies.clear()  # each page as a fresh visit, no session state carried over
                 html = http.get(list_url(cat, pref, page, max_man))
                 if not html:
                     break
                 items = parse_list(html, cat, pref)
                 if not items:
+                    if page == 1:
+                        empty_streak += 1
+                        log.warning("athome %s %s: empty page. %s", cat, pref, diagnose(html))
+                        if empty_streak >= 4:
+                            raise Blocked("athome: pagine senza annunci in serie (probabile blocco silenzioso)")
                     break
+                empty_streak = 0
                 yield from items
                 if not has_next(html, page):
                     break
                 page += 1
             log.info("athome %s %s: %d pages", cat, pref, page)
+
+
+def diagnose(html: str) -> str:
+    """Short, log-safe description of a page that has no listing cards."""
+    soup = BeautifulSoup(html, "lxml")
+    title = norm(soup.title.get_text()) if soup.title else ""
+    text = norm(soup.body.get_text(" ")) if soup.body else ""
+    flags = [w for w in ("captcha", "challenge", "robot", "アクセス", "制限", "ブロック", "混み合", "該当する物件")
+             if w in html.lower() or w in text]
+    tags = sorted({el.name for el in soup.find_all(True) if el.name.startswith("athome-")})[:5]
+    return f"len={len(html)} title={title[:80]!r} flags={flags} components={tags} text={text[:160]!r}"
