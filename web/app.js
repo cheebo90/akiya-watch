@@ -20,6 +20,17 @@ const TYPE = { house: ["Casa", "#2f6b4a"], akiya: ["Akiya bank", "#b7862b"], apa
 const SOURCE = { lifull: "LIFULL Akiya Bank", athome: "athome", suumo: "SUUMO", akiyabank: "Akiya bank pubblica", yahoo: "Yahoo! 不動産" };
 const EXTRA_IT = { "物件名": "Nome", "地目": "Categoria terreno", "都市計画": "Piano urbanistico", "現況": "Stato attuale", "引き渡し状況": "Consegna", "備考": "Note", "小学校": "Scuola elementare", "中学校": "Scuola media" };
 const PAGE = 60;
+/* Ask the source's own image service for a sharper version when it has one (SUUMO resizes on request). */
+function sized(u, w) {
+  try {
+    const url = new URL(u);
+    if (url.pathname.endsWith("/resizeImage")) {
+      url.searchParams.set("w", w); url.searchParams.set("h", Math.round(w * 3 / 4));
+      return url.toString();
+    }
+    return u.replace(/resized-bukken-\d+x\d+-/, w > 600 ? "resized-bukken-1124x836-" : "resized-bukken-562x418-");
+  } catch { return u; }
+}
 const RETIRED = new Set(["athome", "lifull"]);
 
 let DATA = null, VIEW = "list", shown = PAGE, map = null, cluster = null;
@@ -130,7 +141,7 @@ function activeFilterCount() {
 /* ---------------------------------------------------------------- rendering */
 function card(p) {
   const [tname] = TYPE[p.type] || [p.type];
-  const img = p.images?.[0];
+  const img = p.images?.[0] && sized(p.images[0], 480);
   const drop = p.price_history?.length && p.price_history.at(-1)[1] > p.price_yen;
   const bits = [tname, prefName(p.prefecture)];
   if (p.building_m2) bits.push(`${fmtNum(p.building_m2)} m² casa`);
@@ -228,7 +239,8 @@ function openDetail(id) {
   d.innerHTML = `<form method="dialog">
     <header class="sheet-head"><h2>${fmtAud(p.price_aud)} <span class="muted" style="font-weight:400;font-size:14px">${esc((TYPE[p.type] || [p.type])[0])} · ${esc(prefName(p.prefecture))}</span></h2>
       <div><button type="button" class="btn ghost" id="d-fav">${favs.has(p.id) ? "★" : "☆"}</button><button class="btn ghost" value="close" aria-label="Chiudi">✕</button></div></header>
-    ${imgs.length ? `<div class="gallery">${imgs.map((u) => `<img loading="lazy" referrerpolicy="no-referrer" src="${esc(u)}" alt="" onerror="this.remove()">`).join("")}</div>` : `<div class="noimg">Nessuna foto: guarda l'annuncio originale</div>`}
+    ${imgs.length ? `<div class="gallery">${imgs.map((u, i) => `<img loading="lazy" referrerpolicy="no-referrer" src="${esc(sized(u, 1024))}" data-i="${i}" alt="Foto ${i + 1} di ${imgs.length}" onerror="this.remove()">`).join("")}</div>
+      <div class="gallery-count">${imgs.length} foto · tocca per ingrandire</div>` : `<div class="noimg">Nessuna foto: guarda l'annuncio originale</div>`}
     <div class="sheet-body">
       ${p.title ? `<p style="margin:0">${esc(p.title)}</p>` : ""}
       <div class="links">
@@ -257,9 +269,42 @@ function openDetail(id) {
     $("#y-net", d).textContent = y ? y.net.toFixed(1) + "%" : "—";
   };
   $("#rent", d).addEventListener("input", upd); upd();
+  d.querySelectorAll(".gallery img").forEach((im) => im.addEventListener("click", () => openViewer(imgs, +im.dataset.i)));
   $("#d-fav", d).onclick = (e) => { toggleFav(p.id); e.target.textContent = favs.has(p.id) ? "★" : "☆"; };
   d.addEventListener("close", () => { if (location.hash.startsWith("#/p/")) history.replaceState(null, "", "#"); render(); }, { once: true });
   if (!d.open) d.showModal();
+}
+
+/* full-screen photo viewer: arrows, swipe, keyboard, Esc to close */
+function openViewer(imgs, start) {
+  let i = start;
+  const v = document.createElement("dialog");
+  v.className = "viewer";
+  v.innerHTML = `<img referrerpolicy="no-referrer" alt="">
+    <button class="v-close" aria-label="Chiudi">✕</button>
+    <button class="v-prev" aria-label="Foto precedente">‹</button><button class="v-next" aria-label="Foto successiva">›</button>
+    <div class="v-count"></div>`;
+  const img = v.querySelector("img");
+  const show = () => {
+    i = (i + imgs.length) % imgs.length;
+    img.src = sized(imgs[i], 1600);
+    v.querySelector(".v-count").textContent = `${i + 1} / ${imgs.length}`;
+  };
+  v.querySelector(".v-close").onclick = () => v.close();
+  v.querySelector(".v-prev").onclick = () => { i--; show(); };
+  v.querySelector(".v-next").onclick = () => { i++; show(); };
+  v.addEventListener("keydown", (e) => { if (e.key === "ArrowLeft") { i--; show(); } if (e.key === "ArrowRight") { i++; show(); } });
+  let x0 = null;
+  img.addEventListener("touchstart", (e) => (x0 = e.touches[0].clientX), { passive: true });
+  img.addEventListener("touchend", (e) => {
+    if (x0 === null) return;
+    const dx = e.changedTouches[0].clientX - x0; x0 = null;
+    if (Math.abs(dx) > 40) { i += dx < 0 ? 1 : -1; show(); }
+  });
+  v.addEventListener("close", () => v.remove());
+  document.body.appendChild(v);
+  show();
+  v.showModal();
 }
 
 function toggleFav(id) {
