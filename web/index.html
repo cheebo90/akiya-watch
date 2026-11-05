@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Akiya Watch</title>
+<meta name="theme-color" content="#1f3b2d">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icons/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="icons/icon-192.png">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.5.3/MarkerCluster.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.5.3/MarkerCluster.Default.css">
+<link rel="stylesheet" href="app.css">
+</head>
+<body>
+
+<!-- lock screen -->
+<section id="lock" class="lock">
+  <div class="lock-card">
+    <img src="icons/icon.svg" alt="" width="64" height="64">
+    <h1>Akiya Watch</h1>
+    <p>Inserisci la passphrase per sbloccare gli annunci.</p>
+    <form id="lock-form">
+      <input id="pass" type="password" autocomplete="current-password" placeholder="Passphrase" required>
+      <label class="check"><input id="remember" type="checkbox" checked> Ricorda su questo dispositivo</label>
+      <button type="submit" class="btn primary">Sblocca</button>
+      <p id="lock-msg" class="muted"></p>
+    </form>
+  </div>
+</section>
+
+<!-- app -->
+<div id="app" hidden>
+  <header class="top">
+    <div class="brand"><img src="icons/icon.svg" alt="" width="28" height="28"><span>Akiya Watch</span></div>
+    <div id="stats" class="stats muted"></div>
+    <button id="btn-filters" class="btn ghost" aria-label="Filtri">Filtri <span id="filter-count" class="pill" hidden></span></button>
+  </header>
+
+  <nav class="tabs" role="tablist">
+    <button role="tab" data-view="list" class="active">Elenco</button>
+    <button role="tab" data-view="map">Mappa</button>
+    <button role="tab" data-view="new">Novità <span id="new-count" class="pill" hidden></span></button>
+    <button role="tab" data-view="favs">Preferiti <span id="fav-count" class="pill" hidden></span></button>
+    <button role="tab" data-view="settings" aria-label="Impostazioni">⚙︎</button>
+  </nav>
+
+  <main>
+    <div class="toolbar">
+      <span id="result-count" class="muted"></span>
+      <label>Ordina
+        <select id="sort">
+          <option value="new">Più recenti</option>
+          <option value="price">Prezzo ↑</option>
+          <option value="price_desc">Prezzo ↓</option>
+          <option value="ppm">Prezzo / m² ↑</option>
+          <option value="yield">Rendimento stimato ↓</option>
+          <option value="size">Superficie casa ↓</option>
+        </select>
+      </label>
+    </div>
+    <section id="view-list" class="view"><div id="cards" class="cards"></div><button id="more" class="btn ghost wide" hidden>Mostra altri</button></section>
+    <section id="view-map" class="view" hidden><div id="map"></div></section>
+    <section id="view-settings" class="view settings" hidden></section>
+  </main>
+</div>
+
+<!-- filters sheet -->
+<dialog id="filters" class="sheet">
+  <form method="dialog" id="filter-form">
+    <header class="sheet-head"><h2>Filtri</h2><button class="btn ghost" value="close" aria-label="Chiudi">✕</button></header>
+    <div class="sheet-body">
+      <label class="field">Prezzo massimo (A$)
+        <div class="range"><input type="range" name="maxAud" min="5000" max="200000" step="5000"><output></output></div>
+      </label>
+      <fieldset class="field"><legend>Tipo</legend>
+        <div class="chips">
+          <label><input type="checkbox" name="type" value="house"><span>Casa</span></label>
+          <label><input type="checkbox" name="type" value="akiya"><span>Akiya bank</span></label>
+          <label><input type="checkbox" name="type" value="apartment"><span>Appartamento</span></label>
+          <label><input type="checkbox" name="type" value="land"><span>Terreno</span></label>
+        </div>
+      </fieldset>
+      <label class="field">Prefetture <span class="muted">(nessuna = tutte)</span>
+        <select name="pref" multiple size="6"></select>
+      </label>
+      <div class="grid2">
+        <label class="field">Casa min (m²)<input type="number" name="minBuild" min="0" inputmode="numeric"></label>
+        <label class="field">Terreno min (m²)<input type="number" name="minLand" min="0" inputmode="numeric"></label>
+        <label class="field">Stazione max (min a piedi)<input type="number" name="maxWalk" min="0" inputmode="numeric"></label>
+        <label class="field">Costruita dopo il<input type="number" name="builtAfter" min="1900" max="2030" inputmode="numeric"></label>
+      </div>
+      <label class="field">Cerca nel testo <input type="search" name="q" placeholder="es. 鹿児島, 古民家, Beppu"></label>
+      <label class="check"><input type="checkbox" name="withPhotos"> Solo con foto</label>
+      <label class="check"><input type="checkbox" name="hideSeen"> Nascondi già visti</label>
+    </div>
+    <footer class="sheet-foot">
+      <button type="button" id="reset-filters" class="btn ghost">Azzera</button>
+      <button class="btn primary" value="apply">Mostra risultati</button>
+    </footer>
+  </form>
+</dialog>
+
+<!-- detail sheet -->
+<dialog id="detail" class="sheet detail"></dialog>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.5.3/leaflet.markercluster.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

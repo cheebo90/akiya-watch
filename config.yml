@@ -1,0 +1,41 @@
+# akiya-watch — configurazione
+# Modifica questo file direttamente su GitHub: le modifiche valgono dal giro successivo.
+
+# Budget massimo (dollari australiani). Lo script legge solo annunci fino a questo prezzo
+# (arrotondato per eccesso alle fasce di prezzo dei portali).
+budget_aud: 80000
+
+# Prefetture da leggere: "all" oppure una lista, es. [kagoshima, miyazaki, kumamoto, oita, fukuoka]
+prefectures: all
+
+sources:
+  lifull:                 # LIFULL HOME'S Akiya Bank (akiya delle banche comunali)
+    enabled: true
+  athome:                 # athome.co.jp (case e appartamenti usati)
+    enabled: true
+    categories: [kodate/chuko, mansion/chuko]
+  suumo:                  # SUUMO (solo pagine per città, consentite dal robots.txt)
+    enabled: true
+    categories: [chukoikkodate, ms/chuko]
+
+# Pausa tra una richiesta e l'altra (secondi). Non scendere sotto 1.5: è una questione di rispetto per i siti.
+request_delay_sec: 2.0
+# Limite di richieste per giro (protegge i siti e la durata del job su GitHub).
+max_requests_per_run: 9000
+
+# Avvisi: un annuncio NUOVO che rispetta almeno uno di questi filtri genera una notifica.
+# Campi possibili: max_price_aud, min_price_aud, types [house, apartment, land, akiya],
+# prefectures [...], min_building_m2, min_land_m2, max_walk_min, built_after
+alerts:
+  - name: Casa sotto budget
+    max_price_aud: 80000
+    types: [house, akiya]
+    min_building_m2: 50
+  - name: Appartamento sotto budget
+    max_price_aud: 80000
+    types: [apartment]
+    min_building_m2: 30
+    max_walk_min: 15
+
+max_push_per_run: 15
+email_digest: true

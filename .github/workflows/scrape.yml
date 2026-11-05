@@ -1,0 +1,80 @@
+name: Aggiorna annunci
+
+on:
+  schedule:
+    - cron: "17 18 * * *"   # ogni giorno alle 18:17 UTC = 05:17 a Sydney (04:17 con l'ora solare)
+  workflow_dispatch:
+    inputs:
+      sources:
+        description: "Fonti da leggere (JSON)"
+        default: '["lifull","athome","suumo"]'
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: scrape
+  cancel-in-progress: false
+
+jobs:
+  scrape:
+    runs-on: ubuntu-latest
+    timeout-minutes: 340
+    strategy:
+      fail-fast: false
+      matrix:
+        source: ${{ fromJSON(github.event.inputs.sources || '["lifull","athome","suumo"]') }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.12", cache: pip }
+      - run: pip install -r requirements.txt
+      - name: Leggi ${{ matrix.source }}
+        env:
+          AKIYA_PASSPHRASE: ${{ secrets.AKIYA_PASSPHRASE }}
+        run: python -m scraper.run scrape --source ${{ matrix.source }}
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: raw-${{ matrix.source }}
+          path: data/raw-${{ matrix.source }}.enc
+          if-no-files-found: ignore
+          retention-days: 3
+
+  merge:
+    needs: scrape
+    if: always()
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.12", cache: pip }
+      - run: pip install -r requirements.txt
+      - uses: actions/download-artifact@v4
+        with: { path: data, pattern: "raw-*", merge-multiple: true }
+      - name: Unisci, geolocalizza, avvisa
+        env:
+          AKIYA_PASSPHRASE: ${{ secrets.AKIYA_PASSPHRASE }}
+          NTFY_TOPIC: ${{ secrets.NTFY_TOPIC }}
+          SMTP_USER: ${{ secrets.SMTP_USER }}
+          SMTP_PASS: ${{ secrets.SMTP_PASS }}
+          EMAIL_TO: ${{ secrets.EMAIL_TO }}
+          APP_URL: https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/
+        run: python -m scraper.run merge
+      - name: Salva dati cifrati
+        run: |
+          git config user.name "akiya-watch bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add data/state.enc web/data.enc
+          git commit -m "Aggiornamento annunci $(date -u +%F)" || echo "nessuna modifica"
+          git push
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with: { path: web }
+      - id: deploy
+        uses: actions/deploy-pages@v4
