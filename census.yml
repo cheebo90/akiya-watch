@@ -1,42 +1,45 @@
 # Generato da `python -m scraper.census` — non modificare a mano: per correggere un sito copialo in akiyabanks.yml
-updated: '2026-11-06'
+updated: '2026-11-05'
 summary:
   hokkaido:
     ok: 11
-    todo: 31
-    pdf: 38
+    todo: 35
+    pdf: 41
     delegated: 3
-    unreachable: 39
+    blocked: 1
+    unreachable: 31
   aomori:
     ok: 1
     todo: 6
-    pdf: 8
+    pdf: 9
     delegated: 3
-    unreachable: 7
+    unreachable: 6
   iwate:
     ok: 1
-    todo: 6
-    pdf: 9
+    todo: 7
+    pdf: 10
     delegated: 2
-    unreachable: 14
+    unreachable: 12
   miyagi:
     ok: 2
-    todo: 4
+    todo: 5
     pdf: 4
-    unreachable: 14
+    terms: 1
+    unreachable: 12
   akita:
     ok: 5
     todo: 1
-    pdf: 8
+    pdf: 9
     delegated: 2
     robots: 1
-    unreachable: 9
+    blocked: 1
+    unreachable: 7
   yamagata:
     ok: 2
     todo: 7
-    pdf: 8
+    pdf: 9
     delegated: 1
-    unreachable: 13
+    unreachable: 12
   fukushima:
     ok: 3
     todo: 9
@@ -45,29 +48,33 @@ summary:
     robots: 1
     unreachable: 15
   ibaraki:
-    ok: 4
-    todo: 15
+    ok: 3
+    todo: 14
     pdf: 4
     delegated: 1
+    blocked: 2
     unreachable: 8
   tochigi:
     ok: 6
     todo: 3
-    pdf: 6
+    pdf: 5
     delegated: 4
     robots: 1
-    unreachable: 8
+    blocked: 2
+    unreachable: 7
   gunma:
     ok: 1
     todo: 5
-    pdf: 4
+    pdf: 5
     delegated: 2
-    unreachable: 9
+    blocked: 1
+    unreachable: 7
   saitama:
-    todo: 9
+    todo: 8
     pdf: 8
     delegated: 5
     robots: 1
+    blocked: 1
     unreachable: 20
   chiba:
     todo: 8
@@ -75,8 +82,9 @@ summary:
     delegated: 2
     unreachable: 19
   tokyo:
-    todo: 5
+    todo: 4
     pdf: 1
+    terms: 1
     unreachable: 4
   kanagawa:
     ok: 2
@@ -85,35 +93,37 @@ summary:
     unreachable: 10
   niigata:
     ok: 7
-    todo: 5
+    todo: 6
     pdf: 3
     robots: 1
-    unreachable: 12
+    unreachable: 11
   toyama:
-    todo: 3
+    ok: 1
+    todo: 5
     pdf: 2
     delegated: 1
-    unreachable: 10
+    unreachable: 7
   ishikawa:
     ok: 2
     todo: 4
-    pdf: 3
-    unreachable: 12
+    pdf: 5
+    unreachable: 10
   fukui:
     ok: 3
     todo: 3
-    pdf: 8
-    unreachable: 5
+    pdf: 9
+    unreachable: 4
   yamanashi:
     todo: 5
-    pdf: 7
-    unreachable: 9
+    pdf: 8
+    unreachable: 8
   nagano:
     ok: 14
-    todo: 17
-    pdf: 14
+    todo: 18
+    pdf: 15
     delegated: 1
-    unreachable: 17
+    blocked: 1
+    unreachable: 14
   gifu:
     ok: 5
     todo: 10
@@ -121,10 +131,11 @@ summary:
     delegated: 4
     unreachable: 9
   shizuoka:
-    ok: 3
+    ok: 2
     todo: 5
     pdf: 2
-    unreachable: 13
+    blocked: 2
+    unreachable: 12
   aichi:
     ok: 1
     todo: 25
@@ -133,18 +144,18 @@ summary:
   mie:
     ok: 4
     todo: 5
-    pdf: 5
+    pdf: 6
     delegated: 1
-    unreachable: 10
+    unreachable: 9
   shiga:
     ok: 1
-    todo: 6
-    pdf: 2
-    unreachable: 10
+    todo: 5
+    pdf: 4
+    unreachable: 9
   kyoto:
     ok: 1
-    todo: 4
-    pdf: 6
+    todo: 3
+    pdf: 7
     unreachable: 9
   osaka:
     todo: 2
@@ -159,11 +170,12 @@ summary:
     robots: 1
     unreachable: 11
   nara:
-    ok: 9
+    ok: 10
     todo: 4
     pdf: 5
     robots: 1
-    unreachable: 10
+    blocked: 1
+    unreachable: 7
   wakayama:
     ok: 1
     todo: 1
@@ -178,27 +190,30 @@ summary:
     robots: 1
     unreachable: 8
   shimane:
-    ok: 2
+    ok: 3
     todo: 5
     pdf: 2
     robots: 1
-    unreachable: 7
+    unreachable: 6
   okayama:
-    ok: 2
-    todo: 7
-    pdf: 6
-    delegated: 2
-    unreachable: 8
+    ok: 1
+    todo: 5
+    pdf: 7
+    delegated: 3
+    blocked: 3
+    unreachable: 6
   hiroshima:
-    ok: 2
-    todo: 3
-    pdf: 6
-    unreachable: 15
+    ok: 3
+    todo: 4
+    pdf: 7
+    blocked: 4
+    unreachable: 8
   yamaguchi:
-    ok: 4
+    ok: 6
     todo: 1
-    pdf: 2
-    unreachable: 11
+    pdf: 3
+    delegated: 1
+    unreachable: 7
   tokushima:
     ok: 1
     pdf: 4
@@ -221,16 +236,17 @@ summary:
     pdf: 3
     unreachable: 9
   fukuoka:
-    ok: 3
-    todo: 12
-    pdf: 13
-    unreachable: 19
+    ok: 5
+    todo: 14
+    pdf: 14
+    blocked: 3
+    unreachable: 11
   saga:
     ok: 1
     todo: 8
     pdf: 1
-    delegated: 1
-    unreachable: 9
+    delegated: 2
+    unreachable: 8
   nagasaki:
     ok: 2
     todo: 3
@@ -238,10 +254,11 @@ summary:
     blocked: 1
     unreachable: 6
   kumamoto:
-    ok: 4
-    todo: 11
-    pdf: 4
-    unreachable: 20
+    ok: 5
+    todo: 13
+    pdf: 2
+    blocked: 6
+    unreachable: 13
   oita:
     ok: 3
     todo: 6
@@ -249,15 +266,17 @@ summary:
     unreachable: 6
   miyazaki:
     ok: 1
-    todo: 10
+    todo: 12
     pdf: 3
-    unreachable: 9
+    blocked: 1
+    unreachable: 6
   kagoshima:
     ok: 3
-    todo: 5
-    pdf: 7
-    delegated: 2
-    unreachable: 16
+    todo: 7
+    pdf: 8
+    delegated: 1
+    terms: 2
+    unreachable: 12
   okinawa:
     ok: 1
     todo: 3
@@ -268,7 +287,7 @@ sites:
   name: ゆに住まいNavi
   list: https://yuni-sumai.com/
   status: ok
-  found: 26
+  found: 27
 - id: hokkaido-www-town-kaminokuni-lg-jp-37d9df
   prefecture: hokkaido
   name: 上ノ国町空き家バンク制度
@@ -286,10 +305,9 @@ sites:
 - id: hokkaido-www-nobikura-jp-f0146b
   prefecture: hokkaido
   name: 安平町・厚真町の移住定住支援サイト 北海道のびのび暮らし
-  list: https://www.nobikura.jp/
+  list: https://www.nobikura.jp/estate
   status: ok
-  found: 10
-  detail: /estate_detail\?id=\d+$
+  found: 6
 - id: hokkaido-www-town-obira-hokkaido-jp-f17cb2
   prefecture: hokkaido
   name: 小平町空き家・空き地バンク
@@ -314,7 +332,7 @@ sites:
   name: 旭川不動産情報【IRI】
   list: http://www.iri.ne.jp/
   status: ok
-  found: 36
+  found: 35
 - id: hokkaido-higashikawa-town-jp-1eb516
   prefecture: hokkaido
   name: 東川町空き家情報バンク
@@ -370,6 +388,13 @@ sites:
   prefecture: hokkaido
   name: 上富良野町移住相談窓口(空家・空き地情報)
   list: http://www.town.kamifurano.hokkaido.jp/index.php?id=864&ae_category=01
+  status: todo
+  note: schede non riconosciute automaticamente
+- id: hokkaido-www-town-hokkaido-kamikawa-lg-jp-9ff53a
+  prefecture: hokkaido
+  name: 上川町空き家空き地バンク
+  list: https://www.town.hokkaido-kamikawa.lg.jp/category/life/index.html
+  moved_from: https://www.town.hokkaido-kamikawa.lg.jp/life/geo5a8000000014g.html
   status: todo
   note: schede non riconosciute automaticamente
 - id: hokkaido-town-shibecha-hokkaido-jp-658cb0
@@ -432,6 +457,13 @@ sites:
   list: https://www.town.hiroo.lg.jp/kurashi/seikatsu/ijuu/akiyabanku/
   status: todo
   note: schede non riconosciute automaticamente
+- id: hokkaido-www-town-aibetsu-hokkaido-jp-52b843
+  prefecture: hokkaido
+  name: 愛別町空き家情報
+  list: http://www.town.aibetsu.hokkaido.jp/03/04/02
+  moved_from: http://www.town.aibetsu.hokkaido.jp/guide/livingtraffic/lots/vacant.html
+  status: todo
+  note: schede non riconosciute automaticamente
 - id: hokkaido-www-shinhidaka-hokkaido-jp-088adb
   prefecture: hokkaido
   name: 新ひだか町空家バンク
@@ -448,6 +480,13 @@ sites:
   prefecture: hokkaido
   name: 東神楽町HP
   list: https://www.town.higashikagura.lg.jp/docs/739.html
+  status: todo
+  note: schede non riconosciute automaticamente
+- id: hokkaido-www-city-utashinai-hokkaido-jp-e2ac3f
+  prefecture: hokkaido
+  name: 歌志内市空き家等情報登録制度(空き家バンク)
+  list: https://www.city.utashinai.hokkaido.jp/hotnews/category/274.html
+  moved_from: http://www.city.utashinai.hokkaido.jp/hotnews/detail/00001764.html
   status: todo
   note: schede non riconosciute automaticamente
 - id: hokkaido-www-town-pippu-hokkaido-jp-5d86ff
@@ -520,6 +559,13 @@ sites:
   prefecture: hokkaido
   name: 陸別町ホームページ
   list: https://www.rikubetsu.jp/iju/seikatsu/
+  status: todo
+  note: schede non riconosciute automaticamente
+- id: hokkaido-www-town-otofuke-hokkaido-jp-f4b1a2
+  prefecture: hokkaido
+  name: 音更町空き地・空き家バンク
+  list: https://www.town.otofuke.hokkaido.jp/lifeevent/akichiakiya.html
+  moved_from: https://www.town.otofuke.hokkaido.jp/life/mainichi-seikatu/zyuukyo/bank.html
   status: todo
   note: schede non riconosciute automaticamente
 - id: hokkaido-www-town-naie-hokkaido-jp-14cce1
@@ -624,6 +670,20 @@ sites:
   list: https://www.town.koshimizu.hokkaido.jp/hotnews/detail/00004303.html
   status: pdf
   note: 7 PDF
+- id: hokkaido-www-town-horokanai-hokkaido-jp-ecd08e
+  prefecture: hokkaido
+  name: 幌加内町空き家バンク実施のお知らせ
+  list: https://www.town.horokanai.hokkaido.jp/archives/60342
+  moved_from: http://www.town.horokanai.hokkaido.jp/archives/1537
+  status: pdf
+  note: 15 PDF
+- id: hokkaido-www-town-horonobe-lg-jp-e80b83
+  prefecture: hokkaido
+  name: 幌延町空き家・空き地バンク
+  list: https://www.town.horonobe.lg.jp/www4/section/jumin/le009f000001c67k.html
+  moved_from: https://www.town.horonobe.lg.jp/www4/section/kikakuseisaku/le009f000001c67k.html
+  status: pdf
+  note: 15 PDF
 - id: hokkaido-www-town-makubetsu-lg-jp-48108e
   prefecture: hokkaido
   name: 幕別町空き地・空き家バンク
@@ -702,6 +762,13 @@ sites:
   list: https://www.ijyuu.com/
   status: pdf
   note: 3 PDF
+- id: hokkaido-www-city-sunagawa-hokkaido-jp-31ce97
+  prefecture: hokkaido
+  name: 空き家・空き地情報
+  list: https://www.city.sunagawa.hokkaido.jp/shisei/kikaku_keikaku/ijuu/index.html
+  moved_from: https://www.city.sunagawa.hokkaido.jp/seikatsu_kurashi/juutaku/akiya-akichi.html
+  status: pdf
+  note: 5 PDF
 - id: hokkaido-www-town-erimo-lg-jp-48e052
   prefecture: hokkaido
   name: 空き家情報登録制度
@@ -769,6 +836,11 @@ sites:
   list: https://www.town.hokkaido-ikeda.lg.jp/kurashi/jutaku/390.html
   status: delegated
   note: rimanda a LIFULL/At Home
+- id: http://www.town.rankoshi.hokkaido.jp/iju_teiju/post_4.html
+  prefecture: hokkaido
+  name: 空家利活用情報提供事業
+  list: http://www.town.rankoshi.hokkaido.jp/iju_teiju/post_4.html
+  status: blocked
 - id: hokkaido-www-city-akabira-hokkaido-jp-d184cd
   prefecture: hokkaido
   name: あかびら住みかエール制度について
@@ -793,11 +865,6 @@ sites:
   prefecture: hokkaido
   name: オオゾライフ
   list: https://ozoralife.jp/
-  status: unreachable
-- id: hokkaido-www-town-hokkaido-kamikawa-lg-jp-9ff53a
-  prefecture: hokkaido
-  name: 上川町空き家空き地バンク
-  list: https://www.town.hokkaido-kamikawa.lg.jp/life/geo5a8000000014g.html
   status: unreachable
 - id: hokkaido-nakasorachi-sumikae-jp-3f0aa3
   prefecture: hokkaido
@@ -844,25 +911,10 @@ sites:
   name: 小樽市空き家・空き地バンク制度
   list: https://www.city.otaru.lg.jp/simin/sumai/akiya/akiya/
   status: unreachable
-- id: hokkaido-www-town-horokanai-hokkaido-jp-ecd08e
-  prefecture: hokkaido
-  name: 幌加内町空き家バンク実施のお知らせ
-  list: http://www.town.horokanai.hokkaido.jp/archives/1537
-  status: unreachable
-- id: hokkaido-www-town-horonobe-lg-jp-e80b83
-  prefecture: hokkaido
-  name: 幌延町空き家・空き地バンク
-  list: https://www.town.horonobe.lg.jp/www4/section/kikakuseisaku/le009f000001c67k.html
-  status: unreachable
 - id: hokkaido-www-town-teshikaga-hokkaido-jp-0cfe58
   prefecture: hokkaido
   name: 弟子屈町空き家バンク
   list: https://www.town.teshikaga.hokkaido.jp/iju/akiyabank/2345.html
-  status: unreachable
-- id: hokkaido-www-town-aibetsu-hokkaido-jp-52b843
-  prefecture: hokkaido
-  name: 愛別町空き家情報
-  list: http://www.town.aibetsu.hokkaido.jp/guide/livingtraffic/lots/vacant.html
   status: unreachable
 - id: hokkaido-www-town-tsukigata-hokkaido-jp-0cf92a
   prefecture: hokkaido
@@ -873,11 +925,6 @@ sites:
   prefecture: hokkaido
   name: 枝幸町空き家バンク
   list: http://www.esashi.jp/emigrate/page.html?id=75
-  status: unreachable
-- id: hokkaido-www-city-utashinai-hokkaido-jp-e2ac3f
-  prefecture: hokkaido
-  name: 歌志内市空き家等情報登録制度(空き家バンク)
-  list: http://www.city.utashinai.hokkaido.jp/hotnews/detail/00001764.html
   status: unreachable
 - id: hokkaido-www-town-hamatonbetsu-hokkaido-jp-e61763
   prefecture: hokkaido
@@ -899,20 +946,10 @@ sites:
   name: 空き地・空き家情報提供事業
   list: http://www.town.shimizu.hokkaido.jp/life_event/details/post-2.html
   status: unreachable
-- id: hokkaido-www-city-sunagawa-hokkaido-jp-31ce97
-  prefecture: hokkaido
-  name: 空き家・空き地情報
-  list: https://www.city.sunagawa.hokkaido.jp/seikatsu_kurashi/juutaku/akiya-akichi.html
-  status: unreachable
 - id: hokkaido-town-kamisunagawa-hokkaido-jp-f91d87
   prefecture: hokkaido
   name: 空き家・空き地情報バンク
   list: http://town.kamisunagawa.hokkaido.jp/akiyaakichibank
-  status: unreachable
-- id: hokkaido-www-town-rankoshi-hokkaido-jp-40ca92
-  prefecture: hokkaido
-  name: 空家利活用情報提供事業
-  list: http://www.town.rankoshi.hokkaido.jp/iju_teiju/post_4.html
   status: unreachable
 - id: hokkaido-mombetsu-jp-d6c375
   prefecture: hokkaido
@@ -943,11 +980,6 @@ sites:
   prefecture: hokkaido
   name: 長沼町空き家・空き地バンク
   list: https://www.maoi-net.jp/kurashi/jutaku/akiyabank.html
-  status: unreachable
-- id: hokkaido-www-town-otofuke-hokkaido-jp-f4b1a2
-  prefecture: hokkaido
-  name: 音更町空き地・空き家バンク
-  list: https://www.town.otofuke.hokkaido.jp/life/mainichi-seikatu/zyuukyo/bank.html
   status: unreachable
 - id: hokkaido-www-vill-tsurui-lg-jp-887f2b
   prefecture: hokkaido
@@ -1024,6 +1056,13 @@ sites:
   list: http://www.city.towada.lg.jp/docs/2016050200060/
   status: pdf
   note: 14 PDF
+- id: aomori-www-town-ooma-lg-jp-da4ba5
+  prefecture: aomori
+  name: 大間町空き家バンク
+  list: https://www.town.ooma.lg.jp/lifeguide/migration
+  moved_from: https://www.town.ooma.lg.jp/life/guide/akiyabank
+  status: pdf
+  note: 1 PDF
 - id: aomori-www-town-hiranai-aomori-jp-7016e4
   prefecture: aomori
   name: 平内町空き家等バンク制度
@@ -1092,11 +1131,6 @@ sites:
   name: 南部町空き家・空き地バンク
   list: http://www.town.aomori-nanbu.lg.jp/index.cfm/6,2694,20,127,html
   status: unreachable
-- id: aomori-www-town-ooma-lg-jp-da4ba5
-  prefecture: aomori
-  name: 大間町空き家バンク
-  list: https://www.town.ooma.lg.jp/life/guide/akiyabank
-  status: unreachable
 - id: aomori-www-hirosaki-aomori-jp-7ae7b9
   prefecture: aomori
   name: 弘前圏域空き家・空き地バンク
@@ -1136,6 +1170,13 @@ sites:
   prefecture: iwate
   name: 南いわての移住定住支援(空き家バンク)
   list: https://www.pref.iwate.jp/kennan/keiei/1013368/1013369.html
+  status: todo
+  note: schede non riconosciute automaticamente
+- id: iwate-www-city-miyako-iwate-jp-17afa0
+  prefecture: iwate
+  name: 宮古市空き家バンク
+  list: https://www.city.miyako.iwate.jp/gyosei/soshiki/toshi/akiya/561.html
+  moved_from: https://www.city.miyako.iwate.jp/kikaku/akiya.html
   status: todo
   note: schede non riconosciute automaticamente
 - id: iwate-www-town-yamada-iwate-jp-122eb9
@@ -1180,6 +1221,13 @@ sites:
   list: https://www.town.kuzumaki.iwate.jp/docs/2015112400059/index.html.r
   status: pdf
   note: 31 PDF
+- id: iwate-www-town-karumai-iwate-jp-cb077f
+  prefecture: iwate
+  name: 空き家バンク制度
+  list: https://www.town.karumai.iwate.jp/article/mokuteki/hikkoshi/jutakusumai/entry-basename.html
+  moved_from: http://www.town.karumai.iwate.jp/mokuteki/hikkoshi/jutakusumai/post-448.html
+  status: pdf
+  note: 10 PDF
 - id: iwate-www-town-sumita-iwate-jp-c5312e
   prefecture: iwate
   name: 空き家情報
@@ -1241,11 +1289,6 @@ sites:
   name: 大船渡市空き家バンク
   list: https://www.city.ofunato.iwate.jp/soshiki/kikaku/894.html
   status: unreachable
-- id: iwate-www-city-miyako-iwate-jp-17afa0
-  prefecture: iwate
-  name: 宮古市空き家バンク
-  list: https://www.city.miyako.iwate.jp/kikaku/akiya.html
-  status: unreachable
 - id: iwate-town-iwate-iwate-jp-3259e6
   prefecture: iwate
   name: 岩手町空き家バンク
@@ -1265,11 +1308,6 @@ sites:
   prefecture: iwate
   name: 移住定住ポータルサイト いわてイーハトー部に入ろう!
   list: http://www2.pref.iwate.jp/~uji_turn/house/index.html
-  status: unreachable
-- id: iwate-www-town-karumai-iwate-jp-cb077f
-  prefecture: iwate
-  name: 空き家バンク制度
-  list: http://www.town.karumai.iwate.jp/mokuteki/hikkoshi/jutakusumai/post-448.html
   status: unreachable
 - id: iwate-www-town-shiwa-iwate-jp-f3ed1b
   prefecture: iwate
@@ -1318,6 +1356,13 @@ sites:
   list: https://www.minato-kesennuma.com/akiya/
   status: todo
   note: schede non riconosciute automaticamente
+- id: miyagi-www-town-misato-miyagi-jp-9df161
+  prefecture: miyagi
+  name: 美里町空き家等情報登録制度(空き家バンク)
+  list: https://www.town.misato.miyagi.jp/iju/index.html
+  moved_from: https://www.town.misato.miyagi.jp/07kurashi/2015-0825-1447-47.html
+  status: todo
+  note: schede non riconosciute automaticamente
 - id: miyagi-www-city-kakuda-lg-jp-b157c7
   prefecture: miyagi
   name: 角田市空き家バンク
@@ -1336,6 +1381,13 @@ sites:
   list: https://www.town.onagawa.miyagi.jp/onagawa_akiya.html
   status: pdf
   note: 109 PDF
+- id: miyagi-www-town-miyagi-matsushima-lg-jp-cbefb1
+  prefecture: miyagi
+  name: 松島町空き家バンク
+  list: https://www.town.miyagi-matsushima.lg.jp/page/1342.html
+  moved_from: https://www.town.miyagi-matsushima.lg.jp/index.cfm/12,0,46,443,html
+  status: pdf
+  note: 6 PDF
 - id: miyagi-www-town-wakuya-miyagi-jp-fd7ddc
   prefecture: miyagi
   name: 涌谷町空き家バンク
@@ -1347,8 +1399,8 @@ sites:
   prefecture: miyagi
   name: 空き家等対策について
   list: https://www.pref.miyagi.jp/soshiki/juutaku/akiyataisaku.html
-  status: pdf
-  note: 4 PDF
+  status: terms
+  note: 用して利用者のドメイン名やIPアドレス、ブラウザの種類、本サイトの閲覧等の情報を自動的に収集します。これらの情報はホームページの利用状況に関する統計分析のため活用するのであ
 - id: miyagi-www-town-kami-miyagi-jp-10661a
   prefecture: miyagi
   name: 加美町空き家バンク
@@ -1389,11 +1441,6 @@ sites:
   name: 川崎物件ポータルサイト
   list: https://kawasaki-bukkenn.jp/
   status: unreachable
-- id: miyagi-www-town-miyagi-matsushima-lg-jp-cbefb1
-  prefecture: miyagi
-  name: 松島町空き家バンク
-  list: https://www.town.miyagi-matsushima.lg.jp/index.cfm/12,0,46,443,html
-  status: unreachable
 - id: miyagi-www-city-tome-miyagi-jp-51687b
   prefecture: miyagi
   name: 登米市空き家情報バンク
@@ -1408,11 +1455,6 @@ sites:
   prefecture: miyagi
   name: 空き家バンク(東松島市HP内部)
   list: https://www.city.higashimatsushima.miyagi.jp/index.cfm/17,0,128,html
-  status: unreachable
-- id: miyagi-www-town-misato-miyagi-jp-9df161
-  prefecture: miyagi
-  name: 美里町空き家等情報登録制度(空き家バンク)
-  list: https://www.town.misato.miyagi.jp/07kurashi/2015-0825-1447-47.html
   status: unreachable
 - id: miyagi-www-town-shikama-miyagi-jp-46c364
   prefecture: miyagi
@@ -1471,13 +1513,6 @@ sites:
   list: https://www.city.semboku.akita.jp/egukite/akiya.html
   status: pdf
   note: 9 PDF
-- id: akita-www-city-kitaakita-akita-jp-8147fb
-  prefecture: akita
-  name: 北秋田市ホームページ
-  list: https://www.city.kitaakita.akita.jp/archive/contents-5637
-  status: pdf
-  note: 11 PDF
-  needs_jp: true
 - id: akita-www-city-daisen-lg-jp-4ed6c5
   prefecture: akita
   name: 大仙市空き家バンク
@@ -1490,6 +1525,20 @@ sites:
   list: https://www.city.odate.lg.jp/kurashi/sumai/akiya
   status: pdf
   note: 2 PDF
+- id: akita-yurihonjo-teiju-jp-1c0ae6
+  prefecture: akita
+  name: 由利本荘市移住・定住応援サイト
+  list: https://yurihonjo-teiju.jp/?page_id=673
+  moved_from: https://yurihonjo-teiju.jp/akiyabank/
+  status: pdf
+  note: 1 PDF
+- id: akita-www-town-misato-akita-jp-3c92be
+  prefecture: akita
+  name: 秋田県美郷町空き家バンク制度
+  list: https://www.town.misato.akita.jp/archive/contents-962
+  moved_from: https://www.town.misato.akita.jp/teijyuu/2821
+  status: pdf
+  note: 3 PDF
 - id: akita-www-town-kosaka-akita-jp-e8d455
   prefecture: akita
   name: 空き家・空き地情報登録システム
@@ -1525,6 +1574,11 @@ sites:
   name: 上小阿仁村空き家バンク
   list: https://www.vill.kamikoani.akita.jp/forms/info/info.aspx?info_id=6775
   status: robots
+- id: https://www.city.kitaakita.akita.jp/archive/contents-5637
+  prefecture: akita
+  name: 北秋田市ホームページ
+  list: https://www.city.kitaakita.akita.jp/archive/contents-5637
+  status: blocked
 - id: akita-www-city-nikaho-akita-jp-e65d33
   prefecture: akita
   name: にかほ市公式ホームページ
@@ -1544,16 +1598,6 @@ sites:
   prefecture: akita
   name: 湯沢市空き家バンク
   list: http://www.city-yuzawa.jp/iju04/2746
-  status: unreachable
-- id: akita-yurihonjo-teiju-jp-1c0ae6
-  prefecture: akita
-  name: 由利本荘市移住・定住応援サイト
-  list: https://yurihonjo-teiju.jp/akiyabank/
-  status: unreachable
-- id: akita-www-town-misato-akita-jp-3c92be
-  prefecture: akita
-  name: 秋田県美郷町空き家バンク制度
-  list: https://www.town.misato.akita.jp/teijyuu/2821
   status: unreachable
 - id: akita-www-town-ikawa-akita-jp-4cfa7b
   prefecture: akita
@@ -1637,6 +1681,13 @@ sites:
   list: https://www.town.oishida.yamagata.jp/life/jyuutaku/akiyabank/index.html
   status: pdf
   note: 16 PDF
+- id: yamagata-www-vill-ohkura-yamagata-jp-061f27
+  prefecture: yamagata
+  name: 大蔵村空き家バンク
+  list: https://www.vill.ohkura.yamagata.jp/kurashi_tetsuzuki/iju_teiju/akiyabank/index.html
+  moved_from: http://www.vill.ohkura.yamagata.jp/ohkura/akiya/
+  status: pdf
+  note: 5 PDF
 - id: yamagata-www-city-tendo-yamagata-jp-f7e4e5
   prefecture: yamagata
   name: 天童市空き家バンク
@@ -1694,11 +1745,6 @@ sites:
   prefecture: yamagata
   name: 大江町空き家・空き地情報
   list: http://www.town.oe.yamagata.jp/basis/S-page/001-life/akiya.html
-  status: unreachable
-- id: yamagata-www-vill-ohkura-yamagata-jp-061f27
-  prefecture: yamagata
-  name: 大蔵村空き家バンク
-  list: http://www.vill.ohkura.yamagata.jp/ohkura/akiya/
   status: unreachable
 - id: yamagata-www-city-sagae-yamagata-jp-d73a0a
   prefecture: yamagata
@@ -2034,14 +2080,6 @@ sites:
   status: ok
   found: 1
   detail: /akiya\.php\?mode=detail\&code=\d+$
-- id: ibaraki-www-inafami-jp-671e2c
-  prefecture: ibaraki
-  name: 稲敷市移住定住サイト「稲しき家族」
-  list: http://www.inafami.jp/page/page000108.html
-  status: ok
-  found: 6
-  detail: /akiya\.php$
-  needs_jp: true
 - id: ibaraki-www-city-ryugasaki-ibaraki-jp-4e3422
   prefecture: ibaraki
   name: 龍ケ崎市空家バンク制度
@@ -2049,13 +2087,6 @@ sites:
   status: ok
   found: 2
   detail: /kurashi/seikatsu/akiya\-bank/exercise/akiyabaikyaku\.html$
-- id: ibaraki-www-kasumigaura-akiya-jp-86571b
-  prefecture: ibaraki
-  name: かすみがうら市空家等・空き地バンク
-  list: http://www.kasumigaura-akiya.jp/
-  status: todo
-  note: schede non riconosciute automaticamente
-  needs_jp: true
 - id: ibaraki-www-city-tsukubamirai-lg-jp-4c4c1d
   prefecture: ibaraki
   name: つくばみらい市空き家バンク
@@ -2170,6 +2201,16 @@ sites:
   list: https://city.kashima.ibaraki.jp/soshiki/52/3196.html
   status: delegated
   note: rimanda a LIFULL/At Home
+- id: http://www.kasumigaura-akiya.jp/
+  prefecture: ibaraki
+  name: かすみがうら市空家等・空き地バンク
+  list: http://www.kasumigaura-akiya.jp/
+  status: blocked
+- id: http://www.inafami.jp/page/page000108.html
+  prefecture: ibaraki
+  name: 稲敷市移住定住サイト「稲しき家族」
+  list: http://www.inafami.jp/page/page000108.html
+  status: blocked
 - id: ibaraki-www-city-kitaibaraki-lg-jp-145519
   prefecture: ibaraki
   name: 北茨城市空き家バンク
@@ -2288,13 +2329,6 @@ sites:
   list: https://www.city.ohtawara.tochigi.jp/docs/2014062700028/
   status: pdf
   note: 31 PDF
-- id: tochigi-www-town-mashiko-tochigi-jp-375d40
-  prefecture: tochigi
-  name: 益子町空き家・空き地バンク
-  list: http://www.town.mashiko.tochigi.jp/page/page001726.html
-  status: pdf
-  note: 10 PDF
-  needs_jp: true
 - id: tochigi-www-town-tochigi-haga-lg-jp-e41012
   prefecture: tochigi
   name: 芳賀町空き家バンク制度
@@ -2336,6 +2370,16 @@ sites:
   name: 市貝町空き家バンクサイト
   list: https://www.town.ichikai.tochigi.jp/forms/info/info.aspx?info_id=46376
   status: robots
+- id: http://www.nikko-akiyabank.jp/
+  prefecture: tochigi
+  name: 日光市空き家バンク
+  list: http://www.nikko-akiyabank.jp/
+  status: blocked
+- id: http://www.town.mashiko.tochigi.jp/page/page001726.html
+  prefecture: tochigi
+  name: 益子町空き家・空き地バンク
+  list: http://www.town.mashiko.tochigi.jp/page/page001726.html
+  status: blocked
 - id: tochigi-www-town-kaminokawa-lg-jp-fffc35
   prefecture: tochigi
   name: 上三川町空き家バンク
@@ -2345,11 +2389,6 @@ sites:
   prefecture: tochigi
   name: 壬生町空家バンク
   list: https://kensetsu9.wixsite.com/mibumachi-akiyabank
-  status: unreachable
-- id: tochigi-www-nikko-akiyabank-jp-fff20f
-  prefecture: tochigi
-  name: 日光市空き家バンク
-  list: http://www.nikko-akiyabank.jp/
   status: unreachable
 - id: tochigi-www-city-moka-lg-jp-816a0e
   prefecture: tochigi
@@ -2418,6 +2457,13 @@ sites:
   list: https://www.vill.showa.gunma.jp/kurashi/kurashi/jyutaku/2017-0224-1515-29.html
   status: pdf
   note: 13 PDF
+- id: gunma-www-city-shibukawa-lg-jp-acaab9
+  prefecture: gunma
+  name: 渋川市空き家バンク
+  list: http://www.city.shibukawa.lg.jp/ijyu-site/kurashi/000048/000052/p005590.html
+  moved_from: http://www.city.shibukawa.lg.jp/kurashi/sumai/akiya/p005590.html
+  status: pdf
+  note: 11 PDF
 - id: gunma-www-town-tamamura-lg-jp-6d261d
   prefecture: gunma
   name: 空き家について 玉村町
@@ -2448,6 +2494,11 @@ sites:
   list: https://www.city.kiryu.lg.jp/shisei/machi/iinekiryu/akiya/index.html
   status: delegated
   note: rimanda a LIFULL/At Home
+- id: https://tsumagoi-akiya.jp/
+  prefecture: gunma
+  name: 嬬恋村空き家バンク
+  list: https://tsumagoi-akiya.jp/
+  status: blocked
 - id: gunma-www-city-annaka-lg-jp-ae9e0f
   prefecture: gunma
   name: あんなか日和
@@ -2463,20 +2514,10 @@ sites:
   name: 吉岡町空き家バンク事業
   list: https://www.town.yoshioka.gunma.jp/kurashi/jutaku/akiya/bank.html
   status: unreachable
-- id: gunma-tsumagoi-akiya-jp-aa2e22
-  prefecture: gunma
-  name: 嬬恋村空き家バンク
-  list: https://tsumagoi-akiya.jp/
-  status: unreachable
 - id: gunma-www-city-tomioka-lg-jp-6fbfd7
   prefecture: gunma
   name: 富岡市空き家バンク
   list: https://www.city.tomioka.lg.jp/www/genre/0000000000000/1451995512107/index.html
-  status: unreachable
-- id: gunma-www-city-shibukawa-lg-jp-acaab9
-  prefecture: gunma
-  name: 渋川市空き家バンク
-  list: http://www.city.shibukawa.lg.jp/kurashi/sumai/akiya/p005590.html
   status: unreachable
 - id: gunma-www-city-isesaki-lg-jp-c93680
   prefecture: gunma
@@ -2541,13 +2582,6 @@ sites:
   list: http://www.town.ogose.saitama.jp/ogoseikatsu/kurasu/index.html
   status: todo
   note: schede non riconosciute automaticamente
-- id: saitama-www-city-tsurugashima-lg-jp-01b890
-  prefecture: saitama
-  name: 鶴ヶ島市空き家バンク
-  list: https://www.city.tsurugashima.lg.jp/page/page004141.html
-  status: todo
-  note: schede non riconosciute automaticamente
-  needs_jp: true
 - id: saitama-www-town-saitama-ina-lg-jp-f32736
   prefecture: saitama
   name: 伊奈町空き家バンク
@@ -2631,6 +2665,11 @@ sites:
   name: ときがわ町空き家バンク
   list: https://www.town.tokigawa.lg.jp/forms/info/info.aspx?info_id=25576
   status: robots
+- id: https://www.city.tsurugashima.lg.jp/page/page004141.html
+  prefecture: saitama
+  name: 鶴ヶ島市空き家バンク
+  list: https://www.city.tsurugashima.lg.jp/page/page004141.html
+  status: blocked
 - id: saitama-www-city-fujimino-saitama-jp-d707b6
   prefecture: saitama
   name: ふじみ野市ホームページ
@@ -2958,12 +2997,6 @@ sites:
   list: https://www.oshima-akiya.jp/
   status: todo
   note: schede non riconosciute automaticamente
-- id: tokyo-www-juutakuseisaku-metro-tokyo-lg-jp-6d734f
-  prefecture: tokyo
-  name: 東京都空家情報サイト
-  list: https://www.juutakuseisaku.metro.tokyo.lg.jp/akiya/
-  status: todo
-  note: schede non riconosciute automaticamente
 - id: tokyo-vill-kouzushima-tokyo-jp-6424e5
   prefecture: tokyo
   name: 神津島村空き家バンク制度
@@ -2982,6 +3015,12 @@ sites:
   list: https://www.niijima.com/teijyu/bukken.html
   status: pdf
   note: 3 PDF
+- id: tokyo-www-juutakuseisaku-metro-tokyo-lg-jp-6d734f
+  prefecture: tokyo
+  name: 東京都空家情報サイト
+  list: https://www.juutakuseisaku.metro.tokyo.lg.jp/akiya/
+  status: terms
+  note: サイトでは、インターネットドメイン名、IPアドレス、本サイトの閲覧環境等の情報を自動的に収集します。 収集する利用者の皆様の情報は、当サイトのユーザビリティーの向上を目的と
 - id: tokyo-www-town-okutama-tokyo-jp-e5f84a
   prefecture: tokyo
   name: 奥多摩町0円空家バンク
@@ -3179,6 +3218,13 @@ sites:
   list: https://www.city.myoko.niigata.jp/myoko-life/
   status: todo
   note: schede non riconosciute automaticamente
+- id: niigata-www-vill-yahiko-niigata-jp-5cf905
+  prefecture: niigata
+  name: 弥彦村空き家活用バンク
+  list: https://akiya.vill.yahiko.niigata.jp/
+  moved_from: http://www.vill.yahiko.niigata.jp/life/life_home/
+  status: todo
+  note: schede non riconosciute automaticamente
 - id: niigata-www-city-nagaoka-niigata-jp-ff288a
   prefecture: niigata
   name: 長岡市空き家バンク
@@ -3228,11 +3274,6 @@ sites:
   name: 南魚沼市空き家バンクウェブサイト
   list: http://www.minamiuonuma-city.jp/akiya/
   status: unreachable
-- id: niigata-www-vill-yahiko-niigata-jp-5cf905
-  prefecture: niigata
-  name: 弥彦村空き家活用バンク
-  list: http://www.vill.yahiko.niigata.jp/life/life_home/
-  status: unreachable
 - id: niigata-www-tokamachi-uiturn-jp-55c566
   prefecture: niigata
   name: 新潟県十日町市UIターン情報サイト
@@ -3268,10 +3309,31 @@ sites:
   name: 阿賀町空き家等情報登録制度
   list: https://furusato-aga.jp/house/
   status: unreachable
+- id: toyama-www-city-namerikawa-toyama-jp-3226d6
+  prefecture: toyama
+  name: 滑川市空き家・空き地情報バンク
+  list: https://namerikawa-akiya.com/
+  moved_from: https://www.city.namerikawa.toyama.jp/kurashi/5/4/1776.html
+  status: ok
+  found: 13
 - id: toyama-www-city-imizu-toyama-jp-90e0e8
   prefecture: toyama
   name: 射水市空き家情報バンク
   list: https://www.city.imizu.toyama.jp/iju/akiya/akiyaList.aspx
+  status: todo
+  note: schede non riconosciute automaticamente
+- id: toyama-toyama-teiju-jp-2f40c7
+  prefecture: toyama
+  name: 市町村空き家情報バンク
+  list: https://toyama-teiju.jp/living/
+  moved_from: https://toyama-teiju.jp/housebank
+  status: todo
+  note: schede non riconosciute automaticamente
+- id: toyama-himi-akiya-net-cce862
+  prefecture: toyama
+  name: 氷見市空き家情報バンク
+  list: https://himi-akiya.net/property/10007/
+  moved_from: https://himi-akiya.net/index_sp.html
   status: todo
   note: schede non riconosciute automaticamente
 - id: toyama-www-tonami-life-net-5f4c1d
@@ -3323,21 +3385,6 @@ sites:
   prefecture: toyama
   name: 居住用空き家情報『空き家バンク』
   list: https://www.town.nyuzen.toyama.jp/toshikeikaku/machi/sumai/akiyabank.html
-  status: unreachable
-- id: toyama-toyama-teiju-jp-2f40c7
-  prefecture: toyama
-  name: 市町村空き家情報バンク
-  list: https://toyama-teiju.jp/housebank
-  status: unreachable
-- id: toyama-himi-akiya-net-cce862
-  prefecture: toyama
-  name: 氷見市空き家情報バンク
-  list: https://himi-akiya.net/index_sp.html
-  status: unreachable
-- id: toyama-www-city-namerikawa-toyama-jp-3226d6
-  prefecture: toyama
-  name: 滑川市空き家・空き地情報バンク
-  list: https://www.city.namerikawa.toyama.jp/kurashi/5/4/1776.html
   status: unreachable
 - id: toyama-www-city-oyabe-toyama-jp-aa8f70
   prefecture: toyama
@@ -3398,6 +3445,20 @@ sites:
   list: http://www.city.kahoku.ishikawa.jp/www/01/104/001/000/index_11816.html
   status: pdf
   note: 5 PDF
+- id: ishikawa-www-town-shika-lg-jp-6ecfa9
+  prefecture: ishikawa
+  name: 志賀町空き家バンク
+  list: https://www.town.shika.lg.jp/life/1/6/23/
+  moved_from: https://www.town.shika.lg.jp/machiseibi/kenchiku/akiya-bank.html
+  status: pdf
+  note: 7 PDF
+- id: ishikawa-www-city-hakusan-lg-jp-e6491b
+  prefecture: ishikawa
+  name: 白山市空き家バンク
+  list: https://www.city.hakusan.lg.jp/machi/akiya/1002960.html
+  moved_from: https://www.city.hakusan.lg.jp/kikakusinkoubu/teiju/akiyataisaku/hakusanakiyabank.html
+  status: pdf
+  note: 9 PDF
 - id: ishikawa-www-town-nakanoto-ishikawa-jp-7e0367
   prefecture: ishikawa
   name: 空き家バンクのご利用
@@ -3440,20 +3501,10 @@ sites:
   name: 川北町空き家バンク制度
   list: http://www.town.kawakita.ishikawa.jp/gyosei1/doboku/entry-304.html
   status: unreachable
-- id: ishikawa-www-town-shika-lg-jp-6ecfa9
-  prefecture: ishikawa
-  name: 志賀町空き家バンク
-  list: https://www.town.shika.lg.jp/machiseibi/kenchiku/akiya-bank.html
-  status: unreachable
 - id: ishikawa-www-town-tsubata-lg-jp-3375aa
   prefecture: ishikawa
   name: 津幡町
   list: https://www.town.tsubata.lg.jp/division/kikaku/akiya_bank.html
-  status: unreachable
-- id: ishikawa-www-city-hakusan-lg-jp-e6491b
-  prefecture: ishikawa
-  name: 白山市空き家バンク
-  list: https://www.city.hakusan.lg.jp/kikakusinkoubu/teiju/akiyataisaku/hakusanakiyabank.html
   status: unreachable
 - id: ishikawa-www-hodatsushimizu-jp-f49d19
   prefecture: ishikawa
@@ -3538,6 +3589,13 @@ sites:
   list: http://www.town.minamiechizen.lg.jp/izyu/akiyajyouhou/p001143.html
   status: pdf
   note: 24 PDF
+- id: fukui-www-city-fukui-sakai-lg-jp-c379c7
+  prefecture: fukui
+  name: 坂井市 空き家情報バンク
+  list: https://www.city.fukui-sakai.lg.jp/iju/kurashi/sumai/sumai/akiya/list.html
+  moved_from: https://www.city.fukui-sakai.lg.jp/toshi-keikaku/kurashi/sumai/sumai/akiya/bank.html
+  status: pdf
+  note: 3 PDF
 - id: fukui-www-town-eiheiji-lg-jp-9c719b
   prefecture: fukui
   name: 永平寺町空き家等情報バンク
@@ -3556,11 +3614,6 @@ sites:
   list: https://www.town.echizen.fukui.jp/kurashi/04/09/p004049.html
   status: pdf
   note: 39 PDF
-- id: fukui-www-city-fukui-sakai-lg-jp-c379c7
-  prefecture: fukui
-  name: 坂井市 空き家情報バンク
-  list: https://www.city.fukui-sakai.lg.jp/toshi-keikaku/kurashi/sumai/sumai/akiya/bank.html
-  status: unreachable
 - id: fukui-www-city-tsuruga-lg-jp-12baf0
   prefecture: fukui
   name: 敦賀市空き家・空き地情報バンク
@@ -3635,6 +3688,13 @@ sites:
   list: https://www.town.fujikawaguchiko.lg.jp/info/info.php?if_id=67&ka_id=25
   status: pdf
   note: 2 PDF
+- id: yamanashi-www-city-yamanashi-yamanashi-jp-155e09
+  prefecture: yamanashi
+  name: 山梨市ホームページ
+  list: https://www.city.yamanashi.yamanashi.jp/site/iju/1930.html
+  moved_from: https://www.city.yamanashi.yamanashi.jp/citizen/docs/bank.html
+  status: pdf
+  note: 235 PDF
 - id: yamanashi-www-town-ichikawamisato-yamanashi-jp-d29bb2
   prefecture: yamanashi
   name: 市川三郷町空き家バンク
@@ -3667,11 +3727,6 @@ sites:
   prefecture: yamanashi
   name: 山中湖村空き家・空き店舗バンク
   list: https://www.vill.yamanakako.lg.jp/docs/2019032500011/
-  status: unreachable
-- id: yamanashi-www-city-yamanashi-yamanashi-jp-155e09
-  prefecture: yamanashi
-  name: 山梨市ホームページ
-  list: https://www.city.yamanashi.yamanashi.jp/citizen/docs/bank.html
   status: unreachable
 - id: yamanashi-www-city-koshu-yamanashi-jp-03bfb1
   prefecture: yamanashi
@@ -3845,6 +3900,13 @@ sites:
   list: https://www.town-kiso.com/kurashi/sumai/jyutaku/
   status: todo
   note: schede non riconosciute automaticamente
+- id: nagano-www-vill-matsukawa-nagano-jp-86a2c3
+  prefecture: nagano
+  name: 松川村ホームページ
+  list: http://www.vill.matsukawa.nagano.jp/search/?q=空き家バンク
+  moved_from: http://www.vill.matsukawa.nagano.jp/life/archives/002917.php
+  status: todo
+  note: schede non riconosciute automaticamente
 - id: nagano-www-ikedamachi-net-3a71aa
   prefecture: nagano
   name: 池田町空き家バンク
@@ -3899,6 +3961,13 @@ sites:
   list: https://go-iijima.nagano.jp/tag_normal/house/
   status: pdf
   note: 1 PDF
+- id: nagano-www-town-agematsu-nagano-jp-395aae
+  prefecture: nagano
+  name: 上松町空き家バンク制度
+  list: http://www.town.agematsu.nagano.jp/kurashi/sumai_seikatsu/tochi/akiya.html
+  moved_from: http://www.town.agematsu.nagano.jp/gyousei/kurashi/Planning_finance/akiya.html
+  status: pdf
+  note: 33 PDF
 - id: nagano-www-town-shimosuwa-lg-jp-0ac502
   prefecture: nagano
   name: 下諏訪町空き家情報バンク
@@ -3970,7 +4039,7 @@ sites:
   name: 田舎暮らしのすすめ
   list: http://www.village.ikusaka.nagano.jp/gyousei/muradukuri/akiya_bank.htm
   status: pdf
-  note: 8 PDF
+  note: 7 PDF
 - id: nagano-www-vill-nagano-toyooka-lg-jp-12d2b2
   prefecture: nagano
   name: 豊丘村空き家情報活用システム
@@ -3983,11 +4052,11 @@ sites:
   list: https://www.city.okaya.lg.jp/kurashi_tetsuzuki/seikatsu_sodan/akiya/9758.html
   status: delegated
   note: rimanda a LIFULL/At Home
-- id: nagano-www-town-agematsu-nagano-jp-395aae
+- id: https://hiraya-iju.com/
   prefecture: nagano
-  name: 上松町空き家バンク制度
-  list: http://www.town.agematsu.nagano.jp/gyousei/kurashi/Planning_finance/akiya.html
-  status: unreachable
+  name: 引っ越しヒラヤ
+  list: https://hiraya-iju.com/
+  status: blocked
 - id: nagano-www-city-ueda-nagano-jp-dc31d6
   prefecture: nagano
   name: 信州うえだ空き家バンク
@@ -4008,11 +4077,6 @@ sites:
   name: 大町市空き家バンク
   list: https://www.city.omachi.nagano.jp/00002000/00002800/00002207.html
   status: unreachable
-- id: nagano-hiraya-iju-com-b10b4f
-  prefecture: nagano
-  name: 引っ越しヒラヤ
-  list: https://hiraya-iju.com/
-  status: unreachable
 - id: nagano-www-town-kiso-com-682c9c
   prefecture: nagano
   name: 木曽町空き家バンク
@@ -4022,11 +4086,6 @@ sites:
   prefecture: nagano
   name: 木祖村空き家バンク
   list: http://www.vill.kiso.nagano.jp/lifestage/category/life/house/akiyabank_touroku.html
-  status: unreachable
-- id: nagano-www-vill-matsukawa-nagano-jp-86a2c3
-  prefecture: nagano
-  name: 松川村ホームページ
-  list: http://www.vill.matsukawa.nagano.jp/life/archives/002917.php
   status: unreachable
 - id: nagano-www-town-yamanouchi-nagano-jp-26443e
   prefecture: nagano
@@ -4286,23 +4345,17 @@ sites:
   status: ok
   found: 1
   detail: /hamalife/eriasumai/akiyabanku\d+\.html$
-- id: shizuoka-www-city-shizuoka-lg-jp-a51756
+- id: shizuoka-www-city-mishima-shizuoka-jp-79d836
   prefecture: shizuoka
-  name: 静岡市空き家情報バンク物件情報
-  list: https://www.city.shizuoka.lg.jp/412_000032.html
-  status: ok
-  found: 8
-  detail: /s\d+/s\d+\.html$
+  name: 住むなら三島 中古住宅情報サイト
+  list: https://www.city.mishima.shizuoka.jp/life/1/6/41/
+  moved_from: https://www.city.mishima.shizuoka.jp/cp/house/index.html
+  status: todo
+  note: schede non riconosciute automaticamente
 - id: shizuoka-www-town-yoshida-shizuoka-jp-f17144
   prefecture: shizuoka
   name: 吉田町空き家バンク
   list: http://www.town.yoshida.shizuoka.jp/4776.htm
-  status: todo
-  note: schede non riconosciute automaticamente
-- id: shizuoka-www-fujinomiya-life-com-034c24
-  prefecture: shizuoka
-  name: 富士宮市移住定住ポータルサイト「Fujinomiya Life」
-  list: https://www.fujinomiya-life.com/
   status: todo
   note: schede non riconosciute automaticamente
 - id: shizuoka-www-town-kawazu-shizuoka-jp-5113d0
@@ -4335,6 +4388,16 @@ sites:
   list: https://www.town.morimachi.shizuoka.jp/gyosei/machinososhiki/teijusuishinka/ijukoryugakari/2/2/380.html
   status: pdf
   note: 25 PDF
+- id: https://akiya-bank.shizuoka.fudohsan.jp/html/fuji.html
+  prefecture: shizuoka
+  name: 静岡県宅地建物取引業協会空き家に関する総合サイト「空き家バンクしずおか」
+  list: https://akiya-bank.shizuoka.fudohsan.jp/html/fuji.html
+  status: blocked
+- id: https://akiya-bank.shizuoka.fudohsan.jp/html/higashiizu.html
+  prefecture: shizuoka
+  name: 静岡県宅地建物取引業協会空き家に関する総合サイト「空き家バンクしずおか」
+  list: https://akiya-bank.shizuoka.fudohsan.jp/html/higashiizu.html
+  status: blocked
 - id: shizuoka-iju-city-izu-shizuoka-jp-2371b8
   prefecture: shizuoka
   name: いずぐらし
@@ -4345,15 +4408,15 @@ sites:
   name: 下田市空き家バンク
   list: https://www.city.shimoda.sizuoka.jp
   status: unreachable
-- id: shizuoka-www-city-mishima-shizuoka-jp-79d836
-  prefecture: shizuoka
-  name: 住むなら三島 中古住宅情報サイト
-  list: https://www.city.mishima.shizuoka.jp/cp/house/index.html
-  status: unreachable
 - id: shizuoka-iju-shimada-jp-726982
   prefecture: shizuoka
   name: 住んでごしまだ
   list: https://iju-shimada.jp/live/bank/
+  status: unreachable
+- id: shizuoka-www-fujinomiya-life-com-034c24
+  prefecture: shizuoka
+  name: 富士宮市移住定住ポータルサイト「Fujinomiya Life」
+  list: https://www.fujinomiya-life.com/
   status: unreachable
 - id: shizuoka-www-fujicity-iju-jp-894869
   prefecture: shizuoka
@@ -4385,20 +4448,15 @@ sites:
   name: 藤枝市中山間地域空き家バンク
   list: https://www.city.fujieda.shizuoka.jp/soshiki/shogyokankokyoku/chusankan/gyomu/1/index.html
   status: unreachable
+- id: shizuoka-www-city-shizuoka-lg-jp-a51756
+  prefecture: shizuoka
+  name: 静岡市空き家情報バンク物件情報
+  list: https://www.city.shizuoka.lg.jp/412_000032.html
+  status: unreachable
 - id: shizuoka-iju-pref-shizuoka-jp-4d89f5
   prefecture: shizuoka
   name: 静岡県公式移住・定住情報サイト「ゆとりすと静岡」
   list: https://iju.pref.shizuoka.jp/living/158.html
-  status: unreachable
-- id: shizuoka-akiya-bank-shizuoka-fudohsan-jp-d1be5f
-  prefecture: shizuoka
-  name: 静岡県宅地建物取引業協会空き家に関する総合サイト「空き家バンクしずおか」
-  list: https://akiya-bank.shizuoka.fudohsan.jp/html/fuji.html
-  status: unreachable
-- id: shizuoka-akiya-bank-shizuoka-fudohsan-jp-6a78a2
-  prefecture: shizuoka
-  name: 静岡県宅地建物取引業協会空き家に関する総合サイト「空き家バンクしずおか」
-  list: https://akiya-bank.shizuoka.fudohsan.jp/html/higashiizu.html
   status: unreachable
 - id: aichi-seto-life-jp-35dd20
   prefecture: aichi
@@ -4703,6 +4761,13 @@ sites:
   list: http://www.town.taki.mie.jp/contents_detail.php?frmId=587
   status: pdf
   note: 1 PDF
+- id: mie-www-city-matsusaka-mie-jp-011a18
+  prefecture: mie
+  name: 松阪市ホームページ
+  list: https://www.city.matsusaka.mie.jp/life/8/29/
+  moved_from: https://www.city.matsusaka.mie.jp/site/ijyu-teijyu/matsusakashiakiyabanku.html
+  status: pdf
+  note: 8 PDF
 - id: mie-www-info-city-tsu-mie-jp-9892c6
   prefecture: mie
   name: 津市空き家情報バンク
@@ -4761,11 +4826,6 @@ sites:
   name: 東員町ホームページ(東員町空き家・空き地情報バンク)
   list: http://www.town.toin.lg.jp/contents_detail.php?co=kak&frmId=2321
   status: unreachable
-- id: mie-www-city-matsusaka-mie-jp-011a18
-  prefecture: mie
-  name: 松阪市ホームページ
-  list: https://www.city.matsusaka.mie.jp/site/ijyu-teijyu/matsusakashiakiyabanku.html
-  status: unreachable
 - id: mie-www-city-toba-mie-jp-25c277
   prefecture: mie
   name: 鳥羽市空き家バンク
@@ -4778,12 +4838,6 @@ sites:
   status: ok
   found: 2
   detail: /house/\d+$
-- id: shiga-ritto-akiyabank-jp-f939c8
-  prefecture: shiga
-  name: りっとう空き家バンク
-  list: https://ritto-akiyabank.jp/
-  status: todo
-  note: schede non riconosciute automaticamente
 - id: shiga-www-nagahama-capital-net-c7290b
   prefecture: shiga
   name: ナガハマキャピタル
@@ -4814,22 +4868,36 @@ sites:
   list: https://toyosato-shiga-akiya.jimdofree.com/
   status: todo
   note: schede non riconosciute automaticamente
+- id: shiga-www-town-taga-lg-jp-3ba170
+  prefecture: shiga
+  name: 多賀町空き家・空き地情報バンク
+  list: https://www.town.taga.lg.jp/kurashi_tetsuzuki/sumai/4/1522.html
+  moved_from: http://www.town.taga.lg.jp/contents_detail.php?frmId=66
+  status: pdf
+  note: 12 PDF
 - id: shiga-www-hikone-akiya-com-4e30bd
   prefecture: shiga
   name: 彦根市空き家バンク
   list: https://www.hikone-akiya.com/
   status: pdf
   note: 2 PDF
+- id: shiga-www-town-shiga-hino-lg-jp-65555b
+  prefecture: shiga
+  name: 日野町ホームページ(空き家・空き地情報登録制度)
+  list: http://www.town.shiga-hino.lg.jp/category/27-9-2-0-0-0-0-0-0-0.html
+  moved_from: http://www.town.shiga-hino.lg.jp/category_list.php?frmCd=21-7-2-0-0
+  status: pdf
+  note: 32 PDF
 - id: shiga-www-city-koka-lg-jp-649d66
   prefecture: shiga
   name: 甲賀市空き家バンク
   list: https://www.city.koka.lg.jp/9930.htm
   status: pdf
   note: 2 PDF
-- id: shiga-www-town-taga-lg-jp-3ba170
+- id: shiga-ritto-akiyabank-jp-f939c8
   prefecture: shiga
-  name: 多賀町空き家・空き地情報バンク
-  list: http://www.town.taga.lg.jp/contents_detail.php?frmId=66
+  name: りっとう空き家バンク
+  list: https://ritto-akiyabank.jp/
   status: unreachable
 - id: shiga-www-city-otsu-lg-jp-cf1376
   prefecture: shiga
@@ -4845,11 +4913,6 @@ sites:
   prefecture: shiga
   name: 愛荘町空き家情報登録物件
   list: https://www.town.aisho.shiga.jp/kurashi_tetsuzuki/sumai/akiya/6123.html
-  status: unreachable
-- id: shiga-www-town-shiga-hino-lg-jp-65555b
-  prefecture: shiga
-  name: 日野町ホームページ(空き家・空き地情報登録制度)
-  list: http://www.town.shiga-hino.lg.jp/category_list.php?frmCd=21-7-2-0-0
   status: unreachable
 - id: shiga-www-city-higashiomi-shiga-jp-296666
   prefecture: shiga
@@ -4881,8 +4944,7 @@ sites:
   name: たんたんターン
   list: https://kyotohokuburenkei.jp/
   status: ok
-  found: 12
-  detail: /akiyadetail\?kubun=buy\&city=ayabe\&id=\d+\&bname=T\-\d+$
+  found: 13
 - id: kyoto-yawata-akiya-com-cec3c1
   prefecture: kyoto
   name: 一般社団法人 八幡市空き家バンク
@@ -4902,12 +4964,6 @@ sites:
   status: todo
   note: schede non riconosciute automaticamente
   needs_jp: true
-- id: kyoto-ijurikkoku-com-017c82
-  prefecture: kyoto
-  name: 移住立国あやべ
-  list: https://ijurikkoku.com
-  status: todo
-  note: schede non riconosciute automaticamente
 - id: kyoto-www-town-kumiyama-lg-jp-c8423f
   prefecture: kyoto
   name: 久御山町空き家バンク
@@ -4944,6 +5000,13 @@ sites:
   list: http://www.city.kizugawa.lg.jp/index.cfm/6,25902,12,484,html
   status: pdf
   note: 8 PDF
+- id: kyoto-www-town-kasagi-lg-jp-73fe6a
+  prefecture: kyoto
+  name: 笠置町空き家バンク制度
+  list: https://www.town.kasagi.lg.jp/contents_detail.php?co=new&frmId=1130
+  moved_from: https://www.town.kasagi.lg.jp/contents_detail.php?co=kak&frmId=426
+  status: pdf
+  note: 3 PDF
 - id: kyoto-www-city-kameoka-kyoto-jp-5fc447
   prefecture: kyoto
   name: 亀岡市空き家バンク
@@ -4979,15 +5042,15 @@ sites:
   name: 宇治田原町ホームページ
   list: http://www.town.ujitawara.kyoto.jp/0000001429.html
   status: unreachable
+- id: kyoto-ijurikkoku-com-017c82
+  prefecture: kyoto
+  name: 移住立国あやべ
+  list: https://ijurikkoku.com
+  status: unreachable
 - id: kyoto-www-town-kyotamba-kyoto-jp-a4c328
   prefecture: kyoto
   name: 空き家情報バンク制度
   list: http://www.town.kyotamba.kyoto.jp/0000006357.html
-  status: unreachable
-- id: kyoto-www-town-kasagi-lg-jp-73fe6a
-  prefecture: kyoto
-  name: 笠置町空き家バンク制度
-  list: https://www.town.kasagi.lg.jp/contents_detail.php?co=kak&frmId=426
   status: unreachable
 - id: osaka-www-city-kashiwara-osaka-jp-f309c9
   prefecture: osaka
@@ -5397,6 +5460,14 @@ sites:
   status: ok
   found: 6
   detail: /akiyabank/a\d+/$
+- id: nara-akiyaconcierge-com-7f665e
+  prefecture: nara
+  name: 平群町空き家一覧
+  list: https://akiyaconcierge.com/bank/
+  moved_from: http://akiyaconcierge.com/heguri/
+  status: ok
+  found: 6
+  detail: /bank/\d+/$
 - id: nara-gosecity-akiyabank-com-19dfb2
   prefecture: nara
   name: 御所市空き家・町家バンク
@@ -5484,6 +5555,11 @@ sites:
   name: 平群町空き家バンク制度
   list: http://www.town.heguri.nara.jp/web/madoguchi/toshikensetsuka/toshikensetsuka08.html
   status: robots
+- id: http://yoshino-akiyabank.com/
+  prefecture: nara
+  name: 吉野町空き家バンク
+  list: http://yoshino-akiyabank.com/
+  status: blocked
 - id: nara-www-town-sango-nara-jp-a4b52e
   prefecture: nara
   name: 三郷町空き家バンク
@@ -5493,11 +5569,6 @@ sites:
   prefecture: nara
   name: 上牧町空き家・空き地バンク
   list: https://www.town.kanmaki.nara.jp/akiyabank/
-  status: unreachable
-- id: nara-yoshino-akiyabank-com-6ff2c4
-  prefecture: nara
-  name: 吉野町空き家バンク
-  list: http://yoshino-akiyabank.com/
   status: unreachable
 - id: nara-tenricity-akiyabank-com-e6cba0
   prefecture: nara
@@ -5514,20 +5585,10 @@ sites:
   name: 川上住まいるネット
   list: http://www.vill.kawakami.nara.jp/move/docs/2017020200295/
   status: unreachable
-- id: nara-akiyaconcierge-com-7f665e
-  prefecture: nara
-  name: 平群町空き家一覧
-  list: http://akiyaconcierge.com/heguri/
-  status: unreachable
 - id: nara-soni-akiyabank-com-0bce19
   prefecture: nara
   name: 曽爾村空き家バンク
   list: http://soni-akiyabank.com/
-  status: unreachable
-- id: nara-akiyaconcierge-com-8758c4
-  prefecture: nara
-  name: 空き家コンシェルジュ空き家バンク
-  list: http://akiyaconcierge.com/banklist/
   status: unreachable
 - id: nara-www-city-katsuragi-nara-jp-d456f6
   prefecture: nara
@@ -5733,6 +5794,14 @@ sites:
   status: ok
   found: 8
   detail: /akiya/\d+/$
+- id: shimane-www-town-okinoshima-shimane-jp-97e1c8
+  prefecture: shimane
+  name: 隠岐の島町空家・空地バンク登録物件情報
+  list: https://www.town.okinoshima.shimane.jp/chumoku_news/7979.html
+  moved_from: https://www.town.okinoshima.shimane.jp/www/contents/1428629065651/index.html
+  status: ok
+  found: 1
+  detail: /cgi\-bin/recruit\.php/\d+/list\?order_key=vacant_house_number\&order=\d+\&order_type=%E\d+%\d+%\d+%E\d+%AD%\d+%E\d+%\d+%\d+$
 - id: shimane-ohnansmilenavi-com-ee94bd
   prefecture: shimane
   name: おおなん住ま居るナビ
@@ -5805,11 +5874,6 @@ sites:
   name: 浜田市空き家バンク
   list: http://www.hamada-akiya.com/
   status: unreachable
-- id: shimane-www-town-okinoshima-shimane-jp-97e1c8
-  prefecture: shimane
-  name: 隠岐の島町空家・空地バンク登録物件情報
-  list: https://www.town.okinoshima.shimane.jp/www/contents/1428629065651/index.html
-  status: unreachable
 - id: shimane-iinan-teiju-jp-2cf614
   prefecture: shimane
   name: 飯南町空き家バンク
@@ -5822,39 +5886,18 @@ sites:
   status: ok
   found: 25
   detail: /iju/property/\d+\.html$
-- id: okayama-www-ok-smile-jp-d68317
-  prefecture: okayama
-  name: 津山市住まい情報バンク
-  list: https://www.ok-smile.jp/migrants-tsuyama
-  status: ok
-  found: 2
-  needs_jp: true
 - id: okayama-www-city-takahashi-lg-jp-052d4e
   prefecture: okayama
   name: たかはし 空き家情報バンク制度
   list: http://www.city.takahashi.lg.jp/site/sumouyo/inaka-gurashi.html
   status: todo
   note: schede non riconosciute automaticamente
-- id: okayama-www-ok-smile-jp-6f352a
-  prefecture: okayama
-  name: 住まいる岡山
-  list: https://www.ok-smile.jp
-  status: todo
-  note: schede non riconosciute automaticamente
-  needs_jp: true
 - id: okayama-www-town-wake-lg-jp-411560
   prefecture: okayama
   name: 和気町移住サイト ワケスム
   list: https://www.town.wake.lg.jp/wakesum/
   status: todo
   note: schede non riconosciute automaticamente
-- id: okayama-www-ok-smile-jp-a9b63a
-  prefecture: okayama
-  name: 岡山県空き家情報流通システム
-  list: https://www.ok-smile.jp/vacant-house
-  status: todo
-  note: schede non riconosciute automaticamente
-  needs_jp: true
 - id: okayama-www-town-yakage-okayama-jp-efe8bf
   prefecture: okayama
   name: 矢掛町移住支援サイト
@@ -5903,12 +5946,26 @@ sites:
   list: http://www.vill.shinjo.okayama.jp/index.php?id=100
   status: pdf
   note: 13 PDF
+- id: okayama-www-city-setouchi-lg-jp-907011
+  prefecture: okayama
+  name: 瀬戸内市空き家情報提供制度
+  list: http://www.city.setouchi.lg.jp/site/portal/
+  moved_from: http://www.city.setouchi.lg.jp/kurashi/soshiki/sogoseisakubu/kikakushinko/setochishinisumou/1420852135209.html
+  status: pdf
+  note: 18 PDF
 - id: okayama-www-city-tamano-lg-jp-48b2f4
   prefecture: okayama
   name: 空き家情報 - 玉野市ホームページ
   list: https://www.city.tamano.lg.jp/soshiki/20/2387.html
   status: pdf
   note: 7 PDF
+- id: okayama-www-city-kasaoka-okayama-jp-f78b76
+  prefecture: okayama
+  name: だから、笠岡で暮らしたい。
+  list: http://www.city.kasaoka.okayama.jp/site/teijyuu/57951.html
+  moved_from: http://www.city.kasaoka.okayama.jp/site/teijyuu/8894.html
+  status: delegated
+  note: rimanda a LIFULL/At Home
 - id: okayama-www-city-niimi-okayama-jp-2dfadf
   prefecture: okayama
   name: 新見市空き家情報バンク
@@ -5921,15 +5978,25 @@ sites:
   list: http://www.vill.nishiawakura.okayama.jp/wp/西粟倉村空き家バンク制度/
   status: delegated
   note: rimanda a LIFULL/At Home
+- id: https://www.ok-smile.jp
+  prefecture: okayama
+  name: 住まいる岡山
+  list: https://www.ok-smile.jp
+  status: blocked
+- id: https://www.ok-smile.jp/vacant-house
+  prefecture: okayama
+  name: 岡山県空き家情報流通システム
+  list: https://www.ok-smile.jp/vacant-house
+  status: blocked
+- id: https://www.ok-smile.jp/migrants-tsuyama
+  prefecture: okayama
+  name: 津山市住まい情報バンク
+  list: https://www.ok-smile.jp/migrants-tsuyama
+  status: blocked
 - id: okayama-www-city-soja-okayama-jp-0f6202
   prefecture: okayama
   name: そうじゃ空き家百選
   list: https://www.city.soja.okayama.jp/miryoku/kurashi-bousai-kankyo/iju_teiju/iju_teiju_akiya.html
-  status: unreachable
-- id: okayama-www-city-kasaoka-okayama-jp-f78b76
-  prefecture: okayama
-  name: だから、笠岡で暮らしたい。
-  list: http://www.city.kasaoka.okayama.jp/site/teijyuu/8894.html
   status: unreachable
 - id: okayama-ibaragurashi-jp-818f02
   prefecture: okayama
@@ -5940,11 +6007,6 @@ sites:
   prefecture: okayama
   name: 勝央町ホームページ「移住定住サイト」
   list: http://teiju.town.shoo.lg.jp/sumai/
-  status: unreachable
-- id: okayama-www-city-setouchi-lg-jp-907011
-  prefecture: okayama
-  name: 瀬戸内市空き家情報提供制度
-  list: http://www.city.setouchi.lg.jp/kurashi/soshiki/sogoseisakubu/kikakushinko/setochishinisumou/1420852135209.html
   status: unreachable
 - id: okayama-www-city-asakuchi-lg-jp-162868
   prefecture: okayama
@@ -5974,6 +6036,21 @@ sites:
   status: ok
   found: 5
   detail: /akiya/search/search\.php\?k_torokubi=\&k_kakaku_\d+=\d+\&k_kakaku_\d+=\d+\&k_chinryo_\d+=\d+\&k_chinryo_\d+=\d+\&k_nobeyuka_\d+=\d+\&k_nobeyuka_\d+=\d+\&k_shikichi_\d+=\d+\&k_shikichi_\d+=\d+\&k_keyword=\&k_no=\&search=\d+\&page=\d+$
+- id: hiroshima-www-akiota-jp-024fd7
+  prefecture: hiroshima
+  name: 安芸太田町空き家バンク制度の紹介
+  list: http://www.akiota.jp/soshiki/list5-1.html
+  moved_from: http://www.akiota.jp/sangyo/spage_173.html
+  status: ok
+  found: 4
+  detail: /site/ijyu/\d+\.html$
+- id: hiroshima-www-town-saka-lg-jp-aa16a6
+  prefecture: hiroshima
+  name: すぐそこ、坂ぐらし。-坂町空き家バンク回覧板-
+  list: https://www.town.saka.lg.jp/category/%e3%81%8f%e3%82%89%e3%81%97%e3%83%bb%e6%89%8b%e7%b6%9a%e3%81%8d/%e4%bd%8f%e3%81%be%e3%81%84%e3%83%bb%e4%b8%8a%e4%b8%8b%e6%b0%b4%e9%81%93/%e7%a9%ba%e3%81%8d%e5%ae%b6%e3%83%bb%e7%a9%ba%e3%81%8d%e5%9c%b0/
+  moved_from: http://www.town.saka.lg.jp/sakagurashi/
+  status: todo
+  note: schede non riconosciute automaticamente
 - id: hiroshima-mitsugiakiya-jp-30b891
   prefecture: hiroshima
   name: みつぎ空き家バンク
@@ -6016,6 +6093,13 @@ sites:
   list: https://www.town.osakikamijima.hiroshima.jp/kurashi/sumai/1/1/2513.html
   status: pdf
   note: 20 PDF
+- id: hiroshima-www-akitakata-jp-7a4c29
+  prefecture: hiroshima
+  name: 安芸高田市空き家情報バンク
+  list: http://www.akitakata.jp/ja/shisei/section/kikaku/main/
+  moved_from: http://www.akitakata.jp/ja/shisei/section/jutaku/main/
+  status: pdf
+  note: 8 PDF
 - id: hiroshima-www-onomichisaisei-com-2b81c4
   prefecture: hiroshima
   name: 尾道市空き家バンク
@@ -6028,20 +6112,30 @@ sites:
   list: https://www.city.hatsukaichi.hiroshima.jp/soshiki/53/23529.html
   status: pdf
   note: 1 PDF
-- id: hiroshima-www-town-saka-lg-jp-aa16a6
+- id: https://akiya-bank.fudohsan.jp/一覧/買う/不動産会社/3827
   prefecture: hiroshima
-  name: すぐそこ、坂ぐらし。-坂町空き家バンク回覧板-
-  list: http://www.town.saka.lg.jp/sakagurashi/
-  status: unreachable
+  name: スマイミー
+  list: https://akiya-bank.fudohsan.jp/一覧/買う/不動産会社/3827
+  status: blocked
+- id: https://akiya-bank.fudohsan.jp/
+  prefecture: hiroshima
+  name: 広島空き家バンク
+  list: https://akiya-bank.fudohsan.jp/
+  status: blocked
+- id: https://akiya-bank.fudohsan.jp/soudan/html/guide/index.html
+  prefecture: hiroshima
+  name: 空き家バンク ひろしま空き家の窓口
+  list: https://akiya-bank.fudohsan.jp/soudan/html/guide/index.html
+  status: blocked
+- id: https://akiya-bank.fudohsan.jp/html/takehara.html
+  prefecture: hiroshima
+  name: 竹原市空き家バンク
+  list: https://akiya-bank.fudohsan.jp/html/takehara.html
+  status: blocked
 - id: hiroshima-minto-hiroshima-jp-a9a701
   prefecture: hiroshima
   name: ひろしま空き家バンクみんと。
   list: https://minto-hiroshima.jp/area/takehara/#akiya_container
-  status: unreachable
-- id: hiroshima-akiya-bank-fudohsan-jp-eea786
-  prefecture: hiroshima
-  name: スマイミー
-  list: https://akiya-bank.fudohsan.jp/一覧/買う/不動産会社/3827
   status: unreachable
 - id: hiroshima-www-city-miyoshi-hiroshima-jp-af25bc
   prefecture: hiroshima
@@ -6052,21 +6146,6 @@ sites:
   prefecture: hiroshima
   name: 大竹市空き家バンク
   list: http://www.city.otake.hiroshima.jp/soshiki/kensetsu/toshikeikaku/gyomu/2/bannku/index.html
-  status: unreachable
-- id: hiroshima-www-akiota-jp-024fd7
-  prefecture: hiroshima
-  name: 安芸太田町空き家バンク制度の紹介
-  list: http://www.akiota.jp/sangyo/spage_173.html
-  status: unreachable
-- id: hiroshima-www-akitakata-jp-7a4c29
-  prefecture: hiroshima
-  name: 安芸高田市空き家情報バンク
-  list: http://www.akitakata.jp/ja/shisei/section/jutaku/main/
-  status: unreachable
-- id: hiroshima-akiya-bank-fudohsan-jp-fe6178
-  prefecture: hiroshima
-  name: 広島空き家バンク
-  list: https://akiya-bank.fudohsan.jp/
   status: unreachable
 - id: hiroshima-www-city-fuchu-hiroshima-jp-b5a51c
   prefecture: hiroshima
@@ -6093,28 +6172,33 @@ sites:
   name: 移住・定住支援サイト
   list: http://akiota-kurashi.com/sumai/akiyabank.html#no272
   status: unreachable
-- id: hiroshima-akiya-bank-fudohsan-jp-b80d74
-  prefecture: hiroshima
-  name: 空き家バンク ひろしま空き家の窓口
-  list: https://akiya-bank.fudohsan.jp/soudan/html/guide/index.html
-  status: unreachable
-- id: hiroshima-akiya-bank-fudohsan-jp-1a017f
-  prefecture: hiroshima
-  name: 竹原市空き家バンク
-  list: https://akiya-bank.fudohsan.jp/html/takehara.html
-  status: unreachable
 - id: yamaguchi-www-sumusumuyamaguchi-jp-948670
   prefecture: yamaguchi
   name: '[山口市移住情報サイト]すむ住む山口'
   list: http://www.sumusumuyamaguchi.jp/akiyasbank/
   status: ok
   found: 10
+- id: yamaguchi-www-town-kaminoseki-lg-jp-3a25c4
+  prefecture: yamaguchi
+  name: 【上関町】空き家バンク制度について
+  list: https://www.town.kaminoseki.lg.jp/%e4%b8%8a%e9%96%a2%e7%94%ba%e7%a9%ba%e3%81%8d%e5%ae%b6%e3%83%90%e3%83%b3%e3%82%af%e7%89%a9%e4%bb%b6%e4%b8%80%e8%a6%a7.html
+  moved_from: http://www.town.kaminoseki.lg.jp/categorｙ/空き家バンク
+  status: ok
+  found: 19
 - id: yamaguchi-iwakuni-iju-jp-9f9548
   prefecture: yamaguchi
   name: 岩国田舎暮らしの道しるべ!
   list: https://iwakuni-iju.jp/akiyajoho
   status: ok
   found: 31
+- id: yamaguchi-www-town-hirao-lg-jp-a6ec0d
+  prefecture: yamaguchi
+  name: 平生町空家バンク
+  list: https://www.town.hirao.lg.jp/kurashi/jyutaku/akiya/1457314685054.html
+  moved_from: http://www.town.hirao.lg.jp/soshiki/chiiki/machi/teijyu_project/akiya/index.html
+  status: ok
+  found: 26
+  detail: /soshiki/chiiki/sosei/teijyu_project/akiya/hirao_akiya_bukken/\d+\.html$
 - id: yamaguchi-sundemine-jp-8b97e8
   prefecture: yamaguchi
   name: 美祢市移住・定住支援サイト「すんでみ~ね」
@@ -6147,20 +6231,24 @@ sites:
   list: https://www.city.sanyo-onoda.lg.jp/soshiki/84/akiyabanku.html#qa
   status: pdf
   note: 14 PDF
-- id: yamaguchi-www-town-kaminoseki-lg-jp-3a25c4
+- id: yamaguchi-www-nagatoteiju-com-59a028
   prefecture: yamaguchi
-  name: 【上関町】空き家バンク制度について
-  list: http://www.town.kaminoseki.lg.jp/categorｙ/空き家バンク
-  status: unreachable
+  name: 長門市定住支援
+  list: https://www.nagatoteiju.com/topics/entry24141.html
+  moved_from: https://www.nagatoteiju.com/house
+  status: pdf
+  note: 6 PDF
+- id: yamaguchi-www-ymg-uji-jp-7d327e
+  prefecture: yamaguchi
+  name: 住んでみぃね!ぶちええ山口
+  list: https://ymg-uji.jp/house/bank
+  moved_from: https://www.ymg-uji.jp/house/bank.html
+  status: delegated
+  note: rimanda a LIFULL/At Home
 - id: yamaguchi-shunan-chiikijoho-jp-b728fc
   prefecture: yamaguchi
   name: しゅうなん地域づくり応援サイト
   list: http://shunan-chiikijoho.jp/vacant_top/
-  status: unreachable
-- id: yamaguchi-www-ymg-uji-jp-7d327e
-  prefecture: yamaguchi
-  name: 住んでみぃね!ぶちええ山口
-  list: https://www.ymg-uji.jp/house/bank.html
   status: unreachable
 - id: yamaguchi-www-city-hikari-lg-jp-98aaca
   prefecture: yamaguchi
@@ -6177,11 +6265,6 @@ sites:
   name: 宇部移住計画
   list: https://ube-iju.jp/
   status: unreachable
-- id: yamaguchi-www-town-hirao-lg-jp-a6ec0d
-  prefecture: yamaguchi
-  name: 平生町空家バンク
-  list: http://www.town.hirao.lg.jp/soshiki/chiiki/machi/teijyu_project/akiya/index.html
-  status: unreachable
 - id: yamaguchi-www-city-yanai-jp-fdf828
   prefecture: yamaguchi
   name: 柳井市空き家バンク
@@ -6191,11 +6274,6 @@ sites:
   prefecture: yamaguchi
   name: 田布施町トップページ
   list: https://www.town.tabuse.lg.jp/www/index.html
-  status: unreachable
-- id: yamaguchi-www-nagatoteiju-com-59a028
-  prefecture: yamaguchi
-  name: 長門市定住支援
-  list: https://www.nagatoteiju.com/house
   status: unreachable
 - id: yamaguchi-www-city-hofu-yamaguchi-jp-1270a1
   prefecture: yamaguchi
@@ -6630,6 +6708,14 @@ sites:
   name: 高知県四万十市 移住支援情報
   list: http://iju.city.nakamura.kochi.jp/wp/
   status: unreachable
+- id: fukuoka-www-city-miyama-lg-jp-fec69a
+  prefecture: fukuoka
+  name: みやま市空き家バンク制度
+  list: http://www.city.miyama.lg.jp/sp001/index.html
+  moved_from: http://www.city.miyama.lg.jp/info/prev.asp?fol_id=5307
+  status: ok
+  found: 6
+  detail: /sp\d+/\d+/\d+/\d+/\d+\.html$
 - id: fukuoka-www-city-yame-fukuoka-jp-b3384e
   prefecture: fukuoka
   name: 八女市空き家バンク
@@ -6644,6 +6730,14 @@ sites:
   status: ok
   found: 5
   detail: /cgi\-bin/recruit\.php/\d+/detail/\d+\?ck=\d+$
+- id: fukuoka-www-city-yukuhashi-fukuoka-jp-ad9b30
+  prefecture: fukuoka
+  name: 行橋市空き家バンク
+  list: http://www.city.yukuhashi.fukuoka.jp/site/akiya/
+  moved_from: http://www.city.yukuhashi.fukuoka.jp/doc/2017012000032/
+  status: ok
+  found: 2
+  detail: /site/akiya/\d+\.html$
 - id: fukuoka-www-town-kawara-fukuoka-jp-3c51b0
   prefecture: fukuoka
   name: 香春町空き家・空き地情報バンク
@@ -6661,6 +6755,13 @@ sites:
   prefecture: fukuoka
   name: 古賀市空き家・空き地バンク
   list: https://www.city.koga.fukuoka.jp/cityhall/work/toshikeikaku/bank/
+  status: todo
+  note: schede non riconosciute automaticamente
+- id: fukuoka-www-town-tachiarai-fukuoka-jp-17da3b
+  prefecture: fukuoka
+  name: 大刀洗町空き家バンク
+  list: https://www.town.tachiarai.fukuoka.jp/list00821.html
+  moved_from: https://www.town.tachiarai.fukuoka.jp/akiya/
   status: todo
   note: schede non riconosciute automaticamente
 - id: fukuoka-www-city-onojo-fukuoka-jp-eae38b
@@ -6687,6 +6788,13 @@ sites:
   list: https://www.city.ogori.fukuoka.jp/akiya/
   status: todo
   note: schede non riconosciute automaticamente
+- id: fukuoka-www-city-asakura-lg-jp-a6a80b
+  prefecture: fukuoka
+  name: 朝倉市空き家バンク
+  list: http://www.city.asakura.lg.jp/site/iju/
+  moved_from: http://www.city.asakura.lg.jp/www/contents/1526962456370/index.html
+  status: todo
+  note: schede non riconosciute automaticamente
 - id: fukuoka-www-town-mizumaki-lg-jp-c7b844
   prefecture: fukuoka
   name: 水巻町空き家バンク
@@ -6711,13 +6819,13 @@ sites:
   list: http://fukuchi-life.com/
   status: todo
   note: schede non riconosciute automaticamente
-- id: fukuoka-akiyabank-f-takken-com-f5b281
+- id: fukuoka-www-city-nakama-lg-jp-4ed82c
   prefecture: fukuoka
-  name: 空き家DE暮らす 福岡県空き家バンク
-  list: https://akiyabank.f-takken.com/
+  name: 空き家バンク物件情報
+  list: http://www.city.nakama.lg.jp/akiya/search/search.php
+  moved_from: http://www.city.nakama.lg.jp/kurashi/sumai/jutakuseisaku/bukkennjouhou.html
   status: todo
   note: schede non riconosciute automaticamente
-  needs_jp: true
 - id: fukuoka-www-town-koge-lg-jp-b9d5fc
   prefecture: fukuoka
   name: 空き家・空き地バンク
@@ -6790,6 +6898,13 @@ sites:
   list: https://www.town.ashiya.lg.jp/soshiki/7/1224.html
   status: pdf
   note: 11 PDF
+- id: fukuoka-www-city-buzen-lg-jp-2f44f4
+  prefecture: fukuoka
+  name: 豊前市空き家バンク
+  list: http://www.city.buzen.lg.jp/akiya/akiyabank.html
+  moved_from: http://www.city.buzen.lg.jp/jutaku/akiya/article_list.html
+  status: pdf
+  note: 1 PDF
 - id: fukuoka-www-town-kurate-lg-jp-c6c8b2
   prefecture: fukuoka
   name: 鞍手町空家バンク
@@ -6802,15 +6917,25 @@ sites:
   list: https://www.city.iizuka.lg.jp/jyuutakuakiya/banku.html
   status: pdf
   note: 8 PDF
+- id: https://www.romanticyame.com/
+  prefecture: fukuoka
+  name: 八女のロマン
+  list: https://www.romanticyame.com/
+  status: blocked
+- id: https://www.akiyabank-kawasaki.com/
+  prefecture: fukuoka
+  name: 川崎町空き家バンク
+  list: https://www.akiyabank-kawasaki.com/
+  status: blocked
+- id: https://akiyabank.f-takken.com/
+  prefecture: fukuoka
+  name: 空き家DE暮らす 福岡県空き家バンク
+  list: https://akiyabank.f-takken.com/
+  status: blocked
 - id: fukuoka-www-town-miyako-lg-jp-456d8a
   prefecture: fukuoka
   name: みやこ町空き家バンク
   list: http://www.town.miyako.lg.jp/kannkoumachidukuri/akiya_bk/top.html
-  status: unreachable
-- id: fukuoka-www-city-miyama-lg-jp-fec69a
-  prefecture: fukuoka
-  name: みやま市空き家バンク制度
-  list: http://www.city.miyama.lg.jp/info/prev.asp?fol_id=5307
   status: unreachable
 - id: fukuoka-toho-info-com-b1d0af
   prefecture: fukuoka
@@ -6832,30 +6957,10 @@ sites:
   name: 住まえるバンク
   list: https://www.city.yanagawa.fukuoka.jp/kurashi/ijuteiju/sumaeru.html
   status: unreachable
-- id: fukuoka-www-romanticyame-com-166014
-  prefecture: fukuoka
-  name: 八女のロマン
-  list: https://www.romanticyame.com/
-  status: unreachable
-- id: fukuoka-www-town-tachiarai-fukuoka-jp-17da3b
-  prefecture: fukuoka
-  name: 大刀洗町空き家バンク
-  list: https://www.town.tachiarai.fukuoka.jp/akiya/
-  status: unreachable
 - id: fukuoka-www-town-okagaki-lg-jp-a0d777
   prefecture: fukuoka
   name: 岡垣町空き家バンク
   list: http://www.town.okagaki.lg.jp/s030/010/050/20181121132333.html
-  status: unreachable
-- id: fukuoka-www-akiyabank-kawasaki-com-17dfce
-  prefecture: fukuoka
-  name: 川崎町空き家バンク
-  list: https://www.akiyabank-kawasaki.com/
-  status: unreachable
-- id: fukuoka-www-city-asakura-lg-jp-a6a80b
-  prefecture: fukuoka
-  name: 朝倉市空き家バンク
-  list: http://www.city.asakura.lg.jp/www/contents/1526962456370/index.html
   status: unreachable
 - id: fukuoka-www-city-nogata-fukuoka-jp-d3d38b
   prefecture: fukuoka
@@ -6872,25 +6977,10 @@ sites:
   name: 福岡県糸島市空き家バンク
   list: https://itoshimalife.city.itoshima.lg.jp/live/bank/list/
   status: unreachable
-- id: fukuoka-www-city-nakama-lg-jp-4ed82c
-  prefecture: fukuoka
-  name: 空き家バンク物件情報
-  list: http://www.city.nakama.lg.jp/kurashi/sumai/jutakuseisaku/bukkennjouhou.html
-  status: unreachable
 - id: fukuoka-www-city-chikugo-lg-jp-809542
   prefecture: fukuoka
   name: 筑後市空き家バンク
   list: https://www.city.chikugo.lg.jp/shisei/_6166/_5790/_5793/akiyabank_list.html
-  status: unreachable
-- id: fukuoka-www-city-yukuhashi-fukuoka-jp-ad9b30
-  prefecture: fukuoka
-  name: 行橋市空き家バンク
-  list: http://www.city.yukuhashi.fukuoka.jp/doc/2017012000032/
-  status: unreachable
-- id: fukuoka-www-city-buzen-lg-jp-2f44f4
-  prefecture: fukuoka
-  name: 豊前市空き家バンク
-  list: http://www.city.buzen.lg.jp/jutaku/akiya/article_list.html
   status: unreachable
 - id: fukuoka-www-town-onga-lg-jp-cf1572
   prefecture: fukuoka
@@ -6958,6 +7048,13 @@ sites:
   list: https://www.city.kanzaki.saga.jp/main/5359.html
   status: pdf
   note: 7 PDF
+- id: saga-www-sagasmile-com-87bbd4
+  prefecture: saga
+  name: サガスマイル
+  list: https://www.sagasmile.com/support/unoccupied_house_bank
+  moved_from: https://www.sagasmile.com/main/28.html
+  status: delegated
+  note: rimanda a LIFULL/At Home
 - id: saga-www-city-saga-lg-jp-490ba1
   prefecture: saga
   name: 佐賀市空き家等情報登録制度
@@ -6973,11 +7070,6 @@ sites:
   prefecture: saga
   name: みやき町空き家バンク
   list: https://www.town.miyaki.lg.jp/teiju/jutaku/_2123.html
-  status: unreachable
-- id: saga-www-sagasmile-com-87bbd4
-  prefecture: saga
-  name: サガスマイル
-  list: https://www.sagasmile.com/main/28.html
   status: unreachable
 - id: saga-www-city-saga-lg-jp-1383f7
   prefecture: saga
@@ -7114,6 +7206,14 @@ sites:
   status: ok
   found: 18
   detail: /akiya/\d+/$
+- id: kumamoto-www-town-minamioguni-lg-jp-287bac
+  prefecture: kumamoto
+  name: 南小国町「空き家バンク」
+  list: https://minamioguni-rashiku.com/vacant-house/
+  moved_from: https://www.town.minamioguni.lg.jp/living/akiya/
+  status: ok
+  found: 5
+  detail: /vacant\-house/house\-\d+/$
 - id: kumamoto-minamiasoijyuu-jp-0a03f5
   prefecture: kumamoto
   name: 南阿蘇村移住サイト
@@ -7151,6 +7251,13 @@ sites:
   list: https://hitoyoshi-life.jp/empty/
   status: todo
   note: schede non riconosciute automaticamente
+- id: kumamoto-www-town-nankan-lg-jp-6916e3
+  prefecture: kumamoto
+  name: 南関町空き家バンク
+  list: https://www.town.nankan.lg.jp/kurashi/kurashisodan/4283.html
+  moved_from: https://www.town.nankan.lg.jp/page1283.html
+  status: todo
+  note: schede non riconosciute automaticamente
 - id: kumamoto-www-town-taragi-lg-jp-802049
   prefecture: kumamoto
   name: 多良木町空き家バンク制度
@@ -7161,6 +7268,13 @@ sites:
   prefecture: kumamoto
   name: 山の都地域しごとセンター
   list: https://www.town.kumamoto-yamato.lg.jp/shigoto/
+  status: todo
+  note: schede non riconosciute automaticamente
+- id: kumamoto-www-city-yamaga-kumamoto-jp-dcc1ea
+  prefecture: kumamoto
+  name: 山鹿市空き家バンク制度
+  list: https://www.yamaga-gurashi.com/house/index.html
+  moved_from: https://www.city.yamaga.kumamoto.jp/www/contents/1369359905589/index.html
   status: todo
   note: schede non riconosciute automaticamente
 - id: kumamoto-www-town-mifune-kumamoto-jp-d5edf3
@@ -7193,13 +7307,6 @@ sites:
   list: https://akiya.reihoku-kumamoto.jp/
   status: todo
   note: schede non riconosciute automaticamente
-- id: kumamoto-www-city-yatsushiro-lg-jp-7f35a1
-  prefecture: kumamoto
-  name: 八代市空き家バンク制度
-  list: http://www.city.yatsushiro.lg.jp/kiji0036921/index.html
-  status: pdf
-  note: 7 PDF
-  needs_jp: true
 - id: kumamoto-www-koshi-akiyabank-jp-57510e
   prefecture: kumamoto
   name: 合志市空き家バンク
@@ -7212,52 +7319,50 @@ sites:
   list: http://www.town.gyokuto.kumamoto.jp/gyokutoumatiakiya2/akiyagyokutoumati.html
   status: pdf
   note: 3 PDF
-- id: kumamoto-www-town-kosa-lg-jp-58c298
+- id: http://www.city.yatsushiro.lg.jp/kiji0036921/index.html
+  prefecture: kumamoto
+  name: 八代市空き家バンク制度
+  list: http://www.city.yatsushiro.lg.jp/kiji0036921/index.html
+  status: blocked
+- id: https://www.city.uki.kumamoto.jp/q/list/352.html
+  prefecture: kumamoto
+  name: 宇城市空き家・空き地バンク
+  list: https://www.city.uki.kumamoto.jp/q/list/352.html
+  status: blocked
+- id: https://www.town.kumamoto-oguni.lg.jp/q/list/196.html
+  prefecture: kumamoto
+  name: 小国町空き家バンク事業
+  list: https://www.town.kumamoto-oguni.lg.jp/q/list/196.html
+  status: blocked
+- id: https://www.city.tamana.lg.jp/q/aview/175/13935.html
+  prefecture: kumamoto
+  name: 玉名市空き家バンク
+  list: https://www.city.tamana.lg.jp/q/aview/175/13935.html
+  status: blocked
+- id: https://www.town.kosa.lg.jp/q/aview/225/3018.html
   prefecture: kumamoto
   name: 甲佐町公式ウェブサイト
   list: https://www.town.kosa.lg.jp/q/aview/225/3018.html
-  status: pdf
-  note: 24 PDF
-  needs_jp: true
+  status: blocked
+- id: https://www.vill.sagara.lg.jp/q/aview/32/318.html
+  prefecture: kumamoto
+  name: 相良村空き家バンク
+  list: https://www.vill.sagara.lg.jp/q/aview/32/318.html
+  status: blocked
 - id: kumamoto-nishiki-iju-club-825c17
   prefecture: kumamoto
   name: にしきで暮らさんね?
   list: http://nishiki-iju.club/akiya
-  status: unreachable
-- id: kumamoto-www-town-minamioguni-lg-jp-287bac
-  prefecture: kumamoto
-  name: 南小国町「空き家バンク」
-  list: https://www.town.minamioguni.lg.jp/living/akiya/
-  status: unreachable
-- id: kumamoto-www-town-nankan-lg-jp-6916e3
-  prefecture: kumamoto
-  name: 南関町空き家バンク
-  list: https://www.town.nankan.lg.jp/page1283.html
   status: unreachable
 - id: kumamoto-www-town-nagomi-lg-jp-13489d
   prefecture: kumamoto
   name: 和水町空き家バンク
   list: https://www.town.nagomi.lg.jp/hpkiji/pub/List.aspx?c_id=3&class_set_id=1&class_id=532
   status: unreachable
-- id: kumamoto-www-city-uki-kumamoto-jp-b6dbaf
-  prefecture: kumamoto
-  name: 宇城市空き家・空き地バンク
-  list: https://www.city.uki.kumamoto.jp/q/list/352.html
-  status: unreachable
-- id: kumamoto-www-town-kumamoto-oguni-lg-jp-61406a
-  prefecture: kumamoto
-  name: 小国町空き家バンク事業
-  list: https://www.town.kumamoto-oguni.lg.jp/q/list/196.html
-  status: unreachable
 - id: kumamoto-yamaekurashi-com-f6143a
   prefecture: kumamoto
   name: 山江村移住定住サイト
   list: http://yamaekurashi.com/
-  status: unreachable
-- id: kumamoto-www-city-yamaga-kumamoto-jp-dcc1ea
-  prefecture: kumamoto
-  name: 山鹿市空き家バンク制度
-  list: https://www.city.yamaga.kumamoto.jp/www/contents/1369359905589/index.html
   status: unreachable
 - id: kumamoto-www-hikawacyou-hinokuni-net-jp-96e287
   prefecture: kumamoto
@@ -7269,20 +7374,10 @@ sites:
   name: 熊本県宇土市空き家バンク 宇土市で暮らす。
   list: https://www.city.uto.lg.jp/q/list/347.html
   status: unreachable
-- id: kumamoto-www-city-tamana-lg-jp-38305d
-  prefecture: kumamoto
-  name: 玉名市空き家バンク
-  list: https://www.city.tamana.lg.jp/q/aview/175/13935.html
-  status: unreachable
 - id: kumamoto-www-ubuyamaguardians-com-3df53c
   prefecture: kumamoto
   name: 産山村空き家バンク
   list: https://www.ubuyamaguardians.com/
-  status: unreachable
-- id: kumamoto-www-vill-sagara-lg-jp-d26143
-  prefecture: kumamoto
-  name: 相良村空き家バンク
-  list: https://www.vill.sagara.lg.jp/q/aview/32/318.html
   status: unreachable
 - id: kumamoto-www-town-ozu-kumamoto-jp-336f61
   prefecture: kumamoto
@@ -7467,10 +7562,24 @@ sites:
   list: https://life-kawaminami.jp/house/
   status: todo
   note: schede non riconosciute automaticamente
+- id: miyazaki-www-town-hinokage-lg-jp-9e2004
+  prefecture: miyazaki
+  name: 日之影町空き家物件
+  list: http://www.town.hinokage.lg.jp/search.html?q=%E7%A9%BA%E3%81%8D%E5%AE%B6%E3%83%90%E3%83%B3%E3%82%AF
+  moved_from: http://www.town.hinokage.lg.jp/docs/2018102500012/
+  status: todo
+  note: schede non riconosciute automaticamente
 - id: miyazaki-www-rucle-jp-83b9a6
   prefecture: miyazaki
   name: 日向市地域ナレッジコミュニティ型情報サイトRucle(るーくる)
   list: http://www.rucle.jp/
+  status: todo
+  note: schede non riconosciute automaticamente
+- id: miyazaki-www-town-miyazaki-misato-lg-jp-211f6e
+  prefecture: miyazaki
+  name: 美郷町空家等情報バンク
+  list: http://www.town.miyazaki-misato.lg.jp/dynamic/info/pub/default.aspx?c_id=26
+  moved_from: http://www.town.miyazaki-misato.lg.jp/3333.htm
   status: todo
   note: schede non riconosciute automaticamente
 - id: miyazaki-www-town-tsuno-lg-jp-93b822
@@ -7503,6 +7612,11 @@ sites:
   list: https://www.city.miyakonojo.miyazaki.jp/site/akiyabank/
   status: pdf
   note: 1 PDF
+- id: http://iju.town.takaharu.lg.jp/
+  prefecture: miyazaki
+  name: 移住の窓口 霧島のふもと高原町
+  list: http://iju.town.takaharu.lg.jp/
+  status: blocked
 - id: miyazaki-shintomi-work-233f75
   prefecture: miyazaki
   name: しんとみワーク
@@ -7523,25 +7637,10 @@ sites:
   name: 延岡市住み替え住宅バンク
   list: http://nobeoka.akybank.jp/
   status: unreachable
-- id: miyazaki-www-town-hinokage-lg-jp-9e2004
-  prefecture: miyazaki
-  name: 日之影町空き家物件
-  list: http://www.town.hinokage.lg.jp/docs/2018102500012/
-  status: unreachable
 - id: miyazaki-www-town-kijo-lg-jp-47455e
   prefecture: miyazaki
   name: 木城町空き家バンク
   list: http://www.town.kijo.lg.jp/matidukuri-suisin/akiyabank_2.html
-  status: unreachable
-- id: miyazaki-iju-town-takaharu-lg-jp-19f0ee
-  prefecture: miyazaki
-  name: 移住の窓口 霧島のふもと高原町
-  list: http://iju.town.takaharu.lg.jp/
-  status: unreachable
-- id: miyazaki-www-town-miyazaki-misato-lg-jp-211f6e
-  prefecture: miyazaki
-  name: 美郷町空家等情報バンク
-  list: http://www.town.miyazaki-misato.lg.jp/3333.htm
   status: unreachable
 - id: miyazaki-www-uji-saito-com-eefd2e
   prefecture: miyazaki
@@ -7581,6 +7680,13 @@ sites:
   list: http://www.city.makurazaki.lg.jp/site/ijyu/list17-363.html
   status: todo
   note: schede non riconosciute automaticamente
+- id: kagoshima-www-town-amagi-lg-jp-d0b8f8
+  prefecture: kagoshima
+  name: 天城町ホームページ
+  list: https://www.town.amagi.lg.jp/kurashi/iju/akiya/
+  moved_from: https://www.town.amagi.lg.jp/docs/82.html
+  status: todo
+  note: schede non riconosciute automaticamente
 - id: kagoshima-www-city-hioki-kagoshima-jp-8cbe77
   prefecture: kagoshima
   name: 日置市空き家バンク
@@ -7591,6 +7697,13 @@ sites:
   prefecture: kagoshima
   name: 種子島・西之表市 移住支援情報
   list: http://iju-tanegashima.jp/publics/index/68/?gdpr_flg=1
+  status: todo
+  note: schede non riconosciute automaticamente
+- id: kagoshima-www-kurasu-wadomari-info-eda5a7
+  prefecture: kagoshima
+  name: 鹿児島県 沖永良部島 和泊町の移住情報サイトくらすわどまり 空き家バンク
+  list: http://www.kurasu-wadomari.info/category/ca-sumai
+  moved_from: http://www.kurasu-wadomari.info/sumai/akiyabanku
   status: todo
   note: schede non riconosciute automaticamente
 - id: kagoshima-www-city-kirishima-jp-786c1b
@@ -7605,6 +7718,13 @@ sites:
   list: http://www.city.ichikikushikino.lg.jp/akiyabank_index.html
   status: pdf
   note: 23 PDF
+- id: kagoshima-www-satsuma-net-jp-330f62
+  prefecture: kagoshima
+  name: さつま町空き家情報バンク
+  list: https://www.satsuma-net.jp/teiju/akiya/1/5623.html
+  moved_from: http://www.satsuma-net.jp/teiju/kurashi/machi/sumai/akiya.html
+  status: pdf
+  note: 31 PDF
 - id: kagoshima-www-city-minamisatsuma-lg-jp-7f63cb
   prefecture: kagoshima
   name: 南さつま市空き家バンク
@@ -7647,41 +7767,33 @@ sites:
   list: https://www.city.kagoshima-izumi.lg.jp/page/page_00815.html
   status: delegated
   note: rimanda a LIFULL/At Home
+- id: kagoshima-www-city-tarumizu-lg-jp-53c914
+  prefecture: kagoshima
+  name: 垂水市公式ウェブサイト 空き家バンク
+  list: http://www.city.tarumizu.lg.jp/hisho/kurashi/sangyo/teju/akiya/index.html
+  moved_from: http://www.city.tarumizu.lg.jp/chiiki/kurashi/sangyo/teju/sokushin.html
+  status: terms
+  note: 覧された方のIPアドレスやCookie情報、その他ホームページ閲覧にかかる情報を自動的に収集しています。これらのアクセス情報については、アクセス件数の集計などサイト運営上の
 - id: kagoshima-www-city-amami-lg-jp-99e422
   prefecture: kagoshima
   name: 奄美市空き家バンク
   list: http://www.city.amami.lg.jp/pjsenryaku/akiyabank/akiyariyoukibou.html
-  status: delegated
-  note: rimanda a LIFULL/At Home
+  status: terms
+  note: 覧された方のIPアドレスやCookie情報、その他ホームページ閲覧にかかる情報を自動的に収集しています。これらのアクセス情報については、アクセス件数の集計などサイト運営上の
 - id: kagoshima-www-town-isen-kagoshima-jp-04c695
   prefecture: kagoshima
   name: Uターン・Iターン移住・定住。空き家情報
   list: http://www.town.isen.kagoshima.jp/mirai/kurashi/machi-kankyo/ijushamukejoho/akiyajoho.html
-  status: unreachable
-- id: kagoshima-www-satsuma-net-jp-330f62
-  prefecture: kagoshima
-  name: さつま町空き家情報バンク
-  list: http://www.satsuma-net.jp/teiju/kurashi/machi/sumai/akiya.html
   status: unreachable
 - id: kagoshima-www-city-minamikyushu-lg-jp-37245b
   prefecture: kagoshima
   name: 南九州市空き家バンク
   list: https://www.city.minamikyushu.lg.jp/jyouhou/teju/sumai/index.html
   status: unreachable
-- id: kagoshima-www-city-tarumizu-lg-jp-53c914
-  prefecture: kagoshima
-  name: 垂水市公式ウェブサイト 空き家バンク
-  list: http://www.city.tarumizu.lg.jp/chiiki/kurashi/sangyo/teju/sokushin.html
-  status: unreachable
 - id: kagoshima-www-town-kagoshima-osaki-lg-jp-18a63a
   prefecture: kagoshima
   name: 大崎町空き家等バンク
   list: http://www.town.kagoshima-osaki.lg.jp/kc_kikakuseisaku/kurashi/ijuteju/sokushin/akiyabank.html
-  status: unreachable
-- id: kagoshima-www-town-amagi-lg-jp-d0b8f8
-  prefecture: kagoshima
-  name: 天城町ホームページ
-  list: https://www.town.amagi.lg.jp/docs/82.html
   status: unreachable
 - id: kagoshima-www-city-shibushi-lg-jp-205b4b
   prefecture: kagoshima
@@ -7727,11 +7839,6 @@ sites:
   prefecture: kagoshima
   name: 阿久根市空き家バンク制度
   list: http://www.pref.kagoshima.jp/ac01/pr/koryu/sumai/sityousonakiya.html
-  status: unreachable
-- id: kagoshima-www-kurasu-wadomari-info-eda5a7
-  prefecture: kagoshima
-  name: 鹿児島県 沖永良部島 和泊町の移住情報サイトくらすわどまり 空き家バンク
-  list: http://www.kurasu-wadomari.info/sumai/akiyabanku
   status: unreachable
 - id: okinawa-shimagurashi-net-915e1f
   prefecture: okinawa
