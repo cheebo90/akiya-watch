@@ -268,3 +268,13 @@ def test_akiya_pdf_sheet_text_and_photo(tmp_path, monkeypatch):
     blob = (tmp_path / refs[0].split("/")[-1]).read_bytes()
     assert photos.decrypt_bytes(blob, "pw") == imgs[0]
     assert photos.referenced([{"images": refs}]) == {refs[0].split("/")[-1]}
+
+
+def test_export_hides_listings_without_price():
+    from scraper import store
+    L = {"a": {"key": "a", "source": "akiyabank", "url": "u1", "type": "akiya", "price_yen": None, "address": "x町1",
+               "prefecture": "kyoto", "first_seen": "2026-11-06"},
+         "b": {"key": "b", "source": "akiyabank", "url": "u2", "type": "akiya", "price_yen": 0, "address": "y町1",
+               "prefecture": "kyoto", "first_seen": "2026-11-06"}}
+    out = store.export({"listings": L}, 0.01)
+    assert [p["keys"] for p in out["properties"]] == [["b"]]  # "free" (¥0) stays, no price goes

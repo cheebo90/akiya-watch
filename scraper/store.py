@@ -175,6 +175,12 @@ def export(state: dict, aud_per_jpy: float) -> dict:
         richest = max((m.get("images") or [] for m in members), key=len)
         if len(richest) > len(p.get("images") or []):
             p["images"] = richest  # e.g. the full SUUMO gallery fetched for an alert
+        if p.get("price_yen") is None:
+            # no price, or "da trattare" (応相談): not shown. Kept in the archive so the page isn't re-read daily.
+            prices = [m["price_yen"] for m in members if m.get("price_yen") is not None]
+            if not prices:
+                continue
+            p["price_yen"] = prices[0]
         p["id"] = gid
         p["links"] = [{"source": m["source"], "url": m["url"]} for m in members]
         p["keys"] = [m["key"] for m in members]
