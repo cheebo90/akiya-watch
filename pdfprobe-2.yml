@@ -1,0 +1,1424 @@
+sites:
+- id: hokkaido-shibetsutown-iju-com-f1bf67
+  prefecture: hokkaido
+  status: todo
+  list: http://shibetsutown-iju.com/estate.html
+  pdfs: 0
+  reads: []
+  result: no pdf
+- id: hokkaido-www-town-kamifurano-hokkaido-jp-88fe75
+  prefecture: hokkaido
+  status: todo
+  list: http://www.town.kamifurano.hokkaido.jp/index.php?id=864&ae_category=01
+  pdfs: 0
+  reads: []
+  result: no pdf
+- id: hokkaido-www-town-imakane-lg-jp-666671
+  prefecture: hokkaido
+  status: todo
+  list: https://www.town.imakane.lg.jp/gyousei/kurashi/jyuutaku/post_2816.html
+  pdfs: 0
+  reads: []
+  result: no pdf
+- id: hokkaido-www-kiyosato-e10-com-d9f666
+  prefecture: hokkaido
+  status: todo
+  list: https://www.kiyosato-e10.com/akiya_bank.html
+  pdfs: 0
+  reads: []
+  result: no pdf
+- id: hokkaido-www-town-aibetsu-hokkaido-jp-52b843
+  prefecture: hokkaido
+  status: todo
+  list: http://www.town.aibetsu.hokkaido.jp/03/04/02
+  pdfs: 0
+  reads: []
+  result: no pdf
+- id: hokkaido-www-city-utashinai-hokkaido-jp-e2ac3f
+  prefecture: hokkaido
+  status: todo
+  list: https://www.city.utashinai.hokkaido.jp/hotnews/category/274.html
+  pdfs: 0
+  reads: []
+  result: no pdf
+- id: hokkaido-www-city-fukagawa-lg-jp-ac4969
+  prefecture: hokkaido
+  status: todo
+  list: https://www.city.fukagawa.lg.jp/cms/section/kenchiku/ie/index.html
+  pdfs: 0
+  reads: []
+  result: no pdf
+- id: hokkaido-www-town-kunneppu-hokkaido-jp-2a6275
+  prefecture: hokkaido
+  status: todo
+  list: https://www.town.kunneppu.hokkaido.jp/life/genkinamatidukuri/akiyabank/index.html
+  pdfs: 0
+  reads: []
+  result: no pdf
+- id: hokkaido-www-rikubetsu-jp-8c5e8a
+  prefecture: hokkaido
+  status: todo
+  list: https://www.rikubetsu.jp/iju/seikatsu/
+  pdfs: 0
+  reads: []
+  result: no pdf
+- id: hokkaido-www-akinavi-net-f017dc
+  prefecture: hokkaido
+  status: pdf
+  list: http://www.akinavi.net/house/index.html
+  pdfs: 0
+  reads: []
+  result: no pdf
+- id: hokkaido-www-vill-nakasatsunai-hokkaido-jp-580cb0
+  prefecture: hokkaido
+  status: pdf
+  list: http://www.vill.nakasatsunai.hokkaido.jp/kurashi/jyuutaku_takuchi/akichi_akiie/
+  pdfs: 0
+  reads: []
+  result: no pdf
+- id: hokkaido-www-rausu-town-jp-fe8cdf
+  prefecture: hokkaido
+  status: pdf
+  list: https://www.rausu-town.jp/pages/view/161
+  pdfs: 0
+  reads: []
+  result: no pdf
+- id: hokkaido-www-teshiotown-hokkaido-jp-8d583b
+  prefecture: hokkaido
+  status: pdf
+  list: http://www.teshiotown.hokkaido.jp/?page_id=10343
+  pdfs: 5
+  reads:
+  - url: https://www.teshiotown.hokkaido.jp/wp-content/uploads/2016/04/37976a65e4ae2b15204f38fea334bb16.pdf
+    text: 空き家等の適正管理について(PDF)
+    result: no fields
+  - url: https://www.teshiotown.hokkaido.jp/wp-content/uploads/2026/09/acc5a5597e9008acb03f7ed18c369b62.pdf
+    text: 天塩町空家等対策計画(R8.9改訂版)
+    result: no fields
+  - url: https://www.teshiotown.hokkaido.jp/wp-content/uploads/2016/04/81dbbc1067cd462c1010e0b627202f51.pdf
+    text: 土地-01号
+    result: ok
+    price: null
+    building_m2: null
+    land_m2: null
+    address: ''
+    title: 天塩町空き家・空き地バンク
+  result: partial
+- id: hokkaido-www-town-horonobe-lg-jp-e80b83
+  prefecture: hokkaido
+  status: pdf
+  list: https://www.town.horonobe.lg.jp/www4/section/jumin/le009f000001c67k.html
+  pdfs: 0
+  reads: []
+  result: no pdf
+- id: hokkaido-www-city-nemuro-hokkaido-jp-19c021
+  prefecture: hokkaido
+  status: pdf
+  list: https://www.city.nemuro.hokkaido.jp/lifeinfo/kurashi/juutaku_toti_tosikeikaku/1/index.html
+  pdfs: 0
+  reads: []
+  result: no pdf
+- id: hokkaido-www-town-yubetsu-lg-jp-0e65ff
+  prefecture: hokkaido
+  status: pdf
+  list: https://www.town.yubetsu.lg.jp/st/kikaku/sumainojohobank.html
+  pdfs: 0
+  reads: []
+  result: no pdf
+- id: hokkaido-www-town-fukushima-hokkaido-jp-2a3a43
+  prefecture: hokkaido
+  status: pdf
+  list: http://www.town.fukushima.hokkaido.jp/移住/akiya/jouhou/
+  pdfs: 0
+  reads: []
+  result: no pdf
+- id: hokkaido-www-town-oketo-hokkaido-jp-0def2b
+  prefecture: hokkaido
+  status: pdf
+  list: http://www.town.oketo.hokkaido.jp/kurashi/sumai/akiyazyouhou/
+  pdfs: 0
+  reads: []
+  result: no pdf
+- id: hokkaido-www-town-uryu-hokkaido-jp-38eeb0
+  prefecture: hokkaido
+  status: pdf
+  list: http://www.town.uryu.hokkaido.jp/soshiki/kikakuzaisei/akiya-bank.html
+  pdfs: 0
+  reads: []
+  result: no pdf
+- id: aomori-akiya-city-hachinohe-aomori-jp-d45d9b
+  prefecture: aomori
+  status: todo
+  list: https://akiya.city.hachinohe.aomori.jp/
+  pdfs: 0
+  reads: []
+  result: no pdf
+- id: aomori-www-city-hirakawa-lg-jp-584dea
+  prefecture: aomori
+  status: todo
+  list: https://www.city.hirakawa.lg.jp/kurashi/sumai/akiya/hirosakikeniki_akiyabank.html
+  pdfs: 0
+  reads: []
+  result: no pdf
+- id: aomori-www-town-ooma-lg-jp-da4ba5
+  prefecture: aomori
+  status: pdf
+  list: https://www.town.ooma.lg.jp/lifeguide/migration
+  pdfs: 0
+  reads: []
+  result: no pdf
+- id: aomori-www-town-hashikami-lg-jp-0f5e33
+  prefecture: aomori
+  status: pdf
+  list: http://www.town.hashikami.lg.jp/index.cfm/7,9759,107,304,html
+  pdfs: 1
+  reads:
+  - url: http://www.town.hashikami.lg.jp/index.cfm/7,9759,c,html/9759/20260814-115952.pdf
+    text: 物件情報
+    result: ok
+    price: 2000000
+    building_m2: null
+    land_m2: null
+    address: 青森県階上町大字角柄折字東平 6番地170
+    title: 階上町空き家バンク登録物件情報
+  result: ok
+- id: iwate-kitakami-akiya-net-ff0985
+  prefecture: iwate
+  status: todo
+  list: https://kitakami-akiya.net/
+  pdfs: 0
+  reads: []
+  result: no pdf
+- id: iwate-www-town-hirono-iwate-jp-32a9c0
+  prefecture: iwate
+  status: todo
+  list: http://www.town.hirono.iwate.jp/docs/2016072900016/
+  pdfs: 0
+  reads: []
+  result: no pdf
+- id: iwate-www-city-morioka-iwate-jp-72a4ae
+  prefecture: iwate
+  status: pdf
+  list: http://www.city.morioka.iwate.jp/kurashi/sumai/akiya/index.html
+  pdfs: 0
+  reads: []
+  result: no pdf
+- id: iwate-www-town-kanegasaki-iwate-jp-600742
+  prefecture: iwate
+  status: pdf
+  list: https://www.town.kanegasaki.iwate.jp/categories/bunya/teijyu/sumai/akiyabank/
+  pdfs: 0
+  reads: []
+  result: no pdf
+- id: miyagi-osaki-ijyu-support-jp-0eebb4
+  prefecture: miyagi
+  status: todo
+  list: https://osaki-ijyu-support.jp/
+  pdfs: 0
+  reads: []
+  result: no pdf
+- id: miyagi-town-shichikashuku-miyagi-jp-ad06a0
+  prefecture: miyagi
+  status: pdf
+  list: https://town.shichikashuku.miyagi.jp/its/kurashi/bank_list.html
+  pdfs: 0
+  reads: []
+  result: no pdf
+- id: miyagi-www-pref-miyagi-jp-e22cda
+  prefecture: miyagi
+  status: todo
+  list: https://www.pref.miyagi.jp/soshiki/juutaku/akiyataisaku.html
+  pdfs: 3
+  reads:
+  - url: https://www.pref.miyagi.jp/documents/12231/handankijun.pdf
+    text: 宮城県管理不全空家等及び特定空家等の判断基準(HP公開版)(PDF:1,106KB)
+    result: no fields
+  - url: https://www.pref.miyagi.jp/documents/12231/akiyahoukaiseigo.pdf
+    text: 空家法の概要(国土交通省)(PDF:674KB)
+    result: no fields
+  - url: https://www.pref.miyagi.jp/documents/12231/tokubetukouzyo.pdf
+    text: 空き家の譲渡所得の3,000万円特別控除について(国土交通省)(PDF:246KB)
+    result: no fields
+  result: no fields
+- id: akita-www-city-daisen-lg-jp-4ed6c5
+  prefecture: akita
+  status: pdf
+  list: https://www.city.daisen.lg.jp/docs/2013103100162/
+  pdfs: 2
+  reads:
+  - url: https://www.city.daisen.lg.jp/uploads/public/archive_0000000089_01/guide_1.pdf
+    text: 空き家所有者の方へ [PDF]
+    result: scanned
+  - url: https://www.city.daisen.lg.jp/uploads/public/archive_0000000089_01/guide_2.pdf
+    text: 新しい空き家バンクに関する説明資料 [PDF]
+    result: scanned
+  result: scanned
+- id: akita-www-town-kosaka-akita-jp-e8d455
+  prefecture: akita
+  status: pdf
+  list: https://www.town.kosaka.akita.jp/kurashi_gyosei/kurashi_tetsuzuki/jutaku/971.html
+  pdfs: 1
+  reads:
+  - url: https://www.town.kosaka.akita.jp/material/files/group/4/20261001akiya.pdf
+    text: 空き家情報【R8.10.1更新】(PDFファイル:564.3KB)
+    result: ok
+    price: null
+    building_m2: 98.22
+    land_m2: null
+    address: ''
+    title: 空き家
+  result: ok
+- id: yamagata-t-landbank-org-a682b4
+  prefecture: yamagata
+  status: todo
+  list: https://t-landbank.org/
+  pdfs: 0
+  reads: []
+  result: no pdf
+- id: yamagata-www-city-shinjo-yamagata-jp-7cc39d
+  prefecture: yamagata
+  status: todo
+  list: https://www.city.shinjo.yamagata.jp/s012/140/20160809182835.html
+  pdfs: 0
+  reads: []
+  result: no pdf
+- id: yamagata-www-vill-ohkura-yamagata-jp-061f27
+  prefecture: yamagata
+  status: pdf
+  list: https://www.vill.ohkura.yamagata.jp/kurashi_tetsuzuki/iju_teiju/akiyabank/index.html
+  pdfs: 0
+  reads: []
+  result: no pdf
+- id: yamagata-shirataka-iju-jp-ae507e
+  prefecture: yamagata
+  status: pdf
+  list: http://shirataka-iju.jp/house/
+  pdfs: 1
+  reads:
+  - url: http://shirataka-iju.jp/_assets/428d9cc96caadea7672e4fba.pdf
+    text: 空き家バンク事業実施要項
+    result: no fields
+  result: no fields
+- id: fukushima-www-city-nihonmatsu-lg-jp-c08671
+  prefecture: fukushima
+  status: todo
+  list: https://www.city.nihonmatsu.lg.jp/page/page000100.html
+  pdfs: 0
+  reads: []
+  result: no pdf
+- id: fukushima-narahamirai-com-b48237
+  prefecture: fukushima
+  status: todo
+  list: https://narahamirai.com/support/bank/
+  pdfs: 0
+  reads: []
+  result: no pdf
+- id: fukushima-www-town-shimogo-fukushima-jp-667cc0
+  prefecture: fukushima
+  status: pdf
+  list: https://www.town.shimogo.fukushima.jp/life/sumai/1153.html
+  pdfs: 3
+  reads:
+  - url: https://www.town.shimogo.fukushima.jp/material/files/group/12/akiya917.pdf
+    text: 登録番号:第26-021号(PDFファイル:735.9KB)
+    result: ok
+    price: null
+    building_m2: 119.89
+    land_m2: 809.64
+    address: 福島県下郷町 落合地内
+    title: 下郷町落合地内
+  - url: https://www.town.shimogo.fukushima.jp/material/files/group/12/RVS1_24-019.pdf
+    text: 登録番号:第24-019号(PDFファイル:1.2MB)
+    result: ok
+    price: 8000000
+    building_m2: 128.87
+    land_m2: 347.0
+    address: 福島県下郷町 豊成地内
+    title: 下郷町豊成地内
+  - url: https://www.town.shimogo.fukushima.jp/material/files/group/12/23-017.pdf
+    text: 登録番号:第23-017号(PDFファイル:2.2MB)
+    result: ok
+    price: null
+    building_m2: null
+    land_m2: 760.32
+    address: 福島県下郷町 豊成字中前地内
+    title: 土地詳細情報
+  result: ok
+- id: fukushima-www-vill-otama-fukushima-jp-26600f
+  prefecture: fukushima
+  status: pdf
+  list: https://www.vill.otama.fukushima.jp/kurashi/teijyuusien/akiya_information/
+  pdfs: 2
+  reads:
+  - url: https://www.vill.otama.fukushima.jp/file/contents/1258/17881/qa1.pdf
+    text: 空き家を売りたい・貸したい方向けQ&A
+    result: no fields
+  - url: https://www.vill.otama.fukushima.jp/file/contents/1258/17882/qa2.pdf
+    text: 空き家を買いたい・借りたい方向けQ&A
+    result: scanned
+  result: no fields
+- id: fukushima-www-town-yanaizu-fukushima-jp-53e523
+  prefecture: fukushima
+  status: pdf
+  list: http://www.town.yanaizu.fukushima.jp/docs/2016032200019/
+  pdfs: 10
+  reads:
+  - url: http://www.town.yanaizu.fukushima.jp/docs/2016032200019/file_contents/16_bukkenjouhou.pdf
+    text: 物件情報[PDF:389KB]
+    result: ok
+    price: null
+    building_m2: null
+    land_m2: 37.85
+    address: 福島県柳津町大字柳津字諏訪町甲
+    title: 空き家物件情報(No.16)
+  - url: http://www.town.yanaizu.fukushima.jp/docs/2016032200019/file_contents/16_shashin.pdf
+    text: 物件写真[PDF:2.71MB]
+    result: no fields
+  - url: http://www.town.yanaizu.fukushima.jp/docs/2016032200019/file_contents/12_bukkenjouhou.pdf
+    text: 物件情報
+    result: ok
+    price: 5000000
+    building_m2: null
+    land_m2: 491.0
+    address: 福島県柳津町大字柳津字阿弥陀堂乙969
+    title: 空き家物件情報(No.12)
+  result: ok
+- id: fukushima-akiya-iwaki-com-a91297
+  prefecture: fukushima
+  status: pdf
+  list: https://akiya-iwaki.com
+  pdfs: 0
+  reads: []
+  result: no pdf
+- id: fukushima-www-vill-iitate-fukushima-jp-d18a75
+  prefecture: fukushima
+  status: pdf
+  list: https://www.vill.iitate.fukushima.jp/site/iju/
+  pdfs: 0
+  reads: []
+  result: no pdf
+- id: ibaraki-www-town-daigo-ibaraki-jp-568b3e
+  prefecture: ibaraki
+  status: todo
+  list: https://www.town.daigo.ibaraki.jp/page/page000326.html
+  pdfs: 0
+  reads: []
+  result: no pdf
+- id: ibaraki-www-city-itako-lg-jp-bf756d
+  prefecture: ibaraki
+  status: todo
+  list: https://www.city.itako.lg.jp/page/dir000057.html
+  pdfs: 0
+  reads: []
+  result: no pdf
+- id: ibaraki-www-vill-miho-lg-jp-30e388
+  prefecture: ibaraki
+  status: todo
+  list: https://www.vill.miho.lg.jp/page/page001258.html
+  pdfs: 0
+  reads: []
+  result: no pdf
+- id: ibaraki-www-city-kasama-lg-jp-933c5a
+  prefecture: ibaraki
+  status: pdf
+  list: https://www.city.kasama.lg.jp/page/page003290.html
+  pdfs: 0
+  reads: []
+  result: no pdf
+- id: tochigi-www-akiya-kaigi-org-44a029
+  prefecture: tochigi
+  status: todo
+  list: https://www.akiya-kaigi.org/複製-空き家バンク
+  pdfs: 0
+  reads: []
+  result: no pdf
+- id: tochigi-www-city-ohtawara-tochigi-jp-149bd2
+  prefecture: tochigi
+  status: pdf
+  list: https://www.city.ohtawara.tochigi.jp/docs/2014062700028/
+  pdfs: 7
+  reads:
+  - url: https://www.city.ohtawara.tochigi.jp/docs/2014062700028/file_contents/shoyuushanagare.pdf
+    text: 空き家等情報バンクの流れ(所有者用)[PDF:183KB]
+    result: no fields
+  - url: https://www.city.ohtawara.tochigi.jp/docs/2014062700028/file_contents/tourokucardkisairei.pdf
+    text: (記載例)[PDF:617KB]
+    result: no fields
+  - url: https://www.city.ohtawara.tochigi.jp/docs/2014062700028/file_contents/henkoutodokedesho7.pdf
+    text: 大田原市空き家等情報バンク登録変更届出書[PDF:87.4KB]
+    result: no fields
+  result: no fields
+- id: gunma-www-town-shimonita-lg-jp-1f70e4
+  prefecture: gunma
+  status: todo
+  list: https://www.town.shimonita.lg.jp/shimonita-life/index.html
+  pdfs: 0
+  reads: []
+  result: no pdf
+- id: gunma-www-vill-showa-gunma-jp-ca4551
+  prefecture: gunma
+  status: pdf
+  list: https://www.vill.showa.gunma.jp/kurashi/kurashi/jyutaku/2017-0224-1515-29.html
+  pdfs: 1
+  reads:
+  - url: https://www.vill.showa.gunma.jp/kurashi/kurashi/jyutaku/files/01/youshiki2.pdf
+    text: 空き家・土地情報登録取下書 (42KB)
+    result: no fields
+  result: no fields
+- id: gunma-www-vill-takayama-gunma-jp-d08a8a
+  prefecture: gunma
+  status: pdf
+  list: https://www.vill.takayama.gunma.jp/02chiiki/iju-teiju/akiya-bank/top.html
+  pdfs: 0
+  reads: []
+  result: no pdf
+- id: saitama-akiyabank-saihoku-ijuu-com-076765
+  prefecture: saitama
+  status: todo
+  list: https://akiyabank.saihoku-ijuu.com
+  pdfs: 0
+  reads: []
+  result: no pdf
+- id: saitama-www-town-ogose-saitama-jp-788685
+  prefecture: saitama
+  status: todo
+  list: http://www.town.ogose.saitama.jp/ogoseikatsu/kurasu/index.html
+  pdfs: 0
+  reads: []
+  result: no pdf
+- id: saitama-www-town-kawajima-saitama-jp-39c5fd
+  prefecture: saitama
+  status: pdf
+  list: http://www.town.kawajima.saitama.jp/1533.htm
+  pdfs: 0
+  reads: []
+  result: no pdf
+- id: saitama-www-city-koshigaya-saitama-jp-7c7672
+  prefecture: saitama
+  status: pdf
+  list: https://www.city.koshigaya.saitama.jp/smph/kurashi_shisei/kurashi/sumai/akiya/akiyabank.html
+  pdfs: 0
+  reads: []
+  result: no pdf
+- id: chiba-www-city-chiba-jp-6b4378
+  prefecture: chiba
+  status: todo
+  list: https://www.city.chiba.jp/toshi/kenchiku/jutakuseisaku/akiyatoujouhouteikyouseido.html
+  pdfs: 0
+  reads: []
+  result: no pdf
+- id: chiba-www-vill-chosei-chiba-jp-69841f
+  prefecture: chiba
+  status: todo
+  list: http://www.vill.chosei.chiba.jp/category/1-3-9-0-0.html
+  pdfs: 0
+  reads: []
+  result: no pdf
+- id: chiba-www-city-tomisato-lg-jp-7da114
+  prefecture: chiba
+  status: pdf
+  list: https://www.city.tomisato.lg.jp/0000009699.html
+  pdfs: 0
+  reads: []
+  result: no pdf
+- id: chiba-www-city-noda-chiba-jp-df8f85
+  prefecture: chiba
+  status: pdf
+  list: https://www.city.noda.chiba.jp/kurashi/anzen/bouhan/1008726.html
+  pdfs: 4
+  reads:
+  - url: https://www.city.noda.chiba.jp/_res/projects/default_project/_page_/001/008/726/26-gaiyou66.pdf
+    text: 物件番号26の概要と内部写真 (PDF 531.7 KB)
+    result: no fields
+  - url: https://www.city.noda.chiba.jp/_res/projects/default_project/_page_/001/008/726/26-madori.pdf
+    text: 物件番号26の間取り図 (PDF 38.6 KB)
+    result: no fields
+  - url: https://www.city.noda.chiba.jp/_res/projects/default_project/_page_/001/008/726/40-gaiyou.pdf
+    text: 物件番号40号の概要と内部写真 (PDF 284.7 KB)
+    result: no fields
+  result: no fields
+- id: tokyo-www-oshima-akiya-jp-52b289
+  prefecture: tokyo
+  status: todo
+  list: https://www.oshima-akiya.jp/
+  pdfs: 0
+  reads: []
+  result: no pdf
+- id: tokyo-www-juutakuseisaku-metro-tokyo-lg-jp-6d734f
+  prefecture: tokyo
+  status: todo
+  list: https://www.juutakuseisaku.metro.tokyo.lg.jp/akiya/
+  pdfs: 0
+  reads: []
+  result: no pdf
+- id: kanagawa-www-town-oiso-kanagawa-jp-b25c30
+  prefecture: kanagawa
+  status: pdf
+  list: http://www.town.oiso.kanagawa.jp/sangyo/akiya/11804.html
+  pdfs: 1
+  reads:
+  - url: http://www.mlit.go.jp/common/001282978.pdf
+    text: 全国版空き家・空き地バンク
+    result: no fields
+  result: no fields
+- id: niigata-www-iju-join-jp-af9b43
+  prefecture: niigata
+  status: todo
+  list: https://www.iju-join.jp/akiyabank/index.html
+  pdfs: 0
+  reads: []
+  result: no pdf
+- id: niigata-www-vill-yahiko-niigata-jp-5cf905
+  prefecture: niigata
+  status: todo
+  list: https://akiya.vill.yahiko.niigata.jp/
+  pdfs: 0
+  reads: []
+  result: no pdf
+- id: niigata-www-vill-sekikawa-niigata-jp-7b8bc0
+  prefecture: niigata
+  status: pdf
+  list: http://www.vill.sekikawa.niigata.jp/life/13/696/index.html
+  pdfs: 1
+  reads:
+  - url: http://www.vill.sekikawa.niigata.jp/file/info/norinkanko/01_20190423_家づくり事業の宣伝(関川村）.pdf
+    text: 県産材で建てた住宅に支援します
+    result: no fields
+  result: no fields
+- id: toyama-www-tonami-life-net-5f4c1d
+  prefecture: toyama
+  status: todo
+  list: https://www.tonami-life.net/archives/category/news/akiya
+  pdfs: 0
+  reads: []
+  result: no pdf
+- id: ishikawa-iju-ishikawa-jp-1a5cd5
+  prefecture: ishikawa
+  status: todo
+  list: https://iju.ishikawa.jp/akiya/
+  pdfs: 0
+  reads: []
+  result: no pdf
+- id: ishikawa-www-city-kahoku-ishikawa-jp-433ab6
+  prefecture: ishikawa
+  status: pdf
+  list: http://www.city.kahoku.ishikawa.jp/www/01/104/001/000/index_11816.html
+  pdfs: 3
+  reads:
+  - url: http://www.city.kahoku.ishikawa.jp/www/01/104/001/000/d000611_d/fil/17.pdf
+    result: http 404
+  - url: http://www.city.kahoku.ishikawa.jp/www/01/104/001/000/d000611_d/fil/18.pdf
+    result: http 404
+  - url: http://www.city.kahoku.ishikawa.jp/www/01/104/001/000/d000611_d/fil/23.pdf
+    result: http 404
+  result: no fields
+- id: ishikawa-notolife-com-e186e6
+  prefecture: ishikawa
+  status: pdf
+  list: http://notolife.com/
+  pdfs: 3
+  reads:
+  - url: http://notolife.com/house/pdf/0409.pdf
+    text: アクセストップ3画像 クリックで物件詳細表示
+    result: scanned
+  - url: http://notolife.com/house/pdf/0404.pdf
+    text: アクセストップ3画像 クリックで物件詳細表示
+    result: scanned
+  - url: http://notolife.com/house/pdf/0405.pdf
+    text: アクセストップ3画像 クリックで物件詳細表示
+    result: scanned
+  result: scanned
+- id: fukui-www-city-awara-lg-jp-4e7ef1
+  prefecture: fukui
+  status: pdf
+  list: http://www.city.awara.lg.jp/mokuteki/life/jyutaku1/p001478.html
+  pdfs: 68
+  reads:
+  - url: http://www.city.awara.lg.jp/mokuteki/life/jyutaku1/p001478_d/fil/2412-6.pdf
+    text: ''
+    result: ok
+    price: 8000000
+    building_m2: null
+    land_m2: null
+    address: 福井県あわら市大溝一丁目6-25
+    title: 様式第2号 空き家情報バンク登録カード ※太枠内のみ記入して
+  - url: http://www.city.awara.lg.jp/mokuteki/life/jyutaku1/p001478_d/fil/2412-6.pdf
+    text: 2412-6
+    result: ok
+    price: 8000000
+    building_m2: null
+    land_m2: null
+    address: 福井県あわら市大溝一丁目6-25
+    title: 様式第2号 空き家情報バンク登録カード ※太枠内のみ記入して
+  - url: http://www.city.awara.lg.jp/mokuteki/life/jyutaku1/p001478_d/fil/2501-1-2.pdf
+    text: ''
+    result: ok
+    price: 900000
+    building_m2: null
+    land_m2: null
+    address: 福井県あわら市舟津11-16-1
+    title: 様式第2号 空き家情報バンク登録カード ※太枠内のみ記入して
+  result: ok
+- id: fukui-www-town-minamiechizen-lg-jp-f2d1a9
+  prefecture: fukui
+  status: pdf
+  list: http://www.town.minamiechizen.lg.jp/izyu/akiyajyouhou/p001143.html
+  pdfs: 20
+  reads:
+  - url: http://www.town.minamiechizen.lg.jp/izyu/akiyajyouhou/p001143_d/fil/230502bukken.pdf
+    text: 物件情報 位置図 間取図 写真
+    result: ok
+    price: 30000000
+    building_m2: null
+    land_m2: null
+    address: 福井県南条郡南越前町今泉18-22
+    title: 様式第2号(第4条関係)
+  - url: http://www.town.minamiechizen.lg.jp/izyu/akiyajyouhou/p001143_d/fil/230704bukken.pdf
+    text: 物件情報 位置図 間取図 写真
+    result: ok
+    price: 3000000
+    building_m2: null
+    land_m2: null
+    address: 福井県南条郡南越前町今泉18-3
+    title: 様式第2号
+  - url: http://www.town.minamiechizen.lg.jp/izyu/akiyajyouhou/p001143_d/fil/230801bukken.pdf
+    text: 物件情報 位置図 写真
+    result: ok
+    price: 4700000
+    building_m2: null
+    land_m2: null
+    address: 福井県南条郡南越前町鯖波17-1-1
+    title: 様式第2号(第4条関係)
+  result: ok
+- id: fukui-www-town-echizen-fukui-jp-293e66
+  prefecture: fukui
+  status: pdf
+  list: https://www.town.echizen.fukui.jp/kurashi/04/09/p004049.html
+  pdfs: 0
+  reads: []
+  result: no pdf
+- id: yamanashi-www-city-fuefuki-yamanashi-jp-d2d234
+  prefecture: yamanashi
+  status: todo
+  list: https://www.city.fuefuki.yamanashi.jp/ijuteiju/index.html
+  pdfs: 0
+  reads: []
+  result: no pdf
+- id: yamanashi-www-city-otsuki-yamanashi-jp-834cb9
+  prefecture: yamanashi
+  status: pdf
+  list: http://www.city.otsuki.yamanashi.jp/shisei/shisaku_keikaku/akiyabanku.html
+  pdfs: 1
+  reads:
+  - url: http://www.city.otsuki.yamanashi.jp/shisei/shisaku_keikaku/files/otsuki_akiyabunk_nagare.20210401.pdf
+    text: 物件登録手順 (164KB)
+    result: no fields
+  result: no fields
+- id: yamanashi-www-city-kofu-yamanashi-jp-9d23bb
+  prefecture: yamanashi
+  status: pdf
+  list: https://www.city.kofu.yamanashi.jp/nanboku/machi/sumai/kekaku/aki.html
+  pdfs: 0
+  reads: []
+  result: no pdf
+- id: nagano-www-ina-akiyabank-jp-51a7cf
+  prefecture: nagano
+  status: todo
+  list: https://www.ina-akiyabank.jp/
+  pdfs: 0
+  reads: []
+  result: no pdf
+- id: nagano-go2miyada-net-1140f1
+  prefecture: nagano
+  status: todo
+  list: http://go2miyada.net
+  pdfs: 0
+  reads: []
+  result: no pdf
+- id: nagano-www-ikedamachi-net-3a71aa
+  prefecture: nagano
+  status: todo
+  list: http://www.ikedamachi.net/0000000829.html
+  pdfs: 0
+  reads: []
+  result: no pdf
+- id: nagano-www-tatsuno-life-jp-40546b
+  prefecture: nagano
+  status: todo
+  list: https://www.tatsuno-life.jp/
+  pdfs: 0
+  reads: []
+  result: no pdf
+- id: nagano-go-iijima-nagano-jp-1ac2a4
+  prefecture: nagano
+  status: pdf
+  list: https://go-iijima.nagano.jp/tag_normal/house/
+  pdfs: 0
+  reads: []
+  result: no pdf
+- id: nagano-www-town-nagiso-nagano-jp-fa714b
+  prefecture: nagano
+  status: pdf
+  list: http://www.town.nagiso.nagano.jp/gennkinamatidukuri/akiyatou_bank/akiya_bank.html
+  pdfs: 1
+  reads:
+  - url: http://www.town.nagiso.nagano.jp/gennkinamatidukuri/akiyatou_bank/cmsfiles/contents/0000000/2/vacanthousebanksystem.pdf
+    result: http 404
+  result: no fields
+- id: nagano-www-town-miyota-nagano-jp-2cbca2
+  prefecture: nagano
+  status: pdf
+  list: https://www.town.miyota.nagano.jp/akiyabank/index.html
+  pdfs: 0
+  reads: []
+  result: no pdf
+- id: nagano-rakuc-net-196dd3
+  prefecture: nagano
+  status: pdf
+  list: https://rakuc.net/
+  pdfs: 0
+  reads: []
+  result: no pdf
+- id: gifu-mitake-gurashi-jp-3bc49f
+  prefecture: gifu
+  status: todo
+  list: https://mitake-gurashi.jp/
+  pdfs: 0
+  reads: []
+  result: no pdf
+- id: gifu-shirakawa-ijuu-com-719a6d
+  prefecture: gifu
+  status: todo
+  list: https://shirakawa-ijuu.com/
+  pdfs: 0
+  reads: []
+  result: no pdf
+- id: gifu-www-city-hida-jp-a8e18f
+  prefecture: gifu
+  status: todo
+  list: http://www.city-hida.jp/sumutoko-net/
+  pdfs: 0
+  reads: []
+  result: no pdf
+- id: gifu-enalifebizsupport-jp-fb2787
+  prefecture: gifu
+  status: pdf
+  list: https://enalifebizsupport.jp/akiyabank/
+  pdfs: 0
+  reads: []
+  result: no pdf
+- id: shizuoka-www-city-mishima-shizuoka-jp-79d836
+  prefecture: shizuoka
+  status: todo
+  list: https://www.city.mishima.shizuoka.jp/life/1/6/41/
+  pdfs: 0
+  reads: []
+  result: no pdf
+- id: shizuoka-www-city-makinohara-shizuoka-jp-16669d
+  prefecture: shizuoka
+  status: todo
+  list: https://www.city.makinohara.shizuoka.jp/site/makinohara-life/list8-229.html
+  pdfs: 0
+  reads: []
+  result: no pdf
+- id: aichi-akiyabk-com-67c670
+  prefecture: aichi
+  status: todo
+  list: https://akiyabk.com/kariya/
+  pdfs: 0
+  reads: []
+  result: no pdf
+- id: aichi-akiyabk-com-f52c0d
+  prefecture: aichi
+  status: todo
+  list: https://akiyabk.com/oobu/
+  pdfs: 0
+  reads: []
+  result: no pdf
+- id: aichi-akiyabk-com-1efbfe
+  prefecture: aichi
+  status: todo
+  list: https://akiyabk.com/tokoname/
+  pdfs: 0
+  reads: []
+  result: no pdf
+- id: aichi-akiyabk-com-cfe900
+  prefecture: aichi
+  status: todo
+  list: https://akiyabk.com/fuso/
+  pdfs: 0
+  reads: []
+  result: no pdf
+- id: aichi-www-city-inuyama-aichi-jp-79f015
+  prefecture: aichi
+  status: todo
+  list: https://www.city.inuyama.aichi.jp/1003291/index.html
+  pdfs: 0
+  reads: []
+  result: no pdf
+- id: aichi-akiyabk-com-616d4c
+  prefecture: aichi
+  status: todo
+  list: https://akiyabk.com/kanie/
+  pdfs: 0
+  reads: []
+  result: no pdf
+- id: aichi-www-town-minamichita-lg-jp-3e520a
+  prefecture: aichi
+  status: pdf
+  list: https://www.town.minamichita.lg.jp/akiya/index.html
+  pdfs: 10
+  reads:
+  - url: https://www.town.minamichita.lg.jp/_res/projects/default_project/_page_/001/002/178/r08/260hp-2.pdf
+    text: 2026年9月7日 番号 260 売却 390万円 賃貸 - 備考 特記事項あり
+    result: no fields
+  - url: https://www.town.minamichita.lg.jp/_res/projects/default_project/_page_/001/002/178/r08/259hp.pdf
+    text: 2026年9月4日 番号 259 売却 750万円 賃貸 - 備考 特記事項あり
+    result: no fields
+  - url: https://www.town.minamichita.lg.jp/_res/projects/default_project/_page_/001/002/178/r08/258hp.pdf
+    text: 2026年8月27日 番号 258 売却 430万円 賃貸 - 備考 特記事項あり
+    result: no fields
+  result: no fields
+- id: aichi-www-city-toyohashi-lg-jp-443fb5
+  prefecture: aichi
+  status: pdf
+  list: https://www.city.toyohashi.lg.jp/18827.htm
+  pdfs: 0
+  reads: []
+  result: no pdf
+- id: mie-owasegurashi-xsrv-jp-a65d09
+  prefecture: mie
+  status: todo
+  list: http://owasegurashi.xsrv.jp/
+  pdfs: 0
+  reads: []
+  result: no pdf
+- id: mie-www-city-iga-lg-jp-ab174e
+  prefecture: mie
+  status: pdf
+  list: https://www.city.iga.lg.jp/0000003823.html
+  pdfs: 0
+  reads: []
+  result: no pdf
+- id: mie-www-town-kiho-lg-jp-1d89a7
+  prefecture: mie
+  status: pdf
+  list: https://www.town.kiho.lg.jp/tourism/migration/unoccupied_house_bank/
+  pdfs: 0
+  reads: []
+  result: no pdf
+- id: shiga-koisuru-akiya-com-db5148
+  prefecture: shiga
+  status: todo
+  list: https://koisuru-akiya.com/
+  pdfs: 0
+  reads: []
+  result: no pdf
+- id: shiga-www-town-shiga-hino-lg-jp-65555b
+  prefecture: shiga
+  status: pdf
+  list: http://www.town.shiga-hino.lg.jp/category/27-9-2-0-0-0-0-0-0-0.html
+  pdfs: 0
+  reads: []
+  result: no pdf
+- id: kyoto-www-nancla-jp-fee192
+  prefecture: kyoto
+  status: todo
+  list: http://www.nancla.jp/sumai/bank/
+  pdfs: 0
+  reads: []
+  result: no pdf
+- id: kyoto-www-vill-minamiyamashiro-lg-jp-0fb52b
+  prefecture: kyoto
+  status: pdf
+  list: http://www.vill.minamiyamashiro.lg.jp/contents_detail.php?frmId=1383
+  pdfs: 0
+  reads: []
+  result: no pdf
+- id: osaka-www-city-kashiwara-osaka-jp-f309c9
+  prefecture: osaka
+  status: todo
+  list: http://www.city.kashiwara.osaka.jp/docs/2019011100027/?doc_id=10508
+  pdfs: 0
+  reads: []
+  result: no pdf
+- id: osaka-bank-osaka-sumai-refo-com-f92728
+  prefecture: osaka
+  status: pdf
+  list: http://bank.osaka-sumai-refo.com/
+  pdfs: 0
+  reads: []
+  result: no pdf
+- id: osaka-www-city-ibaraki-osaka-jp-44602a
+  prefecture: osaka
+  status: pdf
+  list: https://www.city.ibaraki.osaka.jp/kikou/toshiseibi/kyojuuseisaku/menu/akiyataisaku/akiyabank/index.html
+  pdfs: 0
+  reads: []
+  result: no pdf
+- id: hyogo-akiyabank-city-kasai-hyogo-jp-675ce8
+  prefecture: hyogo
+  status: todo
+  list: http://akiyabank.city.kasai.hyogo.jp/
+  pdfs: 0
+  reads: []
+  result: no pdf
+- id: hyogo-kamicho-ijyu-com-251e9a
+  prefecture: hyogo
+  status: todo
+  list: https://kamicho-ijyu.com/
+  pdfs: 0
+  reads: []
+  result: no pdf
+- id: hyogo-www-city-kakogawa-lg-jp-f24a4e
+  prefecture: hyogo
+  status: pdf
+  list: https://www.city.kakogawa.lg.jp/soshikikarasagasu/tosi_kekaku/jyutaku/akiya_akichi/akiyabank280501.html
+  pdfs: 8
+  reads:
+  - url: https://www.city.kakogawa.lg.jp/material/files/group/123/image_bank.pdf
+    text: '空き家バンクのイメージ (PDFファイル: 80.1KB)'
+    result: no fields
+  - url: https://www.city.kakogawa.lg.jp/material/files/group/123/tourokunituite.pdf
+    text: '空き家バンクへの登録について (PDFファイル: 196.6KB)'
+    result: no fields
+  - url: https://www.city.kakogawa.lg.jp/material/files/group/123/akiyabank_riyou20180403_90902307.pdf
+    text: '空き家の利用について (PDFファイル: 61.7KB)'
+    result: no fields
+  result: no fields
+- id: hyogo-www-town-harima-lg-jp-75ac72
+  prefecture: hyogo
+  status: pdf
+  list: http://www.town.harima.lg.jp/toshikekaku/kurashi/machizukuri/toshi/akiya/akiyabanku_tourokuitiran.html
+  pdfs: 0
+  reads: []
+  result: no pdf
+- id: nara-www-vill-totsukawa-lg-jp-28fcc8
+  prefecture: nara
+  status: todo
+  list: https://www.vill.totsukawa.lg.jp/akiyabank/index.php
+  pdfs: 0
+  reads: []
+  result: no pdf
+- id: nara-akiya-takatori-info-4dd8d7
+  prefecture: nara
+  status: pdf
+  list: https://akiya.takatori.info/
+  pdfs: 0
+  reads: []
+  result: no pdf
+- id: nara-www-vill-kurotaki-nara-jp-fa64ef
+  prefecture: nara
+  status: pdf
+  list: https://www.vill.kurotaki.nara.jp/ijyu/bank/
+  pdfs: 1
+  reads:
+  - url: https://www.vill.kurotaki.nara.jp/cms/wp-content/uploads/2026/05/黒滝村空き家情報バンク-空き家変更・取消書.pdf
+    text: 黒滝村空家情報バンク 空家(変更・取消)書
+    result: no fields
+  result: no fields
+- id: wakayama-www-city-kainan-lg-jp-54bb98
+  prefecture: wakayama
+  status: pdf
+  list: http://www.city.kainan.lg.jp/kakubusho/machizukuribu/toshiseibika/akiya_kanren/1604298678291.html
+  pdfs: 64
+  reads:
+  - url: http://www.city.kainan.lg.jp/material/files/group/23/sikumi.pdf
+    text: '海南市空き家バンクのしくみ図(詳細版) (PDFファイル: 91.7KB)'
+    result: no fields
+  - url: http://www.city.kainan.lg.jp/material/files/group/23/R08-05info.pdf
+    text: 空き家情報(PDF)
+    result: no fields
+  - url: http://www.city.kainan.lg.jp/material/files/group/23/R08-05map.pdf
+    text: 空き家地図(PDF)
+    result: no fields
+  result: no fields
+- id: tottori-hayabusa-lab-com-2ba771
+  prefecture: tottori
+  status: todo
+  list: https://hayabusa-lab.com/iju/
+  pdfs: 0
+  reads: []
+  result: no pdf
+- id: tottori-www-town-wakasa-tottori-jp-392b5a
+  prefecture: tottori
+  status: todo
+  list: http://www.town.wakasa.tottori.jp/?page_id=23245
+  pdfs: 0
+  reads: []
+  result: no pdf
+- id: shimane-ohnansmilenavi-com-ee94bd
+  prefecture: shimane
+  status: todo
+  list: http://ohnansmilenavi.com
+  pdfs: 0
+  reads: []
+  result: no pdf
+- id: shimane-www-town-nishinoshima-shimane-jp-13e956
+  prefecture: shimane
+  status: todo
+  list: http://www.town.nishinoshima.shimane.jp/teiju/akiya/
+  pdfs: 0
+  reads: []
+  result: no pdf
+- id: okayama-www-town-wake-lg-jp-411560
+  prefecture: okayama
+  status: todo
+  list: https://www.town.wake.lg.jp/wakesum/
+  pdfs: 0
+  reads: []
+  result: no pdf
+- id: okayama-www-city-bizen-okayama-jp-8c2597
+  prefecture: okayama
+  status: pdf
+  list: https://www.city.bizen.okayama.jp/site/bizen/868.html
+  pdfs: 3
+  reads:
+  - url: https://www.city.bizen.okayama.jp/uploaded/life/39194_70943_misc.pdf
+    text: 空き家情報バンク登録の流れ [PDFファイル/131KB]
+    result: no fields
+  - url: https://www.city.bizen.okayama.jp/uploaded/attachment/16240.pdf
+    text: PDF
+    result: no fields
+  - url: https://www.city.bizen.okayama.jp/uploaded/attachment/13698.pdf
+    text: ※見本
+    result: no fields
+  result: no fields
+- id: okayama-www-vill-shinjo-okayama-jp-144943
+  prefecture: okayama
+  status: pdf
+  list: http://www.vill.shinjo.okayama.jp/index.php?id=100
+  pdfs: 9
+  reads:
+  - url: http://www.vill.shinjo.okayama.jp/assets/files/akiyabank/akiyabanku%20youkou.pdf
+    text: ''
+    result: no fields
+  - url: http://www.vill.shinjo.okayama.jp/assets/files/akiyabank/1gou_tourokusinnseisyo_mihon.pdf
+    text: 記入例
+    result: no fields
+  - url: http://www.vill.shinjo.okayama.jp/assets/files/akiyabank/2gou_syoudakusyo.pdf
+    text: 承諾書
+    result: no fields
+  result: no fields
+- id: hiroshima-mitsugiakiya-jp-30b891
+  prefecture: hiroshima
+  status: todo
+  list: http://mitsugiakiya.jp/
+  pdfs: 0
+  reads: []
+  result: no pdf
+- id: hiroshima-www-town-sera-hiroshima-jp-b90630
+  prefecture: hiroshima
+  status: pdf
+  list: http://www.town.sera.hiroshima.jp/kikaku/akiyabank.html
+  pdfs: 2
+  reads:
+  - url: http://www.town.sera.hiroshima.jp/uploaded/attachment/13035.pdf
+    text: 世羅町空き家・空き地バンク登録物件情報 [PDFファイル/7.06MB]
+    result: too big
+  - url: http://www.town.sera.hiroshima.jp/uploaded/attachment/13036.pdf
+    text: 世羅町空き家・空き地バンク登録物件位置図 [PDFファイル/2.15MB]
+    result: no fields
+  result: no fields
+- id: hiroshima-www-onomichisaisei-com-2b81c4
+  prefecture: hiroshima
+  status: pdf
+  list: http://www.onomichisaisei.com/gallery.php
+  pdfs: 1
+  reads:
+  - url: http://www.onomichisaisei.com/media/4/20101209-nagare.pdf
+    text: 詳しい空き家紹介の流れはこちら
+    result: no fields
+  result: no fields
+- id: yamaguchi-www-city-sanyo-onoda-lg-jp-93861a
+  prefecture: yamaguchi
+  status: pdf
+  list: https://www.city.sanyo-onoda.lg.jp/soshiki/84/akiyabanku.html#qa
+  pdfs: 0
+  reads: []
+  result: no pdf
+- id: tokushima-www-town-tokushima-mugi-lg-jp-e49387
+  prefecture: tokushima
+  status: pdf
+  list: https://www.town.tokushima-mugi.lg.jp/docs/2018100300010/
+  pdfs: 5
+  reads:
+  - url: https://www.town.tokushima-mugi.lg.jp/docs/2018100300010/file_contents/8.pdf
+    result: http 200
+  - url: https://www.town.tokushima-mugi.lg.jp/docs/2018100300010/file_contents/15.pdf
+    result: http 200
+  - url: https://www.town.tokushima-mugi.lg.jp/docs/2018100300010/file_contents/21.pdf
+    result: http 200
+  result: no fields
+- id: kagawa-www-city-kanonji-kagawa-jp-b3096b
+  prefecture: kagawa
+  status: pdf
+  list: https://www.city.kanonji.kagawa.jp/soshiki/48/14824.html
+  pdfs: 67
+  reads:
+  - url: https://www.city.kanonji.kagawa.jp/uploaded/attachment/44813.pdf
+    text: 物件情報 [PDFファイル/450KB]
+    result: ok
+    price: 9500000
+    building_m2: null
+    land_m2: null
+    address: ''
+    title: 観音寺市空き家バンク登録物件情報
+  - url: https://www.city.kanonji.kagawa.jp/uploaded/attachment/44714.pdf
+    text: 物件情報 [PDFファイル/1.1MB]
+    result: ok
+    price: null
+    building_m2: 85.94
+    land_m2: 137.52
+    address: ''
+    title: 観音寺市空き家バンク登録物件情報
+  - url: https://www.city.kanonji.kagawa.jp/uploaded/attachment/44277.pdf
+    text: 物件情報 [PDFファイル/901KB]
+    result: ok
+    price: 4700000
+    building_m2: null
+    land_m2: null
+    address: ''
+    title: 観音寺市空き家バンク登録物件情報
+  result: ok
+- id: ehime-www-town-ikata-ehime-jp-42d9f1
+  prefecture: ehime
+  status: todo
+  list: https://www.town.ikata.ehime.jp/akiya/search/search.php
+  pdfs: 0
+  reads: []
+  result: no pdf
+- id: kochi-www-city-nankoku-lg-jp-ec798b
+  prefecture: kochi
+  status: todo
+  list: https://www.city.nankoku.lg.jp/ijyu/
+  pdfs: 0
+  reads: []
+  result: no pdf
+- id: kochi-www-town-sakawa-lg-jp-89ef48
+  prefecture: kochi
+  status: todo
+  list: https://www.town.sakawa.lg.jp/life/dtl.php?hdnKey=1336
+  pdfs: 0
+  reads: []
+  result: no pdf
+- id: kochi-www-iju-join-jp-a88e98
+  prefecture: kochi
+  status: todo
+  list: https://www.iju-join.jp
+  pdfs: 0
+  reads: []
+  result: no pdf
+- id: kochi-www-city-kami-lg-jp-163dff
+  prefecture: kochi
+  status: todo
+  list: https://www.city.kami.lg.jp/site/akiya/akiyabank.html
+  pdfs: 0
+  reads: []
+  result: no pdf
+- id: kochi-www-city-kochi-kochi-jp-2229df
+  prefecture: kochi
+  status: pdf
+  list: https://www.city.kochi.kochi.jp/soshiki/104/akiyabank.html
+  pdfs: 0
+  reads: []
+  result: no pdf
+- id: fukuoka-www-city-onojo-fukuoka-jp-eae38b
+  prefecture: fukuoka
+  status: todo
+  list: http://www.city.onojo.fukuoka.jp/akiya/index.html
+  pdfs: 0
+  reads: []
+  result: no pdf
+- id: fukuoka-www-city-asakura-lg-jp-a6a80b
+  prefecture: fukuoka
+  status: todo
+  list: http://www.city.asakura.lg.jp/site/iju/
+  pdfs: 0
+  reads: []
+  result: no pdf
+- id: fukuoka-fukuchi-life-com-4c550d
+  prefecture: fukuoka
+  status: todo
+  list: http://fukuchi-life.com/
+  pdfs: 0
+  reads: []
+  result: no pdf
+- id: fukuoka-www-town-yoshitomi-lg-jp-9c4d21
+  prefecture: fukuoka
+  status: pdf
+  list: http://www.town.yoshitomi.lg.jp/iju/sumu/c211/
+  pdfs: 2
+  reads:
+  - url: http://www.town.yoshitomi.lg.jp/user/filer_public/05/eb/05ebc2bd-5d11-431d-affd-f1997e188ee9/wu-jian-deng-lu-bian-geng.pdf
+    text: 物件登録変更.pdf
+    result: no fields
+  - url: http://www.town.yoshitomi.lg.jp/user/filer_public/f4/78/f47863d3-4d0a-4034-be42-6ec2ad01f147/wu-jian-deng-lu-qu-xiao.pdf
+    text: 物件登録取消.pdf
+    result: no fields
+  result: no fields
+- id: fukuoka-www-city-miyawaka-lg-jp-95a254
+  prefecture: fukuoka
+  status: pdf
+  list: https://www.city.miyawaka.lg.jp/teiju/list00348.html
+  pdfs: 0
+  reads: []
+  result: no pdf
+- id: fukuoka-www-town-itoda-lg-jp-52222a
+  prefecture: fukuoka
+  status: pdf
+  list: http://www.town.itoda.lg.jp/residents/vacancy/page_00549.html
+  pdfs: 1
+  reads:
+  - url: https://www.town.itoda.lg.jp/files/SpcDocumentDetail_6a547139-47a8-4e7f-beb8-43db997ea3a5_file.pdf
+    text: 空き家バンク イメージ図(pdf)
+    result: no fields
+  result: no fields
+- id: fukuoka-www-city-iizuka-lg-jp-528190
+  prefecture: fukuoka
+  status: pdf
+  list: https://www.city.iizuka.lg.jp/jyuutakuakiya/banku.html
+  pdfs: 2
+  reads:
+  - url: https://www.city.iizuka.lg.jp/uploaded/attachment/1292.pdf
+    text: 空き家情報バンクQ&A(PDFファイル:298KB)
+    result: no fields
+  - url: https://www.city.iizuka.lg.jp/uploaded/attachment/17227.pdf
+    text: 空き家情報バンク登録宅建業者名簿 (PDFファイル:392KB)
+    result: no fields
+  result: no fields
+- id: saga-www-city-taku-lg-jp-9dc073
+  prefecture: saga
+  status: todo
+  list: https://www.city.taku.lg.jp/soshiki/14/1412.html
+  pdfs: 0
+  reads: []
+  result: no pdf
+- id: saga-www-city-saga-kashima-lg-jp-894a63
+  prefecture: saga
+  status: todo
+  list: https://www.city.saga-kashima.lg.jp/main/85.html
+  pdfs: 0
+  reads: []
+  result: no pdf
+- id: nagasaki-www-city-isahaya-nagasaki-jp-c963cc
+  prefecture: nagasaki
+  status: todo
+  list: https://www.city.isahaya.nagasaki.jp/akiya_bank/
+  pdfs: 0
+  reads: []
+  result: no pdf
+- id: nagasaki-www-city-matsuura-jp-411353
+  prefecture: nagasaki
+  status: pdf
+  list: https://www.city-matsuura.jp/top/purpose/sumai/skiyabunk/3602.html
+  pdfs: 6
+  reads:
+  - url: https://www.city-matsuura.jp/material/files/group/61/akiyabank78.pdf
+    text: 物件番号78(PDFファイル:2.6MB)
+    result: scanned
+  - url: https://www.city-matsuura.jp/material/files/group/61/akiya77.pdf
+    text: 物件番号77(PDFファイル:2.6MB)
+    result: scanned
+  - url: https://www.city-matsuura.jp/material/files/group/61/akiya76.pdf
+    text: 物件番号76(PDFファイル:3.1MB)
+    result: scanned
+  result: scanned
+- id: kumamoto-hitoyoshi-life-jp-4707a7
+  prefecture: kumamoto
+  status: todo
+  list: https://hitoyoshi-life.jp/empty/
+  pdfs: 0
+  reads: []
+  result: no pdf
+- id: kumamoto-www-city-yamaga-kumamoto-jp-dcc1ea
+  prefecture: kumamoto
+  status: todo
+  list: https://www.yamaga-gurashi.com/house/index.html
+  pdfs: 0
+  reads: []
+  result: no pdf
+- id: kumamoto-www-yunomae-kaziri-com-7c1f76
+  prefecture: kumamoto
+  status: todo
+  list: https://www.yunomae-kaziri.com/
+  pdfs: 0
+  reads: []
+  result: no pdf
+- id: oita-iju-tsukumi-jp-0e9e8f
+  prefecture: oita
+  status: todo
+  list: https://iju-tsukumi.jp/
+  pdfs: 0
+  reads: []
+  result: no pdf
+- id: oita-www-city-yufu-oita-jp-e6fb8f
+  prefecture: oita
+  status: todo
+  list: http://www.city.yufu.oita.jp/kurashi/sumai_akiya/akiya/
+  pdfs: 0
+  reads: []
+  result: no pdf
+- id: miyazaki-iju-pref-miyazaki-lg-jp-c328e1
+  prefecture: miyazaki
+  status: todo
+  list: http://iju.pref.miyazaki.lg.jp/housebank/
+  pdfs: 0
+  reads: []
+  result: no pdf
+- id: miyazaki-iju-miyazaki-city-jp-c3f341
+  prefecture: miyazaki
+  status: todo
+  list: http://iju-miyazaki-city.jp/
+  pdfs: 0
+  reads: []
+  result: no pdf
+- id: miyazaki-www-rucle-jp-83b9a6
+  prefecture: miyazaki
+  status: todo
+  list: http://www.rucle.jp/
+  pdfs: 0
+  reads: []
+  result: no pdf
+- id: miyazaki-www-city-kushima-lg-jp-69f3dc
+  prefecture: miyazaki
+  status: pdf
+  list: http://www.city.kushima.lg.jp/enjoy/slowlife/cat1/
+  pdfs: 0
+  reads: []
+  result: no pdf
+- id: kagoshima-www-city-makurazaki-lg-jp-dee1f4
+  prefecture: kagoshima
+  status: todo
+  list: http://www.city.makurazaki.lg.jp/site/ijyu/list17-363.html
+  pdfs: 0
+  reads: []
+  result: no pdf
+- id: kagoshima-www-kurasu-wadomari-info-eda5a7
+  prefecture: kagoshima
+  status: todo
+  list: http://www.kurasu-wadomari.info/category/ca-sumai
+  pdfs: 0
+  reads: []
+  result: no pdf
+- id: kagoshima-www-city-minamisatsuma-lg-jp-7f63cb
+  prefecture: kagoshima
+  status: pdf
+  list: http://www.city.minamisatsuma.lg.jp/shimin/sumai-tochi/akiyabank/akiya-itiran/e016245.html
+  pdfs: 0
+  reads: []
+  result: no pdf
+- id: kagoshima-www-town-setouchi-lg-jp-dc2f4c
+  prefecture: kagoshima
+  status: pdf
+  list: http://www.town.setouchi.lg.jp/shinkou/cho/kurashi/sumai/akiya/index.html
+  pdfs: 0
+  reads: []
+  result: no pdf
+- id: okinawa-okinawa-iju-jp-2d2a17
+  prefecture: okinawa
+  status: todo
+  list: https://okinawa-iju.jp/guide/
+  pdfs: 0
+  reads: []
+  result: no pdf
