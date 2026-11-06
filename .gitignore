@@ -3,3 +3,6 @@ __pycache__/
 data/raw-*.enc
 *.pyc
 .env
+web/p/
+data/photos/
+data/photos-keep.txt

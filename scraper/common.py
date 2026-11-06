@@ -34,7 +34,8 @@ class Http:
         self.blocked = 0
         self._last = 0.0
 
-    def get(self, url: str, **kw) -> Optional[str]:
+    def get(self, url: str, raw: bool = False, **kw):
+        """Page text (or bytes with raw=True); None on 404/errors."""
         if self.count >= self.max_requests:
             raise BudgetExceeded(url)
         for attempt in range(self.retries):
@@ -55,6 +56,8 @@ class Http:
                 if attempt + 1 < self.retries:
                     time.sleep(5 * (attempt + 1))
                 continue
+            if r.status_code == 200 and raw:
+                return r.content
             if r.status_code == 200:
                 r.encoding = r.apparent_encoding if r.encoding in (None, "ISO-8859-1") else r.encoding
                 return r.text

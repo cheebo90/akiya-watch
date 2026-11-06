@@ -27,6 +27,7 @@ from bs4 import BeautifulSoup
 from ..common import (Http, Listing, log, norm, parse_area_m2, parse_layout,
                       parse_price_yen, parse_walk_min, parse_year)
 from ..prefectures import ja_name
+from . import akiyapdf
 
 NAME = "akiyabank"
 
@@ -205,6 +206,22 @@ def detail_links(html: str, base: str, site: dict) -> list[str]:
     return list(dict.fromkeys(out))
 
 
+def _pdf_listing(http: Http, link: str, site: dict):
+    import os
+    from .. import photos
+    data = http.get(link, raw=True)
+    if not data or not data.startswith(b"%PDF"):
+        return None
+    l, why = akiyapdf.parse_pdf(data, link, site)
+    if not l:
+        log.info("akiyabank %s: %s not read (%s)", site["id"], link, why)
+        return None
+    pw = os.getenv("AKIYA_PASSPHRASE")
+    if pw:
+        l.images = photos.save(photos.from_pdf(data), link, pw)
+    return l
+
+
 def as_list(v) -> list[str]:
     return v if isinstance(v, list) else [v]
 
@@ -251,7 +268,8 @@ def scrape(http: Http, sites: list[dict], prefs: list[str], known_urls: set[str]
                     html = http.get(u)
                     if not html:
                         break
-                    new = [l for l in detail_links(html, u, site) if l not in links]
+                    found_links = [x for x, _ in akiyapdf.pdf_links(html, u)] if site.get("pdf") else detail_links(html, u, site)
+                    new = [l for l in found_links if l not in links]
                     if not new:
                         break
                     links += new
@@ -268,10 +286,13 @@ def scrape(http: Http, sites: list[dict], prefs: list[str], known_urls: set[str]
                 if details >= int(site.get("max_details", max_details_per_site)):
                     continue
                 details += 1
-                html = http.get(link)
-                if not html:
-                    continue
-                l = parse_detail(html, link, site)
+                if site.get("pdf"):
+                    l = _pdf_listing(http, link, site)
+                else:
+                    html = http.get(link)
+                    if not html:
+                        continue
+                    l = parse_detail(html, link, site)
                 if l:
                     found += 1
                     yield l

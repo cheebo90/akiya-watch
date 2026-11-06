@@ -32,6 +32,10 @@ jobs:
       url: ${{ steps.deploy.outputs.page_url }}
     steps:
       - uses: actions/checkout@v4
+      - name: Foto cifrate (ramo photos)
+        uses: actions/checkout@v4
+        continue-on-error: true
+        with: { ref: photos, path: web/p }
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with: { path: web }

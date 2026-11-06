@@ -14,7 +14,6 @@ from urllib.parse import urljoin, urlparse
 from bs4 import BeautifulSoup
 
 from ..common import log, norm
-from . import akiyabank as ab
 
 PROPISH = re.compile(r"(物件|No\.?\s*\d|番号|売買|売却|空き家|空家|戸建|住宅|土地|万円|\d{2,}号)")
 NOT_PROP = re.compile(r"(申込|申請|様式|要綱|規則|要領|登録カード|チラシ|案内|パンフ|補助金|助成|制度|手引|一覧表?$|同意書|誓約|媒介)")
@@ -86,6 +85,7 @@ def parse_pdf(data: bytes, url: str, site: dict):
     html = to_html(text, tables)
     # pages are <br>-joined lines: give pairs() real line breaks
     soup_html = html.replace("<br>", "\n")
+    from . import akiyabank as ab
     l = ab.parse_detail(soup_html, url, site)
     if l:
         l.extra["pdf"] = True

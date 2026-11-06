@@ -22,6 +22,7 @@ import yaml
 from . import fx, geo, notify, store
 from .common import Blocked, BudgetExceeded, Http, log
 from .prefectures import select
+from . import photos
 from .sources import akiyabank, athome, lifull, suumo, yahoo
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -223,6 +224,8 @@ def cmd_merge(cfg: dict, pw: str):
         "at": dt.datetime.now(dt.timezone.utc).isoformat(timespec="minutes"),
         "new": len(new), "geocoded": geocoded, "sources": summary, "warnings": warnings}]
     store.save_encrypted(state, STATE, pw)
+    # photos cut from PDFs still used by stored listings: the workflow deletes the others
+    (DATA / "photos-keep.txt").write_text("\n".join(sorted(photos.referenced(state["listings"].values()))))
     exp = store.export(state, aud_per_jpy)
     exp["runs"] = state["runs"][-10:]
     exp["new_keys"] = new_keys

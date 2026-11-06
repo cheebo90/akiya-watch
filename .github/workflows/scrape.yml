@@ -110,7 +110,9 @@ jobs:
         if: always()
         with:
           name: raw-akiyabank
-          path: data/raw-*.enc
+          path: |
+            data/raw-*.enc
+            data/photos/
           if-no-files-found: ignore
           retention-days: 3
 
@@ -140,6 +142,10 @@ jobs:
           APP_URL: https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/
           EXPECT_SOURCES: ${{ needs.plan.outputs.expect }}
         run: python -m scraper.run merge
+      - name: Foto cifrate (ramo photos)
+        uses: actions/checkout@v4
+        continue-on-error: true
+        with: { ref: photos, path: web/p }
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with: { path: web }
@@ -181,6 +187,19 @@ jobs:
           APP_URL: https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/
           EXPECT_SOURCES: akiyabank
         run: python -m scraper.run merge
+      - name: Foto cifrate (ramo photos)
+        uses: actions/checkout@v4
+        continue-on-error: true
+        with: { ref: photos, path: web/p }
+      - name: Aggiungi le foto nuove, togli quelle non più usate
+        if: steps.merge.outcome == 'success'
+        run: |
+          mkdir -p web/p
+          cp data/photos/*.bin web/p/ 2>/dev/null || true
+          if [ -s data/photos-keep.txt ]; then
+            for f in web/p/*.bin; do [ -e "$f" ] || continue; grep -qx "$(basename "$f")" data/photos-keep.txt || rm "$f"; done
+          fi
+          echo "foto: $(ls web/p/*.bin 2>/dev/null | wc -l)"
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with: { path: web, name: github-pages-akiyabank }
@@ -196,3 +215,15 @@ jobs:
           git commit -m "Aggiornamento akiya bank $(date -u +%F)" || { echo "nessuna modifica"; exit 0; }
           git pull --rebase origin main || { echo "::error::archivio cambiato durante il giro, non sovrascrivo"; exit 1; }
           git push origin HEAD:main
+      - name: Salva le foto (ramo photos, un solo commit)
+        if: always() && steps.merge.outcome == 'success'
+        run: |
+          cd web/p 2>/dev/null || exit 0
+          ls *.bin >/dev/null 2>&1 || exit 0
+          [ -d .git ] || git init -q -b photos
+          git config user.name "akiya-watch bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git checkout -q --orphan tmp-photos
+          git add -A .
+          git commit -qm "Foto cifrate $(date -u +%F)"
+          git push -f "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}.git" HEAD:photos

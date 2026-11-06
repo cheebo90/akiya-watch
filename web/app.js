@@ -22,6 +22,7 @@ const EXTRA_IT = { "物件名": "Nome", "地目": "Categoria terreno", "都市�
 const PAGE = 60;
 /* Ask the source's own image service for a sharper version when it has one (SUUMO resizes on request). */
 function sized(u, w) {
+  if (u.startsWith("enc:")) return BLANK + "#" + u;  // encrypted photo: decrypted by the observer below
   try {
     const url = new URL(u);
     if (url.pathname.endsWith("/resizeImage")) {
@@ -56,6 +57,45 @@ async function decrypt(blob, pass) {
   return JSON.parse(await new Response(stream).text());
 }
 
+/* photos cut from akiya-bank PDFs are stored encrypted next to the app (12-byte IV + AES-GCM WebP) */
+const BLANK = "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7";
+let PHOTO_KEY = null;
+const photoCache = new Map();
+function photoKey(pass) {
+  PHOTO_KEY = crypto.subtle.importKey("raw", new TextEncoder().encode(pass), "PBKDF2", false, ["deriveKey"]).then((base) =>
+    crypto.subtle.deriveKey({ name: "PBKDF2", salt: new TextEncoder().encode("akiya-watch-photos-v1"), iterations: 250000, hash: "SHA-256" },
+      base, { name: "AES-GCM", length: 256 }, false, ["decrypt"]));
+}
+function loadEnc(ref) {
+  if (!photoCache.has(ref)) {
+    photoCache.set(ref, (async () => {
+      const r = await fetch(ref.slice(4));
+      if (!r.ok) throw new Error(r.status);
+      const buf = new Uint8Array(await r.arrayBuffer());
+      const plain = await crypto.subtle.decrypt({ name: "AES-GCM", iv: buf.slice(0, 12) }, await PHOTO_KEY, buf.slice(12));
+      return URL.createObjectURL(new Blob([plain], { type: "image/webp" }));
+    })());
+  }
+  return photoCache.get(ref);
+}
+function hydrate(img) {
+  const s = img.getAttribute("src") || "";
+  const at = s.indexOf("#enc:");
+  if (at < 0 || !PHOTO_KEY) return;
+  loadEnc(s.slice(at + 1)).then((u) => { if (img.getAttribute("src") === s) img.src = u; })
+    .catch(() => img.dispatchEvent(new Event("error")));
+}
+new MutationObserver((muts) => {
+  for (const m of muts) {
+    if (m.type === "attributes") { if (m.target.tagName === "IMG") hydrate(m.target); continue; }
+    for (const n of m.addedNodes) {
+      if (n.nodeType !== 1) continue;
+      if (n.tagName === "IMG") hydrate(n);
+      n.querySelectorAll?.("img").forEach(hydrate);
+    }
+  }
+}).observe(document.documentElement, { childList: true, subtree: true, attributes: true, attributeFilter: ["src"] });
+
 async function unlock(pass, remember) {
   const msg = $("#lock-msg");
   msg.textContent = "Sblocco in corso…";
@@ -76,6 +116,7 @@ async function unlock(pass, remember) {
     return false;
   }
   if (remember) store.set("pass", pass);
+  photoKey(pass);
   boot();
   return true;
 }

@@ -251,3 +251,20 @@ def test_yahoo_detail_images_keep_own_folder():
             f'<img src="{other}cc33_01_01.jpg"><img src="{base}aa11_01_01.jpg?w=640">')
     imgs = parse_detail_images(html, [base + "aa11_01_01.jpg?w=184&h=124"])
     assert [u.split("?")[0] for u in imgs] == [base + "aa11_01_01.jpg", base + "bb22_02_01.jpg"]
+
+
+def test_akiya_pdf_sheet_text_and_photo(tmp_path, monkeypatch):
+    from pathlib import Path
+    from scraper import photos
+    from scraper.sources import akiyapdf
+    data = (Path(__file__).parent / "fixtures" / "akiya_sheet.pdf").read_bytes()
+    l, why = akiyapdf.parse_pdf(data, "https://town.example.lg.jp/a.pdf", {"id": "t", "prefecture": "nagano", "name": "x"})
+    assert why == "ok" and l.price_yen == 4_000_000 and l.land_m2 == 116.01 and l.building_m2 == 80.5
+    assert l.address.startswith("長野県小海町")
+    imgs = photos.from_pdf(data)
+    assert len(imgs) == 1 and imgs[0][:4] == b"RIFF"  # one photo (the small logo is skipped), WebP
+    monkeypatch.setattr(photos, "OUT", tmp_path)
+    refs = photos.save(imgs, "https://town.example.lg.jp/a.pdf", "pw")
+    blob = (tmp_path / refs[0].split("/")[-1]).read_bytes()
+    assert photos.decrypt_bytes(blob, "pw") == imgs[0]
+    assert photos.referenced([{"images": refs}]) == {refs[0].split("/")[-1]}
