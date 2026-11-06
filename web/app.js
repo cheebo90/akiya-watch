@@ -9,8 +9,8 @@ const store = {
   del(k) { try { localStorage.removeItem("aw:" + k); } catch {} },
 };
 const esc = (s) => String(s ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
-const fmtAud = (n) => n == null ? "—" : "A$" + Math.round(n).toLocaleString("en-AU");
-const fmtYen = (n) => n == null ? "" : "¥" + Math.round(n).toLocaleString("ja-JP");
+const fmtAud = (n) => n == null ? "—" : n === 0 ? "Gratis" : "A$" + Math.round(n).toLocaleString("en-AU");
+const fmtYen = (n) => n == null ? "" : n === 0 ? "¥0 (無償)" : "¥" + Math.round(n).toLocaleString("ja-JP");
 const fmtNum = (n, d = 0) => n == null ? "—" : Number(n).toLocaleString("it-IT", { maximumFractionDigits: d });
 
 const PREFS = [["hokkaido","Hokkaido","北海道"],["aomori","Aomori","青森県"],["iwate","Iwate","岩手県"],["miyagi","Miyagi","宮城県"],["akita","Akita","秋田県"],["yamagata","Yamagata","山形県"],["fukushima","Fukushima","福島県"],["ibaraki","Ibaraki","茨城県"],["tochigi","Tochigi","栃木県"],["gunma","Gunma","群馬県"],["saitama","Saitama","埼玉県"],["chiba","Chiba","千葉県"],["tokyo","Tokyo","東京都"],["kanagawa","Kanagawa","神奈川県"],["niigata","Niigata","新潟県"],["toyama","Toyama","富山県"],["ishikawa","Ishikawa","石川県"],["fukui","Fukui","福井県"],["yamanashi","Yamanashi","山梨県"],["nagano","Nagano","長野県"],["gifu","Gifu","岐阜県"],["shizuoka","Shizuoka","静岡県"],["aichi","Aichi","愛知県"],["mie","Mie","三重県"],["shiga","Shiga","滋賀県"],["kyoto","Kyoto","京都府"],["osaka","Osaka","大阪府"],["hyogo","Hyogo","兵庫県"],["nara","Nara","奈良県"],["wakayama","Wakayama","和歌山県"],["tottori","Tottori","鳥取県"],["shimane","Shimane","島根県"],["okayama","Okayama","岡山県"],["hiroshima","Hiroshima","広島県"],["yamaguchi","Yamaguchi","山口県"],["tokushima","Tokushima","徳島県"],["kagawa","Kagawa","香川県"],["ehime","Ehime","愛媛県"],["kochi","Kochi","高知県"],["fukuoka","Fukuoka","福岡県"],["saga","Saga","佐賀県"],["nagasaki","Nagasaki","長崎県"],["kumamoto","Kumamoto","熊本県"],["oita","Oita","大分県"],["miyazaki","Miyazaki","宮崎県"],["kagoshima","Kagoshima","鹿児島県"],["okinawa","Okinawa","沖縄県"]];
@@ -41,7 +41,7 @@ const RETIRED = new Set(["athome", "lifull"]);
 let DATA = null, VIEW = "list", shown = PAGE, map = null, cluster = null;
 const favs = new Set(store.get("favs", []));
 const seen = new Set(store.get("seen", []));
-const DEFAULT_FILTERS = { maxAud: 80000, type: [], pref: [], minBuild: "", minLand: "", maxWalk: "", builtAfter: "", q: "", withPhotos: false, hideSeen: false, newOnly: false, withYield: false };
+const DEFAULT_FILTERS = { maxAud: 80000, type: [], pref: [], minBuild: "", minLand: "", maxWalk: "", builtAfter: "", q: "", withPhotos: false, hideSeen: false, newOnly: false, withYield: false, freeOnly: false };
 let F = { ...DEFAULT_FILTERS, ...store.get("filters", {}) };
 const ASSUME_DEFAULT = { rentPerM2: "", buyCostPct: 8, taxPct: 1.0, mgmtPct: 8, maintAud: 800, vacancyPct: 10 };
 let A = { ...ASSUME_DEFAULT, ...store.get("assume", {}) };
@@ -156,6 +156,7 @@ function filtered() {
       if (F.withPhotos && !p.images?.length) return false;
       if (F.newOnly && !p.new_build) return false;
       if (F.withYield && !p.yield_pct) return false;
+      if (F.freeOnly && p.price_yen !== 0) return false;
       if (F.hideSeen && seen.has(p.id)) return false;
       if (q && !(`${p.title} ${p.address} ${prefName(p.prefecture)} ${p.access} ${p.layout}`.toLowerCase().includes(q))) return false;
     }
@@ -179,7 +180,7 @@ function activeFilterCount() {
   if (F.maxAud !== DEFAULT_FILTERS.maxAud) n++;
   for (const k of ["type", "pref"]) if (F[k].length) n++;
   for (const k of ["minBuild", "minLand", "maxWalk", "builtAfter", "q"]) if (F[k]) n++;
-  if (F.withPhotos) n++; if (F.hideSeen) n++; if (F.newOnly) n++; if (F.withYield) n++;
+  if (F.withPhotos) n++; if (F.hideSeen) n++; if (F.newOnly) n++; if (F.withYield) n++; if (F.freeOnly) n++;
   return n;
 }
 
@@ -369,7 +370,7 @@ function initFilters() {
     [...sel.options].forEach((o) => (o.selected = F.pref.includes(o.value)));
     for (const k of ["minBuild", "minLand", "maxWalk", "builtAfter", "q"]) form.elements[k].value = F[k];
     form.elements.withPhotos.checked = F.withPhotos; form.elements.hideSeen.checked = F.hideSeen;
-    form.elements.newOnly.checked = F.newOnly; form.elements.withYield.checked = F.withYield;
+    form.elements.newOnly.checked = F.newOnly; form.elements.withYield.checked = F.withYield; form.elements.freeOnly.checked = F.freeOnly;
   };
   form.elements.maxAud.addEventListener("input", (e) => (out.textContent = fmtAud(+e.target.value)));
   $("#btn-filters").onclick = () => { write(); $("#filters").showModal(); };
@@ -383,7 +384,7 @@ function initFilters() {
       minBuild: form.elements.minBuild.value, minLand: form.elements.minLand.value,
       maxWalk: form.elements.maxWalk.value, builtAfter: form.elements.builtAfter.value,
       q: form.elements.q.value, withPhotos: form.elements.withPhotos.checked, hideSeen: form.elements.hideSeen.checked,
-      newOnly: form.elements.newOnly.checked, withYield: form.elements.withYield.checked,
+      newOnly: form.elements.newOnly.checked, withYield: form.elements.withYield.checked, freeOnly: form.elements.freeOnly.checked,
     };
     store.set("filters", F); shown = PAGE; render();
   });
