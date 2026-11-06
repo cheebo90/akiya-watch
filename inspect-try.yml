@@ -1,617 +1,126 @@
 sites:
-- id: saga-kiyama
-  lists:
-  - https://www.town.kiyama.lg.jp/ijyu/list01539.html: 7
-  reads:
-  - url: https://www.town.kiyama.lg.jp/ijyu/list01540.html
-    price: 5000000
-    building_m2: null
-    land_m2: null
-    layout: 5DK
-    year: null
-    address: ''
-    title: 買いたい
-    images: 2
-    type: akiya
-  - url: https://www.town.kiyama.lg.jp/ijyu/list01541.html
-    result: not read
-    labels:
-    - Tel
-    - Fax
-    text: 借りたい / 基山移住サイトTOP / 基山町 ヘッダーをスキップ 本文へジャンプ 背景色 文字サイズ やさしいブラウザ Foreign Language English 中文(简化字) 한국어 Tiếng việt nam 基山町トップページへ グローバルナビゲーションをスキップ 基山移住サイトTOP > 分類から探す(移住) > すまいるナビ(物件一覧) > 借りたい 借りたい
-      分類メニュー 買いたい 借りたい 目的から探す 分類から探す(移住) サイトマップから探す ページの先頭へ 基山町TOPへ 基山町役場 〒841-0204 佐賀県三養基郡基山町大字宮浦666番地 Tel:0942-92-2011(代) Fax:0942-92-2084 Copyright 2018 Kiyama Town All rights reserved. 本サイトは一部のページ・機能にJavascriptを使用しております。
-  - url: https://www.town.kiyama.lg.jp/ijyu/list01501.html
-    result: not read
-    labels:
-    - Tel
-    - Fax
-    text: 基山への移住体験 / 基山移住サイトTOP / 基山町 ヘッダーをスキップ 本文へジャンプ 背景色 文字サイズ やさしいブラウザ Foreign Language English 中文(简化字) 한국어 Tiếng việt nam 基山町トップページへ グローバルナビゲーションをスキップ 基山移住サイトTOP > 分類から探す(移住) > 基山への移住体験 基山への移住体験 基山!ワンダー移住とは?
-      基山トカイナカ暮らし体験! 基山町移住体験住宅に関するお問い合わせ 基山町への移住に関するお問い合わせ 全5件 2018年3月8日更新 高校生まで医療費を助成!子育てがしやすいまち。 2018年3月7日更新 博多まで最速22分!だから通勤しやすい。 2018年3月4日更新 のびのび育児×福岡勤務をイメージする家 2018年3月3日更新 里山のふもと×住宅地でリアルな基山にふれる家 2018年3月2日更新
-      福岡通勤してみる×基山で暮らしてみる もっと見る 分類メニュー 基山への移住体験 基山!ワンダー移住とは? 基山トカイナカ暮らし体験! 基山町移住体験住宅に関するお問い合わせ 基山町への移住に関するお問い合わせ 移住ブログ 移住先輩インタビュー すまいるナビ(物件一覧) 買いたい 借りたい 目的から探す 分類から探す(移住) サイトマップから探す ページの先頭へ 基山町TOPへ 基山
-  - url: https://www.town.kiyama.lg.jp/ijyu/list01504.html
-    result: not read
-    labels:
-    - Tel
-    - Fax
-    text: 基山!ワンダー移住とは? / 基山移住サイトTOP / 基山町 ヘッダーをスキップ 本文へジャンプ 背景色 文字サイズ やさしいブラウザ Foreign Language English 中文(简化字) 한국어 Tiếng việt nam 基山町トップページへ グローバルナビゲーションをスキップ 基山移住サイトTOP > 分類から探す(移住) > 基山への移住体験 > 基山!ワンダー移住とは?
-      基山!ワンダー移住とは? 全2件 2018年3月8日更新 高校生まで医療費を助成!子育てがしやすいまち。 2018年3月7日更新 博多まで最速22分!だから通勤しやすい。 もっと見る 分類メニュー 基山!ワンダー移住とは? 基山トカイナカ暮らし体験! 基山町移住体験住宅に関するお問い合わせ 基山町への移住に関するお問い合わせ 目的から探す 分類から探す(移住) サイトマップから探す ページの先頭へ
-      基山町TOPへ 基山町役場 〒841-0204 佐賀県三養基郡基山町大字宮浦666番地 Tel:0942-92-2011(代) Fax:0942-92-2084 Copyright 2018 Kiyama Town All rights reserved. 本サイトは一部のページ・機能にJavascriptを使用しております。
-- id: saga-takeo
-  lists:
-  - https://takeo-ijyu.jp/bank/: 9
-  - https://www.city.takeo.lg.jp/goodlife/property/: 4
-  reads:
-  - url: https://takeo-ijyu.jp/bank/2918/
-    price: 2500000
-    building_m2: null
-    land_m2: null
-    layout: 6DK
-    year: 1955
-    address: 佐賀県大字永野
-    title: メニュー
-    images: 8
-    type: akiya
-  - url: https://takeo-ijyu.jp/bank/2862/
-    price: 7000000
-    building_m2: null
-    land_m2: null
-    layout: 6LDK
-    year: 1955
-    address: 佐賀県大字本部
-    title: メニュー
-    images: 8
-    type: akiya
-  - url: https://takeo-ijyu.jp/bank/2781/
-    price: 2300000
-    building_m2: null
-    land_m2: null
-    layout: ''
-    year: null
-    address: 佐賀県大字犬走
-    title: メニュー
-    images: 8
-    type: land
-  - url: https://takeo-ijyu.jp/bank/2706/
-    price: 13000000
-    building_m2: null
-    land_m2: null
-    layout: 5DK
-    year: 1976
-    address: 佐賀県大字甘久
-    title: メニュー
-    images: 7
-    type: akiya
 - id: saga-shiroishi
   lists:
-  - https://www.shiroishi-town.jp/akiya/: 11
+  - https://www.shiroishi-town.jp/akiya/: 8
   reads:
-  - url: https://www.shiroishi-town.jp/akiya/news/000582.php
-    result: not read
-    labels:
-    - 【売買物件
-    - TEL
-    - FAX
-    text: 【売買物件:No.38121】価格が変更になりました。(白石... | お知らせ | 白石町空き家・空き地バンク 縮小 標準 拡大 白石町空き家・空き地バンク HOME お知らせ 空き家を探す 空き地を探す 制度について Q&A お問い合わせ お知らせ NEWS HOME お知らせ 【売買物件:No.38121】価格が変更になりました。(白石... 【売買物件:No.38121】価格が変更になりました。(白石町大字東郷)
-      2026/10/27 【売買物件:No.38121】 【価格】 1,890万円→1,550万円 【白石町空き家・空き地バンク契約成立状況】 申し込み数 120件 契約成立数等 89件 登録物件数 31件 お知らせ一覧へ戻る HOME お知らせ 空き家を探す 空き地を探す 制度について Q&A お問い合わせ 白石町 白石町空き家・空き地バンク 佐賀県白石町 総合戦略課 重点プロジェクト係 〒849-1192
-      佐賀県杵島郡白石町大字福田1247-1 TEL:0952-84-7132 FAX:0952-84-6611 © Town Shiroishi. All Rights Reserved.
-  - url: https://www.shiroishi-town.jp/akiya/news/000581.php
-    result: not read
-    labels:
-    - 【売買物件
-    - TEL
-    - FAX
-    text: ※契約成立※【売買物件:No.38119】 | お知らせ | 白石町空き家・空き地バンク 縮小 標準 拡大 白石町空き家・空き地バンク HOME お知らせ 空き家を探す 空き地を探す 制度について Q&A お問い合わせ お知らせ NEWS HOME お知らせ ※契約成立※【売買物件:No.38119】 ※契約成立※【売買物件:No.38119】 2026/09/29 【売買物件:No.38119】登録物件は、契約が成立しました。
-      【白石町空き家・空き地バンク契約成立状況】 申し込み数 120件 契約成立数等 89件 登録物件数 31件 お知らせ一覧へ戻る HOME お知らせ 空き家を探す 空き地を探す 制度について Q&A お問い合わせ 白石町 白石町空き家・空き地バンク 佐賀県白石町 総合戦略課 重点プロジェクト係 〒849-1192 佐賀県杵島郡白石町大字福田1247-1 TEL:0952-84-7132 FAX:0952-84-6611
-      © Town Shiroishi. All Rights Reserved.
-  - url: https://www.shiroishi-town.jp/akiya/news/000578.php
-    result: not read
-    labels:
-    - 【売買物件
-    - TEL
-    - FAX
-    text: ※契約成立※【売買物件:No.36099】 | お知らせ | 白石町空き家・空き地バンク 縮小 標準 拡大 白石町空き家・空き地バンク HOME お知らせ 空き家を探す 空き地を探す 制度について Q&A お問い合わせ お知らせ NEWS HOME お知らせ ※契約成立※【売買物件:No.36099】 ※契約成立※【売買物件:No.36099】 2026/09/15 【売買物件:No.36099】登録物件は、契約が成立しました。
-      【白石町空き家・空き地バンク契約成立状況】 申し込み数 120件 契約成立数等 88件 登録物件数 32件 お知らせ一覧へ戻る HOME お知らせ 空き家を探す 空き地を探す 制度について Q&A お問い合わせ 白石町 白石町空き家・空き地バンク 佐賀県白石町 総合戦略課 重点プロジェクト係 〒849-1192 佐賀県杵島郡白石町大字福田1247-1 TEL:0952-84-7132 FAX:0952-84-6611
-      © Town Shiroishi. All Rights Reserved.
   - url: https://www.shiroishi-town.jp/akiya/vacanthouse/000559.php
-    result: not read
-    labels:
-    - 物件番号
-    - 区分
-    - 所在地
-    - 建築年
-    - 構造
-    - 間取り
-    - 延床面積
-    - 敷地面積
-    - 価格・賃料
-    - 敷金・礼金
-    - 情報登録日
-    - 掲載期間
-    - 設備
-    - 特記・備考
-    - 地図
-    - TEL
-    - FAX
-    text: No.38121【東郷住宅】 | 空き家を探す | 白石町空き家・空き地バンク 縮小 標準 拡大 白石町空き家・空き地バンク HOME お知らせ 空き家を探す 空き地を探す 制度について Q&A お問い合わせ 空き家を探す VACANT HOUSE HOME 空き家を探す No.38121【東郷住宅】 No.38121【東郷住宅】 売買 物件情報 【担当事業者】見学希望、物件に関するお問合せ等
-      ◎有限会社 新生開発 (佐賀市本庄町大字本庄1-1) TEL:0952-24-0388 物件番号 No.38121【東郷住宅】 区分 売買 所在地 白石町大字東郷2292番地 建築年 平成12年建築 構造 木造2階建 間取り 4LDK 延床面積 146.69m2 敷地面積 626.49m2 価格・賃料 1,550万円(土地・建物価格) 敷金・礼金 情報登録日 令和8年8月27日 掲載期間
-      令和8年8月27日~令和9年3月31日 設備 電気、上水道、下水道、風呂、トイレ(水洗)、駐車場(3台) 特記・備考 ・六角小学校区 地図 間取図 ※写真をクリックすると拡大して表示されます。 空き家一覧へ戻る HOME お知らせ 空き家を探す 空き地を探す 制度について Q&A お問い合わせ 白石町 白石町空き家・空き地バンク 佐賀県白石町 総合戦略課 重点プロジェクト係 〒849-1192
-      佐賀県杵島郡
-- id: kumamoto-akiya360
-  lists:
-  - https://kumamoto-akiya360.jp/property/: unreachable
-  - https://www.town.nankan.lg.jp/kurashi/kurashisodan/4283.html: 24
-  reads:
-  - url: https://kumamoto-akiya360.jp/property/p1000000345/
-    price: 2000000
-    building_m2: null
-    land_m2: 912.02
-    layout: ''
+    price: 15500000
+    building_m2: 146.69
+    land_m2: 626.49
+    layout: 4LDK
+    year: 2000
+    address: 佐賀県白石町大字東郷2292番地
+    title: 空き家を探すVACANT HOUSE
+    images: 8
+    type: akiya
+  - url: https://www.shiroishi-town.jp/akiya/vacanthouse/000575.php
+    price: 3900000
+    building_m2: 207.0
+    land_m2: 638.42
+    layout: 9DK
     year: null
-    address: 熊本県 南関町 長山
-    title: 南関町長山宅地、農地(No69)
-    images: 8
-    type: land
-  - url: https://kumamoto-akiya360.jp/property/p1000000025/
-    price: 1000000
-    building_m2: 158.29
-    land_m2: 613.88
-    layout: 5K
-    year: 1931
-    address: 熊本県 南関町 長山
-    title: 南関町長山戸建住宅(No77)
-    images: 8
+    address: 佐賀県白石町大字遠江4761番地1
+    title: 空き家を探すVACANT HOUSE
+    images: 7
     type: akiya
-  - url: https://kumamoto-akiya360.jp/property/p1000000452/
-    price: 1500000
-    building_m2: 146.37
-    land_m2: 544.26
-    layout: 5K
-    year: 1982
-    address: 熊本県 南関町 関東
-    title: 南関町関東戸建住宅(No91)
-    images: 8
-    type: akiya
-  - url: https://kumamoto-akiya360.jp/property/p1000000492/
-    price: 4500000
-    building_m2: null
-    land_m2: 1413.35
-    layout: ''
-    year: null
-    address: 熊本県 南関町 宮尾
-    title: 南関町宮尾宅地(No94)
-    images: 8
-    type: land
-- id: kumamoto-tsunagi
-  lists:
-  - https://www.town.tsunagi.lg.jp/teiju/hpkiji/pub/List.aspx?c_id=3&class_set_id=8&class_id=812: 6
-  reads:
-  - url: https://www.town.tsunagi.lg.jp/teiju/page4598.html
-    price: 6000000
-    building_m2: 53.55
-    land_m2: 391.07
-    layout: ''
-    year: 2012
-    address: 熊本県葦北郡津奈木町大字福浜(平国上地区)
-    title: 空き家No.62
-    images: 0
-    type: akiya
-  - url: https://www.town.tsunagi.lg.jp/teiju/page4342.html
-    price: null
-    building_m2: 71.14
-    land_m2: null
-    layout: ''
-    year: null
-    address: 熊本県津奈木町大字岩城(浜崎地区)
-    title: 空き家No.55
-    images: 0
-    type: akiya
-  - url: https://www.town.tsunagi.lg.jp/teiju/page4304.html
-    price: 9980000
-    building_m2: null
-    land_m2: null
-    layout: ''
-    year: 2011
-    address: 熊本県葦北郡津奈木町大字福浜(平国上地区)
-    title: 空き家No.52
-    images: 0
-    type: land
-  - url: https://www.town.tsunagi.lg.jp/teiju/page3231.html
-    price: null
-    building_m2: null
-    land_m2: null
-    layout: ''
-    year: null
-    address: 熊本県津奈木町大字千代地区
-    title: 空き家No.24
-    images: 0
-    type: land
-- id: kumamoto-yunomae
-  lists:
-  - https://www.yunomae-kaziri.com/: 3
-  reads:
-  - url: https://www.yunomae-kaziri.com/dynamic/kankou/info/pub/detail.aspx?c_id=40&id=195
-    price: 2000000
-    building_m2: null
-    land_m2: null
-    layout: ''
-    year: 1953
-    address: ''
-    title: ''
-    images: 0
-    type: land
-  - url: https://www.yunomae-kaziri.com/dynamic/kankou/info/pub/detail.aspx?c_id=40&id=316
-    result: not read
-    labels:
-    - ○風呂
-    - ○トイレ
-    - ○駐車場
-    - ○改修必要箇所
-    - ○家財
-    - ○ガス
-    - 間取り図(PDF
-    - Tel
-    text: 空き家バンク / ゆのまえかじり ヘッダーをスキップ 本文へジャンプ Foreign Language English 中文(简化字) 中文(繁體字) 한국어 日本語 文字サイズ 背景色 行政トップページへ 観る・遊ぶ グルメ・お土産 温泉・宿泊 空き家バンク 湯前町の暮らし 湯前町の子育て 移住に関するお問い合わせ 行政トップページへ ゆのまえかじり 空き家バンク 登録番号(46)閑静な住宅街にある下村地区の一軒家
-      空き家バンク 登録番号(46)閑静な住宅街にある下村地区の一軒家 町の中でも比較的閑静な住宅街にある平屋の一軒家です。庭が広いため3~4台駐車可能です。水回り、雨漏り箇所、廊下床の改修が必要です。 基本情報 情報登録日 2026年4月21日 掲載期間 2026年4月21日~ 契約形態 売却 建物の種類 一戸建て 間取り 4DK 価格・賃料 要相談 築年月 1971(昭和46)年 建屋(専有)面積
-      113.86m2 敷地面積 735.68m2 住所 湯前町3168 備考 ○木造 平屋建て ○風呂:電気 ○トイレ:和式非水洗1、男性用便器1 ○駐車場:3~4台駐車可 ○改修必要箇所:天井(雨漏り)、廊下床、水回り ○家財:一部あり ○ガス:プロパンガス 写真 玄関 和室1 和室2 洋室 台所 風呂 トイレ 畑 間取り図 間取り図(PDF:333.7キロバイト) ページの先
-  - url: https://www.yunomae-kaziri.com/dynamic/kankou/info/pub/detail.aspx?c_id=40&id=124
-    result: not read
-    labels:
-    - ○風呂
-    - ○トイレ
-    - ○駐車場
-    - ○ペット
-    - ○改修必要箇所
-    - ○家財
-    - ○ガス
-    - Tel
-    text: '空き家バンク / ゆのまえかじり ヘッダーをスキップ 本文へジャンプ Foreign Language English 中文(简化字) 中文(繁體字) 한국어 日本語 文字サイズ 背景色 行政トップページへ 観る・遊ぶ グルメ・お土産 温泉・宿泊 空き家バンク 湯前町の暮らし 湯前町の子育て 移住に関するお問い合わせ 行政トップページへ ゆのまえかじり 空き家バンク 登録番号(30)
-      町中心部から1km圏内の好立地・築75年の木造住宅 上村地区の空き家 空き家バンク 登録番号(30) 町中心部から1km圏内の好立地・築75年の木造住宅 上村地区の空き家 ★町の中心部から1km圏内で生活拠点に便利な立地です。 ★大規模改修か解体をご検討ください。 基本情報 情報登録日 2022/1/12 掲載期間 契約形態 売却 建物の種類 一戸建て 間取り 間取図のとおり 価格・賃料
-      150万円 ※要相談 築年月 1947(昭和22)年 建屋(専有)面積 126m2 敷地面積 689.73m2(宅地353.73m2/隣接田336m2) 住所 熊本県球磨郡湯前町2853番地(隣接田:2854番地) 備考 ○木造 平屋建て(築75年) ○風呂:ボイラー(撤去済み) ○トイレ:和式非水洗1、男性用便器1 ○駐車場:車庫なし/2台駐車可 ○ペット:可 ○改修必要箇所:※大規模改修か解体をご検討ください。 '
-- id: kumamoto-hitoyoshi
-  lists:
-  - https://hitoyoshi-life.jp/empty/: 9
-  page2: 0
-  reads:
-  - url: https://hitoyoshi-life.jp/empty/4761/
-    result: not read
-    labels:
-    - 賃料
-    - 広さ
-    - 間取り
-    - 設備
-    - TEL
-    - 住所
-    - 土地
-    text: 敷地100坪人気の平屋!球磨川の自然を感じる静かな住環境です【西間下町381-1】 | 人吉市移住定住サイト人よしライフ MENU トップページ > 空き家バンク物件一覧 > 中古住宅 > 敷地100坪人気の平屋!球磨川の自然を感じる静かな住環境です【西間下町381-1】 中古住宅 敷地100坪人気の平屋!球磨川の自然を感じる静かな住環境です【西間下町381-1】 人吉市西間下町、球磨川の豊かな自然を身近に感じる静かな住宅街の平屋物件です。
-      350万円という価格設定と、100坪のゆったりとした敷地が最大の魅力です。 建物は1973年築の木造平屋建て(5DK)。部屋数が多く、ご家族での居住はもちろん、趣味の部屋やワークスペースをお探しの方におすすめです。築年数は経過していますが、購入費用を抑えて自分好みのDIYやリノベーション楽しみたい方に大変おすすめの物件です。 敷地内には駐車スペースが確保されているほか、屋外用の道具や趣味のアイテムを収納できる便利な倉庫も付いています。
-      この物件に対するお問い合わせは 株式会社エムシィス 0966-32-7000にお願いします。 賃料 売却 350万円(手数料別) 広さ 土地:宅地331.28m2、建物:83.57m2 間取り 木造セメント瓦葺平屋建 ダイニングキッチン5.5帖、洋間5.5帖、和室4.5帖・4.5帖・4.5帖・6帖、トイレ、浴室、
-  - url: https://hitoyoshi-life.jp/empty/4628/
-    result: not read
-    labels:
-    - 賃料
-    - 広さ
-    - 間取り
-    - 設備
-    - TEL
-    - 住所
-    - 建築年
-    - 土地
-    text: '自然豊かな井ノ口町の農地付物件です【井ノ口町971-1】 | 人吉市移住定住サイト人よしライフ MENU トップページ > 空き家バンク物件一覧 > 中古住宅 > 自然豊かな井ノ口町の農地付物件です【井ノ口町971-1】 中古住宅 自然豊かな井ノ口町の農地付物件です【井ノ口町971-1】 人吉市井ノ口町にあり、広大な敷地を有する物件です。隣接する農地と合わせ土地面積約1,947.45m2(約589.09坪)という広さを確保し、農業など自然と触れ合う暮らしをお考えの方に適した条件を備えています。
-      構 造:木造平屋建て 建築年:昭和7年建築 この物件に対するお問い合わせは 九州総合不動産株式会社 0966-26-3100にお願いします。 賃料 売却 150万円(手数料別) 広さ 土地:宅地797.45m2、田457m2・693m2、建物:52.50m2(15.881坪) 間取り 和室6帖・8帖・4.5帖・4.5帖、台所、トイレ 設備 ※枯れ池、附属家、納屋(2棟)あり。 ※建物登記は未登記です。
-      ※家財道具は、購入希望者がいた場合に撤去されます。 申し込み様式などはこちら 人吉市役所 市民部地域コミュニティ課自治支援係 TEL 0966-22-2111(内線1062) 住所 人吉市西間下町7-1 人吉市役所 一覧へ戻る 熊本県人吉市役所商工観光課しごと創生係 0966-22-2111 '
-  - url: https://hitoyoshi-life.jp/empty/4570/
-    result: not read
-    labels:
-    - 賃料
-    - 広さ
-    - 間取り
-    - 設備
-    - TEL
-    - 住所
-    - 所在地
-    - 建築年
-    - 1階
-    - 2階
-    text: 子育て世代に好立地の北泉田町!広々とした間取りが魅力の5DK 2階建て物件です【北泉田町177-7】 | 人吉市移住定住サイト人よしライフ MENU トップページ > 空き家バンク物件一覧 > 中古住宅 > 子育て世代に好立地の北泉田町!広々とした間取りが魅力の5DK 2階建て物件です【北泉田町177-7】 中古住宅 子育て世代に好立地の北泉田町!広々とした間取りが魅力の5DK 2階建て物件です【北泉田町177-7】
-      人吉市北泉田町の、広々とした間取りが魅力の2階建て物件のご案内です。 1階に3部屋、2階に2部屋を備えたゆとりの5DKの間取りで、家族それぞれの個室を確保できます。 また、1階には土間、2階にはユーティリティーやバルコニーがある機能的な間取りは、家事動線や収納にも配慮されています 。 保育園、小学校、高校といった教育施設がいずれも徒歩10分圏内に揃っており、お子様の通学にも安心の好立地。
-      敷地内には2台分の駐車スペースがあり、子育て世代にうれしい環境です 。 所在地:人吉市北泉田町177-7 構 造:木造2階建て 建築年:昭和38年建築(増改築昭和41年) この物件に対するお問い合わせは 南九州不動産株式会社 0966-22-4111にお願いします。 賃料 売却 570万円(手数料別) 広さ 土地216.34m2(65.44坪)、建物 1階:64.83m2(19.61
-  - url: https://hitoyoshi-life.jp/empty/4551/
-    result: not read
-    labels:
-    - 賃料
-    - 広さ
-    - 間取り
-    - 設備
-    - TEL
-    - 住所
-    - 所在地
-    - 建築年
-    text: 県道沿いに立ち並ぶ住宅地内!ガーデニングが楽しめる平屋物件です【上漆田町3280-2】 | 人吉市移住定住サイト人よしライフ MENU トップページ > 空き家バンク物件一覧 > 中古住宅 > 県道沿いに立ち並ぶ住宅地内!ガーデニングが楽しめる平屋物件です【上漆田町3280-2】 中古住宅 県道沿いに立ち並ぶ住宅地内!ガーデニングが楽しめる平屋物件です【上漆田町3280-2】 土地384.04m2(116.17坪)、建物86.12m2(26.05坪)と広々とした敷地に建つ平屋住宅です。
-      昭和57年建築、6帖のダイニングキッチンに洋室2室、和室2室と納戸がついたゆとりある空間です。 車は3台分の駐車スペースがあります。 大畑小学校まで1.6Km、アブニール・大畑こども園まで640mです。 所在地:人吉市上漆田町3280-2 構 造:木造平屋建て 建築年:昭和57年建築 この物件に対するお問い合わせは 南九州不動産株式会社 0966-22-4111にお願いします。 賃料 売却
-      450万円(手数料別) 広さ 土地384.04m2(116.17坪)、建物86.12m2(26.05坪) 間取り ダイニングキッチン(6帖)、洋室(11帖)、和室(6帖)(6帖)、風呂、トイレ、洗面、納戸 設備 上水道、合併浄化槽、オール電化 ※その他、雨どい及び床の修繕を要します。 申し込み様式などはこちら 人
-- id: oita-tsukumi
-  lists:
-  - https://iju-tsukumi.jp/house/: 0
-  - https://iju-tsukumi.jp/rents/: 12
-  reads:
-  - url: https://iju-tsukumi.jp/rents/detail/166
-    price: 2900000
-    building_m2: 90.84
-    land_m2: 178.76
-    layout: ''
-    year: 1972
-    address: 大分県津久見市大字津久見
-    title: 空き家バンク
-    images: 8
-    type: akiya
-  - url: https://iju-tsukumi.jp/rents/detail/165
-    price: 3500000
-    building_m2: 105.96
-    land_m2: 316.76
-    layout: ''
+  - url: https://www.shiroishi-town.jp/akiya/vacanthouse/000540.php
+    price: 5000000
+    building_m2: 151.79
+    land_m2: 289.3
+    layout: 6DK
     year: 1986
-    address: 大分県津久見市徳浦本町
-    title: 空き家バンク
-    images: 8
+    address: 佐賀県白石町大字戸ケ里2318番地30
+    title: 空き家を探すVACANT HOUSE
+    images: 3
     type: akiya
-  - url: https://iju-tsukumi.jp/rents/detail/164
-    price: 3500000
-    building_m2: 85.18
-    land_m2: 178.76
+  - url: https://www.shiroishi-town.jp/akiya/vacanthouse/000535.php
+    price: 2000000
+    building_m2: 184.27
+    land_m2: 498.65
     layout: ''
-    year: 1973
-    address: 大分県津久見市大字津久見
-    title: 空き家バンク
-    images: 8
+    year: 1971
+    address: 佐賀県白石町大字戸ケ里2849番地7
+    title: 空き家を探すVACANT HOUSE
+    images: 4
     type: akiya
-  - url: https://iju-tsukumi.jp/rents/detail/162
-    price: 3000000
-    building_m2: 84.74
-    land_m2: 237.02
-    layout: ''
-    year: 1964
-    address: 大分県津久見市大字上青江
-    title: 空き家バンク
-    images: 8
-    type: akiya
-- id: oita-kitsuki
-  lists:
-  - https://www.city.kitsuki.lg.jp/cgi-bin/recruit.php/1/list: 20
-  reads:
-  - url: https://www.city.kitsuki.lg.jp/cgi-bin/recruit.php/1/detail/452?ck=1
-    price: 8000000
-    building_m2: null
-    land_m2: null
-    layout: 5K
-    year: null
-    address: 大分県杵築市大字相原【R8年10月1日up】
-    title: 空き家バンクNo. 590
-    images: 8
-    type: akiya
-  - url: https://www.city.kitsuki.lg.jp/cgi-bin/recruit.php/1/detail/451?ck=1
-    price: 2500000
-    building_m2: null
-    land_m2: null
-    layout: 5K
-    year: 1961
-    address: 大分県杵築市大字八坂【R8年10月1日UP】
-    title: 空き家バンクNo. 593
-    images: 8
-    type: akiya
-  - url: https://www.city.kitsuki.lg.jp/cgi-bin/recruit.php/1/detail/447?ck=1
-    price: 3800000
-    building_m2: null
-    land_m2: null
-    layout: 5K
-    year: null
-    address: 大分県杵築市大田永松【R8年9月1日UP】
-    title: 空き家バンクNo. 588
-    images: 8
-    type: akiya
-  - url: https://www.city.kitsuki.lg.jp/cgi-bin/recruit.php/1/detail/453?ck=1
-    price: 14800000
-    building_m2: null
-    land_m2: null
-    layout: 5K
-    year: 1973
-    address: 大分県杵築市大字南杵築【R8年10月15日UP】
-    title: 空き家バンクNo. 594
-    images: 8
-    type: akiya
-- id: oita-bungoono
-  lists:
-  - https://bungoono-iju.com/akiya/: unreachable
-  reads: []
 - id: fukuoka-koge
   lists:
   - https://www.town.koge.lg.jp/cgi-bin/recruit.php/1/list: 8
   reads:
   - url: https://www.town.koge.lg.jp/cgi-bin/recruit.php/1/detail/61?ck=1
-    result: not read
-    labels:
-    - 物件No.
-    - 地域
-    - 所在地
-    - 物件種類
-    - 販売価格/家賃
-    - 間取り
-    - 敷地面積等
-    - 公共インフラ状況
-    - 関連資料
-    - 文字サイズ
-    - 背景色変更
-    - 背景色
-    - 現在のページ
-    - 検索条件で絞り込む
-    - 1階
-    - 土地
-    - 電気
-    - ガス
-    - 風呂
-    - 水道
-    - トイレ
-    - 家屋内物品
-    - 敷地内物品
-    - 車庫
-    - 物置
-    text: 古民家の物件/上毛町 本文へ 文字サイズ 背景色変更 Foreign Language 組織から探す 検索画面を閉じる ホーム くらし・手続き 健康・医療・福祉 観光 町政・まちづくり しごと・産業 子育て 移住定住 学び・文化・スポーツ Select Language 組織から探す 文字サイズ 背景色 PC版で見る メニューを閉じる 現在のページ ホーム 古民家の物件 検索条件で絞り込む
-      地域 物件種類 検索する 古民家の物件 物件情報 物件No. 61 地域 唐原校区エリア 所在地 上毛町大字上唐原 物件種類 売買物件 販売価格/家賃 販売価格100万円 間取り 1階:和室9.4畳、9.4畳、7畳、7畳、4.7畳、台所、風呂、トイレ 2階:和室9.4畳 敷地面積等 土地:483.49m2/建物:1階140.20m2、2階43.66m2 公共インフラ 状況 電気:引き込み済み
-      ガス:プロパンガス 風呂:灯油 水道:井戸 トイレ:汲み取り(洋式) 家屋内物品:有(廃棄可) 敷地内物品:無 車庫:無 物置:無 庭:有 関連資料 間取り図 物件一覧へ戻る 上毛町役場 〒871-0992 福岡県築上郡上毛町大字垂水1321番地1 電話 0979-72-3111(代表) ファックス 0979-72-4664 開庁時間:土曜日、日曜日、祝日、 年末年始(12月29日から翌年1月3日)を除く、
+    price: 1000000
+    building_m2: null
+    land_m2: 483.49
+    layout: ''
+    year: null
+    address: 福岡県上毛町大字上唐原
+    title: 古民家の物件
+    images: 5
+    type: akiya
   - url: https://www.town.koge.lg.jp/cgi-bin/recruit.php/1/detail/54?ck=1
-    result: not read
-    labels:
-    - 物件No.
-    - 地域
-    - 所在地
-    - 物件種類
-    - 販売価格/家賃
-    - 築年数
-    - 間取り
-    - 敷地面積等
-    - 公共インフラ状況
-    - 備考
-    - 関連資料
-    - 文字サイズ
-    - 背景色変更
-    - 背景色
-    - 現在のページ
-    - 検索条件で絞り込む
-    - 土地
-    - 電気
-    - ガス
-    - 風呂
-    - 水道
-    - 排水
-    - トイレ
-    - 家屋内物品
-    - 敷地内物品
-    text: 立地条件〇の物件/上毛町 本文へ 文字サイズ 背景色変更 Foreign Language 組織から探す 検索画面を閉じる ホーム くらし・手続き 健康・医療・福祉 観光 町政・まちづくり しごと・産業 子育て 移住定住 学び・文化・スポーツ Select Language 組織から探す 文字サイズ 背景色 PC版で見る メニューを閉じる 現在のページ ホーム 立地条件〇の物件 検索条件で絞り込む
-      地域 物件種類 検索する 立地条件〇の物件 物件情報 物件No. 54 地域 南吉富校区エリア 所在地 上毛町大字宇野 物件種類 売買物件 販売価格/家賃 販売価格 1,000万円 築年数 築65年 間取り 居間5畳、洋室8畳、6畳、和室8畳、6畳、6畳、台所、風呂、トイレ 敷地面積等 土地:858平方メートル 建物:1階114平方メートル、2階33平方メートル 公共インフラ 状況 電気:引き込み済み
-      ガス:プロパンガス 風呂:ガス 水道:簡易水道 排水:浄化槽 トイレ:水洗(洋式) 家屋内物品:有(廃棄可) 敷地内物品:無 車庫:無 物置:有 庭:有 備考 7登第6号 関連資料 間取り図 ポイント 屋根、天井改修済(17年前) 物件一覧へ戻る 上毛町役場 〒871-0992 福岡県築上郡上毛町大字垂水1321番地1 電話 0979-72-3111(代表) ファックス 0979-72-4
+    price: 10000000
+    building_m2: null
+    land_m2: null
+    layout: ''
+    year: null
+    address: 福岡県上毛町大字宇野
+    title: 立地条件〇の物件
+    images: 5
+    type: akiya
   - url: https://www.town.koge.lg.jp/cgi-bin/recruit.php/1/detail/60?ck=1
-    result: not read
-    labels:
-    - 物件No.
-    - 地域
-    - 所在地
-    - 物件種類
-    - 販売価格/家賃
-    - 築年数
-    - 間取り
-    - 敷地面積等
-    - 公共インフラ状況
-    - 文字サイズ
-    - 背景色変更
-    - 背景色
-    - 現在のページ
-    - 検索条件で絞り込む
-    - 1階
-    - 土地
-    - 電気
-    - ガス
-    - 風呂
-    - 水道
-    - トイレ
-    - 家屋内物品
-    - 敷地内物品
-    - 車庫
-    - 物置
-    text: 自然豊かな場所にある物件/上毛町 本文へ 文字サイズ 背景色変更 Foreign Language 組織から探す 検索画面を閉じる ホーム くらし・手続き 健康・医療・福祉 観光 町政・まちづくり しごと・産業 子育て 移住定住 学び・文化・スポーツ Select Language 組織から探す 文字サイズ 背景色 PC版で見る メニューを閉じる 現在のページ ホーム 自然豊かな場所にある物件
-      検索条件で絞り込む 地域 物件種類 検索する 自然豊かな場所にある物件 物件情報 物件No. 60 地域 友枝校区エリア 所在地 上毛町大字東上 物件種類 売買物件 販売価格/家賃 販売価格90万円 築年数 築35年程度 間取り 1階:居間6畳、洋室4.5畳×2部屋、和室6畳、台所、風呂、トイレ 敷地面積等 土地:410.17m2/建物:1階43.7坪 公共インフラ 状況 電気:引き込み済み
-      ガス:プロパンガス 風呂:ガス 水道:井戸 トイレ:汲み取り(洋式) 家屋内物品:有 敷地内物品:有 車庫:有 物置:有 庭:有 物件一覧へ戻る 上毛町役場 〒871-0992 福岡県築上郡上毛町大字垂水1321番地1 電話 0979-72-3111(代表) ファックス 0979-72-4664 開庁時間:土曜日、日曜日、祝日、 年末年始(12月29日から翌年1月3日)を除く、 8時30分から17時15
+    price: 900000
+    building_m2: null
+    land_m2: 410.17
+    layout: ''
+    year: null
+    address: 福岡県上毛町大字東上
+    title: 自然豊かな場所にある物件
+    images: 5
+    type: akiya
   - url: https://www.town.koge.lg.jp/cgi-bin/recruit.php/1/detail/62?ck=1
-    result: not read
-    labels:
-    - 物件No.
-    - 地域
-    - 所在地
-    - 物件種類
-    - 販売価格/家賃
-    - 間取り
-    - 敷地面積等
-    - 公共インフラ状況
-    - 文字サイズ
-    - 背景色変更
-    - 背景色
-    - 現在のページ
-    - 検索条件で絞り込む
-    - 1階
-    - 土地
-    - 電気
-    - 水道
-    - 家屋内物品
-    - 敷地内物品
-    - 車庫
-    - 物置
-    - 開庁時間
-    text: '古民家の物件/上毛町 本文へ 文字サイズ 背景色変更 Foreign Language 組織から探す 検索画面を閉じる ホーム くらし・手続き 健康・医療・福祉 観光 町政・まちづくり しごと・産業 子育て 移住定住 学び・文化・スポーツ Select Language 組織から探す 文字サイズ 背景色 PC版で見る メニューを閉じる 現在のページ ホーム 古民家の物件 検索条件で絞り込む
-      地域 物件種類 検索する 古民家の物件 物件情報 物件No. 50 地域 西吉富校区エリア 所在地 上毛町大字成恒 物件種類 売買物件 販売価格/家賃 販売価格150万円 間取り 1階:居間4.5畳、和室6畳・6畳、台所、風呂、トイレ 敷地面積等 土地:612.99m2/建物:1階92.56m2 公共インフラ 状況 電気:引き込み済み 水道:井戸 家屋内物品:無 敷地内物品:無 車庫:無
-      物置:有 庭:有 物件一覧へ戻る 上毛町役場 〒871-0992 福岡県築上郡上毛町大字垂水1321番地1 電話 0979-72-3111(代表) ファックス 0979-72-4664 開庁時間:土曜日、日曜日、祝日、 年末年始(12月29日から翌年1月3日)を除く、 8時30分から17時15分まで アクセス このホームページについて サイトマップ ウェブアクセシビリティ アクセス Copyright
-      (c) '
+    price: 1500000
+    building_m2: null
+    land_m2: 612.99
+    layout: ''
+    year: null
+    address: 福岡県上毛町大字成恒
+    title: 古民家の物件
+    images: 5
+    type: akiya
 - id: fukuoka-sumitsuke
   lists:
   - https://sumitsuke.net/bank: 69
   reads:
   - url: https://sumitsuke.net/bank/5732
-    result: not read
-    labels:
-    - 物件No.
-    - 種類
-    - 所在地
-    - 交通
-    - 構造
-    - 建築年
-    - 床面積
-    - 土地面積
-    - 賃料・価格
-    - 敷金・礼金
-    - 駐車場
-    - 付帯建物
-    - 設備・ライフライン
-    - 特記・備考
-    text: 日常と非日常の間 | SUMITSUKE(すみつけ)那珂川 SUMITSUKE(すみつけ)那珂川 SUMITSUKE(すみつけ)那珂川 SUMITSUKE那珂川について SUMITSUKE那珂川とは SUMITSUKUには インタビュー たられば不動産 那珂川の里山で暮らす 那珂川里山エリアについて SUMITSUKUまでの流れ 空き家バンク お知らせ お問い合わせ 個人情報の取り扱いについて
-      Facebook instagram SUMITSUKE(すみつけ)那珂川 空き家バンク 日常と非日常の間 売買 空き家バンク 日常と非日常の間 (森の中の開けた場所に佇む一軒家、空も広いです。) (薪ストーブが似合います。) (思わず深呼吸したくなるロケーションです。) (敷地も広くてゆったりしています。) JR博多南駅から車を走らせること約20分。 少し足を延ばすだけで賑やかな街の喧騒は遠のき、山の気配がそっと寄り添う静かなエリアへと風景が移り変わります。
-      広大な緑の風景に囲まれ、静寂をまとって佇む今回の一軒家。南畑とは言っても、それなりに山深い立地で、隠れ家のような存在です。ただ、この場所の周辺はパッと開けていて、パノラマの景色が壮大。 土地は合計7筆、あわせて約414.72坪という贅沢な敷地面積も、まさに自然とともに暮らすための特別な空間をつくり出しています。 日当たり抜群のお庭や開
+    price: 23000000
+    building_m2: 85.85
+    land_m2: 1371.0
+    layout: ''
+    year: 1999
+    address: 福岡県那珂川市埋金
+    title: 住むまでのステップ
+    images: 8
+    type: akiya
   - url: https://sumitsuke.net/bank/5575
-    result: not read
-    labels:
-    - 物件No.
-    - 種類
-    - 所在地
-    - 交通
-    - 構造
-    - 建築年
-    - 床面積
-    - 土地面積
-    - 賃料・価格
-    - 敷金・礼金
-    - 駐車場
-    - 付帯建物
-    - 設備・ライフライン
-    - 特記・備考
-    text: 木漏れ日ふり注ぐ場所 | SUMITSUKE(すみつけ)那珂川 SUMITSUKE(すみつけ)那珂川 SUMITSUKE(すみつけ)那珂川 SUMITSUKE那珂川について SUMITSUKE那珂川とは SUMITSUKUには インタビュー たられば不動産 那珂川の里山で暮らす 那珂川里山エリアについて SUMITSUKUまでの流れ 空き家バンク お知らせ お問い合わせ 個人情報の取り扱いについて
-      Facebook instagram SUMITSUKE(すみつけ)那珂川 空き家バンク 木漏れ日ふり注ぐ場所 売買 空き家バンク 木漏れ日ふり注ぐ場所 木々のざわめきの音や木漏れ日の光。心も身体もリラックスできそうです。 土地の手前からの全景。奥行きもそれなりにあります。左手は山際なので枝葉は夏場はモサモサになりそうです。 この細道の先を進んだ場所にお目当ての物件があります。 表に出ると近所にはのんびりとした「THE里山」の景色が広がっています。散歩も楽しくなりそうですね。
-      今回は不入道エリアから土地のご紹介。田園風景が広がる国道から、昔ながらの集落の細道を入ったところにあります。周りにはご近所さんもあるのですが、静かでちょっと隠れ家的な雰囲気。 山際にある土地で敷地内にも樹木が少しあります。新緑が育ったこの季節は木々が重なり合い優しい木漏れ日が地面を照らしていて、ちょっとした映画のワ
+    price: 4980000
+    building_m2: null
+    land_m2: 327.0
+    layout: ''
+    year: null
+    address: 福岡県那珂川市大字不入道
+    title: 住むまでのステップ
+    images: 8
+    type: land
   - url: https://sumitsuke.net/bank/5584
-    result: not read
-    labels:
-    - 物件No.
-    - 種類
-    - 所在地
-    - 交通
-    - 構造
-    - 建築年
-    - 床面積
-    - 土地面積
-    - 賃料・価格
-    - 敷金・礼金
-    - 駐車場
-    - 付帯建物
-    - 設備・ライフライン
-    - 特記・備考
-    text: 空色の家 | SUMITSUKE(すみつけ)那珂川 SUMITSUKE(すみつけ)那珂川 SUMITSUKE(すみつけ)那珂川 SUMITSUKE那珂川について SUMITSUKE那珂川とは SUMITSUKUには インタビュー たられば不動産 那珂川の里山で暮らす 那珂川里山エリアについて SUMITSUKUまでの流れ 空き家バンク お知らせ お問い合わせ 個人情報の取り扱いについて
-      Facebook instagram SUMITSUKE(すみつけ)那珂川 空き家バンク 空色の家 売買 空き家バンク 空色の家 青空に溶け込む空色の家です。 過去に一部リフォームが入っています。 敷地広めの駐車スペースもGOODです。 2階からは爽快な空も広がります。 成竹の住宅地に、ひときわ目を引く水色の外壁の家があります。なんだか空と同化して綺麗だなぁと思ったのが私の第一印象。 間取りは7LDK+DK。数字を見ただけで、なんだかワクワクしてきませんか?こんな物件まずないでしょう?
-      広い家に住むということは、ただ部屋数が多いということではありません。それぞれが自分の部屋を持てること。家族が集まれるリビングがあること。趣味の部屋をつくれたり遊びに来た親戚や友人を、気兼ねなく泊めてあげられたり。この家には、そういう「豊かな暮らし」を実現するための余白がたっぷりと用意されています。 1階にはDK・洋室
+    price: 16800000
+    building_m2: 189.53
+    land_m2: 266.24
+    layout: ''
+    year: 1981
+    address: 福岡県那珂川市成竹
+    title: 住むまでのステップ
+    images: 8
+    type: akiya
   - url: https://sumitsuke.net/bank/5438
     result: not read
     labels:
@@ -633,315 +142,7 @@ sites:
     text: 山小屋ワンルーム | SUMITSUKE(すみつけ)那珂川 SUMITSUKE(すみつけ)那珂川 SUMITSUKE(すみつけ)那珂川 SUMITSUKE那珂川について SUMITSUKE那珂川とは SUMITSUKUには インタビュー たられば不動産 那珂川の里山で暮らす 那珂川里山エリアについて SUMITSUKUまでの流れ 空き家バンク お知らせ お問い合わせ 個人情報の取り扱いについて
       Facebook instagram SUMITSUKE(すみつけ)那珂川 空き家バンク 山小屋ワンルーム 売買 入居済 空き家バンク 山小屋ワンルーム 猿山の最果ての集落にある小振りな山小屋 大工さんが自分用に建てられたという山小屋だけに作りもしっかりとしていそうです 囲炉裏に暖炉と隠れ家を楽しむ要素も備わっています 道中はこんな森の中を抜けていきます 中ノ島公園を過ぎて麓の集落を過ぎ森に入って、さらに林道を突き進んでいくと辿り着く最果ての集落。
       久しぶりにこの場所に来たのですが、途中の林道は離合できない道幅の場所もあるし、初めての方はこのまま進んでいいのか?!と、一瞬戸惑ってしまうかもしれません。それでも先へ進んでいくと、突如としてパッと開けた場所に数軒の住宅群が現れてきて、その中に今回の山小屋があります。 この辺りは通称「猿山」と呼ばれています。秘境感もありますが、ポツンと一軒家ではあ
-- id: fukuoka-fukuchi
+- id: oita-bungoono
   lists:
-  - https://fukuchi-life.com/room/: 0
-  - https://fukuchi-life.com/: 3
-  reads:
-  - url: https://fukuchi-life.com/room/detail.php?unid=177b4bcdaead0d76b4cde55a4de1229d
-    result: not read
-    labels:
-    - 物件登録手続き
-    - 事業者登録手続き
-    text: 物件No.114 DIYがお好きな方にお勧めです。|福智町空き家バンク|ふくち暮らし 物件所有者様 物件登録手続き WEB申請 宅建事業者様 事業者登録手続き WEB申請 物件を探す ふくち空き家バンクとは 移住・定住支援施策 ふくち探訪 お知らせ 物件所有者 空き家登録WEB申請 宅建事業者 事業者登録WEB申請 物件を探す 物件を探す ふくち空き家バンクとは 物件所有者 空き家登録WEB申請
-      宅建事業者 事業者登録WEB申請 移住・定住支援施策 ふくち探訪 お知らせ 物件No.114 DIYがお好きな方にお勧めです。 希望賃料 300万円 現況 空地・空家 物件所在地 弁城地区 1639-9 物件タイプ 土地・建物 契約形態 売却 築年数 昭和63年年 構造 木造 土地面積 603.43m2 坪数:182坪 建物面積(建て) -m2 建物面積(延べ) 200.36m2 坪数:60坪
-      間取り 5LDK以上 周辺環境 ・ 福智町立弁城小学校までの距離 656m ・ 福智町立方城中学校までの距離 1,996m 物件所在地 当物件に関する お問い合わせ先 中村工務店株式会社 0947-22-9015 〒822-1201 福岡県田川郡福智町金田1060-6 おすすめ物件 物件No.100 平成筑豊鉄道金田駅前の利便性が良い更地です。 希望価格 365万円 現況 空地・空家 詳細を見る
-      物
-  - url: https://fukuchi-life.com/room/detail.php?unid=674670cd55344270648625cd65326e18
-    result: not read
-    labels:
-    - 物件登録手続き
-    - 事業者登録手続き
-    text: 物件No.113 赤池駅まで徒歩3分の立地です。|福智町空き家バンク|ふくち暮らし 物件所有者様 物件登録手続き WEB申請 宅建事業者様 事業者登録手続き WEB申請 物件を探す ふくち空き家バンクとは 移住・定住支援施策 ふくち探訪 お知らせ 物件所有者 空き家登録WEB申請 宅建事業者 事業者登録WEB申請 物件を探す 物件を探す ふくち空き家バンクとは 物件所有者 空き家登録WEB申請
-      宅建事業者 事業者登録WEB申請 移住・定住支援施策 ふくち探訪 お知らせ 物件No.113 赤池駅まで徒歩3分の立地です。 希望賃料 285万円 現況 空地・空家 物件所在地 赤池地区 291-8、291-12 物件タイプ 土地・建物 契約形態 売却 築年数 37年年 構造 木造 土地面積 138.89m2 坪数:42坪 建物面積(建て) 119.13m2 建物面積(延べ) 119.13m2
-      坪数:36坪 間取り 4DK 周辺環境 ・ 福智町立市場小学校までの距離 1,515m ・ 福智町立赤池中学校までの距離 1,266m 物件所在地 当物件に関する お問い合わせ先 株式会社 藤和コーポレーション 0947-22-5525 〒822-1202 福岡県田川郡福智町神崎1098-132 おすすめ物件 物件No.97 平筑金田駅まで徒歩3分!小中学校、福銀他金融機関、役場も徒歩圏内!
-      希望価格
-  - url: https://fukuchi-life.com/room/detail.php?unid=424f524595e2b1c76d3dea3c5cae5792
-    result: not read
-    labels:
-    - 物件登録手続き
-    - 事業者登録手続き
-    text: 物件No.109 日当たり良好!|福智町空き家バンク|ふくち暮らし 物件所有者様 物件登録手続き WEB申請 宅建事業者様 事業者登録手続き WEB申請 物件を探す ふくち空き家バンクとは 移住・定住支援施策 ふくち探訪 お知らせ 物件所有者 空き家登録WEB申請 宅建事業者 事業者登録WEB申請 物件を探す 物件を探す ふくち空き家バンクとは 物件所有者 空き家登録WEB申請 宅建事業者
-      事業者登録WEB申請 移住・定住支援施策 ふくち探訪 お知らせ 物件No.109 日当たり良好! 希望賃料 470万円 現況 空地・空家 物件所在地 上野地区 660-1 物件タイプ 土地 契約形態 売却 築年数 年 構造 土地面積 389.61m2 坪数:117坪 建物面積(建て) -m2 建物面積(延べ) m2 坪数:坪 間取り 周辺環境 ・ 福智町立上野小学校までの距離 919m ・
-      福智町立赤池中学校までの距離 884m 物件所在地 当物件に関する お問い合わせ先 株式会社 藤和コーポレーション 0947-22-5525 〒822-1202 福岡県田川郡福智町神崎1098-132 おすすめ物件 物件No.97 平筑金田駅まで徒歩3分!小中学校、福銀他金融機関、役場も徒歩圏内! 希望価格 900万円 現況 空地・空家 詳細を見る 物件No.31 解体・更地引き渡し。高台・南側眺望良好。平筑
-- id: miyazaki-ebino
-  lists:
-  - http://www.ebikyan.jp/list: 12
-  reads:
-  - url: http://www.ebikyan.jp/vacant/%e7%a9%ba%e3%81%8d%e5%ae%b6372%ef%bc%9c%e8%a5%bf%e9%83%b7%ef%bc%9e/
-    price: null
-    building_m2: 132.04
-    land_m2: null
-    layout: ''
-    year: null
-    address: 宮崎県えびの市大字西郷
-    title: 空き家372<西郷>
-    images: 8
-    type: akiya
-  - url: http://www.ebikyan.jp/vacant/%e7%a9%ba%e3%81%8d%e5%ae%b6371%ef%bc%9c%e6%b0%b8%e5%b1%b1%ef%bc%9e/
-    price: null
-    building_m2: 152.04
-    land_m2: null
-    layout: ''
-    year: 1991
-    address: 宮崎県えびの市大字永山
-    title: 空き家371<永山>
-    images: 8
-    type: akiya
-  - url: http://www.ebikyan.jp/vacant/%e7%a9%ba%e3%81%8d%e5%9c%b0119%ef%bc%9c%e6%b9%af%e7%94%b0%ef%bc%9e/
-    result: not read
-    labels:
-    - 物件番号
-    - 契約の状態
-    - 所在地
-    - 面積
-    - 放置年数
-    - 建築年数
-    - 補修の要否
-    - 希望条件
-    - 主要施設等までの距離
-    - 設備状況
-    - その他
-    - 雑種地
-    text: 'えびの市定住促進サイト えびの市定住促進サイト 関連リンク サイトポリシー お問い合わせ 住まいについて 空き家バンクとは? 空き家・空き地一覧 空き家バンクを利用する 仕事について えびのではたらく 市内企業紹介 暮らしについて 子育て・教育 医療福祉 生活情報 えびのを知る えびの市の紹介 まちの人の声 移住者の声 移住関連情報 お試し滞在助成金 支援制度一覧 イベント えびの市移住・定住支援センター
-      よくある質問 住まいについて 空き家バンクとは? 空き家・空き地一覧 空き家バンクを利用する 仕事について えびのではたらく 市内企業紹介 暮らしについて 子育て・教育 医療福祉 生活情報 えびのを知る えびの市の紹介 まちの人の声 移住者の声 移住関連情報 お試し滞在助成金 支援制度一覧 イベント えびの市移住・定住支援センター よくある質問 関連リンク サイトポリシー お問い合わせ 住まいについて
-      空き家・空き地一覧 空き地119<湯田> 物件番号 119 契約の状態 契約に向けて商談中 所在地 えびの市大字湯田 面積 雑種地:323.17m2 放置年数 建築年数 補修の要否 希望条件 売:10万円・要相談 主要施設等までの距離 駅まで2.3km バス停まで0.1km 病院まで2.2km スーパーまで1.5km 小学校まで1.7km 中学校まで1.8km 銀行まで1.7km '
-  - url: http://www.ebikyan.jp/vacant/%e7%a9%ba%e3%81%8d%e5%ae%b6370%ef%bc%9c%e5%90%91%e6%b1%9f%ef%bc%9e/
-    price: null
-    building_m2: 106.18
-    land_m2: null
-    layout: ''
-    year: 1990
-    address: 宮崎県えびの市大字向江
-    title: 空き家370<向江>
-    images: 8
-    type: akiya
-- id: miyazaki-kunitomi
-  lists:
-  - http://sousei.town.kunitomi.miyazaki.jp/houselist/: 25
-  reads:
-  - url: http://sousei.town.kunitomi.miyazaki.jp/houselist/2026/03/30/house_002426.html
-    price: 3000000
-    building_m2: null
-    land_m2: 160.21
-    layout: ''
-    year: null
-    address: ''
-    title: ''
-    images: 2
-    type: land
-  - url: http://sousei.town.kunitomi.miyazaki.jp/houselist/2026/03/24/house_002419.html
-    price: null
-    building_m2: 137.85
-    land_m2: 1287.13
-    layout: ''
-    year: 1912
-    address: ''
-    title: ''
-    images: 6
-    type: akiya
-  - url: http://sousei.town.kunitomi.miyazaki.jp/houselist/2026/03/24/house_002422.html
-    price: null
-    building_m2: null
-    land_m2: 359.68
-    layout: ''
-    year: null
-    address: ''
-    title: ''
-    images: 2
-    type: land
-  - url: http://sousei.town.kunitomi.miyazaki.jp/houselist/2026/03/24/house_002421.html
-    price: null
-    building_m2: 129.5
-    land_m2: 1404.11
-    layout: ''
-    year: 1990
-    address: ''
-    title: ''
-    images: 6
-    type: akiya
-- id: kagoshima-kanoya
-  lists:
-  - https://www.city.kanoya.lg.jp/iju/akiyabank/search/: 69
-  - https://www.city.kanoya.lg.jp/iju/news.html: 20
-  reads:
-  - url: https://www.city.kanoya.lg.jp/iju/akiyabank/search/399.html
-    price: 5000000
-    building_m2: 108.56
-    land_m2: 231.4
-    layout: ''
-    year: 2026
-    address: 鹿児島県鹿屋市古江町
-    title: No.399 古江町
-    images: 8
-    type: akiya
-  - url: https://www.city.kanoya.lg.jp/iju/akiyabank/search/391.html
-    price: 1000000
-    building_m2: 75.0
-    land_m2: 443.45
-    layout: ''
-    year: 2013
-    address: 鹿児島県鹿屋市川西町
-    title: No.391 川西町
-    images: 8
-    type: akiya
-  - url: https://www.city.kanoya.lg.jp/iju/akiyabank/search/314.html
-    price: 500000
-    building_m2: 76.09
-    land_m2: 649.93
-    layout: ''
-    year: 2023
-    address: 鹿児島県鹿屋市輝北町市成
-    title: No.314 輝北町市成
-    images: 8
-    type: akiya
-  - url: https://www.city.kanoya.lg.jp/iju/akiyabank/search/330.html
-    price: 3000000
-    building_m2: 82.81
-    land_m2: 793.0
-    layout: ''
-    year: 2022
-    address: 鹿児島県鹿屋市上高隈町
-    title: No.330 上高隈町
-    images: 8
-    type: akiya
-- id: kagoshima-tarumizu
-  lists:
-  - http://www.city.tarumizu.lg.jp/chiiki/kurashi/sangyo/akiya/sokushin.html: 18
-  reads:
-  - url: http://www.city.tarumizu.lg.jp/chiiki/shisetsu/akiya-bank/baikyaku/baikyaku211.html
-    price: 1000000
-    building_m2: null
-    land_m2: null
-    layout: 369K
-    year: 1971
-    address: 鹿児島県垂水市牛根境1060番地3
-    title: 牛根境の売却物件(211)
-    images: 8
-    type: akiya
-  - url: http://www.city.tarumizu.lg.jp/chiiki/shisetsu/akiya-bank/baikyaku/baikyaku254.html
-    price: 1800000
-    building_m2: null
-    land_m2: null
-    layout: 495K
-    year: 1974
-    address: 鹿児島県垂水市二川734番地1
-    title: 二川の売却物件(254)
-    images: 8
-    type: akiya
-  - url: http://www.city.tarumizu.lg.jp/chiiki/shisetsu/akiya-bank/baikyaku/baikyaku252.html
-    price: 3700000
-    building_m2: null
-    land_m2: null
-    layout: 808K
-    year: 1988
-    address: 鹿児島県垂水市牛根麓1701番地1
-    title: 牛根麓の売却物件(252)
-    images: 8
-    type: akiya
-  - url: http://www.city.tarumizu.lg.jp/chiiki/shisetsu/akiya-bank/baikyaku/baikyaku258.html
-    price: 6000000
-    building_m2: null
-    land_m2: null
-    layout: 517K
-    year: 2006
-    address: 鹿児島県垂水市田神3735番地
-    title: 大野の売却物件(258)
-    images: 8
-    type: akiya
-- id: kagoshima-nishinoomote
-  lists:
-  - http://iju-tanegashima.jp/publics/index/68/?gdpr_flg=1: 5
-  reads:
-  - url: http://iju-tanegashima.jp/pages/68?detail=1&b_id=256&r_id=1111
-    result: not read
-    labels:
-    - 所在地交通
-    - 物件種別
-    - 賃料(管理費等)
-    - 敷金
-    - 間取り建物面積
-    - ガス
-    - トイレ
-    - 風呂
-    - 水道
-    - 駐車場
-    - 条件・設備
-    - 条件
-    - ※駐車スペース
-    - 引き込み工事費用
-    - 月額通信利用料
-    text: 物件登録番号128【令和8年10月リフォーム済物件】 種子島西之表市移住支援情報 種子島・西之表市移住支援情報 TEL. 0997-22-1111 トップページ 働く 住む 空き家バンク 空き家バンク物件情報 地域活性化住宅 【制度】地域活性化住宅 地域活性化住宅・物件情報 定住促進住宅(長期おためし住宅) 【制度】定住促進住宅 定住促進住宅・物件情報 不動産会社 支援・補助 西之表市人材確保対策事業
-      定住促進補助 支援情報リーフレット 子育て・教育 ひとり親移住応援! 支援情報 ひとり親の移住者の声 子育て・教育関連情報 山村留学制度「しおさい留学」 種子島・西之表市について 種子島・西之表市の紹介 日本初”ヨガの聖地” 住みたい田舎ベストランキング 観光 アクセス OKBIZ 移住をお考えの方へ 移住の流れ 移住お金事情 交流体験住宅・施設 交流体験住宅 移住者インタビュー 地方公務員からJAXAへ
-      宇宙への憧れから始まった14歳の移住 移住アンケート結果 ツアー / イベント 移住ガイドブック こうのみね館 各校区(自治体)紹介 榕城校区 下西校区 上西校区 上西校区新聞バックナンバー 古田校区 伊関校区 安城校区 安納校区 国上校区 中割校区 住吉校区 立山校区 現和校区 地域情報 自治会(集落/校区)とは 西之表市公式 観光サイト 定住サイト 会員ページ 空き家バンク物件
-  - url: http://iju-tanegashima.jp/pages/68?detail=1&b_id=256&r_id=1110
-    result: not read
-    labels:
-    - 所在地交通
-    - 物件種別
-    - 賃料(管理費等)
-    - 敷金
-    - 間取り建物面積
-    - ガス
-    - トイレ
-    - 風呂
-    - 水道
-    - 駐車場
-    - 条件・設備
-    - 条件
-    - ※駐車スペース
-    text: 物件登録番号127【令和8年10月リフォーム済物件】 種子島西之表市移住支援情報 種子島・西之表市移住支援情報 TEL. 0997-22-1111 トップページ 働く 住む 空き家バンク 空き家バンク物件情報 地域活性化住宅 【制度】地域活性化住宅 地域活性化住宅・物件情報 定住促進住宅(長期おためし住宅) 【制度】定住促進住宅 定住促進住宅・物件情報 不動産会社 支援・補助 西之表市人材確保対策事業
-      定住促進補助 支援情報リーフレット 子育て・教育 ひとり親移住応援! 支援情報 ひとり親の移住者の声 子育て・教育関連情報 山村留学制度「しおさい留学」 種子島・西之表市について 種子島・西之表市の紹介 日本初”ヨガの聖地” 住みたい田舎ベストランキング 観光 アクセス OKBIZ 移住をお考えの方へ 移住の流れ 移住お金事情 交流体験住宅・施設 交流体験住宅 移住者インタビュー 地方公務員からJAXAへ
-      宇宙への憧れから始まった14歳の移住 移住アンケート結果 ツアー / イベント 移住ガイドブック こうのみね館 各校区(自治体)紹介 榕城校区 下西校区 上西校区 上西校区新聞バックナンバー 古田校区 伊関校区 安城校区 安納校区 国上校区 中割校区 住吉校区 立山校区 現和校区 地域情報 自治会(集落/校区)とは 西之表市公式 観光サイト 定住サイト 会員ページ 空き家バンク物件
-  - url: http://iju-tanegashima.jp/pages/68?detail=1&b_id=256&r_id=1072
-    result: not read
-    labels:
-    - 所在地交通
-    - 物件種別
-    - 賃料(管理費等)
-    - 敷金 / 礼金
-    - 間取り建物面積
-    - ガス
-    - トイレ
-    - 風呂
-    - 水道
-    - 駐車場
-    - 条件・設備
-    - 賃料
-    - 月額 合計
-    - 敷金
-    - 礼金
-    - 初期費用 合計
-    - 条件
-    text: '物件登録番号106 種子島西之表市移住支援情報 種子島・西之表市移住支援情報 TEL. 0997-22-1111 トップページ 働く 住む 空き家バンク 空き家バンク物件情報 地域活性化住宅 【制度】地域活性化住宅 地域活性化住宅・物件情報 定住促進住宅(長期おためし住宅) 【制度】定住促進住宅 定住促進住宅・物件情報 不動産会社 支援・補助 西之表市人材確保対策事業 定住促進補助
-      支援情報リーフレット 子育て・教育 ひとり親移住応援! 支援情報 ひとり親の移住者の声 子育て・教育関連情報 山村留学制度「しおさい留学」 種子島・西之表市について 種子島・西之表市の紹介 日本初”ヨガの聖地” 住みたい田舎ベストランキング 観光 アクセス OKBIZ 移住をお考えの方へ 移住の流れ 移住お金事情 交流体験住宅・施設 交流体験住宅 移住者インタビュー 地方公務員からJAXAへ
-      宇宙への憧れから始まった14歳の移住 移住アンケート結果 ツアー / イベント 移住ガイドブック こうのみね館 各校区(自治体)紹介 榕城校区 下西校区 上西校区 上西校区新聞バックナンバー 古田校区 伊関校区 安城校区 安納校区 国上校区 中割校区 住吉校区 立山校区 現和校区 地域情報 自治会(集落/校区)とは 西之表市公式 観光サイト 定住サイト 会員ページ 空き家バンク物件情報 トップページ
-      > 住む > '
-  - url: http://iju-tanegashima.jp/pages/68?detail=1&b_id=256&r_id=498
-    result: not read
-    labels:
-    - 所在地交通
-    - 物件種別
-    - 賃料(管理費等)
-    - 敷金 / 礼金
-    - 間取り建物面積
-    - 条件・設備
-    - 条件
-    - 設備
-    text: 物件登録番号 087(R4年リフォーム済/ペット(犬)可) 種子島西之表市移住支援情報 種子島・西之表市移住支援情報 TEL. 0997-22-1111 トップページ 働く 住む 空き家バンク 空き家バンク物件情報 地域活性化住宅 【制度】地域活性化住宅 地域活性化住宅・物件情報 定住促進住宅(長期おためし住宅) 【制度】定住促進住宅 定住促進住宅・物件情報 不動産会社 支援・補助
-      西之表市人材確保対策事業 定住促進補助 支援情報リーフレット 子育て・教育 ひとり親移住応援! 支援情報 ひとり親の移住者の声 子育て・教育関連情報 山村留学制度「しおさい留学」 種子島・西之表市について 種子島・西之表市の紹介 日本初”ヨガの聖地” 住みたい田舎ベストランキング 観光 アクセス OKBIZ 移住をお考えの方へ 移住の流れ 移住お金事情 交流体験住宅・施設 交流体験住宅 移住者インタビュー
-      地方公務員からJAXAへ 宇宙への憧れから始まった14歳の移住 移住アンケート結果 ツアー / イベント 移住ガイドブック こうのみね館 各校区(自治体)紹介 榕城校区 下西校区 上西校区 上西校区新聞バックナンバー 古田校区 伊関校区 安城校区 安納校区 国上校区 中割校区 住吉校区 立山校区 現和校区 地域情報 自治会(集落/校区)とは 西之表市公式 観光サイト 定住サイト 会員ページ
-      空き家バン
-- id: kagoshima-wadomari
-  lists:
-  - http://www.kurasu-wadomari.info/category/ca-sumai: 24
-  page2: 0
-  reads:
-  - url: https://kurasu-wadomari.info/archives/16769
-    result: unreachable
-  - url: https://kurasu-wadomari.info/archives/16767
-    result: unreachable
-  - url: https://kurasu-wadomari.info/archives/16000
-    result: unreachable
-  - url: https://kurasu-wadomari.info/archives/16685
-    result: unreachable
+  - https://bungoono-iju.com/: 0
+  reads: []
