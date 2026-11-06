@@ -154,6 +154,9 @@ def export(state: dict, aud_per_jpy: float) -> dict:
             for f in _COMPLETENESS + ("title",):
                 if not p.get(f) and m.get(f):
                     p[f] = m[f]
+        richest = max((m.get("images") or [] for m in members), key=len)
+        if len(richest) > len(p.get("images") or []):
+            p["images"] = richest  # e.g. the full SUUMO gallery fetched for an alert
         p["id"] = gid
         p["links"] = [{"source": m["source"], "url": m["url"]} for m in members]
         p["keys"] = [m["key"] for m in members]

@@ -85,16 +85,22 @@ def email(subject: str, html: str):
     return True
 
 
-def send(new: list[dict], cfg: dict, aud_per_jpy: float, app_url: str | None, warnings: list[str]):
-    topic = os.getenv("NTFY_TOPIC")
-    alerts = cfg.get("alerts") or []
-    max_push = int(cfg.get("max_push_per_run", 15))
-    hits: list[tuple[str, dict]] = []
+def select(new: list[dict], cfg: dict, aud_per_jpy: float) -> list[tuple[str, dict]]:
+    """(alert name, listing) for every new listing that matches at least one alert."""
+    hits = []
     for l in new:
-        for f in alerts:
+        for f in cfg.get("alerts") or []:
             if matches(l, f, aud_per_jpy):
                 hits.append((f.get("name", "Avviso"), l))
                 break
+    return hits
+
+
+def send(new: list[dict], cfg: dict, aud_per_jpy: float, app_url: str | None, warnings: list[str], hits=None):
+    topic = os.getenv("NTFY_TOPIC")
+    max_push = int(cfg.get("max_push_per_run", 15))
+    if hits is None:
+        hits = select(new, cfg, aud_per_jpy)
     log.info("%d new listings, %d match alert filters", len(new), len(hits))
 
     if topic:

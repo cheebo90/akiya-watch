@@ -209,3 +209,12 @@ def test_geo_fill_round_robin_and_bad_answers():
     L = {f"k{i}": {"address": f"大分県{'bad' if i == 0 else ''}{i}町", "prefecture": "oita" if i % 2 else "chiba"} for i in range(4)}
     n = geo.fill(H(), L, {}, minutes=1)
     assert n == 4 and L["k1"]["latlng"] == [33.2, 131.5] and all("latlng" in v for v in L.values())
+
+
+def test_suumo_detail_gallery():
+    html = """<div><img rel="https://img01.suumo.com/jj/resizeImage?src=gazo%2Fbukken%2F090%2FN010000%2Fimg%2F528%2F22036528%2F22036528_0001.jpg&w=600&h=450">
+    <img rel="https://img01.suumo.com/jj/resizeImage?src=gazo%2Fbukken%2F090%2FN010000%2Fimg%2F528%2F22036528%2F22036528_0001.jpg&w=100&h=75">
+    <img data-src="/jj/resizeImage?src=gazo%2Fbukken%2F090%2FN010000%2Fimg%2F528%2F22036528%2F22036528_0002.jpg&w=100&h=75">
+    <img src="https://suumo.jp/edit/assets/logo.png"></div>"""
+    imgs = suumo.parse_detail_images(html)
+    assert len(imgs) == 2 and all(u.startswith("https://img01.suumo.com/jj/resizeImage") for u in imgs)

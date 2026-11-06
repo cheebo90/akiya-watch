@@ -121,6 +121,29 @@ def cmd_scrape(source: str, cfg: dict, pw: str, part: str = "1/1"):
                           "blocked": blocked}, out, pw)
 
 
+def full_gallery(http: Http, targets: list[dict], listings: dict, limit: int):
+    """Open the SUUMO page of listings that triggered an alert and keep their whole photo gallery."""
+    done = 0
+    page = Http(delay=2.0, max_requests=limit, retries=2)
+    for l in targets:
+        if done >= limit:
+            break
+        # the alert may come from another source: use the SUUMO copy of the same property if we have one
+        url = l["url"] if l["source"] == "suumo" else None
+        if not url:
+            continue
+        try:
+            html = page.get(url)
+        except Exception:  # noqa: BLE001  budget reached / blocked: stop quietly
+            break
+        done += 1
+        imgs = suumo.parse_detail_images(html) if html else []
+        if len(imgs) > len(l.get("images") or []):
+            l["images"] = imgs
+            listings[l["key"]]["images"] = imgs
+    log.info("full gallery fetched for %d alert listings", done)
+
+
 def cmd_merge(cfg: dict, pw: str):
     state = store.load_state(STATE, pw)
     http = Http(delay=0.0)
@@ -189,7 +212,9 @@ def cmd_merge(cfg: dict, pw: str):
                         "Da domani ti avviso solo per quelli nuovi.", click=os.getenv("APP_URL"))
     else:
         try:
-            notify.send(new, cfg, aud_per_jpy, os.getenv("APP_URL"), warnings)
+            hits = notify.select(new, cfg, aud_per_jpy)
+            full_gallery(http, [l for _, l in hits], state["listings"], int(cfg.get("full_gallery_per_run", 80)))
+            notify.send(new, cfg, aud_per_jpy, os.getenv("APP_URL"), warnings, hits=hits)
         except Exception:  # noqa: BLE001
             log.exception("alerts failed, continuing")
 

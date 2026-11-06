@@ -120,3 +120,23 @@ def scrape(http: Http, prefs: list[str], categories: list[str], max_man: int,
                         break
                     page += 1
             log.info("suumo %s %s: %d cities", cat, pref, len(cities))
+
+
+def parse_detail_images(html: str) -> list[str]:
+    """All gallery photos on a SUUMO listing page (resizer URLs; the app asks for the size it needs)."""
+    soup = BeautifulSoup(html, "lxml")
+    out = []
+    for img in soup.select("img"):
+        src = img.get("rel") or img.get("data-src") or img.get("src") or ""
+        if isinstance(src, list):
+            src = src[0]
+        if "resizeImage" in src and "gazo" in src:
+            out.append(urljoin("https://img01.suumo.com/", src))
+    seen, uniq = set(), []
+    for u in out:  # same photo appears in several sizes: keep one per file
+        key = re.search(r"src=([^&]+)", u)
+        k = key.group(1) if key else u
+        if k not in seen:
+            seen.add(k)
+            uniq.append(u)
+    return uniq[:40]
