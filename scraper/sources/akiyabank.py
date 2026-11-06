@@ -86,6 +86,12 @@ def pick(p: dict[str, str], field: str) -> str:
             if field == "land" and ("地目" in k or "用途" in k):
                 continue
             return v
+    if field == "price":
+        # combined labels used by many banks: 価格・賃料 / 賃料・価格 / 販売価格/家賃 -> the value says which it is
+        for k, v in p.items():
+            if "価格" in k and "賃" in k and len(k) <= 20 and not _empty(v) and not re.search(r"(月|賃料|家賃)", v) \
+                    and re.search(r"\d", v):
+                return v
     return ""
 
 
@@ -95,6 +101,8 @@ def parse_detail(html: str, url: str, site: dict) -> Listing | None:
         bad.decompose()
     p = pairs(soup)
     price_s, rent_s, kind = pick(p, "price"), pick(p, "rent"), pick(p, "kind")
+    if price_s and rent_s == price_s:
+        rent_s = ""  # the same combined 価格・賃料 field, holding a sale price
     if not price_s and (rent_s or "賃貸" in kind):
         return None  # rental only
     price = parse_price_yen(price_s)

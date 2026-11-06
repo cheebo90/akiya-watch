@@ -161,7 +161,7 @@ def parse_walk_min(s: Optional[str]) -> Optional[int]:
 
 def parse_layout(s: Optional[str]) -> str:
     s = norm(s).upper()
-    m = re.search(r"\d+\s*(?:S?LDK|S?DK|S?K|R)", s)
+    m = re.search(r"(?<![\d.])\d{1,2}\s*(?:S?LDK|S?DK|S?K|R)(?![A-Z])", s)
     return m.group(0).replace(" ", "") if m else ""
 
 

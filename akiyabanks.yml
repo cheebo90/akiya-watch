@@ -40,3 +40,18 @@ sites:
     max_pages: 15
     max_details: 200
     status: ok
+
+  # ---- Kyushu: verificate con scripts/inspect_todo.py --try (novembre 2026)
+  - {id: saga-takeo, name: 武雄市空き家バンク, prefecture: saga, list: "https://takeo-ijyu.jp/bank/", detail: "takeo-ijyu\\.jp/bank/\\d+/$", status: ok}
+  - {id: saga-shiroishi, name: 白石町空き家・空き地バンク, prefecture: saga, list: "https://www.shiroishi-town.jp/akiya/", detail: "/akiya/vacant(house|land)/\\d+\\.php$", status: ok}
+  - {id: fukuoka-koge, name: 上毛町空き家・空き地バンク, prefecture: fukuoka, list: "https://www.town.koge.lg.jp/cgi-bin/recruit.php/1/list", detail: "/recruit\\.php/\\d+/detail/\\d+", status: ok}
+  - {id: fukuoka-sumitsuke, name: 那珂川市空き家バンク SUMITSUKE, prefecture: fukuoka, list: "https://sumitsuke.net/bank", detail: "sumitsuke\\.net/bank/\\d+$", status: ok}
+  - {id: kumamoto-nankan, name: 南関町空き家バンク（くまもと空き家360）, prefecture: kumamoto, list: "https://www.town.nankan.lg.jp/kurashi/kurashisodan/4283.html", detail: "kumamoto-akiya360\\.jp/property/p\\d+/$", status: ok}
+  - {id: kumamoto-tsunagi, name: 津奈木町空き家バンク, prefecture: kumamoto, list: "https://www.town.tsunagi.lg.jp/teiju/hpkiji/pub/List.aspx?c_id=3&class_set_id=8&class_id=812", detail: "/teiju/page\\d+\\.html$", status: ok}
+  - {id: oita-tsukumi, name: 津久見市空き家バンク, prefecture: oita, list: "https://iju-tsukumi.jp/rents/", detail: "iju-tsukumi\\.jp/\\w+/detail/\\d+$", status: ok}
+  - {id: oita-kitsuki, name: 杵築市空き家バンク, prefecture: oita, list: "https://www.city.kitsuki.lg.jp/cgi-bin/recruit.php/1/list", detail: "/recruit\\.php/\\d+/detail/\\d+", status: ok}
+  - {id: oita-bungoono, name: 豊後大野市空き家バンク, prefecture: oita, list: "https://bungoono-iju.com/", detail: "bungoono-iju\\.com/akiya/\\d+/$", status: ok}
+  - {id: miyazaki-ebino, name: えびの市空き家バンク, prefecture: miyazaki, list: "http://www.ebikyan.jp/list", detail: "ebikyan\\.jp/vacant/[^/]+/$", status: ok}
+  - {id: miyazaki-kunitomi, name: 国富町空き家バンク, prefecture: miyazaki, list: "http://sousei.town.kunitomi.miyazaki.jp/houselist/", detail: "/houselist/\\d+/\\d+/\\d+/house_\\d+\\.html$", status: ok}
+  - {id: kagoshima-kanoya, name: 鹿屋市空き家バンク, prefecture: kagoshima, list: "https://www.city.kanoya.lg.jp/iju/akiyabank/search/", detail: "/iju/akiyabank/search/\\d+\\.html$", status: ok}
+  - {id: kagoshima-tarumizu, name: 垂水市空き家バンク, prefecture: kagoshima, list: "http://www.city.tarumizu.lg.jp/chiiki/kurashi/sangyo/akiya/sokushin.html", detail: "/akiya-bank/baikyaku/baikyaku\\d+\\.html$", status: ok}

@@ -218,3 +218,19 @@ def test_suumo_detail_gallery():
     <img src="https://suumo.jp/edit/assets/logo.png"></div>"""
     imgs = suumo.parse_detail_images(html)
     assert len(imgs) == 2 and all(u.startswith("https://img01.suumo.com/jj/resizeImage") for u in imgs)
+
+
+def test_akiyabank_combined_price_rent_label():
+    from bs4 import BeautifulSoup
+    from scraper.sources.akiyabank import parse_detail
+    html = ("<table><tr><th>所在地</th><td>上毛町大字土佐井</td></tr><tr><th>販売価格/家賃</th><td>350万円</td></tr>"
+            "<tr><th>敷地面積等</th><td>420.5㎡</td></tr><tr><th>間取り</th><td>5DK</td></tr></table>")
+    l = parse_detail(html, "https://example.lg.jp/detail/1", {"id": "t", "prefecture": "fukuoka"})
+    assert l and l.price_yen == 3_500_000 and l.land_m2 == 420.5
+    rent = html.replace("350万円", "月額3万円")
+    assert parse_detail(rent, "https://example.lg.jp/detail/2", {"id": "t", "prefecture": "fukuoka"}) is None
+
+
+def test_layout_ignores_long_numbers():
+    from scraper.common import parse_layout
+    assert parse_layout("369K") == "" and parse_layout("4SLDK") == "4SLDK"
