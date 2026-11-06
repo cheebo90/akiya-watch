@@ -2,8 +2,10 @@ name: Aggiorna annunci
 
 on:
   schedule:
-    - cron: "17 18 * * *"   # ogni giorno alle 18:17 UTC = 05:17 a Sydney (04:17 con l'ora solare)
-    - cron: "47 19 * * *"   # riserva: parte solo se GitHub ha saltato quello delle 18:17
+    # GitHub fa partire i giri programmati anche con 4-5 ore di ritardo: orari anticipati perché
+    # l'aggiornamento sia pronto la mattina a Sydney
+    - cron: "17 13 * * *"   # 13:17 UTC = 00:17 a Sydney (23:17 con l'ora solare)
+    - cron: "47 16 * * *"   # riserva: parte solo se nelle 6 ore prima non è partito nessun giro
   push:
     branches: [main]
     paths: ["trigger/scrape.json"]   # avvio da remoto: basta modificare questo file
@@ -45,12 +47,12 @@ jobs:
           if [ -n "${{ github.event.inputs.sources }}" ]; then SRC='${{ github.event.inputs.sources }}'
           elif [ "${{ github.event_name }}" = "push" ] && [ -f trigger/scrape.json ]; then SRC=$(python3 -c "import json;print(json.dumps(json.load(open('trigger/scrape.json'))['sources']))")
           else SRC="$DEFAULT"; fi
-          if [ "${{ github.event_name }}" = "schedule" ] && [ "${{ github.event.schedule }}" = "47 19 * * *" ]; then
+          if [ "${{ github.event_name }}" = "schedule" ] && [ "${{ github.event.schedule }}" = "47 16 * * *" ]; then
             # backup slot: skip if another run of this workflow started in the last 3 hours
-            SINCE=$(date -u -d '3 hours ago' +%Y-%m-%dT%H:%M:%SZ)
+            SINCE=$(date -u -d '6 hours ago' +%Y-%m-%dT%H:%M:%SZ)
             N=$(gh api "repos/${{ github.repository }}/actions/workflows/scrape.yml/runs?created=>$SINCE&per_page=20" \
                  --jq '[.workflow_runs[] | select(.id != ${{ github.run_id }})] | length')
-            if [ "$N" -gt 0 ]; then echo "Giro già partito nelle ultime 3 ore: la riserva non fa nulla."; SRC='[]'; fi
+            if [ "$N" -gt 0 ]; then echo "Giro già partito nelle ultime 6 ore: la riserva non fa nulla."; SRC='[]'; fi
           fi
           python3 - "$SRC" "${{ github.event_name }}" >> "$GITHUB_OUTPUT" <<'PY'
           import json, sys
