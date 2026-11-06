@@ -54,7 +54,7 @@ PLATFORM_HOSTS = ("homes.co.jp", "akiya-athome.jp", "athome.co.jp", "suumo.jp")
 # ------------------------------------------------------------------ parsing
 
 # page headings that are site navigation, not the property's name
-GENERIC_TITLE = re.compile(r"(メニュー|を探す|ステップ|買いたい|売りたい|借りたい|VACANT|一覧|トップ|ホーム|お知らせ|"
+GENERIC_TITLE = re.compile(r"(様式|登録カード|情報カード|[■□〇]|メニュー|を探す|ステップ|買いたい|売りたい|借りたい|VACANT|一覧|トップ|ホーム|お知らせ|"
                            r"^(空き家|空家|空き地|物件)(バンク|情報|詳細)?$|^物件(情報|詳細)|^詳細|^移住|^定住)", re.I)
 
 
@@ -216,6 +216,10 @@ def _pdf_listing(http: Http, link: str, site: dict):
     if not l:
         log.info("akiyabank %s: %s not read (%s)", site["id"], link, why)
         return None
+    # PDF headings are form names (様式第1号, 登録カード...): name it by number + town instead
+    m = re.search(r"(?:No|NO|№|番号)[.,:：\s]*([0-9A-Za-z\-]+)|([0-9]+)号", l.title + " " + link.rsplit("/", 1)[-1])
+    num = l.extra.get("物件番号") or l.extra.get("登録番号") or (m and (m.group(1) or m.group(2))) or ""
+    l.title = fallback_title(l.address, site["prefecture"], num)
     pw = os.getenv("AKIYA_PASSPHRASE")
     if pw:
         l.images = photos.save(photos.from_pdf(data), link, pw)
