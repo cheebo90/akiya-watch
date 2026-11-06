@@ -1,0 +1,3366 @@
+sites:
+- prefecture: fukuoka
+  id: fukuoka-sumitsuke-net-2d6d85
+  name: SUMITSUKE那珂川
+  list: https://sumitsuke.net/
+  pdf: 0
+  iframes: []
+  external: []
+  pages:
+  - url: https://sumitsuke.net/
+    pdf: 0
+    shapes:
+    - shape: sumitsuke.net/bank/N
+      n: 4
+      samples:
+      - 'https://sumitsuke.net/bank/5732  «売買 日常と非日常の間 床面積: 85.85平米 土地面積:»'
+      - 'https://sumitsuke.net/bank/5575  «売買 木漏れ日ふり注ぐ場所 床面積: - 土地面積: 327»'
+    - shape: sumitsuke.net/N
+      n: 3
+      samples:
+      - https://sumitsuke.net/5763  «NEW2026.11.02 空き家バンク更新しました!「日常»
+      - https://sumitsuke.net/5763  «2026.11.02空き家バンク更新しました!「日常と非日常»
+    - shape: sumitsuke.net/interview/N
+      n: 3
+      samples:
+      - https://sumitsuke.net/interview/5724  «27 95年間の記憶が紡ぐ、南畑の景色 [南畑生まれ、南畑育»
+      - https://sumitsuke.net/interview/5441  «26 バトンをつないだ家 [建築関連/インテリアコーディネー»
+    - shape: sumitsuke.net/talaleba/N
+      n: 3
+      samples:
+      - https://sumitsuke.net/talaleba/4834  «13 たらればが始まる場所 AUTHOR 加藤 綾 / 株式»
+      - https://sumitsuke.net/talaleba/4360  «12 まちを彩る余白 AUTHOR 加藤 綾 / 株式会社I»
+  - url: https://sumitsuke.net/bank
+    pdf: 0
+    shapes:
+    - shape: sumitsuke.net/bank/N
+      n: 69
+      samples:
+      - 'https://sumitsuke.net/bank/5732  «売買 日常と非日常の間 床面積: 85.85平米 土地面積:»'
+      - 'https://sumitsuke.net/bank/5575  «売買 木漏れ日ふり注ぐ場所 床面積: - 土地面積: 327»'
+  - url: https://sumitsuke.net/5763
+    pdf: 0
+    shapes: []
+  - url: https://sumitsuke.net/topics/news
+    pdf: 0
+    shapes:
+    - shape: sumitsuke.net/N
+      n: 10
+      samples:
+      - https://sumitsuke.net/5763  «空き家バンク更新しました!「日常と非日常の間」»
+      - https://sumitsuke.net/5763  «READ MORE >»
+  - url: https://sumitsuke.net/interview
+    pdf: 0
+    shapes:
+    - shape: sumitsuke.net/interview/N
+      n: 27
+      samples:
+      - https://sumitsuke.net/interview/5724  «27 95年間の記憶が紡ぐ、南畑の景色 [南畑生まれ、南畑育»
+      - https://sumitsuke.net/interview/5441  «26 バトンをつないだ家 [建築関連/インテリアコーディネー»
+  - url: https://sumitsuke.net/talaleba
+    pdf: 0
+    shapes:
+    - shape: sumitsuke.net/talaleba/N
+      n: 13
+      samples:
+      - https://sumitsuke.net/talaleba/4834  «13 たらればが始まる場所 AUTHOR 加藤 綾 / 株式»
+      - https://sumitsuke.net/talaleba/4360  «12 まちを彩る余白 AUTHOR 加藤 綾 / 株式会社I»
+  - url: https://sumitsuke.net/bank/5732
+    pdf: 0
+    shapes: []
+- prefecture: fukuoka
+  id: fukuoka-www-city-koga-fukuoka-jp-7eaccc
+  name: 古賀市空き家・空き地バンク
+  list: https://www.city.koga.fukuoka.jp/cityhall/work/toshikeikaku/bank/
+  pdf: 0
+  iframes: []
+  external: []
+  pages:
+  - url: https://www.city.koga.fukuoka.jp/cityhall/work/toshikeikaku/bank/
+    pdf: 0
+    shapes:
+    - shape: www.city.koga.fukuoka.jp/lifestyle/stages/N/
+      n: 9
+      samples:
+      - https://www.city.koga.fukuoka.jp/lifestyle/stages/1/  «»
+      - https://www.city.koga.fukuoka.jp/lifestyle/stages/2/  «»
+    - shape: www.city.koga.fukuoka.jp/cityhall/work/toshikeikaku/bank/N.php
+      n: 3
+      samples:
+      - https://www.city.koga.fukuoka.jp/cityhall/work/toshikeikaku/bank/001.php  «詳しく見る»
+      - https://www.city.koga.fukuoka.jp/cityhall/work/toshikeikaku/bank/002.php  «詳しく見る»
+- prefecture: fukuoka
+  id: fukuoka-www-town-tachiarai-fukuoka-jp-17da3b
+  name: 大刀洗町空き家バンク
+  list: https://www.town.tachiarai.fukuoka.jp/list00821.html
+  pdf: 0
+  iframes: []
+  external: []
+  pages:
+  - url: https://www.town.tachiarai.fukuoka.jp/list00821.html
+    pdf: 0
+    shapes:
+    - shape: www.town.tachiarai.fukuoka.jp/listN.html
+      n: 266
+      samples:
+      - https://www.town.tachiarai.fukuoka.jp/list00101.html  «くらし・手続き»
+      - https://www.town.tachiarai.fukuoka.jp/list00102.html  «子育て・教育»
+    - shape: translate.google.co.jp/translate?hl=&sl=&tl=&u=
+      n: 4
+      samples:
+      - https://translate.google.co.jp/translate?hl=ja&sl=ja&tl=en&u=https%3a%2f%2fwww.town.tachiarai.fukuoka.jp%2flist00821.html  «English»
+      - https://translate.google.co.jp/translate?hl=ja&sl=ja&tl=zh-CN&u=https%3a%2f%2fwww.town.tachiarai.fukuoka.jp%2flist00821.html  «中文(简化字)»
+  - url: https://www.town.tachiarai.fukuoka.jp/list00189.html
+    pdf: 0
+    shapes:
+    - shape: www.town.tachiarai.fukuoka.jp/listN.html
+      n: 264
+      samples:
+      - https://www.town.tachiarai.fukuoka.jp/list00101.html  «くらし・手続き»
+      - https://www.town.tachiarai.fukuoka.jp/list00102.html  «子育て・教育»
+    - shape: www.town.tachiarai.fukuoka.jp/kijiN/index.html
+      n: 5
+      samples:
+      - https://www.town.tachiarai.fukuoka.jp/kiji0031705/index.html  «空き家無料相談会が開催されます»
+      - https://www.town.tachiarai.fukuoka.jp/kiji003200/index.html  «大刀洗町不良空家等除却補助金交付事業»
+    - shape: translate.google.co.jp/translate?hl=&sl=&tl=&u=
+      n: 4
+      samples:
+      - https://translate.google.co.jp/translate?hl=ja&sl=ja&tl=en&u=https%3a%2f%2fwww.town.tachiarai.fukuoka.jp%2flist00189.html  «English»
+      - https://translate.google.co.jp/translate?hl=ja&sl=ja&tl=zh-CN&u=https%3a%2f%2fwww.town.tachiarai.fukuoka.jp%2flist00189.html  «中文(简化字)»
+    - shape: www.town.tachiarai.fukuoka.jp/classsetN.html
+      n: 3
+      samples:
+      - https://www.town.tachiarai.fukuoka.jp/classset001.html  «分類から探す»
+      - https://www.town.tachiarai.fukuoka.jp/classset002.html  «組織から»
+  - url: https://www.town.tachiarai.fukuoka.jp/list00731.html
+    pdf: 0
+    shapes:
+    - shape: www.town.tachiarai.fukuoka.jp/listN.html
+      n: 264
+      samples:
+      - https://www.town.tachiarai.fukuoka.jp/list00101.html  «くらし・手続き»
+      - https://www.town.tachiarai.fukuoka.jp/list00102.html  «子育て・教育»
+    - shape: translate.google.co.jp/translate?hl=&sl=&tl=&u=
+      n: 4
+      samples:
+      - https://translate.google.co.jp/translate?hl=ja&sl=ja&tl=en&u=https%3a%2f%2fwww.town.tachiarai.fukuoka.jp%2flist00731.html  «English»
+      - https://translate.google.co.jp/translate?hl=ja&sl=ja&tl=zh-CN&u=https%3a%2f%2fwww.town.tachiarai.fukuoka.jp%2flist00731.html  «中文(简化字)»
+    - shape: www.town.tachiarai.fukuoka.jp/classsetN.html
+      n: 4
+      samples:
+      - https://www.town.tachiarai.fukuoka.jp/classset014.html  «分類から探す(空き家バンク)»
+      - https://www.town.tachiarai.fukuoka.jp/classset002.html  «組織から»
+  - url: https://www.town.tachiarai.fukuoka.jp/list00736.html
+    pdf: 0
+    shapes:
+    - shape: www.town.tachiarai.fukuoka.jp/listN.html
+      n: 267
+      samples:
+      - https://www.town.tachiarai.fukuoka.jp/list00101.html  «くらし・手続き»
+      - https://www.town.tachiarai.fukuoka.jp/list00102.html  «子育て・教育»
+    - shape: translate.google.co.jp/translate?hl=&sl=&tl=&u=
+      n: 4
+      samples:
+      - https://translate.google.co.jp/translate?hl=ja&sl=ja&tl=en&u=https%3a%2f%2fwww.town.tachiarai.fukuoka.jp%2flist00736.html  «English»
+      - https://translate.google.co.jp/translate?hl=ja&sl=ja&tl=zh-CN&u=https%3a%2f%2fwww.town.tachiarai.fukuoka.jp%2flist00736.html  «中文(简化字)»
+    - shape: www.town.tachiarai.fukuoka.jp/classsetN.html
+      n: 4
+      samples:
+      - https://www.town.tachiarai.fukuoka.jp/classset014.html  «分類から探す(空き家バンク)»
+      - https://www.town.tachiarai.fukuoka.jp/classset002.html  «組織から»
+    - shape: www.town.tachiarai.fukuoka.jp/kijiN/index.html
+      n: 3
+      samples:
+      - https://www.town.tachiarai.fukuoka.jp/kiji003323/index.html  «大刀洗町住宅改修事業補助金制度について»
+      - https://www.town.tachiarai.fukuoka.jp/kiji003326/index.html  «大刀洗町空き家バンク相続登記補助金»
+  - url: https://www.town.tachiarai.fukuoka.jp/list00735.html
+    pdf: 0
+    shapes:
+    - shape: www.town.tachiarai.fukuoka.jp/listN.html
+      n: 264
+      samples:
+      - https://www.town.tachiarai.fukuoka.jp/list00101.html  «くらし・手続き»
+      - https://www.town.tachiarai.fukuoka.jp/list00102.html  «子育て・教育»
+    - shape: translate.google.co.jp/translate?hl=&sl=&tl=&u=
+      n: 4
+      samples:
+      - https://translate.google.co.jp/translate?hl=ja&sl=ja&tl=en&u=https%3a%2f%2fwww.town.tachiarai.fukuoka.jp%2flist00735.html  «English»
+      - https://translate.google.co.jp/translate?hl=ja&sl=ja&tl=zh-CN&u=https%3a%2f%2fwww.town.tachiarai.fukuoka.jp%2flist00735.html  «中文(简化字)»
+    - shape: www.town.tachiarai.fukuoka.jp/classsetN.html
+      n: 4
+      samples:
+      - https://www.town.tachiarai.fukuoka.jp/classset014.html  «分類から探す(空き家バンク)»
+      - https://www.town.tachiarai.fukuoka.jp/classset002.html  «組織から»
+  - url: https://www.town.tachiarai.fukuoka.jp/list00734.html
+    pdf: 0
+    shapes:
+    - shape: www.town.tachiarai.fukuoka.jp/listN.html
+      n: 264
+      samples:
+      - https://www.town.tachiarai.fukuoka.jp/list00101.html  «くらし・手続き»
+      - https://www.town.tachiarai.fukuoka.jp/list00102.html  «子育て・教育»
+    - shape: translate.google.co.jp/translate?hl=&sl=&tl=&u=
+      n: 4
+      samples:
+      - https://translate.google.co.jp/translate?hl=ja&sl=ja&tl=en&u=https%3a%2f%2fwww.town.tachiarai.fukuoka.jp%2flist00734.html  «English»
+      - https://translate.google.co.jp/translate?hl=ja&sl=ja&tl=zh-CN&u=https%3a%2f%2fwww.town.tachiarai.fukuoka.jp%2flist00734.html  «中文(简化字)»
+    - shape: www.town.tachiarai.fukuoka.jp/classsetN.html
+      n: 4
+      samples:
+      - https://www.town.tachiarai.fukuoka.jp/classset014.html  «分類から探す(空き家バンク)»
+      - https://www.town.tachiarai.fukuoka.jp/classset002.html  «組織から»
+  - url: https://www.town.tachiarai.fukuoka.jp/dynamic/info/pub/default.aspx?c_id=35&scfm3=37
+    pdf: 0
+    shapes:
+    - shape: www.town.tachiarai.fukuoka.jp/dynamic/hpkiji/pub/List.aspx?c_id=&class_id=&class_set_id=
+      n: 262
+      samples:
+      - https://www.town.tachiarai.fukuoka.jp/dynamic/hpkiji/pub/List.aspx?c_id=3&class_set_id=1&class_id=101  «くらし・手続き»
+      - https://www.town.tachiarai.fukuoka.jp/dynamic/hpkiji/pub/List.aspx?c_id=3&class_set_id=1&class_id=102  «子育て・教育»
+    - shape: translate.google.co.jp/translate?hl=&sl=&tl=&u=
+      n: 4
+      samples:
+      - https://translate.google.co.jp/translate?hl=ja&sl=ja&tl=en&u=https%3a%2f%2fwww.town.tachiarai.fukuoka.jp%2fdynamic%2finfo%2fpub%2fdefault.aspx%3fc_id%3d35%26scfm3%3d37  «English»
+      - https://translate.google.co.jp/translate?hl=ja&sl=ja&tl=zh-CN&u=https%3a%2f%2fwww.town.tachiarai.fukuoka.jp%2fdynamic%2finfo%2fpub%2fdefault.aspx%3fc_id%3d35%26scfm3%3d37  «中文(简化字)»
+- prefecture: fukuoka
+  id: fukuoka-www-city-onojo-fukuoka-jp-eae38b
+  name: 大野城市空き家バンク
+  list: http://www.city.onojo.fukuoka.jp/akiya/index.html
+  pdf: 0
+  iframes: []
+  external: []
+  pages:
+  - url: http://www.city.onojo.fukuoka.jp/akiya/index.html
+    pdf: 0
+    shapes:
+    - shape: translate.google.co.jp/translate?hl=&sl=&tl=&u=
+      n: 6
+      samples:
+      - https://translate.google.co.jp/translate?hl=ja&sl=ja&tl=en&u=https%3a%2f%2fwww.city.onojo.fukuoka.jp%2fakiya%2fdefault.html  «English»
+      - https://translate.google.co.jp/translate?hl=ja&sl=ja&tl=zh-CN&u=https%3a%2f%2fwww.city.onojo.fukuoka.jp%2fakiya%2fdefault.html  «中文(简化字)»
+    - shape: www.city.onojo.fukuoka.jp/akiya/listN.html
+      n: 6
+      samples:
+      - http://www.city.onojo.fukuoka.jp/akiya/list00651.html  «空き家を探す»
+      - http://www.city.onojo.fukuoka.jp/akiya/list00652.html  «空き家バンクとは»
+  - url: http://www.city.onojo.fukuoka.jp/akiya/list00651.html
+    pdf: 0
+    shapes:
+    - shape: translate.google.co.jp/translate?hl=&sl=&tl=&u=
+      n: 6
+      samples:
+      - https://translate.google.co.jp/translate?hl=ja&sl=ja&tl=en&u=https%3a%2f%2fwww.city.onojo.fukuoka.jp%2fakiya%2flist00651.html  «English»
+      - https://translate.google.co.jp/translate?hl=ja&sl=ja&tl=zh-CN&u=https%3a%2f%2fwww.city.onojo.fukuoka.jp%2fakiya%2flist00651.html  «中文(简化字)»
+    - shape: www.city.onojo.fukuoka.jp/akiya/listN.html
+      n: 4
+      samples:
+      - http://www.city.onojo.fukuoka.jp/akiya/list00652.html  «空き家バンクとは»
+      - http://www.city.onojo.fukuoka.jp/akiya/list00653.html  «所有者の方へ»
+  - url: http://www.city.onojo.fukuoka.jp/akiya/list00652.html
+    pdf: 0
+    shapes:
+    - shape: translate.google.co.jp/translate?hl=&sl=&tl=&u=
+      n: 6
+      samples:
+      - https://translate.google.co.jp/translate?hl=ja&sl=ja&tl=en&u=https%3a%2f%2fwww.city.onojo.fukuoka.jp%2fakiya%2flist00652.html  «English»
+      - https://translate.google.co.jp/translate?hl=ja&sl=ja&tl=zh-CN&u=https%3a%2f%2fwww.city.onojo.fukuoka.jp%2fakiya%2flist00652.html  «中文(简化字)»
+    - shape: www.city.onojo.fukuoka.jp/akiya/listN.html
+      n: 4
+      samples:
+      - http://www.city.onojo.fukuoka.jp/akiya/list00651.html  «空き家を探す»
+      - http://www.city.onojo.fukuoka.jp/akiya/list00653.html  «所有者の方へ»
+  - url: http://www.city.onojo.fukuoka.jp/akiya/list00655.html
+    pdf: 0
+    shapes:
+    - shape: translate.google.co.jp/translate?hl=&sl=&tl=&u=
+      n: 6
+      samples:
+      - https://translate.google.co.jp/translate?hl=ja&sl=ja&tl=en&u=https%3a%2f%2fwww.city.onojo.fukuoka.jp%2fakiya%2flist00655.html  «English»
+      - https://translate.google.co.jp/translate?hl=ja&sl=ja&tl=zh-CN&u=https%3a%2f%2fwww.city.onojo.fukuoka.jp%2fakiya%2flist00655.html  «中文(简化字)»
+    - shape: www.city.onojo.fukuoka.jp/akiya/listN.html
+      n: 4
+      samples:
+      - http://www.city.onojo.fukuoka.jp/akiya/list00651.html  «空き家を探す»
+      - http://www.city.onojo.fukuoka.jp/akiya/list00652.html  «空き家バンクとは»
+  - url: https://www.city.onojo.fukuoka.jp/dynamic/akiya/info/pub/default.aspx?c_id=41
+    pdf: 0
+    shapes:
+    - shape: translate.google.co.jp/translate?hl=&sl=&tl=&u=
+      n: 6
+      samples:
+      - https://translate.google.co.jp/translate?hl=ja&sl=ja&tl=en&u=https%3a%2f%2fwww.city.onojo.fukuoka.jp%2fdynamic%2fakiya%2finfo%2fpub%2fdefault.aspx%3fc_id%3d41  «English»
+      - https://translate.google.co.jp/translate?hl=ja&sl=ja&tl=zh-CN&u=https%3a%2f%2fwww.city.onojo.fukuoka.jp%2fdynamic%2fakiya%2finfo%2fpub%2fdefault.aspx%3fc_id%3d41  «中文(简化字)»
+    - shape: www.city.onojo.fukuoka.jp/dynamic/akiya/hpkiji/pub/List.aspx?c_id=&class_id=&class_set_id=
+      n: 5
+      samples:
+      - https://www.city.onojo.fukuoka.jp/dynamic/akiya/hpkiji/pub/List.aspx?c_id=3&class_set_id=10&class_id=651  «空き家を探す»
+      - https://www.city.onojo.fukuoka.jp/dynamic/akiya/hpkiji/pub/List.aspx?c_id=3&class_set_id=10&class_id=652  «空き家バンクとは»
+- prefecture: fukuoka
+  id: fukuoka-munakata-live-com-1fad5b
+  name: 宗像に住もうよ
+  list: http://munakata-live.com/
+  pdf: 0
+  iframes:
+  - https://www.googletagmanager.com/ns.html?id=GTM-NFW9N74J
+  - https://www.youtube.com/embed/J25hC_R0DfQ
+  external:
+  - www.city.munakata.lg.jp
+  pages:
+  - url: http://munakata-live.com/
+    pdf: 0
+    shapes:
+    - shape: www.city.munakata.lg.jp/live/listN.html
+      n: 54
+      samples:
+      - http://www.city.munakata.lg.jp/live/list00551.html  «ムナカタって?»
+      - http://www.city.munakata.lg.jp/live/list00552.html  «暮らし»
+    - shape: translate.google.co.jp/translate?hl=&sl=&tl=&u=
+      n: 9
+      samples:
+      - https://translate.google.co.jp/translate?hl=ja&sl=ja&tl=en&u=https%3a%2f%2fwww.city.munakata.lg.jp%2flive%2fdefault.html  «English»
+      - https://translate.google.co.jp/translate?hl=ja&sl=ja&tl=zh-CN&u=https%3a%2f%2fwww.city.munakata.lg.jp%2flive%2fdefault.html  «中文(简化字)»
+    - shape: www.city.munakata.lg.jp/kijiN/index.html
+      n: 6
+      samples:
+      - https://www.city.munakata.lg.jp/kiji00310319/index.html  «子どもをインターネットの危険から守るために〜SNS社会で「親»
+      - https://www.city.munakata.lg.jp/kiji00310335/index.html  «海の道むなかた館 夏の課外授業「テンちゃんDAY」に行って来»
+    - shape: www.city.munakata.lg.jp/live/kijiN/index.html
+      n: 4
+      samples:
+      - https://www.city.munakata.lg.jp/live/kiji0032282/index.html  «移住支援金»
+      - https://www.city.munakata.lg.jp/live/kiji0032284/index.html  «奨学金返還支援»
+- prefecture: fukuoka
+  id: fukuoka-town-kotake-lg-jp-bef1bc
+  name: 小竹で暮らそう空家情報
+  list: http://town.kotake.lg.jp/migration/hpkiji/pub/detail.aspx?c_id=3&type=top&id=1359
+  pdf: 0
+  iframes: []
+  external: []
+  pages:
+  - url: http://town.kotake.lg.jp/migration/hpkiji/pub/detail.aspx?c_id=3&type=top&id=1359
+    pdf: 0
+    shapes:
+    - shape: town.kotake.lg.jp/hpkiji/pub/List.aspx?c_id=&class_id=&class_set_id=
+      n: 134
+      samples:
+      - https://town.kotake.lg.jp/hpkiji/pub/List.aspx?c_id=3&class_set_id=1&class_id=500  «くらし・手続き»
+      - https://town.kotake.lg.jp/hpkiji/pub/List.aspx?c_id=3&class_set_id=1&class_id=510  «福祉・健康・子育て»
+    - shape: town.kotake.lg.jp/migration/hpkiji/pub/hpkiji/pub/List.aspx?c_id=&class_id=&class_set_id=
+      n: 27
+      samples:
+      - http://town.kotake.lg.jp/migration/hpkiji/pub/hpkiji/pub/List.aspx?c_id=3&class_set_id=1&class_id=621  «防災情報»
+      - http://town.kotake.lg.jp/migration/hpkiji/pub/hpkiji/pub/List.aspx?c_id=3&class_set_id=1&class_id=620  «防災マップ(PDF)»
+    - shape: town.kotake.lg.jp/hpkiji/pub/detail.aspx?c_id=&id=&type=
+      n: 8
+      samples:
+      - https://town.kotake.lg.jp/hpkiji/pub/detail.aspx?c_id=3&type=top&id=4240  «小竹町内高齢者向け施設の定員及び受入可能数情報(令和8年10»
+      - https://town.kotake.lg.jp/hpkiji/pub/detail.aspx?c_id=3&type=top&id=4239  «消火器の処分方法について»
+    - shape: translate.google.co.jp/translate?hl=&sl=&tl=&u=
+      n: 4
+      samples:
+      - https://translate.google.co.jp/translate?hl=ja&sl=ja&tl=en&u=https%3a%2f%2ftown.kotake.lg.jp%2fdefault.aspx  «English»
+      - https://translate.google.co.jp/translate?hl=ja&sl=ja&tl=zh-CN&u=https%3a%2f%2ftown.kotake.lg.jp%2fdefault.aspx  «中文(简化字)»
+    - shape: town.kotake.lg.jp/hpkiji/pub/Detail.aspx?c_id=&id=
+      n: 4
+      samples:
+      - https://town.kotake.lg.jp/hpkiji/pub/Detail.aspx?c_id=3&id=2466  «»
+      - "https://town.kotake.lg.jp/hpkiji/pub/Detail.aspx?c_id=3&id=2931\r\n  «プロフィール»"
+  - url: https://town.kotake.lg.jp/hpkiji/pub/List.aspx?c_id=3&class_set_id=1&class_id=910
+    pdf: 0
+    shapes:
+    - shape: town.kotake.lg.jp/hpkiji/pub/List.aspx?c_id=&class_id=&class_set_id=
+      n: 132
+      samples:
+      - https://town.kotake.lg.jp/hpkiji/pub/List.aspx?c_id=3&class_set_id=1&class_id=500  «くらし・手続き»
+      - https://town.kotake.lg.jp/hpkiji/pub/List.aspx?c_id=3&class_set_id=1&class_id=510  «福祉・健康・子育て»
+    - shape: translate.google.co.jp/translate?hl=&sl=&tl=&u=
+      n: 4
+      samples:
+      - https://translate.google.co.jp/translate?hl=ja&sl=ja&tl=en&u=https%3a%2f%2ftown.kotake.lg.jp%2fhpkiji%2fpub%2fList.aspx%3fc_id%3d3%26class_set_id%3d1%26class_id%3d910  «English»
+      - https://translate.google.co.jp/translate?hl=ja&sl=ja&tl=zh-CN&u=https%3a%2f%2ftown.kotake.lg.jp%2fhpkiji%2fpub%2fList.aspx%3fc_id%3d3%26class_set_id%3d1%26class_id%3d910  «中文(简化字)»
+    - shape: town.kotake.lg.jp/hpkiji/pub/Default.aspx?c_id=&class_set_id=
+      n: 3
+      samples:
+      - https://town.kotake.lg.jp/hpkiji/pub/Default.aspx?c_id=3&class_set_id=1  «分類から探す»
+      - https://town.kotake.lg.jp/hpkiji/pub/Default.aspx?c_id=3&class_set_id=2  «組織から探す»
+  - url: https://town.kotake.lg.jp/hpkiji/pub/List.aspx?c_id=3&class_set_id=1&class_id=907
+    pdf: 0
+    shapes:
+    - shape: town.kotake.lg.jp/hpkiji/pub/List.aspx?c_id=&class_id=&class_set_id=
+      n: 133
+      samples:
+      - https://town.kotake.lg.jp/hpkiji/pub/List.aspx?c_id=3&class_set_id=1&class_id=500  «くらし・手続き»
+      - https://town.kotake.lg.jp/hpkiji/pub/List.aspx?c_id=3&class_set_id=1&class_id=510  «福祉・健康・子育て»
+    - shape: translate.google.co.jp/translate?hl=&sl=&tl=&u=
+      n: 4
+      samples:
+      - https://translate.google.co.jp/translate?hl=ja&sl=ja&tl=en&u=https%3a%2f%2ftown.kotake.lg.jp%2fhpkiji%2fpub%2fList.aspx%3fc_id%3d3%26class_set_id%3d1%26class_id%3d907  «English»
+      - https://translate.google.co.jp/translate?hl=ja&sl=ja&tl=zh-CN&u=https%3a%2f%2ftown.kotake.lg.jp%2fhpkiji%2fpub%2fList.aspx%3fc_id%3d3%26class_set_id%3d1%26class_id%3d907  «中文(简化字)»
+    - shape: town.kotake.lg.jp/hpkiji/pub/Default.aspx?c_id=&class_set_id=
+      n: 3
+      samples:
+      - https://town.kotake.lg.jp/hpkiji/pub/Default.aspx?c_id=3&class_set_id=1  «分類から探す»
+      - https://town.kotake.lg.jp/hpkiji/pub/Default.aspx?c_id=3&class_set_id=2  «組織から探す»
+  - url: http://town.kotake.lg.jp/migration/hpkiji/pub/kinkyu/pub/default.aspx?c_id=10
+    pdf: 0
+    shapes:
+    - shape: town.kotake.lg.jp/hpkiji/pub/List.aspx?c_id=&class_id=&class_set_id=
+      n: 134
+      samples:
+      - https://town.kotake.lg.jp/hpkiji/pub/List.aspx?c_id=3&class_set_id=1&class_id=500  «くらし・手続き»
+      - https://town.kotake.lg.jp/hpkiji/pub/List.aspx?c_id=3&class_set_id=1&class_id=510  «福祉・健康・子育て»
+    - shape: town.kotake.lg.jp/migration/hpkiji/pub/kinkyu/pub/hpkiji/pub/List.aspx?c_id=&class_id=&class_set_id=
+      n: 27
+      samples:
+      - http://town.kotake.lg.jp/migration/hpkiji/pub/kinkyu/pub/hpkiji/pub/List.aspx?c_id=3&class_set_id=1&class_id=621  «防災情報»
+      - http://town.kotake.lg.jp/migration/hpkiji/pub/kinkyu/pub/hpkiji/pub/List.aspx?c_id=3&class_set_id=1&class_id=620  «防災マップ(PDF)»
+    - shape: town.kotake.lg.jp/hpkiji/pub/detail.aspx?c_id=&id=&type=
+      n: 8
+      samples:
+      - https://town.kotake.lg.jp/hpkiji/pub/detail.aspx?c_id=3&type=top&id=4240  «小竹町内高齢者向け施設の定員及び受入可能数情報(令和8年10»
+      - https://town.kotake.lg.jp/hpkiji/pub/detail.aspx?c_id=3&type=top&id=4239  «消火器の処分方法について»
+    - shape: translate.google.co.jp/translate?hl=&sl=&tl=&u=
+      n: 4
+      samples:
+      - https://translate.google.co.jp/translate?hl=ja&sl=ja&tl=en&u=https%3a%2f%2ftown.kotake.lg.jp%2fdefault.aspx  «English»
+      - https://translate.google.co.jp/translate?hl=ja&sl=ja&tl=zh-CN&u=https%3a%2f%2ftown.kotake.lg.jp%2fdefault.aspx  «中文(简化字)»
+    - shape: town.kotake.lg.jp/hpkiji/pub/Detail.aspx?c_id=&id=
+      n: 4
+      samples:
+      - https://town.kotake.lg.jp/hpkiji/pub/Detail.aspx?c_id=3&id=2466  «»
+      - "https://town.kotake.lg.jp/hpkiji/pub/Detail.aspx?c_id=3&id=2931\r\n  «プロフィール»"
+  - url: http://town.kotake.lg.jp/migration/hpkiji/pub/hpkiji/pub/List.aspx?c_id=3&class_set_id=1&class_id=643
+    pdf: 0
+    shapes:
+    - shape: town.kotake.lg.jp/hpkiji/pub/List.aspx?c_id=&class_id=&class_set_id=
+      n: 134
+      samples:
+      - https://town.kotake.lg.jp/hpkiji/pub/List.aspx?c_id=3&class_set_id=1&class_id=500  «くらし・手続き»
+      - https://town.kotake.lg.jp/hpkiji/pub/List.aspx?c_id=3&class_set_id=1&class_id=510  «福祉・健康・子育て»
+    - shape: town.kotake.lg.jp/migration/hpkiji/pub/hpkiji/pub/hpkiji/pub/List.aspx?c_id=&class_id=&class_set_id=
+      n: 27
+      samples:
+      - http://town.kotake.lg.jp/migration/hpkiji/pub/hpkiji/pub/hpkiji/pub/List.aspx?c_id=3&class_set_id=1&class_id=621  «防災情報»
+      - http://town.kotake.lg.jp/migration/hpkiji/pub/hpkiji/pub/hpkiji/pub/List.aspx?c_id=3&class_set_id=1&class_id=620  «防災マップ(PDF)»
+    - shape: town.kotake.lg.jp/hpkiji/pub/detail.aspx?c_id=&id=&type=
+      n: 8
+      samples:
+      - https://town.kotake.lg.jp/hpkiji/pub/detail.aspx?c_id=3&type=top&id=4240  «小竹町内高齢者向け施設の定員及び受入可能数情報(令和8年10»
+      - https://town.kotake.lg.jp/hpkiji/pub/detail.aspx?c_id=3&type=top&id=4239  «消火器の処分方法について»
+    - shape: translate.google.co.jp/translate?hl=&sl=&tl=&u=
+      n: 4
+      samples:
+      - https://translate.google.co.jp/translate?hl=ja&sl=ja&tl=en&u=https%3a%2f%2ftown.kotake.lg.jp%2fdefault.aspx  «English»
+      - https://translate.google.co.jp/translate?hl=ja&sl=ja&tl=zh-CN&u=https%3a%2f%2ftown.kotake.lg.jp%2fdefault.aspx  «中文(简化字)»
+    - shape: town.kotake.lg.jp/hpkiji/pub/Detail.aspx?c_id=&id=
+      n: 4
+      samples:
+      - https://town.kotake.lg.jp/hpkiji/pub/Detail.aspx?c_id=3&id=2466  «»
+      - "https://town.kotake.lg.jp/hpkiji/pub/Detail.aspx?c_id=3&id=2931\r\n  «プロフィール»"
+  - url: https://town.kotake.lg.jp/hpkiji/pub/detail.aspx?c_id=3&type=top&id=4081
+    pdf: 0
+    shapes:
+    - shape: town.kotake.lg.jp/hpkiji/pub/List.aspx?c_id=&class_id=&class_set_id=
+      n: 134
+      samples:
+      - https://town.kotake.lg.jp/hpkiji/pub/List.aspx?c_id=3&class_set_id=1&class_id=500  «くらし・手続き»
+      - https://town.kotake.lg.jp/hpkiji/pub/List.aspx?c_id=3&class_set_id=1&class_id=510  «福祉・健康・子育て»
+    - shape: town.kotake.lg.jp/common/UploadFileOutput.ashx?c_id=&flid=&id=&sub_id=
+      n: 44
+      samples:
+      - https://town.kotake.lg.jp/common/UploadFileOutput.ashx?c_id=3&id=4081&sub_id=7&flid=12504  «音楽介護予防教室(PDF:349キロバイト)»
+      - https://town.kotake.lg.jp/common/UploadFileOutput.ashx?c_id=3&id=4081&sub_id=7&flid=12510  «こたけ議会だより(PDF:4.52メガバイト)»
+    - shape: town.kotake.lg.jp/hpkiji/pub/Detail.aspx?c_id=&id=
+      n: 7
+      samples:
+      - https://town.kotake.lg.jp/hpkiji/pub/Detail.aspx?c_id=3&id=4230  «広報こたけ11月号»
+      - https://town.kotake.lg.jp/hpkiji/pub/Detail.aspx?c_id=3&id=4103  «小竹町民まつり»
+    - shape: translate.google.co.jp/translate?hl=&sl=&tl=&u=
+      n: 4
+      samples:
+      - https://translate.google.co.jp/translate?hl=ja&sl=ja&tl=en&u=https%3a%2f%2ftown.kotake.lg.jp%2fhpkiji%2fpub%2fdetail.aspx%3fc_id%3d3%26type%3dtop%26id%3d4081  «English»
+      - https://translate.google.co.jp/translate?hl=ja&sl=ja&tl=zh-CN&u=https%3a%2f%2ftown.kotake.lg.jp%2fhpkiji%2fpub%2fdetail.aspx%3fc_id%3d3%26type%3dtop%26id%3d4081  «中文(简化字)»
+  - url: http://town.kotake.lg.jp/migration/hpkiji/pub/new_list/pub/Default.aspx?c_id=1
+    pdf: 0
+    shapes:
+    - shape: town.kotake.lg.jp/hpkiji/pub/List.aspx?c_id=&class_id=&class_set_id=
+      n: 134
+      samples:
+      - https://town.kotake.lg.jp/hpkiji/pub/List.aspx?c_id=3&class_set_id=1&class_id=500  «くらし・手続き»
+      - https://town.kotake.lg.jp/hpkiji/pub/List.aspx?c_id=3&class_set_id=1&class_id=510  «福祉・健康・子育て»
+    - shape: town.kotake.lg.jp/migration/hpkiji/pub/new_list/pub/hpkiji/pub/List.aspx?c_id=&class_id=&class_set_id=
+      n: 27
+      samples:
+      - http://town.kotake.lg.jp/migration/hpkiji/pub/new_list/pub/hpkiji/pub/List.aspx?c_id=3&class_set_id=1&class_id=621  «防災情報»
+      - http://town.kotake.lg.jp/migration/hpkiji/pub/new_list/pub/hpkiji/pub/List.aspx?c_id=3&class_set_id=1&class_id=620  «防災マップ(PDF)»
+    - shape: town.kotake.lg.jp/hpkiji/pub/detail.aspx?c_id=&id=&type=
+      n: 8
+      samples:
+      - https://town.kotake.lg.jp/hpkiji/pub/detail.aspx?c_id=3&type=top&id=4240  «小竹町内高齢者向け施設の定員及び受入可能数情報(令和8年10»
+      - https://town.kotake.lg.jp/hpkiji/pub/detail.aspx?c_id=3&type=top&id=4239  «消火器の処分方法について»
+    - shape: translate.google.co.jp/translate?hl=&sl=&tl=&u=
+      n: 4
+      samples:
+      - https://translate.google.co.jp/translate?hl=ja&sl=ja&tl=en&u=https%3a%2f%2ftown.kotake.lg.jp%2fdefault.aspx  «English»
+      - https://translate.google.co.jp/translate?hl=ja&sl=ja&tl=zh-CN&u=https%3a%2f%2ftown.kotake.lg.jp%2fdefault.aspx  «中文(简化字)»
+    - shape: town.kotake.lg.jp/hpkiji/pub/Detail.aspx?c_id=&id=
+      n: 4
+      samples:
+      - https://town.kotake.lg.jp/hpkiji/pub/Detail.aspx?c_id=3&id=2466  «»
+      - "https://town.kotake.lg.jp/hpkiji/pub/Detail.aspx?c_id=3&id=2931\r\n  «プロフィール»"
+- prefecture: fukuoka
+  id: fukuoka-www-city-ogori-fukuoka-jp-9b6452
+  name: 小郡市空き家バンク
+  list: https://www.city.ogori.fukuoka.jp/akiya/
+  pdf: 0
+  iframes: []
+  external: []
+  pages:
+  - url: https://www.city.ogori.fukuoka.jp/akiya/
+    pdf: 0
+    shapes:
+    - shape: www.city.ogori.fukuoka.jp/akiya/N
+      n: 4
+      samples:
+      - https://www.city.ogori.fukuoka.jp/akiya/214  «トピックス»
+      - https://www.city.ogori.fukuoka.jp/akiya/216  «小郡の魅力»
+  - url: https://www.city.ogori.fukuoka.jp/akiya/218
+    pdf: 0
+    shapes:
+    - shape: www.city.ogori.fukuoka.jp/akiya/N
+      n: 3
+      samples:
+      - https://www.city.ogori.fukuoka.jp/akiya/214  «トピックス»
+      - https://www.city.ogori.fukuoka.jp/akiya/216  «小郡の魅力»
+- prefecture: fukuoka
+  id: fukuoka-www-city-asakura-lg-jp-a6a80b
+  name: 朝倉市空き家バンク
+  list: http://www.city.asakura.lg.jp/site/iju/
+  pdf: 0
+  iframes:
+  - https://www.youtube.com/embed/FblXRl322Qc?si=EruMTmQDw13AVcAj&?rel=0&wmode=transparent;controls=0&autoplay=1&mute=1&loop=1&playlist=FblXRl322Qc
+  external: []
+  pages:
+  - url: http://www.city.asakura.lg.jp/site/iju/
+    pdf: 0
+    shapes:
+    - shape: www.city.asakura.lg.jp/site/iju/N.html
+      n: 15
+      samples:
+      - http://www.city.asakura.lg.jp/site/iju/2939.html  «支援制度»
+      - http://www.city.asakura.lg.jp/site/iju/1277.html  «お試し居住»
+    - shape: www.city.asakura.lg.jp/site/iju/listN-N.html
+      n: 6
+      samples:
+      - http://www.city.asakura.lg.jp/site/iju/list1-26.html  «朝倉市の魅力»
+      - http://www.city.asakura.lg.jp/site/iju/list2-1.html  «移住のススメ方»
+    - shape: www.city.asakura.lg.jp/site/userguide/N.html
+      n: 4
+      samples:
+      - http://www.city.asakura.lg.jp/site/userguide/6189.html  «Foreign language»
+      - http://www.city.asakura.lg.jp/site/userguide/6185.html  «ページID検索とは?»
+  - url: http://www.city.asakura.lg.jp/akiya/
+    pdf: 0
+    shapes:
+    - shape: www.city.asakura.lg.jp/site/iju/listN-N.html
+      n: 6
+      samples:
+      - http://www.city.asakura.lg.jp/site/iju/list1-26.html  «朝倉市の魅力»
+      - http://www.city.asakura.lg.jp/site/iju/list2-1.html  «移住のススメ方»
+    - shape: www.city.asakura.lg.jp/site/iju/N.html
+      n: 5
+      samples:
+      - http://www.city.asakura.lg.jp/site/iju/2939.html  «支援制度»
+      - http://www.city.asakura.lg.jp/site/iju/1277.html  «お試し居住»
+    - shape: www.city.asakura.lg.jp/site/userguide/N.html
+      n: 3
+      samples:
+      - http://www.city.asakura.lg.jp/site/userguide/6189.html  «Foreign language»
+      - http://www.city.asakura.lg.jp/site/userguide/1688.html  «個人情報の取り扱い»
+  - url: http://www.city.asakura.lg.jp/site/iju/list14-16.html
+    pdf: 0
+    shapes:
+    - shape: www.city.asakura.lg.jp/site/iju/N.html
+      n: 14
+      samples:
+      - http://www.city.asakura.lg.jp/site/iju/2939.html  «支援制度»
+      - http://www.city.asakura.lg.jp/site/iju/1277.html  «お試し居住»
+    - shape: www.city.asakura.lg.jp/site/iju/listN-N.html
+      n: 4
+      samples:
+      - http://www.city.asakura.lg.jp/site/iju/list2-1.html  «移住のススメ方»
+      - http://www.city.asakura.lg.jp/site/iju/list3-14.html  «支援制度»
+    - shape: www.city.asakura.lg.jp/site/iju/listN.html
+      n: 3
+      samples:
+      - http://www.city.asakura.lg.jp/site/iju/list1.html  «朝倉市の魅力»
+      - http://www.city.asakura.lg.jp/site/iju/list2.html  «移住支援»
+    - shape: www.city.asakura.lg.jp/site/userguide/N.html
+      n: 3
+      samples:
+      - http://www.city.asakura.lg.jp/site/userguide/6189.html  «Foreign language»
+      - http://www.city.asakura.lg.jp/site/userguide/1688.html  «個人情報の取り扱い»
+- prefecture: fukuoka
+  id: fukuoka-www-town-mizumaki-lg-jp-c7b844
+  name: 水巻町空き家バンク
+  list: https://www.town.mizumaki.lg.jp/life/house/hsi_07.html
+  pdf: 0
+  iframes: []
+  external: []
+  pages:
+  - url: https://www.town.mizumaki.lg.jp/life/house/hsi_07.html
+    pdf: 0
+    shapes: []
+- prefecture: fukuoka
+  id: fukuoka-www-town-soeda-fukuoka-jp-f8b167
+  name: 添田町空き家・空き地バンク
+  list: https://www.town.soeda.fukuoka.jp/bunya/akiya-bank/
+  pdf: 0
+  iframes:
+  - https://www.youtube.com/embed/zwai76RSFMk?si=PKrUzGYmGh0qNVgl?rel=0&wmode=transparent
+  - https://www.youtube.com/embed/Wu7PdjEzM6M?si=EpQHmbBupffwxwJy?rel=0&wmode=transparent
+  - https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d106442.00206745096!2d130.79698123972585!3d33.51925820700401!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3541615fdb9dd9c7%3A0xec0b3825e1ae8d4b!2z56aP5bKh55yM55Sw5bed6YOh5re755Sw55S6!5e0!3m2!1sja!2sjp!4v1738202754053!5m2!1sja!2sjp
+  external: []
+  pages:
+  - url: https://www.town.soeda.fukuoka.jp/bunya/akiya-bank/
+    pdf: 0
+    shapes:
+    - shape: www.town.soeda.fukuoka.jp/site/userguide/N.html
+      n: 5
+      samples:
+      - https://www.town.soeda.fukuoka.jp/site/userguide/4329.html  «Foreign Language»
+      - https://www.town.soeda.fukuoka.jp/site/userguide/4346.html  «ホームページ管理規約»
+    - shape: www.town.soeda.fukuoka.jp/site/soeda-life/N.html
+      n: 4
+      samples:
+      - https://www.town.soeda.fukuoka.jp/site/soeda-life/1221.html  «移住相談»
+      - https://www.town.soeda.fukuoka.jp/site/soeda-life/1221.html  «空き家・空き地バンク»
+    - shape: www.town.soeda.fukuoka.jp/site/soeda-life/listN.html
+      n: 3
+      samples:
+      - https://www.town.soeda.fukuoka.jp/site/soeda-life/list6.html  «くらし»
+      - https://www.town.soeda.fukuoka.jp/site/soeda-life/list8.html  «しごと»
+  - url: https://www.town.soeda.fukuoka.jp/site/soeda-life/1221.html
+    pdf: 4
+    shapes:
+    - shape: www.town.soeda.fukuoka.jp/site/soeda-life/listN-N.html
+      n: 6
+      samples:
+      - https://www.town.soeda.fukuoka.jp/site/soeda-life/list6-26.html  «住まい»
+      - https://www.town.soeda.fukuoka.jp/site/soeda-life/list6-27.html  «医療・福祉»
+    - shape: www.town.soeda.fukuoka.jp/site/userguide/N.html
+      n: 5
+      samples:
+      - https://www.town.soeda.fukuoka.jp/site/userguide/4329.html  «Foreign Language»
+      - https://www.town.soeda.fukuoka.jp/site/userguide/4346.html  «ホームページ管理規約»
+    - shape: www.town.soeda.fukuoka.jp/site/soeda-life/N.html
+      n: 4
+      samples:
+      - https://www.town.soeda.fukuoka.jp/site/soeda-life/1107.html  «»
+      - https://www.town.soeda.fukuoka.jp/site/soeda-life/1224.html  «»
+      read:
+        address: 福岡県面積
+        images: 8
+    - shape: www.town.soeda.fukuoka.jp/site/soeda-life/listN.html
+      n: 3
+      samples:
+      - https://www.town.soeda.fukuoka.jp/site/soeda-life/list6.html  «くらし»
+      - https://www.town.soeda.fukuoka.jp/site/soeda-life/list8.html  «しごと»
+  - url: https://www.town.soeda.fukuoka.jp/site/soeda-life/index-2.html
+    pdf: 0
+    shapes:
+    - shape: www.town.soeda.fukuoka.jp/site/soeda-life/N.html
+      n: 22
+      samples:
+      - https://www.town.soeda.fukuoka.jp/site/soeda-life/1221.html  «移住相談»
+      - https://www.town.soeda.fukuoka.jp/site/soeda-life/1221.html  «空き家・空き地バンク»
+    - shape: www.town.soeda.fukuoka.jp/site/userguide/N.html
+      n: 5
+      samples:
+      - https://www.town.soeda.fukuoka.jp/site/userguide/4329.html  «Foreign Language»
+      - https://www.town.soeda.fukuoka.jp/site/userguide/4346.html  «ホームページ管理規約»
+    - shape: www.town.soeda.fukuoka.jp/site/soeda-life/listN.html
+      n: 3
+      samples:
+      - https://www.town.soeda.fukuoka.jp/site/soeda-life/list6.html  «くらし»
+      - https://www.town.soeda.fukuoka.jp/site/soeda-life/list8.html  «しごと»
+- prefecture: fukuoka
+  id: fukuoka-www-joho-tagawa-fukuoka-jp-85e776
+  name: 田川市空き家バンク
+  list: https://www.joho.tagawa.fukuoka.jp/list00557.html
+  pdf: 0
+  iframes: []
+  external: []
+  pages:
+  - url: https://www.joho.tagawa.fukuoka.jp/list00557.html
+    pdf: 0
+    shapes:
+    - shape: www.joho.tagawa.fukuoka.jp/listN.html
+      n: 293
+      samples:
+      - https://www.joho.tagawa.fukuoka.jp/list00501.html  «くらし・手続き»
+      - https://www.joho.tagawa.fukuoka.jp/list00614.html  «子育て・教育»
+    - shape: www.joho.tagawa.fukuoka.jp/kijiN/index.html
+      n: 31
+      samples:
+      - https://www.joho.tagawa.fukuoka.jp/kiji0038338/index.html  «»
+      - https://www.joho.tagawa.fukuoka.jp/kiji0038338/index.html  «»
+    - shape: www.joho.tagawa.fukuoka.jp/ijuu/listN.html
+      n: 3
+      samples:
+      - https://www.joho.tagawa.fukuoka.jp/ijuu/list01329.html  «オンライン移住相談»
+      - https://www.joho.tagawa.fukuoka.jp/ijuu/list01319.html  «移住支援制度»
+    - shape: www.joho.tagawa.fukuoka.jp/classsetN.html
+      n: 3
+      samples:
+      - https://www.joho.tagawa.fukuoka.jp/classset002.html  «組織から探す»
+      - https://www.joho.tagawa.fukuoka.jp/classset001.html  «分類から探す»
+  - url: https://www.joho.tagawa.fukuoka.jp/list00902.html
+    pdf: 2
+    shapes:
+    - shape: www.joho.tagawa.fukuoka.jp/listN.html
+      n: 293
+      samples:
+      - https://www.joho.tagawa.fukuoka.jp/list00501.html  «くらし・手続き»
+      - https://www.joho.tagawa.fukuoka.jp/list00614.html  «子育て・教育»
+    - shape: www.joho.tagawa.fukuoka.jp/kijiN/index.html
+      n: 41
+      samples:
+      - https://www.joho.tagawa.fukuoka.jp/kiji0038338/index.html  «»
+      - https://www.joho.tagawa.fukuoka.jp/kiji0038338/index.html  «»
+    - shape: www.joho.tagawa.fukuoka.jp/ijuu/listN.html
+      n: 3
+      samples:
+      - https://www.joho.tagawa.fukuoka.jp/ijuu/list01329.html  «オンライン移住相談»
+      - https://www.joho.tagawa.fukuoka.jp/ijuu/list01319.html  «移住支援制度»
+    - shape: www.joho.tagawa.fukuoka.jp/classsetN.html
+      n: 3
+      samples:
+      - https://www.joho.tagawa.fukuoka.jp/classset002.html  «組織から探す»
+      - https://www.joho.tagawa.fukuoka.jp/classset001.html  «分類から探す»
+  - url: https://www.joho.tagawa.fukuoka.jp/list01160.html
+    pdf: 0
+    shapes:
+    - shape: www.joho.tagawa.fukuoka.jp/listN.html
+      n: 293
+      samples:
+      - https://www.joho.tagawa.fukuoka.jp/list00501.html  «くらし・手続き»
+      - https://www.joho.tagawa.fukuoka.jp/list00614.html  «子育て・教育»
+    - shape: www.joho.tagawa.fukuoka.jp/kijiN/index.html
+      n: 38
+      samples:
+      - https://www.joho.tagawa.fukuoka.jp/kiji0038338/index.html  «»
+      - https://www.joho.tagawa.fukuoka.jp/kiji0038338/index.html  «»
+    - shape: www.joho.tagawa.fukuoka.jp/ijuu/listN.html
+      n: 3
+      samples:
+      - https://www.joho.tagawa.fukuoka.jp/ijuu/list01329.html  «オンライン移住相談»
+      - https://www.joho.tagawa.fukuoka.jp/ijuu/list01319.html  «移住支援制度»
+    - shape: www.joho.tagawa.fukuoka.jp/classsetN.html
+      n: 3
+      samples:
+      - https://www.joho.tagawa.fukuoka.jp/classset002.html  «組織から探す»
+      - https://www.joho.tagawa.fukuoka.jp/classset001.html  «分類から探す»
+  - url: https://www.joho.tagawa.fukuoka.jp/kiji00311537/index.html
+    pdf: 5
+    shapes:
+    - shape: www.joho.tagawa.fukuoka.jp/listN.html
+      n: 283
+      samples:
+      - https://www.joho.tagawa.fukuoka.jp/list00501.html  «くらし・手続き»
+      - https://www.joho.tagawa.fukuoka.jp/list00614.html  «子育て・教育»
+    - shape: www.joho.tagawa.fukuoka.jp/kijiN/index.html
+      n: 29
+      samples:
+      - https://www.joho.tagawa.fukuoka.jp/kiji0038338/index.html  «»
+      - https://www.joho.tagawa.fukuoka.jp/kiji0038338/index.html  «»
+    - shape: www.joho.tagawa.fukuoka.jp/ijuu/listN.html
+      n: 3
+      samples:
+      - https://www.joho.tagawa.fukuoka.jp/ijuu/list01329.html  «オンライン移住相談»
+      - https://www.joho.tagawa.fukuoka.jp/ijuu/list01319.html  «移住支援制度»
+    - shape: www.joho.tagawa.fukuoka.jp/classsetN.html
+      n: 3
+      samples:
+      - https://www.joho.tagawa.fukuoka.jp/classset002.html  «組織から探す»
+      - https://www.joho.tagawa.fukuoka.jp/classset001.html  «分類から探す»
+  - url: https://www.joho.tagawa.fukuoka.jp/list00706.html
+    pdf: 0
+    shapes:
+    - shape: www.joho.tagawa.fukuoka.jp/listN.html
+      n: 288
+      samples:
+      - https://www.joho.tagawa.fukuoka.jp/list00501.html  «くらし・手続き»
+      - https://www.joho.tagawa.fukuoka.jp/list00614.html  «子育て・教育»
+    - shape: www.joho.tagawa.fukuoka.jp/kijiN/index.html
+      n: 65
+      samples:
+      - https://www.joho.tagawa.fukuoka.jp/kiji0038338/index.html  «»
+      - https://www.joho.tagawa.fukuoka.jp/kiji0038338/index.html  «»
+    - shape: www.joho.tagawa.fukuoka.jp/ijuu/listN.html
+      n: 3
+      samples:
+      - https://www.joho.tagawa.fukuoka.jp/ijuu/list01329.html  «オンライン移住相談»
+      - https://www.joho.tagawa.fukuoka.jp/ijuu/list01319.html  «移住支援制度»
+    - shape: www.joho.tagawa.fukuoka.jp/classsetN.html
+      n: 3
+      samples:
+      - https://www.joho.tagawa.fukuoka.jp/classset002.html  «組織から探す»
+      - https://www.joho.tagawa.fukuoka.jp/classset001.html  «分類から探す»
+  - url: https://www.joho.tagawa.fukuoka.jp/list01131.html
+    pdf: 0
+    shapes:
+    - shape: www.joho.tagawa.fukuoka.jp/listN.html
+      n: 282
+      samples:
+      - https://www.joho.tagawa.fukuoka.jp/list00501.html  «くらし・手続き»
+      - https://www.joho.tagawa.fukuoka.jp/list00614.html  «子育て・教育»
+    - shape: www.joho.tagawa.fukuoka.jp/kijiN/index.html
+      n: 32
+      samples:
+      - https://www.joho.tagawa.fukuoka.jp/kiji0038338/index.html  «»
+      - https://www.joho.tagawa.fukuoka.jp/kiji0038338/index.html  «»
+    - shape: www.joho.tagawa.fukuoka.jp/ijuu/listN.html
+      n: 3
+      samples:
+      - https://www.joho.tagawa.fukuoka.jp/ijuu/list01329.html  «オンライン移住相談»
+      - https://www.joho.tagawa.fukuoka.jp/ijuu/list01319.html  «移住支援制度»
+    - shape: www.joho.tagawa.fukuoka.jp/classsetN.html
+      n: 3
+      samples:
+      - https://www.joho.tagawa.fukuoka.jp/classset002.html  «組織から探す»
+      - https://www.joho.tagawa.fukuoka.jp/classset001.html  «分類から探す»
+  - url: https://www.joho.tagawa.fukuoka.jp/dynamic/ijuu/info/pub/default.aspx?c_id=31
+    pdf: 0
+    shapes:
+    - shape: www.joho.tagawa.fukuoka.jp/dynamic/ijuu/hpkiji/pub/List.aspx?c_id=&class_id=&class_set_id=
+      n: 17
+      samples:
+      - https://www.joho.tagawa.fukuoka.jp/dynamic/ijuu/hpkiji/pub/List.aspx?c_id=3&class_set_id=8&class_id=1301  «知る»
+      - https://www.joho.tagawa.fukuoka.jp/dynamic/ijuu/hpkiji/pub/List.aspx?c_id=3&class_set_id=8&class_id=1302  «くらし»
+    - shape: www.joho.tagawa.fukuoka.jp/listN.html
+      n: 10
+      samples:
+      - https://www.joho.tagawa.fukuoka.jp/list00673.html  «市の概要»
+      - https://www.joho.tagawa.fukuoka.jp/list00659.html  «田川市の魅力»
+    - shape: www.joho.tagawa.fukuoka.jp/kijiN/index.html
+      n: 4
+      samples:
+      - https://www.joho.tagawa.fukuoka.jp/kiji0038338/index.html  «公式SNS»
+      - https://www.joho.tagawa.fukuoka.jp/kiji0032734/index.html  «ハザードマップ»
+- prefecture: fukuoka
+  id: fukuoka-fukuchi-life-com-4c550d
+  name: 福智町空き家バンク「ちょうどいい ふくち暮らし」
+  list: http://fukuchi-life.com/
+  pdf: 0
+  iframes: []
+  external: []
+  pages:
+  - url: http://fukuchi-life.com/
+    pdf: 0
+    shapes:
+    - shape: fukuchi-life.com/info/detail.php?id=
+      n: 3
+      samples:
+      - https://fukuchi-life.com/info/detail.php?id=9b182943f591807f51b3dff54e0d206f  «物件登録手続き»
+      - https://fukuchi-life.com/info/detail.php?id=a0b2684bba6650da6202d33df65752a0  «事業者登録手続き»
+    - shape: fukuchi-life.com/room/detail.php?unid=
+      n: 3
+      samples:
+      - https://fukuchi-life.com/room/detail.php?unid=177b4bcdaead0d76b4cde55a4de1229d  «物件No.114 売買 DIYがお好きな方にお勧めです。 物»
+      - https://fukuchi-life.com/room/detail.php?unid=674670cd55344270648625cd65326e18  «物件No.113 売買 赤池駅まで徒歩3分の立地です。 物件»
+  - url: https://fukuchi-life.com/info/detail.php?id=9b182943f591807f51b3dff54e0d206f
+    pdf: 0
+    shapes: []
+  - url: https://fukuchi-life.com/buy/
+    pdf: 0
+    shapes: []
+  - url: https://fukuchi-life.com/about/
+    pdf: 1
+    shapes:
+    - shape: fukuchi-life.com/info/detail.php?id=
+      n: 4
+      samples:
+      - https://fukuchi-life.com/info/detail.php?id=9b182943f591807f51b3dff54e0d206f  «物件登録手続き»
+      - https://fukuchi-life.com/info/detail.php?id=a0b2684bba6650da6202d33df65752a0  «事業者登録手続き»
+    - shape: www.town.fukuchi.lg.jp/soshiki/juutaku/aaaaaN/jutakuhojokin/N.html
+      n: 3
+      samples:
+      - https://www.town.fukuchi.lg.jp/soshiki/juutaku/aaaaa123/jutakuhojokin/4106.html  «▶ 定住促進助成事業(若年世帯マイホーム取得補助金)»
+      - https://www.town.fukuchi.lg.jp/soshiki/juutaku/aaaaa123/jutakuhojokin/4107.html  «▶ 住宅改修工事(リフォーム)補助事業»
+      read:
+        images: 2
+    - shape: www.town.fukuchi.lg.jp/soshiki/juutaku/aaaaaN/akiyainformation/N.html
+      n: 3
+      samples:
+      - https://www.town.fukuchi.lg.jp/soshiki/juutaku/aaaaa123/akiyainformation/4086.html  «▶ 福智町空き家販売・賃貸化支援補助金»
+      - https://www.town.fukuchi.lg.jp/soshiki/juutaku/aaaaa123/akiyainformation/4085.html  «▶ 福智町移住者空き家リフォーム工事補助金»
+  - url: https://fukuchi-life.com/request/
+    pdf: 0
+    shapes: []
+  - url: https://fukuchi-life.com/room/detail.php?unid=177b4bcdaead0d76b4cde55a4de1229d
+    pdf: 0
+    shapes: []
+  - url: https://fukuchi-life.com/room/detail.php?unid=674670cd55344270648625cd65326e18
+    pdf: 0
+    shapes:
+    - shape: fukuchi-life.com/room/detail.php?unid=
+      n: 3
+      samples:
+      - https://fukuchi-life.com/room/detail.php?unid=f4f02b44d61ad2ed94e6b314cd579a0d  «詳細を見る»
+      - https://fukuchi-life.com/room/detail.php?unid=667c7fc36c690beba5367173d81ebd12  «詳細を見る»
+- prefecture: fukuoka
+  id: fukuoka-www-city-nakama-lg-jp-4ed82c
+  name: 空き家バンク物件情報
+  list: http://www.city.nakama.lg.jp/akiya/search/search.php
+  pdf: 0
+  iframes: []
+  external: []
+  pages:
+  - url: http://www.city.nakama.lg.jp/akiya/search/search.php
+    pdf: 0
+    shapes:
+    - shape: www.city.nakama.lg.jp/site/userguide/N.html
+      n: 6
+      samples:
+      - http://www.city.nakama.lg.jp/site/userguide/3347.html  «Foreign language»
+      - http://www.city.nakama.lg.jp/site/userguide/3359.html  «アクセシビリティ»
+    - shape: www.city.nakama.lg.jp/life/N/
+      n: 6
+      samples:
+      - http://www.city.nakama.lg.jp/life/1/  «くらし・手続き»
+      - http://www.city.nakama.lg.jp/life/2/  «健康・福祉»
+    - shape: www.city.nakama.lg.jp/soshiki/N/N.html
+      n: 4
+      samples:
+      - http://www.city.nakama.lg.jp/soshiki/19/1642.html  «空き家バンク制度とは»
+      - http://www.city.nakama.lg.jp/soshiki/19/1416.html  «住宅政策一覧»
+  - url: http://www.city.nakama.lg.jp/soshiki/19/1642.html
+    pdf: 10
+    shapes:
+    - shape: www.city.nakama.lg.jp/site/userguide/N.html
+      n: 6
+      samples:
+      - http://www.city.nakama.lg.jp/site/userguide/3347.html  «Foreign language»
+      - http://www.city.nakama.lg.jp/site/userguide/3359.html  «アクセシビリティ»
+    - shape: www.city.nakama.lg.jp/life/N/
+      n: 6
+      samples:
+      - http://www.city.nakama.lg.jp/life/1/  «くらし・手続き»
+      - http://www.city.nakama.lg.jp/life/2/  «健康・福祉»
+  - url: http://www.city.nakama.lg.jp/soshiki/19/1416.html
+    pdf: 1
+    shapes:
+    - shape: www.city.nakama.lg.jp/soshiki/N/N.html
+      n: 9
+      samples:
+      - http://www.city.nakama.lg.jp/soshiki/19/1642.html  «空き家バンク制度»
+      - http://www.city.nakama.lg.jp/soshiki/19/1272.html  «中古住宅購入補助金制度»
+    - shape: www.city.nakama.lg.jp/site/userguide/N.html
+      n: 6
+      samples:
+      - http://www.city.nakama.lg.jp/site/userguide/3347.html  «Foreign language»
+      - http://www.city.nakama.lg.jp/site/userguide/3359.html  «アクセシビリティ»
+    - shape: www.city.nakama.lg.jp/life/N/
+      n: 6
+      samples:
+      - http://www.city.nakama.lg.jp/life/1/  «くらし・手続き»
+      - http://www.city.nakama.lg.jp/life/2/  «健康・福祉»
+  - url: http://www.city.nakama.lg.jp/soshiki/19/4425.html
+    pdf: 0
+    shapes:
+    - shape: www.city.nakama.lg.jp/site/userguide/N.html
+      n: 6
+      samples:
+      - http://www.city.nakama.lg.jp/site/userguide/3347.html  «Foreign language»
+      - http://www.city.nakama.lg.jp/site/userguide/3359.html  «アクセシビリティ»
+    - shape: www.city.nakama.lg.jp/life/N/
+      n: 6
+      samples:
+      - http://www.city.nakama.lg.jp/life/1/  «くらし・手続き»
+      - http://www.city.nakama.lg.jp/life/2/  «健康・福祉»
+- prefecture: fukuoka
+  id: fukuoka-www-town-koge-lg-jp-b9d5fc
+  name: 空き家・空き地バンク
+  list: https://www.town.koge.lg.jp/ijyu_teiju/akiyaakitibank/index.html
+  pdf: 0
+  iframes: []
+  external: []
+  pages:
+  - url: https://www.town.koge.lg.jp/ijyu_teiju/akiyaakitibank/index.html
+    pdf: 0
+    shapes: []
+  - url: https://www.town.koge.lg.jp/ijyu_teiju/akiyaakitibank/553.html
+    pdf: 4
+    shapes: []
+  - url: https://www.town.koge.lg.jp/cgi-bin/recruit.php/1/list
+    pdf: 0
+    shapes:
+    - shape: www.town.koge.lg.jp/cgi-bin/recruit.php/N/detail/N?ck=
+      n: 8
+      samples:
+      - https://www.town.koge.lg.jp/cgi-bin/recruit.php/1/detail/61?ck=1  «古民家の物件»
+      - https://www.town.koge.lg.jp/cgi-bin/recruit.php/1/detail/54?ck=1  «立地条件〇の物件»
+  - url: https://www.town.koge.lg.jp/ijyu_teiju/akiyaakitibank/5325.html
+    pdf: 1
+    shapes: []
+- prefecture: saga
+  id: saga-town-omachi-saga-jp-fa364e
+  name: おおまち空家バンク
+  list: http://town.omachi.saga.jp/hp/living/10_akiya_bank/01_akiya_bank_seido_toha.html
+  pdf: 0
+  iframes: []
+  external:
+  - www.town.omachi.lg.jp
+  pages:
+  - url: http://town.omachi.saga.jp/hp/living/10_akiya_bank/01_akiya_bank_seido_toha.html
+    pdf: 0
+    shapes:
+    - shape: www.town.omachi.lg.jp/listN.html
+      n: 166
+      samples:
+      - http://www.town.omachi.lg.jp/list00101.html  «手続き・税金・相談»
+      - http://www.town.omachi.lg.jp/list00102.html  «防災・生活安全»
+    - shape: www.town.omachi.lg.jp/kijiN/index.html
+      n: 25
+      samples:
+      - https://www.town.omachi.lg.jp/kiji003414/index.html  «»
+      - https://www.town.omachi.lg.jp/kiji0031686/index.html  «令和8年度大町町職員(保健師及び保育士)採用選考案内»
+    - shape: www.town.omachi.lg.jp/dynamic/search/pub/default.aspx?c_id=&q=
+      n: 6
+      samples:
+      - http://www.town.omachi.lg.jp/dynamic/search/pub/default.aspx?c_id=2&q=%e6%96%b0%e5%9e%8b%e3%82%b3%e3%83%ad%e3%83%8a%e3%82%a6%e3%82%a4%e3%83%ab%e3%82%b9  «新型コロナウイルス»
+      - http://www.town.omachi.lg.jp/dynamic/search/pub/default.aspx?c_id=2&q=%e3%81%b5%e3%82%8b%e3%81%95%e3%81%a8%e7%b4%8d%e7%a8%8e  «ふるさと納税»
+    - shape: translate.google.co.jp/translate?hl=&sl=&tl=&u=
+      n: 5
+      samples:
+      - https://translate.google.co.jp/translate?hl=ja&sl=ja&tl=en&u=https://www.town.omachi.lg.jp/default.html  «English»
+      - https://translate.google.co.jp/translate?hl=ja&sl=ja&tl=zh-CN&u=https://www.town.omachi.lg.jp/default.html  «中文(简化字)»
+    - shape: www.town.omachi.lg.jp/dynamic/info/pub/default.aspx?c_id=
+      n: 4
+      samples:
+      - https://www.town.omachi.lg.jp/dynamic/info/pub/default.aspx?c_id=26  «施設マップ»
+      - https://www.town.omachi.lg.jp/dynamic/info/pub/default.aspx?c_id=32  «入札情報・結果の検索»
+- prefecture: saga
+  id: saga-www-town-kiyama-lg-jp-32684f
+  name: すまいるナビ 物件一覧
+  list: https://www.town.kiyama.lg.jp/ijyu/list01539.html
+  pdf: 0
+  iframes: []
+  external: []
+  pages:
+  - url: https://www.town.kiyama.lg.jp/ijyu/list01539.html
+    pdf: 0
+    shapes:
+    - shape: www.town.kiyama.lg.jp/ijyu/listN.html
+      n: 7
+      samples:
+      - https://www.town.kiyama.lg.jp/ijyu/list01540.html  «買いたい»
+      - https://www.town.kiyama.lg.jp/ijyu/list01541.html  «借りたい»
+      read:
+        price: 5000000
+        images: 2
+    - shape: translate.google.co.jp/translate?hl=&sl=&tl=&u=
+      n: 4
+      samples:
+      - https://translate.google.co.jp/translate?hl=ja&sl=ja&tl=en&u=https%3a%2f%2fwww.town.kiyama.lg.jp%2fdynamic%2fijyu/hpkiji%2fpub%2flist.aspx%3fc_id%3d3%26class_id%3d1539%26class_set_id%3d11  «English»
+      - https://translate.google.co.jp/translate?hl=ja&sl=ja&tl=zh-CN&u=https%3a%2f%2fwww.town.kiyama.lg.jp%2fdynamic%2fijyu/hpkiji%2fpub%2flist.aspx%3fc_id%3d3%26class_id%3d1539%26class_set_id%3d11  «中文(简化字)»
+- prefecture: saga
+  id: saga-www-city-takeo-lg-jp-904723
+  name: 佐賀県武雄市移住支援サイト たけおグッドライフ
+  list: https://www.city.takeo.lg.jp/goodlife/property/
+  pdf: 0
+  iframes:
+  - https://www.googletagmanager.com/ns.html?id=GTM-5MR48SH8
+  - https://www.googletagmanager.com/ns.html?id=GTM-TZ29GKFF
+  external:
+  - takeo-ijyu.jp
+  pages:
+  - url: https://www.city.takeo.lg.jp/goodlife/property/
+    pdf: 0
+    shapes:
+    - shape: takeo-ijyu.jp/news/N/
+      n: 4
+      samples:
+      - https://takeo-ijyu.jp/news/2953/  «»
+      - https://takeo-ijyu.jp/news/2979/  «2026.10.20 お知らせ 【お得に移住】SAGA SM»
+    - shape: takeo-ijyu.jp/bank/N/
+      n: 4
+      samples:
+      - https://takeo-ijyu.jp/bank/2918/  «物件番号 2605 No2605 買う/一戸建て/東川登町大»
+      - https://takeo-ijyu.jp/bank/2862/  «物件番号 2604 No2604 買う/一戸建て/若木町大字»
+      read:
+        price: 2500000
+        address: 佐賀県大字永野
+        images: 8
+- prefecture: saga
+  id: saga-www-city-taku-lg-jp-9dc073
+  name: 多久市空き家バンク
+  list: https://www.city.taku.lg.jp/soshiki/14/1412.html
+  pdf: 0
+  iframes:
+  - https://wwwa.netcrew-analysis.jp/recommend/proxy.html
+  external: []
+  pages:
+  - url: https://www.city.taku.lg.jp/soshiki/14/1412.html
+    pdf: 0
+    shapes:
+    - shape: www.city.taku.lg.jp/life/N/N/
+      n: 35
+      samples:
+      - https://www.city.taku.lg.jp/life/1/1/  «消防防災・安心安全»
+      - https://www.city.taku.lg.jp/life/1/2/  «住民票・戸籍・証明»
+    - shape: www.city.taku.lg.jp/life/N/
+      n: 6
+      samples:
+      - https://www.city.taku.lg.jp/life/1/  «くらし»
+      - https://www.city.taku.lg.jp/life/13/  «子育て・教育»
+    - shape: www.city.taku.lg.jp/site/userguide/N.html
+      n: 4
+      samples:
+      - https://www.city.taku.lg.jp/site/userguide/4848.html  «language»
+      - https://www.city.taku.lg.jp/site/userguide/4847.html  «アクセシビリティ»
+    - shape: www.city.taku.lg.jp/soshiki/N/N.html
+      n: 3
+      samples:
+      - https://www.city.taku.lg.jp/soshiki/24/1412.html  «空き家バンクはこちらをご覧ください»
+      - https://www.city.taku.lg.jp/soshiki/15/2016.html  «直通連絡先一覧»
+  - url: https://www.city.taku.lg.jp/soshiki/24/1412.html
+    pdf: 0
+    shapes:
+    - shape: www.city.taku.lg.jp/life/N/N/
+      n: 35
+      samples:
+      - https://www.city.taku.lg.jp/life/1/1/  «消防防災・安心安全»
+      - https://www.city.taku.lg.jp/life/1/2/  «住民票・戸籍・証明»
+    - shape: www.city.taku.lg.jp/life/N/
+      n: 6
+      samples:
+      - https://www.city.taku.lg.jp/life/1/  «くらし»
+      - https://www.city.taku.lg.jp/life/13/  «子育て・教育»
+    - shape: www.city.taku.lg.jp/site/userguide/N.html
+      n: 4
+      samples:
+      - https://www.city.taku.lg.jp/site/userguide/4848.html  «language»
+      - https://www.city.taku.lg.jp/site/userguide/4847.html  «アクセシビリティ»
+  - url: https://www.city.taku.lg.jp/soshiki/15/2016.html
+    pdf: 0
+    shapes:
+    - shape: www.city.taku.lg.jp/life/N/N/
+      n: 35
+      samples:
+      - https://www.city.taku.lg.jp/life/1/1/  «消防防災・安心安全»
+      - https://www.city.taku.lg.jp/life/1/2/  «住民票・戸籍・証明»
+    - shape: www.city.taku.lg.jp/life/N/
+      n: 6
+      samples:
+      - https://www.city.taku.lg.jp/life/1/  «くらし»
+      - https://www.city.taku.lg.jp/life/13/  «子育て・教育»
+    - shape: www.city.taku.lg.jp/site/userguide/N.html
+      n: 4
+      samples:
+      - https://www.city.taku.lg.jp/site/userguide/4848.html  «language»
+      - https://www.city.taku.lg.jp/site/userguide/4847.html  «アクセシビリティ»
+- prefecture: saga
+  id: saga-www-city-ogi-lg-jp-3cd891
+  name: 小城市暮らし
+  list: https://www.city.ogi.lg.jp/main/20852.html
+  pdf: 0
+  iframes:
+  - https://www.youtube.com/embed/6-t1L2-PyIc?si=wRXkBQZSnnJ8kAPb
+  external: []
+  pages:
+  - url: https://www.city.ogi.lg.jp/main/20852.html
+    pdf: 0
+    shapes:
+    - shape: www.city.ogi.lg.jp/main/N.html
+      n: 13
+      samples:
+      - http://www.city.ogi.lg.jp/main/20850.html  «移住・定住・空き家利活用支援制度»
+      - http://www.city.ogi.lg.jp/main/20852.html  «空き家バンク»
+  - url: http://www.city.ogi.lg.jp/main/20850.html
+    pdf: 0
+    shapes:
+    - shape: www.city.ogi.lg.jp/main/N.html
+      n: 15
+      samples:
+      - http://www.city.ogi.lg.jp/main/20852.html  «空き家バンク»
+      - http://www.city.ogi.lg.jp/main/20851.html  «子育て支援制度»
+  - url: http://www.city.ogi.lg.jp/main/20852.html
+    pdf: 0
+    shapes:
+    - shape: www.city.ogi.lg.jp/main/N.html
+      n: 12
+      samples:
+      - http://www.city.ogi.lg.jp/main/20850.html  «移住・定住・空き家利活用支援制度»
+      - http://www.city.ogi.lg.jp/main/20851.html  «子育て支援制度»
+  - url: https://www.city.ogi.lg.jp/main/38148.html
+    pdf: 0
+    shapes:
+    - shape: www.city.ogi.lg.jp/main/N.html
+      n: 8
+      samples:
+      - http://www.city.ogi.lg.jp/main/20850.html  «移住・定住・空き家利活用支援制度»
+      - http://www.city.ogi.lg.jp/main/20852.html  «空き家バンク»
+  - url: https://www.city.ogi.lg.jp/main/9890.html
+    pdf: 2
+    shapes:
+    - shape: www.city.ogi.lg.jp/main/N.html
+      n: 16
+      samples:
+      - https://www.city.ogi.lg.jp/main/2.html  «くらしの情報»
+      - https://www.city.ogi.lg.jp/main/3.html  «観光・文化»
+  - url: https://www.city.ogi.lg.jp/main/20133.html
+    pdf: 1
+    shapes:
+    - shape: www.city.ogi.lg.jp/main/N.html
+      n: 15
+      samples:
+      - https://www.city.ogi.lg.jp/main/2.html  «くらしの情報»
+      - https://www.city.ogi.lg.jp/main/3.html  «観光・文化»
+  - url: https://www.city.ogi.lg.jp/main/39364.html
+    pdf: 6
+    shapes:
+    - shape: www.city.ogi.lg.jp/main/N.html
+      n: 15
+      samples:
+      - https://www.city.ogi.lg.jp/main/2.html  «くらしの情報»
+      - https://www.city.ogi.lg.jp/main/3.html  «観光・文化»
+- prefecture: saga
+  id: saga-tomosuya-com-330d3f
+  name: 有田町空き物件インフォメーション
+  list: https://tomosuya.com/house/
+  pdf: 0
+  iframes: []
+  external: []
+  pages:
+  - url: https://tomosuya.com/house/
+    pdf: 0
+    shapes: []
+- prefecture: saga
+  id: saga-www-shiroishi-town-jp-246b39
+  name: 白石町空き家・空き地バンク
+  list: https://www.shiroishi-town.jp/akiya/
+  pdf: 0
+  iframes: []
+  external: []
+  pages:
+  - url: https://www.shiroishi-town.jp/akiya/
+    pdf: 0
+    shapes:
+    - shape: www.shiroishi-town.jp/akiya/vacanthouse/N.php
+      n: 4
+      samples:
+      - https://www.shiroishi-town.jp/akiya/vacanthouse/000559.php  «売買 No.38121【東郷住宅】 間取り4LDK 延床面積»
+      - https://www.shiroishi-town.jp/akiya/vacanthouse/000575.php  «売買 No.38117【遠江搦住宅】 間取り9DK 延床面積»
+    - shape: www.shiroishi-town.jp/akiya/vacantland/N.php
+      n: 4
+      samples:
+      - https://www.shiroishi-town.jp/akiya/vacantland/000569.php  «売買 No.38120【福富住宅用地】 土地面積409.87»
+      - https://www.shiroishi-town.jp/akiya/vacantland/000564.php  «売買 No.38118【福富下分大福住宅用地】 土地面積80»
+      read:
+        price: 1700000
+        land_m2: 409.87
+        address: 佐賀県白石町大字福富4027番地
+        images: 4
+    - shape: www.shiroishi-town.jp/akiya/news/N.php
+      n: 3
+      samples:
+      - https://www.shiroishi-town.jp/akiya/news/000582.php  «2026/10/27 【売買物件:No.38121】価格が変»
+      - https://www.shiroishi-town.jp/akiya/news/000581.php  «2026/09/29 ※契約成立※【売買物件:No.3811»
+  - url: https://www.shiroishi-town.jp/akiya/vacanthouse/
+    pdf: 0
+    shapes:
+    - shape: www.shiroishi-town.jp/akiya/vacanthouse/N.php
+      n: 12
+      samples:
+      - https://www.shiroishi-town.jp/akiya/vacanthouse/000559.php  «売買 No.38121【東郷住宅】 間取り4LDK 延床面積»
+      - https://www.shiroishi-town.jp/akiya/vacanthouse/000575.php  «売買 No.38117【遠江搦住宅】 間取り9DK 延床面積»
+  - url: https://www.shiroishi-town.jp/akiya/news/000582.php
+    pdf: 0
+    shapes: []
+  - url: https://www.shiroishi-town.jp/akiya/news/000581.php
+    pdf: 0
+    shapes: []
+  - url: https://www.shiroishi-town.jp/akiya/news/000578.php
+    pdf: 0
+    shapes: []
+  - url: https://www.shiroishi-town.jp/akiya/vacanthouse/000559.php
+    pdf: 0
+    shapes: []
+  - url: https://www.shiroishi-town.jp/akiya/vacanthouse/000575.php
+    pdf: 0
+    shapes: []
+- prefecture: saga
+  id: saga-www-city-saga-kashima-lg-jp-894a63
+  name: 鹿島市空き家バンク
+  list: https://www.city.saga-kashima.lg.jp/main/85.html
+  pdf: 0
+  iframes: []
+  external: []
+  pages:
+  - url: https://www.city.saga-kashima.lg.jp/main/85.html
+    pdf: 0
+    shapes: []
+  - url: https://www.city.saga-kashima.lg.jp/main/17016.html
+    pdf: 0
+    shapes:
+    - shape: www.city.saga-kashima.lg.jp/main/N.html
+      n: 99
+      samples:
+      - https://www.city.saga-kashima.lg.jp/main/1.html  «トップページ»
+      - https://www.city.saga-kashima.lg.jp/main/5.html  «くらしのガイド»
+- prefecture: nagasaki
+  id: nagasaki-ikishimagurashi-jp-8b53b2
+  name: いきしまぐらし
+  list: https://ikishimagurashi.jp
+  pdf: 0
+  iframes: []
+  external: []
+  pages:
+  - url: https://ikishimagurashi.jp
+    pdf: 0
+    shapes:
+    - shape: ikishimagurashi.jp/N
+      n: 24
+      samples:
+      - https://ikishimagurashi.jp/14069  «»
+      - https://ikishimagurashi.jp/14069  «[壱州人辞典NO.126]北嶋農園:北嶋健一さん»
+    - shape: ikishimagurashi.jp/news/N
+      n: 5
+      samples:
+      - https://ikishimagurashi.jp/news/14381  «ハローワーク求人情報(令和8年10月23日分)»
+      - https://ikishimagurashi.jp/news/14314  «ハローワーク求人情報(令和8年10月9日分)»
+    - shape: ikishimagurashi.jp/interview/interviewN/
+      n: 4
+      samples:
+      - https://ikishimagurashi.jp/interview/interview08/  «壱岐の名産・ウニがおいし・・・»
+      - https://ikishimagurashi.jp/interview/interview04/  «夢のパン屋を壱岐でオープ・・・»
+    - shape: ikishimagurashi.jp/dream/voiceN
+      n: 4
+      samples:
+      - https://ikishimagurashi.jp/dream/voice01  «Dream Voice.01»
+      - https://ikishimagurashi.jp/dream/voice02  «Dream Voice.02»
+  - url: https://ikishimagurashi.jp/step/houselist
+    pdf: 6
+    shapes:
+    - shape: ikishimagurashi.jp/house/N
+      n: 9
+      samples:
+      - https://ikishimagurashi.jp/house/14324  «198.田畑と青空が広がるお家 所在地 / 壱岐市芦辺町深江»
+      - https://ikishimagurashi.jp/house/14288  «197.広い倉庫とベランダが魅力的なお家 所在地 / 壱岐市»
+    - shape: ikishimagurashi.jp/interview/interviewN/
+      n: 4
+      samples:
+      - https://ikishimagurashi.jp/interview/interview08/  «壱岐の名産・ウニがおいし・・・»
+      - https://ikishimagurashi.jp/interview/interview04/  «夢のパン屋を壱岐でオープ・・・»
+    - shape: ikishimagurashi.jp/dream/voiceN
+      n: 4
+      samples:
+      - https://ikishimagurashi.jp/dream/voice01  «Dream Voice.01»
+      - https://ikishimagurashi.jp/dream/voice02  «Dream Voice.02»
+- prefecture: nagasaki
+  id: nagasaki-shimabalove-jp-219738
+  name: 島原市定住・移住サイト 島原暮らし ~コイするしまばら~ ShimabaLove
+  list: https://shimabalove.jp/dynamic/shimabalove/info/pub/default.aspx?c_id=38
+  pdf: 0
+  iframes: []
+  external: []
+  pages:
+  - url: https://shimabalove.jp/dynamic/shimabalove/info/pub/default.aspx?c_id=38
+    pdf: 0
+    shapes:
+    - shape: shimabalove.jp/dynamic/shimabalove/hpkiji/pub/List.aspx?c_id=&class_id=&class_set_id=
+      n: 46
+      samples:
+      - https://shimabalove.jp/dynamic/shimabalove/hpkiji/pub/List.aspx?c_id=3&class_set_id=12&class_id=742  «»
+      - https://shimabalove.jp/dynamic/shimabalove/hpkiji/pub/List.aspx?c_id=3&class_set_id=12&class_id=746  «»
+    - shape: shimabalove.jp/kijiN/index.html
+      n: 23
+      samples:
+      - https://shimabalove.jp/kiji0035445/index.html  «島原市の魅力 ShimabaLove»
+      - https://shimabalove.jp/kiji0035427/index.html  «島原市について»
+    - shape: translate.google.co.jp/translate?hl=&sl=&tl=&u=
+      n: 6
+      samples:
+      - http://translate.google.co.jp/translate?hl=ja&sl=ja&tl=en&u=https://shimabalove.jp/dynamic/shimabalove/info/pub/default.aspx?c_id=38  «English»
+      - http://translate.google.co.jp/translate?hl=ja&sl=ja&tl=zh-CN&u=https://shimabalove.jp/dynamic/shimabalove/info/pub/default.aspx?c_id=38  «中文(简化字)»
+    - shape: 'shimabalove.jp/kijiN/index.html '
+      n: 6
+      samples:
+      - https://shimabalove.jp/kiji0035431/index.html   «移住者目線でいいところ»
+      - https://shimabalove.jp/kiji0035460/index.html   «創業・起業»
+  - url: https://shimabalove.jp/dynamic/shimabalove/hpkiji/pub/List.aspx?c_id=3&class_set_id=12&class_id=703
+    pdf: 0
+    shapes:
+    - shape: shimabalove.jp/listN.html
+      n: 46
+      samples:
+      - https://shimabalove.jp/list00742.html  «»
+      - https://shimabalove.jp/list00746.html  «»
+    - shape: shimabalove.jp/kijiN/index.html
+      n: 30
+      samples:
+      - https://shimabalove.jp/kiji0035445/index.html  «島原市の魅力 ShimabaLove»
+      - https://shimabalove.jp/kiji0035427/index.html  «島原市について»
+    - shape: translate.google.co.jp/translate?hl=&sl=&tl=&u=
+      n: 6
+      samples:
+      - http://translate.google.co.jp/translate?hl=ja&sl=ja&tl=en&u=https://shimabalove.jp/list00703.html  «English»
+      - http://translate.google.co.jp/translate?hl=ja&sl=ja&tl=zh-CN&u=https://shimabalove.jp/list00703.html  «中文(简化字)»
+  - url: https://shimabalove.jp/kiji0035462/index.html
+    pdf: 0
+    shapes:
+    - shape: shimabalove.jp/listN.html
+      n: 46
+      samples:
+      - https://shimabalove.jp/list00742.html  «»
+      - https://shimabalove.jp/list00746.html  «»
+    - shape: shimabalove.jp/kijiN/index.html
+      n: 28
+      samples:
+      - https://shimabalove.jp/kiji0035445/index.html  «島原市の魅力 ShimabaLove»
+      - https://shimabalove.jp/kiji0035427/index.html  «島原市について»
+    - shape: translate.google.co.jp/translate?hl=&sl=&tl=&u=
+      n: 6
+      samples:
+      - http://translate.google.co.jp/translate?hl=ja&sl=ja&tl=en&u=https://shimabalove.jp/kiji0035462/index.html  «English»
+      - http://translate.google.co.jp/translate?hl=ja&sl=ja&tl=zh-CN&u=https://shimabalove.jp/kiji0035462/index.html  «中文(简化字)»
+    - shape: www.city.shimabara.lg.jp/pageN.html
+      n: 4
+      samples:
+      - http://www.city.shimabara.lg.jp/page3702.html  «»
+      - http://www.city.shimabara.lg.jp/page3626.html  «»
+  - url: https://shimabalove.jp/dynamic/shimabalove/hpkiji/pub/List.aspx?c_id=3&class_set_id=12&class_id=726
+    pdf: 0
+    shapes:
+    - shape: shimabalove.jp/listN.html
+      n: 46
+      samples:
+      - https://shimabalove.jp/list00742.html  «»
+      - https://shimabalove.jp/list00746.html  «»
+    - shape: shimabalove.jp/kijiN/index.html
+      n: 29
+      samples:
+      - https://shimabalove.jp/kiji0035445/index.html  «島原市の魅力 ShimabaLove»
+      - https://shimabalove.jp/kiji0035427/index.html  «島原市について»
+    - shape: translate.google.co.jp/translate?hl=&sl=&tl=&u=
+      n: 6
+      samples:
+      - http://translate.google.co.jp/translate?hl=ja&sl=ja&tl=en&u=https://shimabalove.jp/list00726.html  «English»
+      - http://translate.google.co.jp/translate?hl=ja&sl=ja&tl=zh-CN&u=https://shimabalove.jp/list00726.html  «中文(简化字)»
+  - url: https://shimabalove.jp/dynamic/shimabalove/hpkiji/pub/List.aspx?c_id=3&class_set_id=12&class_id=745
+    pdf: 0
+    shapes:
+    - shape: shimabalove.jp/listN.html
+      n: 46
+      samples:
+      - https://shimabalove.jp/list00742.html  «»
+      - https://shimabalove.jp/list00746.html  «»
+    - shape: shimabalove.jp/kijiN/index.html
+      n: 29
+      samples:
+      - https://shimabalove.jp/kiji0035445/index.html  «島原市の魅力 ShimabaLove»
+      - https://shimabalove.jp/kiji0035427/index.html  «島原市について»
+    - shape: translate.google.co.jp/translate?hl=&sl=&tl=&u=
+      n: 6
+      samples:
+      - https://translate.google.co.jp/translate?hl=ja&sl=ja&tl=en&u=//shimabalove.jp/list00745.html  «English»
+      - https://translate.google.co.jp/translate?hl=ja&sl=ja&tl=zh-cn&u=//shimabalove.jp/list00745.html  «中文(简化字)»
+- prefecture: nagasaki
+  id: nagasaki-www-city-isahaya-nagasaki-jp-c963cc
+  name: 諫早市空き家バンク
+  list: https://www.city.isahaya.nagasaki.jp/akiya_bank/
+  pdf: 0
+  iframes: []
+  external: []
+  pages:
+  - url: https://www.city.isahaya.nagasaki.jp/akiya_bank/
+    pdf: 0
+    shapes: []
+- prefecture: kumamoto
+  id: kumamoto-www-city-kikuchi-lg-jp-4e5052
+  name: きくち暮らしのすすめ
+  list: https://www.city.kikuchi.lg.jp/ijuteiju/
+  pdf: 0
+  iframes: []
+  external: []
+  pages:
+  - url: https://www.city.kikuchi.lg.jp/ijuteiju/
+    pdf: 0
+    shapes:
+    - shape: www.city.kikuchi.lg.jp/iju/article/view/N/N.html
+      n: 10
+      samples:
+      - https://www.city.kikuchi.lg.jp/iju/article/view/1463/19731.html  «【11/14(土)15(日)東京開催】JOINふるさと回帰フ»
+      - https://www.city.kikuchi.lg.jp/iju/article/view/1463/14142.html  «菊池市内在住者向け!子育て世帯の定住を支援します!»
+    - shape: www.city.kikuchi.lg.jp/iju/article/list/N.html
+      n: 8
+      samples:
+      - https://www.city.kikuchi.lg.jp/iju/article/list/1321.html  «菊池ってどんなところ?»
+      - https://www.city.kikuchi.lg.jp/iju/article/list/1329.html  «移住・定住支援制度»
+    - shape: www.city.kikuchi.lg.jp/iju/category/list/N.html
+      n: 3
+      samples:
+      - https://www.city.kikuchi.lg.jp/iju/category/list/1461.html  «暮らしの情報»
+      - https://www.city.kikuchi.lg.jp/iju/category/list/1462.html  «住む»
+  - url: https://www.city.kikuchi.lg.jp/iju/article/list/1322.html
+    pdf: 0
+    shapes:
+    - shape: www.city.kikuchi.lg.jp/iju/article/view/N/N.html
+      n: 48
+      samples:
+      - https://www.city.kikuchi.lg.jp/iju/article/view/1322/19731.html  «【11/14(土)15(日)東京開催】JOINふるさと回帰フ»
+      - https://www.city.kikuchi.lg.jp/iju/article/view/1322/19554.html  «ふるさと住民登録制度について»
+    - shape: www.city.kikuchi.lg.jp/iju/article/list/N.html
+      n: 3
+      samples:
+      - https://www.city.kikuchi.lg.jp/iju/article/list/1321.html  «菊池ってどんなところ?»
+      - https://www.city.kikuchi.lg.jp/iju/article/list/1329.html  «移住・定住支援制度»
+  - url: https://www.city.kikuchi.lg.jp/iju/article/list/1324.html
+    pdf: 0
+    shapes:
+    - shape: www.city.kikuchi.lg.jp/iju/article/view/N/N.html
+      n: 15
+      samples:
+      - https://www.city.kikuchi.lg.jp/iju/article/view/1324/3223.html  «菊池の人たちをキレイにしたい!»
+      - https://www.city.kikuchi.lg.jp/iju/article/view/1324/2898.html  «毎日温泉に入れる生活は最高です»
+- prefecture: kumamoto
+  id: kumamoto-www-vill-itsuki-lg-jp-be54ac
+  name: 五木村 移住定住支援サイト
+  list: https://www.vill.itsuki.lg.jp/teijuu/default.html
+  pdf: 0
+  iframes: []
+  external: []
+  pages:
+  - url: https://www.vill.itsuki.lg.jp/teijuu/default.html
+    pdf: 0
+    shapes:
+    - shape: www.vill.itsuki.lg.jp/teijuu/listN.html
+      n: 11
+      samples:
+      - https://www.vill.itsuki.lg.jp/teijuu/list00612.html  «知る»
+      - https://www.vill.itsuki.lg.jp/teijuu/list00613.html  «移住する»
+    - shape: www.vill.itsuki.lg.jp/teijuu/kijiN/index.html
+      n: 5
+      samples:
+      - https://www.vill.itsuki.lg.jp/teijuu/kiji0032048/index.html  «地域おこし協力隊募集! (地域文化の調査保存継承活動)»
+      - https://www.vill.itsuki.lg.jp/teijuu/kiji0032277/index.html  «令和8年度 五木村暮らし応援各種支援制度(結婚・子育て支援)»
+    - shape: translate.google.co.jp/translate?hl=&sl=&tl=&u=
+      n: 4
+      samples:
+      - https://translate.google.co.jp/translate?hl=ja&sl=ja&tl=en&u=https://www.vill.itsuki.lg.jp/teijuu/default.html  «English»
+      - https://translate.google.co.jp/translate?hl=ja&sl=ja&tl=zh-CN&u=https://www.vill.itsuki.lg.jp/teijuu/default.html  «中文(简化字)»
+  - url: https://www.vill.itsuki.lg.jp/dynamic/teijuu/info/pub/detail.aspx?c_id=17&id=27
+    pdf: 0
+    shapes:
+    - shape: www.vill.itsuki.lg.jp/dynamic/teijuu/hpkiji/pub/List.aspx?c_id=&class_id=&class_set_id=
+      n: 10
+      samples:
+      - https://www.vill.itsuki.lg.jp/dynamic/teijuu/hpkiji/pub/List.aspx?c_id=3&class_set_id=9&class_id=612  «知る»
+      - https://www.vill.itsuki.lg.jp/dynamic/teijuu/hpkiji/pub/List.aspx?c_id=3&class_set_id=9&class_id=613  «移住する»
+    - shape: translate.google.co.jp/translate?hl=&id=&sl=&tl=&u=
+      n: 4
+      samples:
+      - https://translate.google.co.jp/translate?hl=ja&sl=ja&tl=en&u=https://www.vill.itsuki.lg.jp/dynamic/teijuu/info/pub/detail.aspx?c_id=17&id=27  «English»
+      - https://translate.google.co.jp/translate?hl=ja&sl=ja&tl=zh-CN&u=https://www.vill.itsuki.lg.jp/dynamic/teijuu/info/pub/detail.aspx?c_id=17&id=27  «中文(简化字)»
+  - url: https://www.vill.itsuki.lg.jp/dynamic/teijuu/info/pub/detail.aspx?c_id=17&id=28
+    pdf: 0
+    shapes:
+    - shape: www.vill.itsuki.lg.jp/dynamic/teijuu/hpkiji/pub/List.aspx?c_id=&class_id=&class_set_id=
+      n: 10
+      samples:
+      - https://www.vill.itsuki.lg.jp/dynamic/teijuu/hpkiji/pub/List.aspx?c_id=3&class_set_id=9&class_id=612  «知る»
+      - https://www.vill.itsuki.lg.jp/dynamic/teijuu/hpkiji/pub/List.aspx?c_id=3&class_set_id=9&class_id=613  «移住する»
+    - shape: translate.google.co.jp/translate?hl=&id=&sl=&tl=&u=
+      n: 4
+      samples:
+      - https://translate.google.co.jp/translate?hl=ja&sl=ja&tl=en&u=https://www.vill.itsuki.lg.jp/dynamic/teijuu/info/pub/detail.aspx?c_id=17&id=28  «English»
+      - https://translate.google.co.jp/translate?hl=ja&sl=ja&tl=zh-CN&u=https://www.vill.itsuki.lg.jp/dynamic/teijuu/info/pub/detail.aspx?c_id=17&id=28  «中文(简化字)»
+- prefecture: kumamoto
+  id: kumamoto-www-vill-itsuki-lg-jp-af73d5
+  name: 五木村 移住定住支援サイト(空き家バンク)
+  list: https://www.vill.itsuki.lg.jp/dynamic/teijuu/info/pub/default.aspx?c_id=17&pg=1
+  pdf: 0
+  iframes: []
+  external: []
+  pages:
+  - url: https://www.vill.itsuki.lg.jp/dynamic/teijuu/info/pub/default.aspx?c_id=17&pg=1
+    pdf: 0
+    shapes:
+    - shape: www.vill.itsuki.lg.jp/dynamic/teijuu/hpkiji/pub/List.aspx?c_id=&class_id=&class_set_id=
+      n: 10
+      samples:
+      - https://www.vill.itsuki.lg.jp/dynamic/teijuu/hpkiji/pub/List.aspx?c_id=3&class_set_id=9&class_id=612  «知る»
+      - https://www.vill.itsuki.lg.jp/dynamic/teijuu/hpkiji/pub/List.aspx?c_id=3&class_set_id=9&class_id=613  «移住する»
+    - shape: translate.google.co.jp/translate?hl=&pg=&sl=&tl=&u=
+      n: 4
+      samples:
+      - https://translate.google.co.jp/translate?hl=ja&sl=ja&tl=en&u=https://www.vill.itsuki.lg.jp/dynamic/teijuu/info/pub/default.aspx?c_id=17&pg=1  «English»
+      - https://translate.google.co.jp/translate?hl=ja&sl=ja&tl=zh-CN&u=https://www.vill.itsuki.lg.jp/dynamic/teijuu/info/pub/default.aspx?c_id=17&pg=1  «中文(简化字)»
+- prefecture: kumamoto
+  id: kumamoto-hitoyoshi-life-jp-4707a7
+  name: 人よしライフ
+  list: https://hitoyoshi-life.jp/empty/
+  pdf: 0
+  iframes: []
+  external: []
+  pages:
+  - url: https://hitoyoshi-life.jp/empty/
+    pdf: 0
+    shapes:
+    - shape: hitoyoshi-life.jp/empty/N/
+      n: 9
+      samples:
+      - https://hitoyoshi-life.jp/empty/4761/  «中古住宅 NEW 敷地100坪人気の平屋!球磨川の自然を感じ»
+      - https://hitoyoshi-life.jp/empty/4628/  «中古住宅 自然豊かな井ノ口町の農地付物件です【井ノ口町971»
+  - url: https://hitoyoshi-life.jp/empty/4628/
+    pdf: 0
+    shapes: []
+  - url: https://hitoyoshi-life.jp/empty/3256-2/
+    pdf: 0
+    shapes: []
+  - url: https://hitoyoshi-life.jp/empty/2100/
+    pdf: 0
+    shapes: []
+- prefecture: kumamoto
+  id: kumamoto-www-town-nankan-lg-jp-6916e3
+  name: 南関町空き家バンク
+  list: https://www.town.nankan.lg.jp/kurashi/kurashisodan/4283.html
+  pdf: 0
+  iframes: []
+  external:
+  - kumamoto-akiya360.jp
+  pages:
+  - url: https://www.town.nankan.lg.jp/kurashi/kurashisodan/4283.html
+    pdf: 0
+    shapes:
+    - shape: kumamoto-akiya360.jp/property/pN/
+      n: 24
+      samples:
+      - https://kumamoto-akiya360.jp/property/p1000000345/  «kumamoto-akiya360.jp/property/»
+      - https://kumamoto-akiya360.jp/property/p1000000025/  «https://kumamoto-akiya360.jp/p»
+      read:
+        price: 2000000
+        land_m2: 912.02
+        address: 熊本県 南関町 長山
+        images: 8
+    - shape: www.town.nankan.lg.jp/mokutekibetsu/N.html
+      n: 7
+      samples:
+      - https://www.town.nankan.lg.jp/mokutekibetsu/2054.html  «子ども・子育て»
+      - https://www.town.nankan.lg.jp/mokutekibetsu/2057.html  «高齢者・介護»
+    - shape: translate.google.co.jp/translate?hl=&sl=&tl=
+      n: 4
+      samples:
+      - https://translate.google.co.jp/translate?hl=ja&sl=ja&tl=en  «English»
+      - https://translate.google.co.jp/translate?hl=ja&sl=ja&tl=zh-CN  «簡体中文»
+  - url: https://www.town.nankan.lg.jp/kurashi/kurashisodan/jutaku/page1283.html
+    pdf: 4
+    shapes:
+    - shape: www.town.nankan.lg.jp/mokutekibetsu/N.html
+      n: 7
+      samples:
+      - https://www.town.nankan.lg.jp/mokutekibetsu/2054.html  «子ども・子育て»
+      - https://www.town.nankan.lg.jp/mokutekibetsu/2057.html  «高齢者・介護»
+    - shape: translate.google.co.jp/translate?hl=&sl=&tl=
+      n: 4
+      samples:
+      - https://translate.google.co.jp/translate?hl=ja&sl=ja&tl=en  «English»
+      - https://translate.google.co.jp/translate?hl=ja&sl=ja&tl=zh-CN  «簡体中文»
+  - url: https://www.town.nankan.lg.jp/kurashi/kurashisodan/3120.html
+    pdf: 3
+    shapes:
+    - shape: www.town.nankan.lg.jp/mokutekibetsu/N.html
+      n: 7
+      samples:
+      - https://www.town.nankan.lg.jp/mokutekibetsu/2054.html  «子ども・子育て»
+      - https://www.town.nankan.lg.jp/mokutekibetsu/2057.html  «高齢者・介護»
+    - shape: translate.google.co.jp/translate?hl=&sl=&tl=
+      n: 4
+      samples:
+      - https://translate.google.co.jp/translate?hl=ja&sl=ja&tl=en  «English»
+      - https://translate.google.co.jp/translate?hl=ja&sl=ja&tl=zh-CN  «簡体中文»
+  - url: https://www.town.nankan.lg.jp/kurashi/kurashisodan/3111.html
+    pdf: 3
+    shapes:
+    - shape: www.town.nankan.lg.jp/mokutekibetsu/N.html
+      n: 7
+      samples:
+      - https://www.town.nankan.lg.jp/mokutekibetsu/2054.html  «子ども・子育て»
+      - https://www.town.nankan.lg.jp/mokutekibetsu/2057.html  «高齢者・介護»
+    - shape: translate.google.co.jp/translate?hl=&sl=&tl=
+      n: 4
+      samples:
+      - https://translate.google.co.jp/translate?hl=ja&sl=ja&tl=en  «English»
+      - https://translate.google.co.jp/translate?hl=ja&sl=ja&tl=zh-CN  «簡体中文»
+  - url: https://www.town.nankan.lg.jp/oshirase/
+    pdf: 0
+    shapes:
+    - shape: www.town.nankan.lg.jp/mokutekibetsu/N.html
+      n: 7
+      samples:
+      - https://www.town.nankan.lg.jp/mokutekibetsu/2054.html  «子ども・子育て»
+      - https://www.town.nankan.lg.jp/mokutekibetsu/2057.html  «高齢者・介護»
+    - shape: www.town.nankan.lg.jp/oshirase/index.pN.html
+      n: 5
+      samples:
+      - https://www.town.nankan.lg.jp/oshirase/index.p2.html  «2»
+      - https://www.town.nankan.lg.jp/oshirase/index.p3.html  «3»
+    - shape: translate.google.co.jp/translate?hl=&sl=&tl=
+      n: 4
+      samples:
+      - https://translate.google.co.jp/translate?hl=ja&sl=ja&tl=en  «English»
+      - https://translate.google.co.jp/translate?hl=ja&sl=ja&tl=zh-CN  «簡体中文»
+    - shape: www.town.nankan.lg.jp/kurashi/kurashisodan/N.html
+      n: 4
+      samples:
+      - https://www.town.nankan.lg.jp/kurashi/kurashisodan/4283.html  «空き家バンク 登録物件一覧»
+      - https://www.town.nankan.lg.jp/kurashi/kurashisodan/3144.html  «道路占用許可申請について»
+- prefecture: kumamoto
+  id: kumamoto-www-town-taragi-lg-jp-802049
+  name: 多良木町空き家バンク制度
+  list: https://www.town.taragi.lg.jp/gyousei/soshiki/kikakukanko/akiya/index.html
+  pdf: 0
+  iframes: []
+  external: []
+  pages:
+  - url: https://www.town.taragi.lg.jp/gyousei/soshiki/kikakukanko/akiya/index.html
+    pdf: 0
+    shapes: []
+  - url: http://www.town.taragi.lg.jp/gyousei/kurashi/kurashi_joho/akiya_bank/index.html
+    pdf: 0
+    shapes: []
+  - url: http://www.town.taragi.lg.jp/gyousei/chosei_gikai/shisetsu/ichiran/index.html
+    pdf: 0
+    shapes: []
+  - url: http://www.town.taragi.lg.jp/gyousei/ijuteiju/akiya_bank/index.html
+    pdf: 0
+    shapes: []
+- prefecture: kumamoto
+  id: kumamoto-www-town-kumamoto-yamato-lg-jp-59bad5
+  name: 山の都地域しごとセンター
+  list: https://www.town.kumamoto-yamato.lg.jp/shigoto/
+  pdf: 0
+  iframes: []
+  external: []
+  pages:
+  - url: https://www.town.kumamoto-yamato.lg.jp/shigoto/
+    pdf: 0
+    shapes:
+    - shape: www.town.kumamoto-yamato.lg.jp/shigoto/listN.html
+      n: 8
+      samples:
+      - https://www.town.kumamoto-yamato.lg.jp/shigoto/list00651.html  «町を知る»
+      - https://www.town.kumamoto-yamato.lg.jp/shigoto/list00652.html  «家を探す»
+    - shape: www.town.kumamoto-yamato.lg.jp/shigoto/kijiN/index.html
+      n: 7
+      samples:
+      - https://www.town.kumamoto-yamato.lg.jp/shigoto/kiji0035162/index.html  «町の移住・定住等に関する支援事業»
+      - https://www.town.kumamoto-yamato.lg.jp/shigoto/kiji00310107/index.html  «移住者インタビュー28 池田 涼さん»
+  - url: https://www.town.kumamoto-yamato.lg.jp/dynamic/shigoto/info/pub/detail.aspx?c_id=35&id=234
+    pdf: 0
+    shapes:
+    - shape: www.town.kumamoto-yamato.lg.jp/dynamic/shigoto/hpkiji/pub/List.aspx?c_id=&class_id=&class_set_id=
+      n: 7
+      samples:
+      - https://www.town.kumamoto-yamato.lg.jp/dynamic/shigoto/hpkiji/pub/List.aspx?c_id=3&class_set_id=13&class_id=651  «町を知る»
+      - https://www.town.kumamoto-yamato.lg.jp/dynamic/shigoto/hpkiji/pub/List.aspx?c_id=3&class_set_id=13&class_id=652  «家を探す»
+- prefecture: kumamoto
+  id: kumamoto-www-city-yamaga-kumamoto-jp-dcc1ea
+  name: 山鹿市空き家バンク制度
+  list: https://www.yamaga-gurashi.com/house/index.html
+  pdf: 0
+  iframes: []
+  external: []
+  pages:
+  - url: https://www.yamaga-gurashi.com/house/index.html
+    pdf: 0
+    shapes: []
+  - url: https://www.yamaga-gurashi.com/about/page.html
+    pdf: 2
+    shapes: []
+- prefecture: kumamoto
+  id: kumamoto-www-town-mifune-kumamoto-jp-d5edf3
+  name: 御船町空き家バンク
+  list: https://www.town.mifune.kumamoto.jp/iju/info/pub/default.aspx?c_id=40
+  pdf: 0
+  iframes: []
+  external: []
+  pages:
+  - url: https://www.town.mifune.kumamoto.jp/iju/info/pub/default.aspx?c_id=40
+    pdf: 0
+    shapes:
+    - shape: www.town.mifune.kumamoto.jp/iju/hpkiji/pub/List.aspx?c_id=&class_id=&class_set_id=
+      n: 12
+      samples:
+      - https://www.town.mifune.kumamoto.jp/iju/hpkiji/pub/List.aspx?c_id=3&class_set_id=7&class_id=6028  «みふねのこと»
+      - https://www.town.mifune.kumamoto.jp/iju/hpkiji/pub/List.aspx?c_id=3&class_set_id=7&class_id=6033  «移住者の声»
+    - shape: 'www.town.mifune.kumamoto.jp/iju/pageN.html '
+      n: 8
+      samples:
+      - https://www.town.mifune.kumamoto.jp/iju/page5470.html   «御船町はこんなところ»
+      - https://www.town.mifune.kumamoto.jp/iju/page5484.html   «交通アクセス»
+    - shape: translate.google.co.jp/translate?hl=&sl=&tl=&u=
+      n: 4
+      samples:
+      - https://translate.google.co.jp/translate?hl=ja&sl=ja&tl=en&u=https%3a%2f%2fwww.town.mifune.kumamoto.jp%2fiju%2finfo%2fpub%2fdefault.aspx%3fc_id%3d40  «English»
+      - https://translate.google.co.jp/translate?hl=ja&sl=ja&tl=zh-CN&u=https%3a%2f%2fwww.town.mifune.kumamoto.jp%2fiju%2finfo%2fpub%2fdefault.aspx%3fc_id%3d40  «中文(简化字)»
+  - url: https://www.town.mifune.kumamoto.jp/iju/hpkiji/pub/List.aspx?c_id=3&class_set_id=7&class_id=6034
+    pdf: 0
+    shapes:
+    - shape: www.town.mifune.kumamoto.jp/iju/hpkiji/pub/List.aspx?c_id=&class_id=&class_set_id=
+      n: 11
+      samples:
+      - https://www.town.mifune.kumamoto.jp/iju/hpkiji/pub/List.aspx?c_id=3&class_set_id=7&class_id=6028  «みふねのこと»
+      - https://www.town.mifune.kumamoto.jp/iju/hpkiji/pub/List.aspx?c_id=3&class_set_id=7&class_id=6033  «移住者の声»
+    - shape: 'www.town.mifune.kumamoto.jp/iju/pageN.html '
+      n: 8
+      samples:
+      - https://www.town.mifune.kumamoto.jp/iju/page5470.html   «御船町はこんなところ»
+      - https://www.town.mifune.kumamoto.jp/iju/page5484.html   «交通アクセス»
+    - shape: translate.google.co.jp/translate?hl=&sl=&tl=&u=
+      n: 4
+      samples:
+      - https://translate.google.co.jp/translate?hl=ja&sl=ja&tl=en&u=https%3a%2f%2fwww.town.mifune.kumamoto.jp%2fiju%2fhpkiji%2fpub%2fList.aspx%3fc_id%3d3%26class_set_id%3d7%26class_id%3d6034  «English»
+      - https://translate.google.co.jp/translate?hl=ja&sl=ja&tl=zh-CN&u=https%3a%2f%2fwww.town.mifune.kumamoto.jp%2fiju%2fhpkiji%2fpub%2fList.aspx%3fc_id%3d3%26class_set_id%3d7%26class_id%3d6034  «中文(简化字)»
+    - shape: www.town.mifune.kumamoto.jp/iju/hpkiji/pub/default.aspx?c_id=&class_set_id=
+      n: 3
+      samples:
+      - https://www.town.mifune.kumamoto.jp/iju/hpkiji/pub/default.aspx?c_id=3&class_set_id=2  «組織から探す»
+      - https://www.town.mifune.kumamoto.jp/iju/hpkiji/pub/default.aspx?c_id=3&class_set_id=1  «分類から探す»
+- prefecture: kumamoto
+  id: kumamoto-www-city-minamata-lg-jp-021d21
+  name: 水俣市空き家バンク
+  list: https://www.city.minamata.lg.jp/dynamic/ijyu/info/pub/default.aspx?c_id=33
+  pdf: 0
+  iframes: []
+  external: []
+  pages:
+  - url: https://www.city.minamata.lg.jp/dynamic/ijyu/info/pub/default.aspx?c_id=33
+    pdf: 0
+    shapes:
+    - shape: translate.google.co.jp/translate?hl=&sl=&tl=&u=
+      n: 4
+      samples:
+      - https://translate.google.co.jp/translate?hl=ja&sl=ja&tl=en&u=www.city.minamata.lg.jp/dynamic/ijyu/info/pub/default.aspx?c_id=33  «English»
+      - https://translate.google.co.jp/translate?hl=ja&sl=ja&tl=zh-CN&u=www.city.minamata.lg.jp/dynamic/ijyu/info/pub/default.aspx?c_id=33  «中文(简化字)»
+- prefecture: kumamoto
+  id: kumamoto-www-town-tsunagi-lg-jp-318f8a
+  name: 津奈木町移住定住サイト つなぎぐらし
+  list: http://www.town.tsunagi.lg.jp/teiju/
+  pdf: 0
+  iframes: []
+  external: []
+  pages:
+  - url: http://www.town.tsunagi.lg.jp/teiju/
+    pdf: 0
+    shapes:
+    - shape: www.town.tsunagi.lg.jp/teiju/hpkiji/pub/List.aspx?c_id=&class_id=&class_set_id=
+      n: 34
+      samples:
+      - https://www.town.tsunagi.lg.jp/teiju/hpkiji/pub/List.aspx?c_id=3&class_set_id=8&class_id=758  «津奈木町の魅力»
+      - https://www.town.tsunagi.lg.jp/teiju/hpkiji/pub/List.aspx?c_id=3&class_set_id=8&class_id=872  «お試し住宅・宿»
+    - shape: www.town.tsunagi.lg.jp/teiju/pageN.html
+      n: 4
+      samples:
+      - https://www.town.tsunagi.lg.jp/teiju/page2097.html  «空き家リフォーム事業補助金【空き家バンク】»
+      - https://www.town.tsunagi.lg.jp/teiju/page4304.html  «空き家No.52»
+  - url: https://www.town.tsunagi.lg.jp/teiju/hpkiji/pub/List.aspx?c_id=3&class_set_id=8&class_id=759
+    pdf: 0
+    shapes:
+    - shape: www.town.tsunagi.lg.jp/teiju/hpkiji/pub/List.aspx?c_id=&class_id=&class_set_id=
+      n: 13
+      samples:
+      - https://www.town.tsunagi.lg.jp/teiju/hpkiji/pub/List.aspx?c_id=3&class_set_id=8&class_id=767  «町営・公営住宅情報»
+      - https://www.town.tsunagi.lg.jp/teiju/hpkiji/pub/List.aspx?c_id=3&class_set_id=8&class_id=768  «空き家情報»
+    - shape: www.town.tsunagi.lg.jp/teiju/pageN.html
+      n: 7
+      samples:
+      - https://www.town.tsunagi.lg.jp/teiju/page4753.html  «町営(定住促進)住宅入居者随時募集»
+      - https://www.town.tsunagi.lg.jp/teiju/page4205.html  «眠っている空き家を有効活用しませんか?~津奈木町空き家バンク»
+  - url: https://www.town.tsunagi.lg.jp/teiju/hpkiji/pub/List.aspx?c_id=3&class_set_id=8&class_id=768
+    pdf: 0
+    shapes:
+    - shape: www.town.tsunagi.lg.jp/teiju/pageN.html
+      n: 6
+      samples:
+      - https://www.town.tsunagi.lg.jp/teiju/page4205.html  «眠っている空き家を有効活用しませんか?~津奈木町空き家バンク»
+      - https://www.town.tsunagi.lg.jp/teiju/page4598.html  «空き家No.62»
+    - shape: www.town.tsunagi.lg.jp/teiju/hpkiji/pub/List.aspx?c_id=&class_id=&class_set_id=
+      n: 5
+      samples:
+      - https://www.town.tsunagi.lg.jp/teiju/hpkiji/pub/List.aspx?c_id=3&class_set_id=8&class_id=812  «空き家一覧»
+      - https://www.town.tsunagi.lg.jp/teiju/hpkiji/pub/List.aspx?c_id=3&class_set_id=8&class_id=811  «空き家バンクの利用方法»
+  - url: https://www.town.tsunagi.lg.jp/teiju/hpkiji/pub/List.aspx?c_id=3&class_set_id=8&class_id=812
+    pdf: 0
+    shapes:
+    - shape: www.town.tsunagi.lg.jp/teiju/pageN.html
+      n: 6
+      samples:
+      - https://www.town.tsunagi.lg.jp/teiju/page4598.html  «空き家No.62»
+      - https://www.town.tsunagi.lg.jp/teiju/page4342.html  «空き家No.55»
+      read:
+        price: 6000000
+        building_m2: 53.55
+        land_m2: 391.07
+        address: 熊本県葦北郡津奈木町大字福浜(平国上地区)
+  - url: https://www.town.tsunagi.lg.jp/teiju/hpkiji/pub/List.aspx?c_id=3&class_set_id=8&class_id=811
+    pdf: 0
+    shapes:
+    - shape: www.town.tsunagi.lg.jp/teiju/pageN.html
+      n: 4
+      samples:
+      - https://www.town.tsunagi.lg.jp/teiju/page4205.html  «眠っている空き家を有効活用しませんか?~津奈木町空き家バンク»
+      - https://www.town.tsunagi.lg.jp/teiju/page1791.html  «空き家バンクの利用方法»
+  - url: https://www.town.tsunagi.lg.jp/teiju/hpkiji/pub/List.aspx?c_id=3&class_set_id=8&class_id=774
+    pdf: 0
+    shapes: []
+  - url: https://www.town.tsunagi.lg.jp/teiju/hpkiji/pub/List.aspx?c_id=3&class_set_id=8&class_id=787
+    pdf: 0
+    shapes:
+    - shape: www.town.tsunagi.lg.jp/teiju/hpkiji/pub/List.aspx?c_id=&class_id=&class_set_id=
+      n: 6
+      samples:
+      - https://www.town.tsunagi.lg.jp/teiju/hpkiji/pub/List.aspx?c_id=3&class_set_id=8&class_id=774  «住まい»
+      - https://www.town.tsunagi.lg.jp/teiju/hpkiji/pub/List.aspx?c_id=3&class_set_id=8&class_id=775  «仕事»
+    - shape: www.town.tsunagi.lg.jp/teiju/pageN.html
+      n: 3
+      samples:
+      - https://www.town.tsunagi.lg.jp/teiju/page4205.html  «眠っている空き家を有効活用しませんか?~津奈木町空き家バンク»
+      - https://www.town.tsunagi.lg.jp/teiju/page2097.html  «空き家リフォーム事業補助金【空き家バンク】»
+- prefecture: kumamoto
+  id: kumamoto-www-yunomae-kaziri-com-7c1f76
+  name: 湯前町観光・移住定住情報サイト「ゆのまえかじり」
+  list: https://www.yunomae-kaziri.com/
+  pdf: 0
+  iframes:
+  - https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fyunomaekaziri%2F&tabs=timeline&width=500&height=300&small_header=true&adapt_container_width=true&hide_cover=false&show_facepile=false&appId
+  external: []
+  pages:
+  - url: https://www.yunomae-kaziri.com/
+    pdf: 0
+    shapes:
+    - shape: www.yunomae-kaziri.com/kijiN/index.html
+      n: 14
+      samples:
+      - https://www.yunomae-kaziri.com/kiji0035101/index.html  «空き家のリフォーム等に関する補助事業の募集を行います!»
+      - https://www.yunomae-kaziri.com/kiji0035680/index.html  «【独身者限定!】ICHIFUSA DAY-CAMP体験会~大»
+    - shape: www.yunomae-kaziri.com/listN.html
+      n: 9
+      samples:
+      - https://www.yunomae-kaziri.com/list00508.html  «観る・遊ぶ»
+      - https://www.yunomae-kaziri.com/list00509.html  «グルメ・お土産»
+    - shape: translate.google.co.jp/translate?hl=&sl=&tl=&u=
+      n: 8
+      samples:
+      - http://translate.google.co.jp/translate?hl=ja&sl=ja&tl=en&u=https%3a%2f%2fwww.yunomae-kaziri.com%2fdefault.html  «English»
+      - http://translate.google.co.jp/translate?hl=ja&sl=ja&tl=zh-CN&u=https%3a%2f%2fwww.yunomae-kaziri.com%2fdefault.html  «中文(简化字)»
+    - shape: www.yunomae-kaziri.com/dynamic/kankou/info/pub/detail.aspx?c_id=&id=
+      n: 3
+      samples:
+      - https://www.yunomae-kaziri.com/dynamic/kankou/info/pub/detail.aspx?c_id=40&id=195  «登録番号(34) 竹林に囲まれたのどかな環境 浅鹿野の空き家»
+      - https://www.yunomae-kaziri.com/dynamic/kankou/info/pub/detail.aspx?c_id=40&id=316  «登録番号(46)閑静な住宅街にある下村地区の一軒家»
+      read:
+        price: 2000000
+  - url: https://www.yunomae-kaziri.com/list00507.html
+    pdf: 0
+    shapes:
+    - shape: www.yunomae-kaziri.com/listN.html
+      n: 20
+      samples:
+      - https://www.yunomae-kaziri.com/list00508.html  «観る・遊ぶ»
+      - https://www.yunomae-kaziri.com/list00509.html  «グルメ・お土産»
+    - shape: translate.google.co.jp/translate?hl=&sl=&tl=&u=
+      n: 4
+      samples:
+      - http://translate.google.co.jp/translate?hl=ja&sl=ja&tl=en&u=https%3a%2f%2fwww.yunomae-kaziri.com%2flist00507.html  «English»
+      - http://translate.google.co.jp/translate?hl=ja&sl=ja&tl=zh-CN&u=https%3a%2f%2fwww.yunomae-kaziri.com%2flist00507.html  «中文(简化字)»
+    - shape: www.yunomae-kaziri.com/kijiN/index.html
+      n: 3
+      samples:
+      - https://www.yunomae-kaziri.com/kiji0031721/index.html  «空き家を登録したい方»
+      - https://www.yunomae-kaziri.com/kiji0031720/index.html  «空き家を探している方»
+  - url: https://www.yunomae-kaziri.com/new_list.html
+    pdf: 0
+    shapes:
+    - shape: www.yunomae-kaziri.com/listN.html
+      n: 5
+      samples:
+      - https://www.yunomae-kaziri.com/list00508.html  «観る・遊ぶ»
+      - https://www.yunomae-kaziri.com/list00509.html  «グルメ・お土産»
+    - shape: www.yunomae-kaziri.com/kijiN/index.html
+      n: 5
+      samples:
+      - https://www.yunomae-kaziri.com/kiji0035101/index.html  «空き家のリフォーム等に関する補助事業の募集を行います!»
+      - https://www.yunomae-kaziri.com/kiji0035680/index.html  «【独身者限定!】ICHIFUSA DAY-CAMP体験会~大»
+    - shape: translate.google.co.jp/translate?hl=&sl=&tl=&u=
+      n: 4
+      samples:
+      - http://translate.google.co.jp/translate?hl=ja&sl=ja&tl=en&u=https%3a%2f%2fwww.yunomae-kaziri.com%2fnew_list.html  «English»
+      - http://translate.google.co.jp/translate?hl=ja&sl=ja&tl=zh-CN&u=https%3a%2f%2fwww.yunomae-kaziri.com%2fnew_list.html  «中文(简化字)»
+  - url: https://www.yunomae-kaziri.com/kiji0035101/index.html
+    pdf: 1
+    shapes:
+    - shape: www.yunomae-kaziri.com/listN.html
+      n: 5
+      samples:
+      - https://www.yunomae-kaziri.com/list00508.html  «観る・遊ぶ»
+      - https://www.yunomae-kaziri.com/list00509.html  «グルメ・お土産»
+    - shape: translate.google.co.jp/translate?hl=&sl=&tl=&u=
+      n: 4
+      samples:
+      - http://translate.google.co.jp/translate?hl=ja&sl=ja&tl=en&u=https%3a%2f%2fwww.yunomae-kaziri.com%2fkiji0035101%2findex.html  «English»
+      - http://translate.google.co.jp/translate?hl=ja&sl=ja&tl=zh-CN&u=https%3a%2f%2fwww.yunomae-kaziri.com%2fkiji0035101%2findex.html  «中文(简化字)»
+  - url: https://www.yunomae-kaziri.com/dynamic/kankou/info/pub/detail.aspx?c_id=40&id=195
+    pdf: 0
+    shapes:
+    - shape: www.yunomae-kaziri.com/dynamic/kankou/hpkiji/pub/List.aspx?c_id=&class_id=&class_set_id=
+      n: 5
+      samples:
+      - https://www.yunomae-kaziri.com/dynamic/kankou/hpkiji/pub/List.aspx?c_id=3&class_set_id=9&class_id=508  «観る・遊ぶ»
+      - https://www.yunomae-kaziri.com/dynamic/kankou/hpkiji/pub/List.aspx?c_id=3&class_set_id=9&class_id=509  «グルメ・お土産»
+    - shape: translate.google.co.jp/translate?hl=&sl=&tl=&u=
+      n: 4
+      samples:
+      - http://translate.google.co.jp/translate?hl=ja&sl=ja&tl=en&u=https%3a%2f%2fwww.yunomae-kaziri.com%2fdynamic%2fkankou%2finfo%2fpub%2fdetail.aspx%3fc_id%3d40%26id%3d195  «English»
+      - http://translate.google.co.jp/translate?hl=ja&sl=ja&tl=zh-CN&u=https%3a%2f%2fwww.yunomae-kaziri.com%2fdynamic%2fkankou%2finfo%2fpub%2fdetail.aspx%3fc_id%3d40%26id%3d195  «中文(简化字)»
+- prefecture: kumamoto
+  id: kumamoto-akiya-reihoku-kumamoto-jp-8e2d4f
+  name: 苓北町空き家バンク
+  list: https://akiya.reihoku-kumamoto.jp/
+  pdf: 0
+  iframes: []
+  external: []
+  pages:
+  - url: https://akiya.reihoku-kumamoto.jp/
+    pdf: 0
+    shapes:
+    - shape: akiya.reihoku-kumamoto.jp/listN.html
+      n: 11
+      samples:
+      - https://akiya.reihoku-kumamoto.jp/list00501.html  «れいほくの魅力»
+      - https://akiya.reihoku-kumamoto.jp/list00502.html  «すまい»
+    - shape: akiya.reihoku-kumamoto.jp/kijiN/index.html
+      n: 6
+      samples:
+      - https://akiya.reihoku-kumamoto.jp/kiji003922/index.html  «まちの紹介»
+      - https://akiya.reihoku-kumamoto.jp/kiji003849/index.html  «くらしの情報»
+    - shape: translate.google.co.jp/translate?hl=&sl=&tl=&u=
+      n: 4
+      samples:
+      - https://translate.google.co.jp/translate?hl=ja&sl=ja&tl=en&u=https://akiya.reihoku-kumamoto.jp/default.html  «English»
+      - https://translate.google.co.jp/translate?hl=ja&sl=ja&tl=zh-CN&u=https://akiya.reihoku-kumamoto.jp/default.html  «中文(简化字)»
+    - shape: reihoku-kumamoto.jp/listN.html
+      n: 4
+      samples:
+      - https://reihoku-kumamoto.jp/list00114.html  «子育て支援»
+      - https://reihoku-kumamoto.jp/list00115.html  «子育ていざというとき»
+  - url: https://akiya.reihoku-kumamoto.jp/list00502.html
+    pdf: 0
+    shapes:
+    - shape: akiya.reihoku-kumamoto.jp/listN.html
+      n: 10
+      samples:
+      - https://akiya.reihoku-kumamoto.jp/list00501.html  «れいほくの魅力»
+      - https://akiya.reihoku-kumamoto.jp/list00503.html  «しごと»
+    - shape: akiya.reihoku-kumamoto.jp/kijiN/index.html
+      n: 6
+      samples:
+      - https://akiya.reihoku-kumamoto.jp/kiji003922/index.html  «まちの紹介»
+      - https://akiya.reihoku-kumamoto.jp/kiji003849/index.html  «くらしの情報»
+    - shape: translate.google.co.jp/translate?hl=&sl=&tl=&u=
+      n: 4
+      samples:
+      - https://translate.google.co.jp/translate?hl=ja&sl=ja&tl=en&u=https://akiya.reihoku-kumamoto.jp/list00502.html  «English»
+      - https://translate.google.co.jp/translate?hl=ja&sl=ja&tl=zh-CN&u=https://akiya.reihoku-kumamoto.jp/list00502.html  «中文(简化字)»
+    - shape: reihoku-kumamoto.jp/listN.html
+      n: 3
+      samples:
+      - https://reihoku-kumamoto.jp/list00114.html  «子育て支援»
+      - https://reihoku-kumamoto.jp/list00115.html  «子育ていざというとき»
+  - url: https://akiya.reihoku-kumamoto.jp/kiji003851/index.html
+    pdf: 0
+    shapes:
+    - shape: akiya.reihoku-kumamoto.jp/kijiN/index.html
+      n: 19
+      samples:
+      - https://akiya.reihoku-kumamoto.jp/kiji003922/index.html  «まちの紹介»
+      - https://akiya.reihoku-kumamoto.jp/kiji003849/index.html  «くらしの情報»
+    - shape: akiya.reihoku-kumamoto.jp/listN.html
+      n: 11
+      samples:
+      - https://akiya.reihoku-kumamoto.jp/list00501.html  «れいほくの魅力»
+      - https://akiya.reihoku-kumamoto.jp/list00502.html  «すまい»
+    - shape: translate.google.co.jp/translate?hl=&sl=&tl=&u=
+      n: 4
+      samples:
+      - https://translate.google.co.jp/translate?hl=ja&sl=ja&tl=en&u=https://akiya.reihoku-kumamoto.jp/kiji003851/index.html  «English»
+      - https://translate.google.co.jp/translate?hl=ja&sl=ja&tl=zh-CN&u=https://akiya.reihoku-kumamoto.jp/kiji003851/index.html  «中文(简化字)»
+    - shape: reihoku-kumamoto.jp/listN.html
+      n: 3
+      samples:
+      - https://reihoku-kumamoto.jp/list00114.html  «子育て支援»
+      - https://reihoku-kumamoto.jp/list00115.html  «子育ていざというとき»
+  - url: https://akiya.reihoku-kumamoto.jp/list00511.html
+    pdf: 0
+    shapes:
+    - shape: akiya.reihoku-kumamoto.jp/listN.html
+      n: 10
+      samples:
+      - https://akiya.reihoku-kumamoto.jp/list00501.html  «れいほくの魅力»
+      - https://akiya.reihoku-kumamoto.jp/list00502.html  «すまい»
+    - shape: akiya.reihoku-kumamoto.jp/kijiN/index.html
+      n: 5
+      samples:
+      - https://akiya.reihoku-kumamoto.jp/kiji003922/index.html  «まちの紹介»
+      - https://akiya.reihoku-kumamoto.jp/kiji003849/index.html  «くらしの情報»
+    - shape: translate.google.co.jp/translate?hl=&sl=&tl=&u=
+      n: 4
+      samples:
+      - https://translate.google.co.jp/translate?hl=ja&sl=ja&tl=en&u=https://akiya.reihoku-kumamoto.jp/list00511.html  «English»
+      - https://translate.google.co.jp/translate?hl=ja&sl=ja&tl=zh-CN&u=https://akiya.reihoku-kumamoto.jp/list00511.html  «中文(简化字)»
+    - shape: reihoku-kumamoto.jp/listN.html
+      n: 3
+      samples:
+      - https://reihoku-kumamoto.jp/list00114.html  «子育て支援»
+      - https://reihoku-kumamoto.jp/list00115.html  «子育ていざというとき»
+  - url: https://akiya.reihoku-kumamoto.jp/kiji003833/index.html
+    pdf: 1
+    shapes:
+    - shape: akiya.reihoku-kumamoto.jp/listN.html
+      n: 11
+      samples:
+      - https://akiya.reihoku-kumamoto.jp/list00501.html  «れいほくの魅力»
+      - https://akiya.reihoku-kumamoto.jp/list00502.html  «すまい»
+    - shape: akiya.reihoku-kumamoto.jp/kijiN/index.html
+      n: 5
+      samples:
+      - https://akiya.reihoku-kumamoto.jp/kiji003922/index.html  «まちの紹介»
+      - https://akiya.reihoku-kumamoto.jp/kiji003849/index.html  «くらしの情報»
+    - shape: translate.google.co.jp/translate?hl=&sl=&tl=&u=
+      n: 4
+      samples:
+      - https://translate.google.co.jp/translate?hl=ja&sl=ja&tl=en&u=https://akiya.reihoku-kumamoto.jp/kiji003833/index.html  «English»
+      - https://translate.google.co.jp/translate?hl=ja&sl=ja&tl=zh-CN&u=https://akiya.reihoku-kumamoto.jp/kiji003833/index.html  «中文(简化字)»
+    - shape: reihoku-kumamoto.jp/listN.html
+      n: 3
+      samples:
+      - https://reihoku-kumamoto.jp/list00114.html  «子育て支援»
+      - https://reihoku-kumamoto.jp/list00115.html  «子育ていざというとき»
+  - url: https://akiya.reihoku-kumamoto.jp/dynamic/ijyu/info/pub/default.aspx?c_id=27
+    pdf: 0
+    shapes:
+    - shape: akiya.reihoku-kumamoto.jp/dynamic/ijyu/hpkiji/pub/List.aspx?c_id=&class_id=&class_set_id=
+      n: 11
+      samples:
+      - https://akiya.reihoku-kumamoto.jp/dynamic/ijyu/hpkiji/pub/List.aspx?c_id=3&class_set_id=10&class_id=501  «れいほくの魅力»
+      - https://akiya.reihoku-kumamoto.jp/dynamic/ijyu/hpkiji/pub/List.aspx?c_id=3&class_set_id=10&class_id=502  «すまい»
+    - shape: akiya.reihoku-kumamoto.jp/kijiN/index.html
+      n: 6
+      samples:
+      - https://akiya.reihoku-kumamoto.jp/kiji003922/index.html  «まちの紹介»
+      - https://akiya.reihoku-kumamoto.jp/kiji003849/index.html  «くらしの情報»
+    - shape: translate.google.co.jp/translate?hl=&sl=&tl=&u=
+      n: 4
+      samples:
+      - https://translate.google.co.jp/translate?hl=ja&sl=ja&tl=en&u=https://akiya.reihoku-kumamoto.jp/dynamic/ijyu/info/pub/default.aspx?c_id=27  «English»
+      - https://translate.google.co.jp/translate?hl=ja&sl=ja&tl=zh-CN&u=https://akiya.reihoku-kumamoto.jp/dynamic/ijyu/info/pub/default.aspx?c_id=27  «中文(简化字)»
+    - shape: reihoku-kumamoto.jp/listN.html
+      n: 3
+      samples:
+      - https://reihoku-kumamoto.jp/list00114.html  «子育て支援»
+      - https://reihoku-kumamoto.jp/list00115.html  «子育ていざというとき»
+- prefecture: oita
+  id: oita-iju-tsukumi-jp-0e9e8f
+  name: つくみde Life
+  list: https://iju-tsukumi.jp/
+  pdf: 0
+  iframes:
+  - https://www.googletagmanager.com/ns.html?id=GTM-M2ZQ7ZF
+  - https://www.googletagmanager.com/ns.html?id=GTM-M267PN9
+  - https://www.youtube.com/embed/U51FpucQI1g
+  external: []
+  pages:
+  - url: https://iju-tsukumi.jp/
+    pdf: 0
+    shapes: []
+  - url: https://iju-tsukumi.jp/support/unoccupiedhouse/
+    pdf: 9
+    shapes: []
+  - url: https://iju-tsukumi.jp/house/
+    pdf: 0
+    shapes:
+    - shape: iju-tsukumi.jp/lands?action=&category_ids%NB%ND=&price=
+      n: 3
+      samples:
+      - https://iju-tsukumi.jp/lands?action=search&category_ids%5B%5D=2&price=  «第二千怒土地区画整理事業住宅用地»
+      - https://iju-tsukumi.jp/lands?action=search&category_ids%5B%5D=3&price=  «千怒旭地区»
+      read:
+        price: 5969550
+        land_m2: 351.15
+        address: 大分県津久見市大字千怒
+        images: 5
+  - url: https://iju-tsukumi.jp/house/akiyabank/
+    pdf: 4
+    shapes: []
+  - url: https://iju-tsukumi.jp/house/minkan_bukken/
+    pdf: 0
+    shapes: []
+  - url: https://iju-tsukumi.jp/rents/
+    pdf: 0
+    shapes:
+    - shape: iju-tsukumi.jp/rents/detail/N
+      n: 12
+      samples:
+      - https://iju-tsukumi.jp/rents/detail/166  «166 登録番号:166 更新日:2026年08月27日 津»
+      - https://iju-tsukumi.jp/rents/detail/165  «165 登録番号:165 更新日:2026年08月31日 堅»
+      read:
+        price: 2900000
+        building_m2: 90.84
+        land_m2: 178.76
+        address: 大分県津久見市大字津久見
+        images: 8
+  - url: https://iju-tsukumi.jp/topics
+    pdf: 0
+    shapes:
+    - shape: iju-tsukumi.jp/topics?category_id=
+      n: 6
+      samples:
+      - https://iju-tsukumi.jp/topics?category_id=1  «お知らせ»
+      - https://iju-tsukumi.jp/topics?category_id=2  «住まい»
+- prefecture: oita
+  id: oita-bungoono-iju-com-6520e6
+  name: ぶんごおおの暮らし手帖
+  list: https://bungoono-iju.com/
+  pdf: 0
+  iframes: []
+  external: []
+  pages:
+  - url: https://bungoono-iju.com/
+    pdf: 0
+    shapes:
+    - shape: bungoono-iju.com/interview/N/
+      n: 3
+      samples:
+      - https://bungoono-iju.com/interview/1813/  «»
+      - https://bungoono-iju.com/interview/1813/  «»
+  - url: https://bungoono-iju.com/house/
+    pdf: 0
+    shapes:
+    - shape: bungoono-iju.com/akiya/N/
+      n: 22
+      samples:
+      - https://bungoono-iju.com/akiya/6842/  «»
+      - https://bungoono-iju.com/akiya/6842/  «この物件の詳細を見る»
+  - url: https://bungoono-iju.com/?cat=3
+    pdf: 0
+    shapes:
+    - shape: bungoono-iju.com/category/news/page/N/
+      n: 7
+      samples:
+      - https://bungoono-iju.com/category/news/page/2/  «2»
+      - https://bungoono-iju.com/category/news/page/3/  «3»
+  - url: https://bungoono-iju.com/oshirase
+    pdf: 0
+    shapes: []
+  - url: https://bungoono-iju.com/house
+    pdf: 0
+    shapes:
+    - shape: bungoono-iju.com/akiya/N/
+      n: 22
+      samples:
+      - https://bungoono-iju.com/akiya/6842/  «»
+      - https://bungoono-iju.com/akiya/6842/  «この物件の詳細を見る»
+- prefecture: oita
+  id: oita-usacitylive-com-085857
+  name: 宇佐市移住安心ガイド
+  list: https://usacitylive.com/
+  pdf: 0
+  iframes: []
+  external:
+  - www.usacitylive.com
+  pages:
+  - url: https://usacitylive.com/
+    pdf: 0
+    shapes:
+    - shape: www.usacitylive.com/hitokuchiessay/N
+      n: 5
+      samples:
+      - https://www.usacitylive.com/hitokuchiessay/19  «»
+      - https://www.usacitylive.com/hitokuchiessay/17  «»
+- prefecture: oita
+  id: oita-www-city-kitsuki-lg-jp-eda0f1
+  name: 杵築市移住定住ポータルサイト
+  list: https://www.city.kitsuki.lg.jp/teijuusokushin/index.html
+  pdf: 0
+  iframes: []
+  external: []
+  pages:
+  - url: https://www.city.kitsuki.lg.jp/teijuusokushin/index.html
+    pdf: 0
+    shapes:
+    - shape: www.city.kitsuki.lg.jp/teijuusokushin/iju_topics/N.html
+      n: 3
+      samples:
+      - https://www.city.kitsuki.lg.jp/teijuusokushin/iju_topics/11734.html  «杵築の魅力〈kitsuki_lifestyle〉»
+      - https://www.city.kitsuki.lg.jp/teijuusokushin/iju_topics/12351.html  «人生まるごと応援プランの詳細はこちらから»
+    - shape: www.city.kitsuki.lg.jp/soshiki/N/machidukuri/ijuuteijuusokusinn/N.html
+      n: 3
+      samples:
+      - https://www.city.kitsuki.lg.jp/soshiki/1/machidukuri/ijuuteijuusokusinn/7180.html  «オンライン移住相談の詳細はこちらから»
+      - https://www.city.kitsuki.lg.jp/soshiki/1/machidukuri/ijuuteijuusokusinn/9402.html  «移住体験プログラムの詳細はこちらから»
+  - url: https://www.city.kitsuki.lg.jp/teijuusokushin/akiyabank/index.html
+    pdf: 0
+    shapes: []
+  - url: https://www.city.kitsuki.lg.jp/cgi-bin/recruit.php/1/list
+    pdf: 0
+    shapes:
+    - shape: www.city.kitsuki.lg.jp/cgi-bin/recruit.php/N/detail/N?ck=
+      n: 20
+      samples:
+      - https://www.city.kitsuki.lg.jp/cgi-bin/recruit.php/1/detail/452?ck=1  «空き家バンクNo. 590»
+      - https://www.city.kitsuki.lg.jp/cgi-bin/recruit.php/1/detail/451?ck=1  «空き家バンクNo. 593»
+      read:
+        price: 8000000
+        address: 大分県杵築市大字相原【R8年10月1日up】
+        images: 8
+  - url: https://www.city.kitsuki.lg.jp/teijuusokushin/3695.html
+    pdf: 0
+    shapes: []
+  - url: http://www.city.kitsuki.lg.jp/cgi-bin/recruit.php/1/list?continue=1
+    pdf: 0
+    shapes:
+    - shape: www.city.kitsuki.lg.jp/cgi-bin/recruit.php/N/detail/N?ck=
+      n: 20
+      samples:
+      - http://www.city.kitsuki.lg.jp/cgi-bin/recruit.php/1/detail/452?ck=1  «空き家バンクNo. 590»
+      - http://www.city.kitsuki.lg.jp/cgi-bin/recruit.php/1/detail/451?ck=1  «空き家バンクNo. 593»
+      read:
+        price: 8000000
+        address: 大分県杵築市大字相原【R8年10月1日up】
+        images: 8
+- prefecture: oita
+  id: oita-www-city-yufu-oita-jp-e6fb8f
+  name: 由布市移住・定住情報
+  list: http://www.city.yufu.oita.jp/kurashi/sumai_akiya/akiya/
+  pdf: 0
+  iframes: []
+  external:
+  - yufu-iju.jp
+  pages:
+  - url: http://www.city.yufu.oita.jp/kurashi/sumai_akiya/akiya/
+    pdf: 0
+    shapes: []
+  - url: https://www.city.yufu.oita.jp/kurashi/sumai_akiya
+    pdf: 0
+    shapes: []
+- prefecture: oita
+  id: oita-bungotakada-iju-jp-60d751
+  name: 豊後高田市IJU支援サイト
+  list: https://bungotakada-iju.jp/
+  pdf: 0
+  iframes:
+  - https://wwwc.netcrew-analysis.jp/recommend/proxy.html
+  external: []
+  pages:
+  - url: https://bungotakada-iju.jp/
+    pdf: 0
+    shapes:
+    - shape: bungotakada-iju.jp/soshiki/N/N.html
+      n: 23
+      samples:
+      - https://bungotakada-iju.jp/soshiki/11/1903.html  «当番医»
+      - https://bungotakada-iju.jp/soshiki/5/2511.html  «住みたい田舎»
+    - shape: bungotakada-iju.jp/life/N/
+      n: 4
+      samples:
+      - https://bungotakada-iju.jp/life/2/  «豊後高田市の魅力»
+      - https://bungotakada-iju.jp/life/1/  «くらし・手続き»
+  - url: https://bungotakada-iju.jp/life/1/19/67/
+    pdf: 0
+    shapes:
+    - shape: bungotakada-iju.jp/soshiki/N/N.html
+      n: 23
+      samples:
+      - https://bungotakada-iju.jp/soshiki/11/1903.html  «当番医»
+      - https://bungotakada-iju.jp/soshiki/5/2511.html  «住みたい田舎»
+    - shape: bungotakada-iju.jp/life/N/
+      n: 4
+      samples:
+      - https://bungotakada-iju.jp/life/2/  «豊後高田市の魅力»
+      - https://bungotakada-iju.jp/life/1/  «くらし・手続き»
+  - url: https://bungotakada-iju.jp/soshiki/5/1648.html
+    pdf: 0
+    shapes:
+    - shape: bungotakada-iju.jp/soshiki/N/N.html
+      n: 22
+      samples:
+      - https://bungotakada-iju.jp/soshiki/11/1903.html  «当番医»
+      - https://bungotakada-iju.jp/soshiki/5/2511.html  «住みたい田舎»
+    - shape: bungotakada-iju.jp/life/N/
+      n: 4
+      samples:
+      - https://bungotakada-iju.jp/life/2/  «豊後高田市の魅力»
+      - https://bungotakada-iju.jp/life/1/  «くらし・手続き»
+  - url: https://bungotakada-iju.jp/soshiki/5/1721.html
+    pdf: 0
+    shapes:
+    - shape: bungotakada-iju.jp/soshiki/N/N.html
+      n: 22
+      samples:
+      - https://bungotakada-iju.jp/soshiki/11/1903.html  «当番医»
+      - https://bungotakada-iju.jp/soshiki/5/2511.html  «住みたい田舎»
+    - shape: bungotakada-iju.jp/life/N/
+      n: 4
+      samples:
+      - https://bungotakada-iju.jp/life/2/  «豊後高田市の魅力»
+      - https://bungotakada-iju.jp/life/1/  «くらし・手続き»
+  - url: https://bungotakada-iju.jp/soshiki/5/17069.html
+    pdf: 0
+    shapes:
+    - shape: bungotakada-iju.jp/soshiki/N/N.html
+      n: 22
+      samples:
+      - https://bungotakada-iju.jp/soshiki/11/1903.html  «当番医»
+      - https://bungotakada-iju.jp/soshiki/5/2511.html  «住みたい田舎»
+    - shape: bungotakada-iju.jp/life/N/
+      n: 4
+      samples:
+      - https://bungotakada-iju.jp/life/2/  «豊後高田市の魅力»
+      - https://bungotakada-iju.jp/life/1/  «くらし・手続き»
+- prefecture: miyazaki
+  id: miyazaki-iju-pref-miyazaki-lg-jp-c328e1
+  name: 「日本のひなた宮崎県」移住・UIJターン情報サイト あったか宮崎ひなた暮らし
+  list: http://iju.pref.miyazaki.lg.jp/housebank/
+  pdf: 0
+  iframes: []
+  external: []
+  pages:
+  - url: http://iju.pref.miyazaki.lg.jp/housebank/
+    pdf: 0
+    shapes: []
+- prefecture: miyazaki
+  id: miyazaki-www-ebikyan-jp-f2314f
+  name: えびの市定住促進サイト「きゃんせ!えびの」
+  list: http://www.ebikyan.jp/
+  pdf: 0
+  iframes:
+  - https://www.googletagmanager.com/ns.html?id=GTM-KLJ859N8
+  - https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Febino.iju%2F&tabs=timeline&width=350&height=400&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId=1276366645818416
+  external: []
+  pages:
+  - url: http://www.ebikyan.jp/
+    pdf: 0
+    shapes: []
+  - url: http://www.ebikyan.jp/akiyabank
+    pdf: 1
+    shapes: []
+  - url: http://www.ebikyan.jp/list
+    pdf: 0
+    shapes:
+    - shape: www.ebikyan.jp/list/page/N/
+      n: 5
+      samples:
+      - http://www.ebikyan.jp/list/page/2/  «2»
+      - http://www.ebikyan.jp/list/page/3/  «3»
+    - shape: www.ebikyan.jp/vacant/%eN%aN%ba%eN%N%Nd%eN%ae%bN%ef%bc%Nc%eN%N%N%eN%bN%Nf%ef%bc%Ne/
+      n: 3
+      samples:
+      - http://www.ebikyan.jp/vacant/%e7%a9%ba%e3%81%8d%e5%ae%b6370%ef%bc%9c%e5%90%91%e6%b1%9f%ef%bc%9e/  «空き家370<向江> VR内覧可売買 真幸地区»
+      - http://www.ebikyan.jp/vacant/%e7%a9%ba%e3%81%8d%e5%ae%b6367%ef%bc%9c%e5%90%91%e6%b1%9f%ef%bc%9e/  «空き家367<向江> VR内覧可売買 真幸地区»
+      read:
+        building_m2: 106.18
+        address: 宮崎県えびの市大字向江
+        images: 8
+  - url: http://www.ebikyan.jp/use
+    pdf: 0
+    shapes: []
+  - url: http://www.ebikyan.jp/support
+    pdf: 4
+    shapes: []
+  - url: http://www.ebikyan.jp/news
+    pdf: 0
+    shapes:
+    - shape: www.ebikyan.jp/news/page/N/
+      n: 8
+      samples:
+      - http://www.ebikyan.jp/news/page/2/  «2»
+      - http://www.ebikyan.jp/news/page/3/  «3»
+  - url: http://www.ebikyan.jp/vacant/%e7%a9%ba%e3%81%8d%e5%ae%b6372%ef%bc%9c%e8%a5%bf%e9%83%b7%ef%bc%9e/
+    pdf: 0
+    shapes: []
+- prefecture: miyazaki
+  id: miyazaki-www-itteki-org-15d193
+  name: 一滴の会 高千穂町移住情報バンク
+  list: https://www.itteki.org/bank-cx7t
+  pdf: 0
+  iframes: []
+  external: []
+  pages:
+  - url: https://www.itteki.org/bank-cx7t
+    pdf: 0
+    shapes: []
+  - url: https://www.itteki.org
+    pdf: 0
+    shapes: []
+  - url: https://www.itteki.org/information
+    pdf: 0
+    shapes:
+    - shape: www.itteki.org/三田井-番号-N
+      n: 13
+      samples:
+      - https://www.itteki.org/三田井-番号-113  «詳細»
+      - https://www.itteki.org/三田井-番号-111  «»
+    - shape: www.itteki.org/上野-番号-N
+      n: 8
+      samples:
+      - https://www.itteki.org/上野-番号-098  «»
+      - https://www.itteki.org/上野-番号-098  «詳細»
+    - shape: www.itteki.org/岩戸-番号-N
+      n: 3
+      samples:
+      - https://www.itteki.org/岩戸-番号-108  «»
+      - https://www.itteki.org/岩戸-番号-108  «詳細»
+    - shape: www.itteki.org/押方-番号-N
+      n: 3
+      samples:
+      - https://www.itteki.org/押方-番号-106  «»
+      - https://www.itteki.org/押方-番号-106  «詳細»
+  - url: https://www.itteki.org/空き家バンク-2
+    pdf: 0
+    shapes: []
+  - url: https://www.itteki.org/空き家バンク3
+    pdf: 0
+    shapes:
+    - shape: www.itteki.org/三田井-番号-N
+      n: 3
+      samples:
+      - https://www.itteki.org/三田井-番号-103  «»
+      - https://www.itteki.org/三田井-番号-107  «»
+  - url: https://www.itteki.org/空き家募集
+    pdf: 0
+    shapes: []
+- prefecture: miyazaki
+  id: miyazaki-sousei-town-kunitomi-miyazaki-jp-f865ba
+  name: 国富町空き家バンク
+  list: http://sousei.town.kunitomi.miyazaki.jp/houselist/
+  pdf: 0
+  iframes: []
+  external: []
+  pages:
+  - url: http://sousei.town.kunitomi.miyazaki.jp/houselist/
+    pdf: 0
+    shapes:
+    - shape: sousei.town.kunitomi.miyazaki.jp/houselist/N/N/N/house_N.html
+      n: 25
+      samples:
+      - http://sousei.town.kunitomi.miyazaki.jp/houselist/2026/03/30/house_002426.html  «»
+      - http://sousei.town.kunitomi.miyazaki.jp/houselist/2026/03/24/house_002419.html  «»
+      read:
+        price: 3000000
+        land_m2: 160.21
+        images: 2
+- prefecture: miyazaki
+  id: miyazaki-iju-miyazaki-city-jp-c3f341
+  name: 宮崎市空き家バンク
+  list: http://iju-miyazaki-city.jp/
+  pdf: 0
+  iframes: []
+  external: []
+  pages:
+  - url: http://iju-miyazaki-city.jp/
+    pdf: 0
+    shapes: []
+- prefecture: miyazaki
+  id: miyazaki-www-tenandoproject-com-af41f4
+  name: 小林市空き家バンク
+  list: http://www.tenandoproject.com/akiyabank_list
+  pdf: 0
+  iframes:
+  - https://www.googletagmanager.com/ns.html?id=GTM-5XTXX84
+  external:
+  - cms.city.kobayashi.lg.jp
+  pages:
+  - url: http://www.tenandoproject.com/akiyabank_list
+    pdf: 0
+    shapes:
+    - shape: cms.city.kobayashi.lg.jp/display.php?cont=
+      n: 4
+      samples:
+      - http://cms.city.kobayashi.lg.jp/display.php?cont=170307121400  «空き家バンク一覧»
+      - http://cms.city.kobayashi.lg.jp/display.php?cont=131225101449  «市内保育園・幼稚園一覧»
+- prefecture: miyazaki
+  id: miyazaki-life-kawaminami-jp-5f73a8
+  name: 川南合衆国 住まいの情報
+  list: https://life-kawaminami.jp/house/
+  pdf: 0
+  iframes: []
+  external: []
+  pages:
+  - url: https://life-kawaminami.jp/house/
+    pdf: 0
+    shapes: []
+  - url: https://life-kawaminami.jp/house/%e3%80%90%e7%a9%ba%e3%81%8d%e4%bd%8f%e5%ae%85%e6%83%85%e5%a0%b1%e3%83%90%e3%83%b3%e3%82%af%e3%80%80040%e3%80%91/
+    pdf: 0
+    shapes: []
+  - url: https://life-kawaminami.jp/house/%e3%80%90%e7%a9%ba%e3%81%8d%e5%ae%b6%e3%83%90%e3%83%b3%e3%82%af036%e3%80%91%e2%91%a0%ef%bc%93%ef%bc%96%ef%bc%90%ef%bd%96%ef%bd%92%e3%81%af%e3%81%93%e3%81%a1%e3%82%89/
+    pdf: 0
+    shapes: []
+- prefecture: miyazaki
+  id: miyazaki-www-town-hinokage-lg-jp-9e2004
+  name: 日之影町空き家物件
+  list: http://www.town.hinokage.lg.jp/search.html?q=%E7%A9%BA%E3%81%8D%E5%AE%B6%E3%83%90%E3%83%B3%E3%82%AF
+  pdf: 0
+  iframes: []
+  external: []
+  pages:
+  - url: http://www.town.hinokage.lg.jp/search.html?q=%E7%A9%BA%E3%81%8D%E5%AE%B6%E3%83%90%E3%83%B3%E3%82%AF
+    pdf: 0
+    shapes:
+    - shape: www.town.hinokage.lg.jp/docs/N/
+      n: 3
+      samples:
+      - http://www.town.hinokage.lg.jp/docs/2016032200019/  «サイトポリシー»
+      - http://www.town.hinokage.lg.jp/docs/2016032200026/  «リンク・著作権・免責事項»
+- prefecture: miyazaki
+  id: miyazaki-www-rucle-jp-83b9a6
+  name: 日向市地域ナレッジコミュニティ型情報サイトRucle(るーくる)
+  list: http://www.rucle.jp/
+  pdf: 0
+  iframes: []
+  external: []
+  pages:
+  - url: http://www.rucle.jp/
+    pdf: 0
+    shapes: []
+- prefecture: miyazaki
+  id: miyazaki-www-town-miyazaki-misato-lg-jp-211f6e
+  name: 美郷町空家等情報バンク
+  list: http://www.town.miyazaki-misato.lg.jp/dynamic/info/pub/default.aspx?c_id=26
+  pdf: 0
+  iframes: []
+  external: []
+  pages:
+  - url: http://www.town.miyazaki-misato.lg.jp/dynamic/info/pub/default.aspx?c_id=26
+    pdf: 0
+    shapes:
+    - shape: www.town.miyazaki-misato.lg.jp/dynamic/hpkiji/pub/List.aspx?c_id=&class_id=&class_set_id=
+      n: 127
+      samples:
+      - http://www.town.miyazaki-misato.lg.jp/dynamic/hpkiji/pub/List.aspx?c_id=3&class_set_id=1&class_id=101  «くらし・手続き・生活環境»
+      - http://www.town.miyazaki-misato.lg.jp/dynamic/hpkiji/pub/List.aspx?c_id=3&class_set_id=1&class_id=102  «福祉・保健・子育て»
+    - shape: translate.google.co.jp/translate?hl=&sl=&tl=&u=
+      n: 4
+      samples:
+      - https://translate.google.co.jp/translate?hl=ja&sl=ja&tl=en&u=https://www.town.miyazaki-misato.lg.jp/dynamic/info/pub/default.aspx?c_id=26  «English»
+      - https://translate.google.co.jp/translate?hl=ja&sl=ja&tl=zh-CN&u=https://www.town.miyazaki-misato.lg.jp/dynamic/info/pub/default.aspx?c_id=26  «中文(简化字)»
+  - url: http://www.town.miyazaki-misato.lg.jp/dynamic/hpkiji/pub/List.aspx?c_id=3&class_set_id=1&class_id=110
+    pdf: 0
+    shapes:
+    - shape: www.town.miyazaki-misato.lg.jp/listN.html
+      n: 133
+      samples:
+      - https://www.town.miyazaki-misato.lg.jp/list00110.html  «日本語»
+      - http://www.town.miyazaki-misato.lg.jp/list00101.html  «くらし・手続き・生活環境»
+    - shape: www.town.miyazaki-misato.lg.jp/kijiN/index.html
+      n: 14
+      samples:
+      - https://www.town.miyazaki-misato.lg.jp/kiji00314/index.html  «交通アクセス»
+      - https://www.town.miyazaki-misato.lg.jp/kiji003447/index.html  «庁舎内配置図»
+    - shape: www.town.miyazaki-misato.lg.jp/classsetN.html
+      n: 5
+      samples:
+      - http://www.town.miyazaki-misato.lg.jp/classset002.html  «組織からさがす»
+      - http://www.town.miyazaki-misato.lg.jp/classset001.html  «分類からさがす»
+    - shape: translate.google.co.jp/translate?hl=&sl=&tl=&u=
+      n: 4
+      samples:
+      - https://translate.google.co.jp/translate?hl=ja&sl=ja&tl=en&u=https://www.town.miyazaki-misato.lg.jp/list00110.html  «English»
+      - https://translate.google.co.jp/translate?hl=ja&sl=ja&tl=zh-CN&u=https://www.town.miyazaki-misato.lg.jp/list00110.html  «中文(简化字)»
+  - url: http://www.town.miyazaki-misato.lg.jp/dynamic/hpkiji/pub/List.aspx?c_id=3&class_set_id=1&class_id=159
+    pdf: 0
+    shapes:
+    - shape: www.town.miyazaki-misato.lg.jp/listN.html
+      n: 133
+      samples:
+      - https://www.town.miyazaki-misato.lg.jp/list00159.html  «日本語»
+      - http://www.town.miyazaki-misato.lg.jp/list00101.html  «くらし・手続き・生活環境»
+    - shape: www.town.miyazaki-misato.lg.jp/kijiN/index.html
+      n: 8
+      samples:
+      - https://www.town.miyazaki-misato.lg.jp/kiji00314/index.html  «交通アクセス»
+      - https://www.town.miyazaki-misato.lg.jp/kiji003447/index.html  «庁舎内配置図»
+    - shape: www.town.miyazaki-misato.lg.jp/classsetN.html
+      n: 5
+      samples:
+      - http://www.town.miyazaki-misato.lg.jp/classset002.html  «組織からさがす»
+      - http://www.town.miyazaki-misato.lg.jp/classset001.html  «分類からさがす»
+    - shape: translate.google.co.jp/translate?hl=&sl=&tl=&u=
+      n: 4
+      samples:
+      - https://translate.google.co.jp/translate?hl=ja&sl=ja&tl=en&u=https://www.town.miyazaki-misato.lg.jp/list00159.html  «English»
+      - https://translate.google.co.jp/translate?hl=ja&sl=ja&tl=zh-CN&u=https://www.town.miyazaki-misato.lg.jp/list00159.html  «中文(简化字)»
+  - url: https://www.town.miyazaki-misato.lg.jp/dynamic/page288.html
+    pdf: 8
+    shapes:
+    - shape: www.town.miyazaki-misato.lg.jp/listN.html
+      n: 128
+      samples:
+      - https://www.town.miyazaki-misato.lg.jp/list00101.html  «くらし・手続き・生活環境»
+      - https://www.town.miyazaki-misato.lg.jp/list00102.html  «福祉・保健・子育て»
+    - shape: www.town.miyazaki-misato.lg.jp/kijiN/index.html
+      n: 5
+      samples:
+      - https://www.town.miyazaki-misato.lg.jp/kiji003288/index.html  «日本語»
+      - https://www.town.miyazaki-misato.lg.jp/kiji00314/index.html  «交通アクセス»
+    - shape: translate.google.co.jp/translate?hl=&sl=&tl=&u=
+      n: 4
+      samples:
+      - https://translate.google.co.jp/translate?hl=ja&sl=ja&tl=en&u=https://www.town.miyazaki-misato.lg.jp/kiji003288/index.html  «English»
+      - https://translate.google.co.jp/translate?hl=ja&sl=ja&tl=zh-CN&u=https://www.town.miyazaki-misato.lg.jp/kiji003288/index.html  «中文(简化字)»
+    - shape: www.town.miyazaki-misato.lg.jp/classsetN.html
+      n: 3
+      samples:
+      - https://www.town.miyazaki-misato.lg.jp/classset002.html  «組織からさがす»
+      - https://www.town.miyazaki-misato.lg.jp/classset001.html  «分類からさがす»
+- prefecture: miyazaki
+  id: miyazaki-www-town-tsuno-lg-jp-93b822
+  name: 都農町空き家バンク
+  list: https://www.town.tsuno.lg.jp/display.php?cont=151027110115
+  pdf: 0
+  iframes:
+  - https://www.googletagmanager.com/ns.html?id=GTM-WNQGDD5
+  external: []
+  pages:
+  - url: https://www.town.tsuno.lg.jp/display.php?cont=151027110115
+    pdf: 0
+    shapes: []
+- prefecture: miyazaki
+  id: miyazaki-www-town-kadogawa-lg-jp-7faf39
+  name: 門川町空き家等情報バンク
+  list: http://www.town.kadogawa.lg.jp/akiyabank/
+  pdf: 0
+  iframes: []
+  external: []
+  pages:
+  - url: http://www.town.kadogawa.lg.jp/akiyabank/
+    pdf: 0
+    shapes:
+    - shape: www.town.kadogawa.lg.jp/play/catN/
+      n: 3
+      samples:
+      - https://www.town.kadogawa.lg.jp/play/cat277/  «スポーツキャンプ»
+      - https://www.town.kadogawa.lg.jp/play/cat276/  «市町村対抗駅伝»
+    - shape: www.town.kadogawa.lg.jp/administration/catN/
+      n: 3
+      samples:
+      - https://www.town.kadogawa.lg.jp/administration/cat1/  «環境»
+      - https://www.town.kadogawa.lg.jp/administration/cat2/  «個人情報保護»
+  - url: https://www.town.kadogawa.lg.jp/live/akiya/
+    pdf: 0
+    shapes:
+    - shape: www.town.kadogawa.lg.jp/live/akiya/pageN.html
+      n: 6
+      samples:
+      - https://www.town.kadogawa.lg.jp/live/akiya/page004054.html  «空き家等対策計画»
+      - https://www.town.kadogawa.lg.jp/live/akiya/page005283.html  «「住まいのエンディングノート」をご活用ください»
+    - shape: www.town.kadogawa.lg.jp/play/catN/
+      n: 3
+      samples:
+      - https://www.town.kadogawa.lg.jp/play/cat277/  «スポーツキャンプ»
+      - https://www.town.kadogawa.lg.jp/play/cat276/  «市町村対抗駅伝»
+    - shape: www.town.kadogawa.lg.jp/administration/catN/
+      n: 3
+      samples:
+      - https://www.town.kadogawa.lg.jp/administration/cat1/  «環境»
+      - https://www.town.kadogawa.lg.jp/administration/cat2/  «個人情報保護»
+  - url: http://www.town.kadogawa.lg.jp/live/akiya/
+    pdf: 0
+    shapes:
+    - shape: www.town.kadogawa.lg.jp/live/akiya/pageN.html
+      n: 6
+      samples:
+      - http://www.town.kadogawa.lg.jp/live/akiya/page004054.html  «空き家等対策計画»
+      - http://www.town.kadogawa.lg.jp/live/akiya/page005283.html  «「住まいのエンディングノート」をご活用ください»
+    - shape: www.town.kadogawa.lg.jp/play/catN/
+      n: 3
+      samples:
+      - https://www.town.kadogawa.lg.jp/play/cat277/  «スポーツキャンプ»
+      - https://www.town.kadogawa.lg.jp/play/cat276/  «市町村対抗駅伝»
+    - shape: www.town.kadogawa.lg.jp/administration/catN/
+      n: 3
+      samples:
+      - https://www.town.kadogawa.lg.jp/administration/cat1/  «環境»
+      - https://www.town.kadogawa.lg.jp/administration/cat2/  «個人情報保護»
+- prefecture: kagoshima
+  id: kagoshima-www-city-kanoya-lg-jp-335b78
+  name: かのやで暮らす
+  list: https://www.city.kanoya.lg.jp/iju/index.html
+  pdf: 0
+  iframes: []
+  external: []
+  pages:
+  - url: https://www.city.kanoya.lg.jp/iju/index.html
+    pdf: 0
+    shapes:
+    - shape: www.city.kanoya.lg.jp/iju/akiyabank/search/N.html
+      n: 5
+      samples:
+      - https://www.city.kanoya.lg.jp/iju/akiyabank/search/391.html  «391川西町»
+      - https://www.city.kanoya.lg.jp/iju/akiyabank/search/399.html  «【値下げ!】399古江町»
+      read:
+        price: 1000000
+        building_m2: 75.0
+        land_m2: 443.45
+        address: 鹿児島県鹿屋市川西町
+        images: 8
+  - url: https://www.city.kanoya.lg.jp/iju/akiyabank/index.html
+    pdf: 1
+    shapes: []
+  - url: https://www.city.kanoya.lg.jp/akiya/soudankai.html
+    pdf: 0
+    shapes:
+    - shape: www.city.kanoya.lg.jp/cgi-bin/advert/click_total/click.cgi?cms_area_id=&cms_banner_id=&cms_link_url=
+      n: 4
+      samples:
+      - https://www.city.kanoya.lg.jp/cgi-bin/advert/click_total/click.cgi?cms_area_id=1&cms_banner_id=32&cms_link_url=https%3A%2F%2Fwww.jfc.go.jp%2Fn%2Ffinance%2Fsearch%2Fippan.html%3Futm_source%3Dxxx%26utm_medium%3Dcpc%26utm_campaign%3D15_46_02_kanoya  «»
+      - https://www.city.kanoya.lg.jp/cgi-bin/advert/click_total/click.cgi?cms_area_id=1&cms_banner_id=29&cms_link_url=https%3A%2F%2Fwww.kk-mic.jp%2F  «»
+  - url: https://www.city.kanoya.lg.jp/akiya/akiya_radio.html
+    pdf: 0
+    shapes:
+    - shape: www.city.kanoya.lg.jp/cgi-bin/advert/click_total/click.cgi?cms_area_id=&cms_banner_id=&cms_link_url=
+      n: 4
+      samples:
+      - https://www.city.kanoya.lg.jp/cgi-bin/advert/click_total/click.cgi?cms_area_id=1&cms_banner_id=32&cms_link_url=https%3A%2F%2Fwww.jfc.go.jp%2Fn%2Ffinance%2Fsearch%2Fippan.html%3Futm_source%3Dxxx%26utm_medium%3Dcpc%26utm_campaign%3D15_46_02_kanoya  «»
+      - https://www.city.kanoya.lg.jp/cgi-bin/advert/click_total/click.cgi?cms_area_id=1&cms_banner_id=30&cms_link_url=https%3A%2F%2Fwww.zaiho.jp%2F%3Futm_source%3Dknyc_zaiho%26utm_medium%3Dknyc%26utm_campaign%3Dknyc  «»
+  - url: https://www.city.kanoya.lg.jp/iju/news.html
+    pdf: 0
+    shapes:
+    - shape: www.city.kanoya.lg.jp/iju/akiyabank/search/N.html
+      n: 20
+      samples:
+      - https://www.city.kanoya.lg.jp/iju/akiyabank/search/391.html  «11月5日 391川西町»
+      - https://www.city.kanoya.lg.jp/iju/akiyabank/search/399.html  «11月4日 【値下げ!】399古江町»
+      read:
+        price: 1000000
+        building_m2: 75.0
+        land_m2: 443.45
+        address: 鹿児島県鹿屋市川西町
+        images: 8
+- prefecture: kagoshima
+  id: kagoshima-www-city-makurazaki-lg-jp-dee1f4
+  name: 住もう!まくらざき 空き家バンク
+  list: http://www.city.makurazaki.lg.jp/site/ijyu/list17-363.html
+  pdf: 0
+  iframes: []
+  external: []
+  pages:
+  - url: http://www.city.makurazaki.lg.jp/site/ijyu/list17-363.html
+    pdf: 0
+    shapes:
+    - shape: www.city.makurazaki.lg.jp/site/ijyu/N.html
+      n: 38
+      samples:
+      - http://www.city.makurazaki.lg.jp/site/ijyu/7876.html  «先輩移住者からのメッセージ»
+      - http://www.city.makurazaki.lg.jp/site/ijyu/7874.html  «くらしQ&A»
+    - shape: www.city.makurazaki.lg.jp/site/ijyu/listN-N.html
+      n: 11
+      samples:
+      - http://www.city.makurazaki.lg.jp/site/ijyu/list166-491.html  «空き地バンク»
+      - http://www.city.makurazaki.lg.jp/site/ijyu/list17-139.html  «子育て»
+    - shape: www.city.makurazaki.lg.jp/site/userguide/N.html
+      n: 5
+      samples:
+      - http://www.city.makurazaki.lg.jp/site/userguide/5076.html  «»
+      - http://www.city.makurazaki.lg.jp/site/userguide/5073.html  «リンク・著作権・免責事項»
+    - shape: www.city.makurazaki.lg.jp/site/ijyu/listN.html
+      n: 3
+      samples:
+      - http://www.city.makurazaki.lg.jp/site/ijyu/list15.html  «まくらざきを知る»
+      - http://www.city.makurazaki.lg.jp/site/ijyu/list16.html  «まくらざきで働く»
+  - url: http://www.city.makurazaki.lg.jp/site/ijyu/list166-491.html
+    pdf: 0
+    shapes:
+    - shape: www.city.makurazaki.lg.jp/site/ijyu/N.html
+      n: 17
+      samples:
+      - http://www.city.makurazaki.lg.jp/site/ijyu/7876.html  «先輩移住者からのメッセージ»
+      - http://www.city.makurazaki.lg.jp/site/ijyu/7874.html  «くらしQ&A»
+    - shape: www.city.makurazaki.lg.jp/site/ijyu/listN-N.html
+      n: 11
+      samples:
+      - http://www.city.makurazaki.lg.jp/site/ijyu/list17-363.html  «空き家バンク»
+      - http://www.city.makurazaki.lg.jp/site/ijyu/list17-139.html  «子育て»
+    - shape: www.city.makurazaki.lg.jp/site/userguide/N.html
+      n: 5
+      samples:
+      - http://www.city.makurazaki.lg.jp/site/userguide/5076.html  «»
+      - http://www.city.makurazaki.lg.jp/site/userguide/5073.html  «リンク・著作権・免責事項»
+    - shape: www.city.makurazaki.lg.jp/site/ijyu/listN.html
+      n: 3
+      samples:
+      - http://www.city.makurazaki.lg.jp/site/ijyu/list15.html  «まくらざきを知る»
+      - http://www.city.makurazaki.lg.jp/site/ijyu/list16.html  «まくらざきで働く»
+  - url: http://www.city.makurazaki.lg.jp/site/ijyu/list17-489.html
+    pdf: 0
+    shapes:
+    - shape: www.city.makurazaki.lg.jp/site/ijyu/N.html
+      n: 17
+      samples:
+      - http://www.city.makurazaki.lg.jp/site/ijyu/7876.html  «先輩移住者からのメッセージ»
+      - http://www.city.makurazaki.lg.jp/site/ijyu/7874.html  «くらしQ&A»
+    - shape: www.city.makurazaki.lg.jp/site/ijyu/listN-N.html
+      n: 11
+      samples:
+      - http://www.city.makurazaki.lg.jp/site/ijyu/list17-363.html  «空き家バンク»
+      - http://www.city.makurazaki.lg.jp/site/ijyu/list166-491.html  «空き地バンク»
+    - shape: www.city.makurazaki.lg.jp/site/userguide/N.html
+      n: 5
+      samples:
+      - http://www.city.makurazaki.lg.jp/site/userguide/5076.html  «»
+      - http://www.city.makurazaki.lg.jp/site/userguide/5073.html  «リンク・著作権・免責事項»
+    - shape: www.city.makurazaki.lg.jp/site/ijyu/listN.html
+      n: 3
+      samples:
+      - http://www.city.makurazaki.lg.jp/site/ijyu/list15.html  «まくらざきを知る»
+      - http://www.city.makurazaki.lg.jp/site/ijyu/list16.html  «まくらざきで働く»
+  - url: http://www.city.makurazaki.lg.jp/site/ijyu/7875.html
+    pdf: 2
+    shapes:
+    - shape: www.city.makurazaki.lg.jp/site/ijyu/listN-N.html
+      n: 12
+      samples:
+      - http://www.city.makurazaki.lg.jp/site/ijyu/list17-363.html  «空き家バンク»
+      - http://www.city.makurazaki.lg.jp/site/ijyu/list166-491.html  «空き地バンク»
+    - shape: www.city.makurazaki.lg.jp/site/ijyu/N.html
+      n: 10
+      samples:
+      - http://www.city.makurazaki.lg.jp/site/ijyu/7876.html  «先輩移住者からのメッセージ»
+      - http://www.city.makurazaki.lg.jp/site/ijyu/7874.html  «くらしQ&A»
+    - shape: www.city.makurazaki.lg.jp/site/userguide/N.html
+      n: 5
+      samples:
+      - http://www.city.makurazaki.lg.jp/site/userguide/5076.html  «»
+      - http://www.city.makurazaki.lg.jp/site/userguide/5073.html  «リンク・著作権・免責事項»
+    - shape: www.city.makurazaki.lg.jp/site/ijyu/listN.html
+      n: 3
+      samples:
+      - http://www.city.makurazaki.lg.jp/site/ijyu/list15.html  «まくらざきを知る»
+      - http://www.city.makurazaki.lg.jp/site/ijyu/list16.html  «まくらざきで働く»
+  - url: http://www.city.makurazaki.lg.jp/site/ijyu/15647.html
+    pdf: 1
+    shapes:
+    - shape: www.city.makurazaki.lg.jp/site/ijyu/listN-N.html
+      n: 12
+      samples:
+      - http://www.city.makurazaki.lg.jp/site/ijyu/list17-363.html  «空き家バンク»
+      - http://www.city.makurazaki.lg.jp/site/ijyu/list166-491.html  «空き地バンク»
+    - shape: www.city.makurazaki.lg.jp/site/ijyu/N.html
+      n: 10
+      samples:
+      - http://www.city.makurazaki.lg.jp/site/ijyu/7876.html  «先輩移住者からのメッセージ»
+      - http://www.city.makurazaki.lg.jp/site/ijyu/7874.html  «くらしQ&A»
+    - shape: www.city.makurazaki.lg.jp/site/userguide/N.html
+      n: 5
+      samples:
+      - http://www.city.makurazaki.lg.jp/site/userguide/5076.html  «»
+      - http://www.city.makurazaki.lg.jp/site/userguide/5073.html  «リンク・著作権・免責事項»
+    - shape: www.city.makurazaki.lg.jp/site/ijyu/listN.html
+      n: 3
+      samples:
+      - http://www.city.makurazaki.lg.jp/site/ijyu/list15.html  «まくらざきを知る»
+      - http://www.city.makurazaki.lg.jp/site/ijyu/list16.html  «まくらざきで働く»
+  - url: http://www.city.makurazaki.lg.jp/site/ijyu/17186.html
+    pdf: 0
+    shapes:
+    - shape: www.city.makurazaki.lg.jp/site/ijyu/listN-N.html
+      n: 12
+      samples:
+      - http://www.city.makurazaki.lg.jp/site/ijyu/list17-363.html  «空き家バンク»
+      - http://www.city.makurazaki.lg.jp/site/ijyu/list166-491.html  «空き地バンク»
+    - shape: www.city.makurazaki.lg.jp/site/ijyu/N.html
+      n: 10
+      samples:
+      - http://www.city.makurazaki.lg.jp/site/ijyu/7876.html  «先輩移住者からのメッセージ»
+      - http://www.city.makurazaki.lg.jp/site/ijyu/7874.html  «くらしQ&A»
+    - shape: www.city.makurazaki.lg.jp/site/userguide/N.html
+      n: 5
+      samples:
+      - http://www.city.makurazaki.lg.jp/site/userguide/5076.html  «»
+      - http://www.city.makurazaki.lg.jp/site/userguide/5073.html  «リンク・著作権・免責事項»
+    - shape: www.city.makurazaki.lg.jp/site/ijyu/listN.html
+      n: 3
+      samples:
+      - http://www.city.makurazaki.lg.jp/site/ijyu/list15.html  «まくらざきを知る»
+      - http://www.city.makurazaki.lg.jp/site/ijyu/list16.html  «まくらざきで働く»
+  - url: http://www.city.makurazaki.lg.jp/site/ijyu/15653.html
+    pdf: 0
+    shapes:
+    - shape: www.city.makurazaki.lg.jp/site/ijyu/listN-N.html
+      n: 12
+      samples:
+      - http://www.city.makurazaki.lg.jp/site/ijyu/list17-363.html  «空き家バンク»
+      - http://www.city.makurazaki.lg.jp/site/ijyu/list166-491.html  «空き地バンク»
+    - shape: www.city.makurazaki.lg.jp/site/ijyu/N.html
+      n: 10
+      samples:
+      - http://www.city.makurazaki.lg.jp/site/ijyu/7876.html  «先輩移住者からのメッセージ»
+      - http://www.city.makurazaki.lg.jp/site/ijyu/7874.html  «くらしQ&A»
+    - shape: www.city.makurazaki.lg.jp/site/userguide/N.html
+      n: 5
+      samples:
+      - http://www.city.makurazaki.lg.jp/site/userguide/5076.html  «»
+      - http://www.city.makurazaki.lg.jp/site/userguide/5073.html  «リンク・著作権・免責事項»
+    - shape: www.city.makurazaki.lg.jp/site/ijyu/listN.html
+      n: 3
+      samples:
+      - http://www.city.makurazaki.lg.jp/site/ijyu/list15.html  «まくらざきを知る»
+      - http://www.city.makurazaki.lg.jp/site/ijyu/list16.html  «まくらざきで働く»
+- prefecture: kagoshima
+  id: kagoshima-www-town-amagi-lg-jp-d0b8f8
+  name: 天城町ホームページ
+  list: https://www.town.amagi.lg.jp/kurashi/iju/akiya/
+  pdf: 0
+  iframes: []
+  external: []
+  pages:
+  - url: https://www.town.amagi.lg.jp/kurashi/iju/akiya/
+    pdf: 0
+    shapes: []
+  - url: https://www.town.amagi.lg.jp/kurashi/iju/sumai/
+    pdf: 0
+    shapes:
+    - shape: www.town.amagi.lg.jp/docs/N.html
+      n: 12
+      samples:
+      - https://www.town.amagi.lg.jp/docs/5487.html  «鹿児島銀行と天城町による空き家対策事業に関する覚書が締結され»
+      - https://www.town.amagi.lg.jp/docs/4422.html  «天城町新築町営住宅入居者募集について»
+  - url: https://www.town.amagi.lg.jp/docs/5487.html
+    pdf: 1
+    shapes: []
+  - url: https://www.town.amagi.lg.jp/docs/1463.html
+    pdf: 5
+    shapes: []
+- prefecture: kagoshima
+  id: kagoshima-www-city-hioki-kagoshima-jp-8cbe77
+  name: 日置市空き家バンク
+  list: https://www.city.hioki.kagoshima.jp/kouho/ijuteju/akiya/akiyabank/index.html
+  pdf: 0
+  iframes: []
+  external: []
+  pages:
+  - url: https://www.city.hioki.kagoshima.jp/kouho/ijuteju/akiya/akiyabank/index.html
+    pdf: 0
+    shapes: []
+  - url: https://www.city.hioki.kagoshima.jp/kouho/home/kinkyu.html
+    pdf: 0
+    shapes: []
+  - url: https://www.city.hioki.kagoshima.jp/kouho/ijuteju/akiya/index.html
+    pdf: 0
+    shapes: []
+  - url: https://www.city.hioki.kagoshima.jp/teiju/ijuteju/akiya/akiyabank.html
+    pdf: 1
+    shapes:
+    - shape: logoform.jp/form/NtHc/N
+      n: 3
+      samples:
+      - https://logoform.jp/form/NtHc/1126722  «申し込みフォーム(外部サイトへリンク)»
+      - https://logoform.jp/form/NtHc/1137701  «空き家バンク登録変更届書(外部サイトへリンク)»
+  - url: https://www.city.hioki.kagoshima.jp/teiju/kazaidougushobunn.html
+    pdf: 1
+    shapes: []
+  - url: https://www.city.hioki.kagoshima.jp/teiju/akiyariaruadobaisu.html
+    pdf: 0
+    shapes:
+    - shape: www.youtube.com/watch?v=
+      n: 27
+      samples:
+      - https://www.youtube.com/watch?v=M5gG1lP_WOA  «1(外部サイトへリンク)»
+      - https://www.youtube.com/watch?v=D7ch-heTi78  «2(外部サイトへリンク)»
+  - url: https://www.city.hioki.kagoshima.jp/teiju/akiyasoudan.html
+    pdf: 0
+    shapes: []
+- prefecture: kagoshima
+  id: kagoshima-iju-tanegashima-jp-06639b
+  name: 種子島・西之表市 移住支援情報
+  list: http://iju-tanegashima.jp/publics/index/68/?gdpr_flg=1
+  pdf: 0
+  iframes: []
+  external:
+  - www.city.nishinoomote.lg.jp
+  pages:
+  - url: http://iju-tanegashima.jp/publics/index/68/?gdpr_flg=1
+    pdf: 0
+    shapes:
+    - shape: iju-tanegashima.jp/pages/N/
+      n: 63
+      samples:
+      - http://iju-tanegashima.jp/pages/125/  «働く»
+      - http://iju-tanegashima.jp/pages/17/  «住む»
+    - shape: iju-tanegashima.jp/pages/N?b_id=&detail=&r_id=
+      n: 5
+      samples:
+      - http://iju-tanegashima.jp/pages/68?detail=1&b_id=256&r_id=1111  «»
+      - http://iju-tanegashima.jp/pages/68?detail=1&b_id=256&r_id=1111  «物件登録番号128【令和8年10月リフォーム済物件】»
+  - url: http://iju-tanegashima.jp/pages/64/
+    pdf: 6
+    shapes:
+    - shape: iju-tanegashima.jp/pages/N/
+      n: 62
+      samples:
+      - http://iju-tanegashima.jp/pages/125/  «働く»
+      - http://iju-tanegashima.jp/pages/17/  «住む»
+  - url: http://iju-tanegashima.jp/pages/68/
+    pdf: 0
+    shapes:
+    - shape: iju-tanegashima.jp/pages/N/
+      n: 62
+      samples:
+      - http://iju-tanegashima.jp/pages/125/  «働く»
+      - http://iju-tanegashima.jp/pages/17/  «住む»
+    - shape: iju-tanegashima.jp/pages/N?b_id=&detail=&r_id=
+      n: 5
+      samples:
+      - http://iju-tanegashima.jp/pages/68?detail=1&b_id=256&r_id=1111  «»
+      - http://iju-tanegashima.jp/pages/68?detail=1&b_id=256&r_id=1111  «物件登録番号128【令和8年10月リフォーム済物件】»
+  - url: http://iju-tanegashima.jp/pages/65/
+    pdf: 0
+    shapes:
+    - shape: iju-tanegashima.jp/pages/N/
+      n: 62
+      samples:
+      - http://iju-tanegashima.jp/pages/125/  «働く»
+      - http://iju-tanegashima.jp/pages/17/  «住む»
+  - url: http://iju-tanegashima.jp/pages/66/
+    pdf: 0
+    shapes:
+    - shape: iju-tanegashima.jp/pages/N/
+      n: 62
+      samples:
+      - http://iju-tanegashima.jp/pages/125/  «働く»
+      - http://iju-tanegashima.jp/pages/17/  «住む»
+  - url: http://iju-tanegashima.jp/pages/68?detail=1&b_id=256&r_id=1111
+    pdf: 0
+    shapes:
+    - shape: iju-tanegashima.jp/pages/N/
+      n: 63
+      samples:
+      - http://iju-tanegashima.jp/pages/125/  «働く»
+      - http://iju-tanegashima.jp/pages/17/  «住む»
+  - url: http://iju-tanegashima.jp/pages/68?detail=1&b_id=256&r_id=1110
+    pdf: 0
+    shapes:
+    - shape: iju-tanegashima.jp/pages/N/
+      n: 63
+      samples:
+      - http://iju-tanegashima.jp/pages/125/  «働く»
+      - http://iju-tanegashima.jp/pages/17/  «住む»
+- prefecture: kagoshima
+  id: kagoshima-www-kurasu-wadomari-info-eda5a7
+  name: 鹿児島県 沖永良部島 和泊町の移住情報サイトくらすわどまり 空き家バンク
+  list: http://www.kurasu-wadomari.info/category/ca-sumai
+  pdf: 0
+  iframes: []
+  external:
+  - kurasu-wadomari.info
+  pages:
+  - url: http://www.kurasu-wadomari.info/category/ca-sumai
+    pdf: 0
+    shapes:
+    - shape: kurasu-wadomari.info/archives/N
+      n: 24
+      samples:
+      - https://kurasu-wadomari.info/archives/16769  «売家【No.277】売買(土地付) 和泊字3LDK 16,0»
+      - https://kurasu-wadomari.info/archives/16767  «売地【No.276】売地 和泊字158.16m2 3,500»
+- prefecture: kagoshima
+  id: kagoshima-www-city-kirishima-jp-786c1b
+  name: 鹿児島県霧島市空き家バンク
+  list: https://www.city-kirishima.jp/kyodo/shise/ijuteju/akiya/akiyabankriyoukibounokata.html#tourokubukkennoeturan
+  pdf: 0
+  iframes: []
+  external: []
+  pages:
+  - url: https://www.city-kirishima.jp/kyodo/shise/ijuteju/akiya/akiyabankriyoukibounokata.html#tourokubukkennoeturan
+    pdf: 0
+    shapes: []
+  - url: https://www.city-kirishima.jp/hisyokouhou/shise/ijuteju/akiya/index.html
+    pdf: 0
+    shapes: []
+  - url: https://www.city-kirishima.jp/kyodo/shise/ijuteju/akiya/akiyabankkokubu.html
+    pdf: 12
+    shapes: []
+  - url: https://www.city-kirishima.jp/kyodo/shise/ijuteju/akiya/akiyabankmizobe.html
+    pdf: 3
+    shapes: []
+  - url: https://www.city-kirishima.jp/kyodo/shise/ijuteju/akiya/akiyabankmakizono.html
+    pdf: 11
+    shapes: []
+  - url: https://www.city-kirishima.jp/kyodo/shise/ijuteju/akiya/akiyabankyokogawa.html
+    pdf: 1
+    shapes: []
+  - url: https://www.city-kirishima.jp/kyodo/shise/ijuteju/akiya/akiyabankhayato.html
+    pdf: 9
+    shapes: []
+- prefecture: kagoshima
+  id: kagoshima-www-city-tarumizu-lg-jp-53c914
+  name: 垂水市公式ウェブサイト 空き家バンク
+  list: http://www.city.tarumizu.lg.jp/hisho/kurashi/sangyo/teju/akiya/index.html
+  pdf: 0
+  iframes: []
+  external: []
+  pages:
+  - url: http://www.city.tarumizu.lg.jp/hisho/kurashi/sangyo/teju/akiya/index.html
+    pdf: 0
+    shapes:
+    - shape: www.city.tarumizu.lg.jp/cgi-bin/advert/click_total/click.cgi?cms_area_id=&cms_banner_id=&cms_link_url=
+      n: 3
+      samples:
+      - http://www.city.tarumizu.lg.jp/cgi-bin/advert/click_total/click.cgi?cms_area_id=1&cms_banner_id=3&cms_link_url=http%3A%2F%2Fwww.jyukaku.co.jp%2F  «»
+      - http://www.city.tarumizu.lg.jp/cgi-bin/advert/click_total/click.cgi?cms_area_id=1&cms_banner_id=6&cms_link_url=http%3A%2F%2Fwww.onsensui.com%2F  «»
+  - url: http://www.city.tarumizu.lg.jp/chiiki/kurashi/sangyo/akiya/sokushin.html
+    pdf: 2
+    shapes:
+    - shape: www.city.tarumizu.lg.jp/chiiki/shisetsu/akiya-bank/baikyaku/baikyakuN.html
+      n: 18
+      samples:
+      - http://www.city.tarumizu.lg.jp/chiiki/shisetsu/akiya-bank/baikyaku/baikyaku211.html  «詳細»
+      - http://www.city.tarumizu.lg.jp/chiiki/shisetsu/akiya-bank/baikyaku/baikyaku254.html  «詳細»
+      read:
+        price: 1000000
+        address: 鹿児島県垂水市牛根境1060番地3
+        images: 8
+    - shape: www.city.tarumizu.lg.jp/chiiki/shisetsu/akiya-bank/chintai/tintaiN.html
+      n: 4
+      samples:
+      - http://www.city.tarumizu.lg.jp/chiiki/shisetsu/akiya-bank/chintai/tintai236.html  «詳細»
+      - http://www.city.tarumizu.lg.jp/chiiki/shisetsu/akiya-bank/chintai/tintai221.html  «詳細»
+    - shape: www.city.tarumizu.lg.jp/cgi-bin/advert/click_total/click.cgi?cms_area_id=&cms_banner_id=&cms_link_url=
+      n: 3
+      samples:
+      - http://www.city.tarumizu.lg.jp/cgi-bin/advert/click_total/click.cgi?cms_area_id=1&cms_banner_id=3&cms_link_url=http%3A%2F%2Fwww.jyukaku.co.jp%2F  «»
+      - http://www.city.tarumizu.lg.jp/cgi-bin/advert/click_total/click.cgi?cms_area_id=1&cms_banner_id=6&cms_link_url=http%3A%2F%2Fwww.onsensui.com%2F  «»
+  - url: http://www.city.tarumizu.lg.jp/chiiki/kurashi/sangyo/akiya/hojokin.html
+    pdf: 4
+    shapes:
+    - shape: www.city.tarumizu.lg.jp/cgi-bin/advert/click_total/click.cgi?cms_area_id=&cms_banner_id=&cms_link_url=
+      n: 3
+      samples:
+      - http://www.city.tarumizu.lg.jp/cgi-bin/advert/click_total/click.cgi?cms_area_id=1&cms_banner_id=3&cms_link_url=http%3A%2F%2Fwww.jyukaku.co.jp%2F  «»
+      - http://www.city.tarumizu.lg.jp/cgi-bin/advert/click_total/click.cgi?cms_area_id=1&cms_banner_id=6&cms_link_url=http%3A%2F%2Fwww.onsensui.com%2F  «»
+  - url: http://www.city.tarumizu.lg.jp/chiiki/kurashi/sangyo/akiya/akiya_rifomu.html
+    pdf: 8
+    shapes:
+    - shape: www.city.tarumizu.lg.jp/chiiki/kurashi/sangyo/akiya/documents/Nrifo-mu.rtf
+      n: 4
+      samples:
+      - http://www.city.tarumizu.lg.jp/chiiki/kurashi/sangyo/akiya/documents/02rifo-mu.rtf  «(RTF:64KB)»
+      - http://www.city.tarumizu.lg.jp/chiiki/kurashi/sangyo/akiya/documents/06rifo-mu.rtf  «(RTF:68KB)»
+    - shape: www.city.tarumizu.lg.jp/cgi-bin/advert/click_total/click.cgi?cms_area_id=&cms_banner_id=&cms_link_url=
+      n: 3
+      samples:
+      - http://www.city.tarumizu.lg.jp/cgi-bin/advert/click_total/click.cgi?cms_area_id=1&cms_banner_id=3&cms_link_url=http%3A%2F%2Fwww.jyukaku.co.jp%2F  «»
+      - http://www.city.tarumizu.lg.jp/cgi-bin/advert/click_total/click.cgi?cms_area_id=1&cms_banner_id=6&cms_link_url=http%3A%2F%2Fwww.onsensui.com%2F  «»
+  - url: http://www.city.tarumizu.lg.jp/chiiki/kurashi/sangyo/akiya/chintai.html
+    pdf: 4
+    shapes:
+    - shape: www.city.tarumizu.lg.jp/cgi-bin/advert/click_total/click.cgi?cms_area_id=&cms_banner_id=&cms_link_url=
+      n: 3
+      samples:
+      - http://www.city.tarumizu.lg.jp/cgi-bin/advert/click_total/click.cgi?cms_area_id=1&cms_banner_id=3&cms_link_url=http%3A%2F%2Fwww.jyukaku.co.jp%2F  «»
+      - http://www.city.tarumizu.lg.jp/cgi-bin/advert/click_total/click.cgi?cms_area_id=1&cms_banner_id=6&cms_link_url=http%3A%2F%2Fwww.onsensui.com%2F  «»
+  - url: http://www.city.tarumizu.lg.jp/chiiki/kurashi/sangyo/akiya/soraietarumizu.html
+    pdf: 0
+    shapes:
+    - shape: www.city.tarumizu.lg.jp/cgi-bin/advert/click_total/click.cgi?cms_area_id=&cms_banner_id=&cms_link_url=
+      n: 3
+      samples:
+      - http://www.city.tarumizu.lg.jp/cgi-bin/advert/click_total/click.cgi?cms_area_id=1&cms_banner_id=3&cms_link_url=http%3A%2F%2Fwww.jyukaku.co.jp%2F  «»
+      - http://www.city.tarumizu.lg.jp/cgi-bin/advert/click_total/click.cgi?cms_area_id=1&cms_banner_id=6&cms_link_url=http%3A%2F%2Fwww.onsensui.com%2F  «»
+- prefecture: kagoshima
+  id: kagoshima-www-city-amami-lg-jp-99e422
+  name: 奄美市空き家バンク
+  list: http://www.city.amami.lg.jp/pjsenryaku/akiyabank/akiyariyoukibou.html
+  pdf: 0
+  iframes: []
+  external:
+  - amami-c46222.akiya-athome.jp
+  pages:
+  - url: http://www.city.amami.lg.jp/pjsenryaku/akiyabank/akiyariyoukibou.html
+    pdf: 0
+    shapes:
+    - shape: amami-c46222.akiya-athome.jp/bukken/detail/rent/N
+      n: 3
+      samples:
+      - https://amami-c46222.akiya-athome.jp/bukken/detail/rent/7995  «空き家バンク登録物件名瀬28(賃貸)※女性限定シェアハウス(»
+      - https://amami-c46222.akiya-athome.jp/bukken/detail/rent/7351  «空き家バンク登録物件名瀬30(賃貸)(外部リンク)»
+  - url: http://www.city.amami.lg.jp/pjsenryaku/akiyabank/akiyabank.html
+    pdf: 0
+    shapes: []
+  - url: http://www.city.amami.lg.jp/pjsenryaku/akiyabank/akiyasyoyusya.html
+    pdf: 2
+    shapes: []
+- prefecture: okinawa
+  id: okinawa-okinawa-iju-jp-2d2a17
+  name: 沖縄県公式移住応援サイト おきなわ島ぐらし
+  list: https://okinawa-iju.jp/guide/
+  pdf: 0
+  iframes:
+  - https://www.googletagmanager.com/ns.html?id=GTM-WJLW7BZ
+  external: []
+  pages:
+  - url: https://okinawa-iju.jp/guide/
+    pdf: 0
+    shapes: []
+- prefecture: okinawa
+  id: okinawa-www-pref-okinawa-jp-d96ac2
+  name: 沖縄県土木建築部住宅課
+  list: https://www.pref.okinawa.jp/site/doboku/jutaku/kikaku/akiya/akiya.html
+  pdf: 0
+  iframes: []
+  external:
+  - ishigaki-ijyu.com
+  - www.vill.aguni.okinawa.jp
+  pages:
+  - url: https://www.pref.okinawa.jp/site/doboku/jutaku/kikaku/akiya/akiya.html
+    pdf: 0
+    shapes:
+    - shape: www.pref.okinawa.jp/site/doboku/machizukuri/jutakutochi/N/N/index.html
+      n: 4
+      samples:
+      - https://www.pref.okinawa.jp/site/doboku/machizukuri/jutakutochi/1012281/1021615/index.html  «住まい»
+      - https://www.pref.okinawa.jp/site/doboku/machizukuri/jutakutochi/1012281/1012293/index.html  «計画・プラン・事業(住宅)»
+    - shape: www.pref.okinawa.jp/site/doboku/machizukuri/jutakutochi/N/N.html
+      n: 3
+      samples:
+      - https://www.pref.okinawa.jp/site/doboku/machizukuri/jutakutochi/1012281/1012304.html  «『風土に根ざした家づくり手引書』(令和4年度版)»
+      - https://www.pref.okinawa.jp/site/doboku/machizukuri/jutakutochi/1012281/1012317.html  «災害時における木造応急仮設住宅の建設に関する協定の締結»
+- prefecture: okinawa
+  id: okinawa-ishigaki-ijyu-com-04d95b
+  name: 石垣市移住定住ポータルサイト
+  list: https://ishigaki-ijyu.com/
+  pdf: 0
+  iframes: []
+  external: []
+  pages:
+  - url: https://ishigaki-ijyu.com/
+    pdf: 0
+    shapes:
+    - shape: ishigaki-ijyu.com/archives/N
+      n: 8
+      samples:
+      - https://ishigaki-ijyu.com/archives/5169  «おきなわ移住&就職相談会2026in名古屋(2026年11月»
+      - https://ishigaki-ijyu.com/archives/5165  «おきなわ移住オンラインセミナー「島移住の現在地〜石垣島・八重»
+  - url: https://ishigaki-ijyu.com/house-top
+    pdf: 0
+    shapes: []
+  - url: https://ishigaki-ijyu.com/school
+    pdf: 7
+    shapes: []
+  - url: https://ishigaki-ijyu.com/public-hall
+    pdf: 0
+    shapes: []
+  - url: https://ishigaki-ijyu.com/migrate-support
+    pdf: 0
+    shapes: []
