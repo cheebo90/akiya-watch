@@ -1,0 +1,1377 @@
+sites:
+- id: hokkaido-kosasahru-web-fc2-com-eb6897
+  name: こささーる@空店舗
+  prefecture: hokkaido
+  census_list: http://kosasahru.web.fc2.com/index.html
+  tried: []
+  result: no listings found
+- id: hokkaido-www-town-mukawa-lg-jp-adb7fc
+  name: むかわ町空き家バンク
+  prefecture: hokkaido
+  census_list: http://www.town.mukawa.lg.jp/
+  tried:
+  - shape: www.town.mukawa.lg.jp/N.htm
+    n: 75
+    ok: 0/1
+  - shape: www.town.mukawa.lg.jp/item/N.htm
+    n: 17
+    ok: 0/1
+  - shape: www.town.mukawa.lg.jp/services/rdf/rssN/N.xml
+    n: 3
+    ok: 0/1
+  - shape: www.town.mukawa.lg.jp/module/N.htm
+    n: 2
+    ok: 0/1
+  result: no listings found
+- id: hokkaido-www-town-nakafurano-lg-jp-c3241f
+  name: 中富良野町空き家バンク
+  prefecture: hokkaido
+  census_list: http://www.town.nakafurano.lg.jp/hotnews/detail/00001600.html
+  tried:
+  - shape: www.town.nakafurano.lg.jp/hotnews/detail/N.html
+    n: 47
+    ok: 0/1
+  result: no listings found
+- id: hokkaido-www-kuriyama-iju-com-e69a65
+  name: 北海道栗山町空き家バンク公式WEBサイト
+  prefecture: hokkaido
+  census_list: http://www.kuriyama-iju.com/akiya/index.html
+  tried:
+  - shape: akiyabank.kuriyama-iju.com/property/vacant-house/N/
+    n: 7
+    ok: 4/4
+  result: ok
+  entry:
+    id: hokkaido-www-kuriyama-iju-com-e69a65
+    name: 北海道栗山町空き家バンク公式WEBサイト
+    prefecture: hokkaido
+    list: http://www.kuriyama-iju.com/akiya/index.html
+    detail: akiyabank\.kuriyama\-iju\.com/property/vacant\-house/\d+/(\?|$)
+    status: ok
+  links: 7
+  samples:
+  - url: https://akiyabank.kuriyama-iju.com/property/vacant-house/104/
+    price: 2000000
+    building_m2: 122.31
+    land_m2: 228.0
+    title: 中央4丁目122番地(No.104) |北海道栗山町空き家バ
+    address: 北海道栗山町中央4丁目122番地
+  - url: https://akiyabank.kuriyama-iju.com/property/vacant-house/103/
+    price: 4700000
+    building_m2: 59.62
+    land_m2: 869.0
+    title: 桜丘3丁目57番地(No.103)|北海道栗山町空き家バンク
+    address: 北海道栗山町桜丘3丁目57番地
+  - url: https://akiyabank.kuriyama-iju.com/property/vacant-house/102/
+    price: 60000
+    building_m2: 124.2
+    land_m2: 336.0
+    title: 松風2丁目120番地24(No.102)|北海道栗山町空き家
+    address: 北海道松風2丁目120番地4
+  - url: https://akiyabank.kuriyama-iju.com/property/vacant-house/101/
+    price: 65000
+    building_m2: 101.85
+    land_m2: 330.87
+    title: 松風2丁目195-5(No.101)|北海道栗山町空き家バン
+    address: 北海道松風2丁目195-5
+- id: hokkaido-www-town-hiroo-lg-jp-cdf032
+  name: 広尾町空き家バンク
+  prefecture: hokkaido
+  census_list: https://www.town.hiroo.lg.jp/kurashi/seikatsu/ijuu/akiyabanku/
+  tried:
+  - shape: translate.google.com/translate?hl=&sl=&tl=&u=
+    n: 4
+    ok: 0/0
+  result: no listings found
+- id: hokkaido-www-town-higashikagura-lg-jp-c97333
+  name: 東神楽町HP
+  prefecture: hokkaido
+  census_list: https://www.town.higashikagura.lg.jp/docs/739.html
+  tried:
+  - shape: www.town.higashikagura.lg.jp/docs/N.html
+    n: 20
+    ok: 0/1
+  result: no listings found
+- id: hokkaido-www-town-urausu-hokkaido-jp-facfa4
+  name: 浦臼町空き家・空き地バンク
+  prefecture: hokkaido
+  census_list: https://www.town.urausu.hokkaido.jp/akiyabank/index.html
+  tried: []
+  result: no listings found
+- id: hokkaido-www-town-nakatombetsu-hokkaido-jp-ccdbb7
+  name: 空家情報登録制度
+  prefecture: hokkaido
+  census_list: https://www.town.nakatombetsu.hokkaido.jp/bunya/5234
+  tried:
+  - shape: www.town.nakatombetsu.hokkaido.jp/bunya/N/
+    n: 4
+    ok: 0/1
+  - shape: www.town.nakatombetsu.hokkaido.jp/bunya/N
+    n: 13
+    ok: 0/1
+  result: no listings found
+- id: hokkaido-www-town-kushiro-lg-jp-a2946f
+  name: 釧路町空き家バンク(空き家物件)
+  prefecture: hokkaido
+  census_list: http://www.town.kushiro.lg.jp/living-guide/20301/00032/194727151115.html
+  tried:
+  - shape: www.town.kushiro.lg.jp/living-guide/N.html
+    n: 70
+    ok: 0/1
+  - shape: www.town.kushiro.lg.jp/living-guide/N/N/N.html
+    n: 9
+    ok: 0/1
+  - shape: www.town.kushiro.lg.jp/information/N.html
+    n: 2
+    ok: 0/1
+  result: no listings found
+- id: aomori-akiya-city-hachinohe-aomori-jp-d45d9b
+  name: はちのへ空き家ずかん
+  prefecture: aomori
+  census_list: https://akiya.city.hachinohe.aomori.jp/
+  tried:
+  - shape: akiya.city.hachinohe.aomori.jp/docs/N.html
+    n: 20
+    ok: 0/1
+  - shape: akiya.city.hachinohe.aomori.jp/utilization/renovation/renovation-case/N.html
+    n: 2
+    ok: 0/1
+  - shape: akiya.city.hachinohe.aomori.jp/docs/building/index.pN.html
+    n: 5
+    ok: 0/1
+  - shape: www.youtube.com/watch?v=
+    n: 3
+    ok: 0/1
+  result: no listings found
+- id: aomori-www-city-hirakawa-lg-jp-584dea
+  name: 弘前圏域空き家・空き地バンクサイト
+  prefecture: aomori
+  census_list: https://www.city.hirakawa.lg.jp/kurashi/sumai/akiya/hirosakikeniki_akiyabank.html
+  tried: []
+  result: no listings found
+- id: iwate-www-pref-iwate-jp-b28a82
+  name: 南いわての移住定住支援(空き家バンク)
+  prefecture: iwate
+  census_list: https://www.pref.iwate.jp/kennan/keiei/1013368/1013369.html
+  tried:
+  - shape: translate.google.com/translate?hl=&sl=&tl=&u=
+    n: 4
+    ok: 0/0
+  - shape: www.pref.iwate.jp/kensei/tetsuzuki/hojo/N/index.html
+    n: 4
+    ok: 0/1
+  - shape: www.pref.iwate.jp/soudan/N.html
+    n: 4
+    ok: 0/1
+  - shape: www.pref.iwate.jp/kennan/keiei/N/N.html
+    n: 2
+    ok: 0/1
+  result: no listings found
+- id: miyagi-ju-pita-com-ca13a9
+  name: 丸森町移住・定住サポートセンター
+  prefecture: miyagi
+  census_list: https://ju-pita.com/akiya/
+  tried:
+  - shape: ju-pita.com/N
+    n: 23
+    ok: 4/4
+  result: ok
+  entry:
+    id: miyagi-ju-pita-com-ca13a9
+    name: 丸森町移住・定住サポートセンター
+    prefecture: miyagi
+    list: https://ju-pita.com/category/akiyabank
+    detail: ju\-pita\.com/\d+(\?|$)
+    status: ok
+  links: 23
+  samples:
+  - url: https://ju-pita.com/2704
+    price: 5000000
+    building_m2: null
+    land_m2: 599.47
+    title: 最近の投稿
+    address: ''
+  - url: https://ju-pita.com/2697
+    price: 3000000
+    building_m2: null
+    land_m2: 391.93
+    title: 最近の投稿
+    address: ''
+  - url: https://ju-pita.com/2693
+    price: 5000000
+    building_m2: null
+    land_m2: 726.0
+    title: 最近の投稿
+    address: ''
+  - url: https://ju-pita.com/2686
+    price: 10000000
+    building_m2: null
+    land_m2: 2499.0
+    title: 最近の投稿
+    address: ''
+- id: miyagi-www-city-kakuda-lg-jp-b157c7
+  name: 角田市空き家バンク
+  prefecture: miyagi
+  census_list: https://www.city.kakuda.lg.jp/soshiki/4/418.html
+  tried:
+  - shape: www.city.kakuda.lg.jp/life/N/
+    n: 3
+    ok: 0/1
+  - shape: www.city.kakuda.lg.jp/life/sub/N/
+    n: 2
+    ok: 0/1
+  result: no listings found
+- id: yamagata-t-landbank-org-a682b4
+  name: つるおかランド・バンク
+  prefecture: yamagata
+  census_list: https://t-landbank.org/
+  tried:
+  - shape: t-landbank.org/N
+    n: 12
+    ok: 0/1
+  - shape: t-landbank.org/bukken/N
+    n: 12
+    ok: 0/1
+  - shape: t-landbank.org/?csfk=&csfk_as=&csp=&fe_form_no=&feadvns_max_line_6=&s_order=&s_target=&searchbutton=
+    n: 6
+    ok: 0/1
+  - shape: t-landbank.org/?csp=&fe_form_no=&feadvns_max_line_6=&s_order=&s_target=&searchbutton=
+    n: 2
+    ok: 0/1
+  - shape: t-landbank.org/?csfk=&csfk_as=&csp=&fe_form_no=&feadvns_max_line_15=&s_order=&s_target=&search_element_0=&searchbutton=
+    n: 6
+    ok: 0/1
+  - shape: t-landbank.org/?csp=&fe_form_no=&feadvns_max_line_15=&s_order=&s_target=&search_element_0=&searchbutton=
+    n: 2
+    ok: 0/1
+  result: no listings found
+- id: yamagata-www-city-shinjo-yamagata-jp-7cc39d
+  name: 新庄市空き家バンク制度
+  prefecture: yamagata
+  census_list: https://www.city.shinjo.yamagata.jp/s012/140/20160809182835.html
+  tried:
+  - shape: www.city.shinjo.yamagata.jp/sN/N/N.html
+    n: 4
+    ok: 0/1
+  - shape: www.city.shinjo.yamagata.jp/g/N/N/index.html
+    n: 4
+    ok: 0/1
+  - shape: www.city.shinjo.yamagata.jp/g/N/index.html
+    n: 3
+    ok: 0/1
+  result: no listings found
+- id: fukushima-misato-iju-jp-c3a76f
+  name: 会津美里町空き家・空き地バンク
+  prefecture: fukushima
+  census_list: http://misato-iju.jp/akiya/
+  tried: []
+  result: no listings found
+- id: fukushima-fukushima-akiyabank-jp-7bb9b5
+  name: 福島市空き家バンク
+  prefecture: fukushima
+  census_list: https://fukushima-akiyabank.jp/
+  tried:
+  - shape: fukushima-akiyabank.jp/bukken/N/
+    n: 8
+    ok: 4/4
+  result: ok
+  entry:
+    id: fukushima-fukushima-akiyabank-jp-7bb9b5
+    name: 福島市空き家バンク
+    prefecture: fukushima
+    list: https://fukushima-akiyabank.jp/
+    detail: fukushima\-akiyabank\.jp/bukken/\d+/(\?|$)
+    status: ok
+  links: 8
+  samples:
+  - url: https://fukushima-akiyabank.jp/bukken/378123/
+    price: 2900000
+    building_m2: 141.26
+    land_m2: 537.82
+    title: 資料請求&お問合せ
+    address: 福島県福島市立子山字空窪13-3
+  - url: https://fukushima-akiyabank.jp/bukken/378122/
+    price: 2300000
+    building_m2: 77.55
+    land_m2: 382.51
+    title: 資料請求&お問合せ
+    address: 福島県福島市飯坂町東湯野字堰端10-2
+  - url: https://fukushima-akiyabank.jp/bukken/378121/
+    price: 16980000
+    building_m2: 131.24
+    land_m2: 291.07
+    title: 資料請求&お問合せ
+    address: 福島県福島市野田町字上谷地24
+  - url: https://fukushima-akiyabank.jp/bukken/378120/
+    price: 11500000
+    building_m2: 134.28
+    land_m2: 224.03
+    title: 資料請求&お問合せ
+    address: 福島県福島市岡部字上条46-5
+- id: ibaraki-www-city-shimotsuma-lg-jp-c4edf2
+  name: 下妻市移住・定住促進「住マイルしもつま」
+  prefecture: ibaraki
+  census_list: https://www.city.shimotsuma.lg.jp/page/dir002188.html
+  tried: []
+  result: no listings found
+- id: ibaraki-www-city-hitachiota-ibaraki-jp-411eeb
+  name: 常陸太田公式ホームページ
+  prefecture: ibaraki
+  census_list: http://www.city.hitachiota.ibaraki.jp/page/page002897.html
+  tried: []
+  result: no listings found
+- id: ibaraki-www-city-ishioka-lg-jp-5fc1d9
+  name: 石岡市空家バンク
+  prefecture: ibaraki
+  census_list: http://www.city.ishioka.lg.jp/page/page005154.html
+  tried: []
+  result: no listings found
+- id: ibaraki-www-city-naka-lg-jp-aa24fc
+  name: 那珂市空き家バンク
+  prefecture: ibaraki
+  census_list: https://www.city.naka.lg.jp/page/page004130.html
+  tried: []
+  result: no listings found
+- id: gunma-www-town-minakami-gunma-jp-72ef8a
+  name: みなかみ町空き家バンク
+  prefecture: gunma
+  census_list: https://www.town.minakami.gunma.jp/vacancy/
+  tried: []
+  result: no listings found
+- id: gunma-www-pref-gunma-jp-a7d100
+  name: 空き家関連情報(群馬県ホームページ)
+  prefecture: gunma
+  census_list: https://www.pref.gunma.jp/04/bi0100004.html
+  tried:
+  - shape: www.pref.gunma.jp/adv/ba.php?id=
+    n: 7
+    ok: 0/1
+  result: no listings found
+- id: saitama-akiyabank-saihoku-ijuu-com-076765
+  name: 埼北空き家バンク
+  prefecture: saitama
+  census_list: https://akiyabank.saihoku-ijuu.com
+  tried: []
+  result: no listings found
+- id: saitama-www-town-ogose-saitama-jp-788685
+  name: 越生町空き家バンク制度
+  prefecture: saitama
+  census_list: http://www.town.ogose.saitama.jp/ogoseikatsu/kurasu/index.html
+  tried:
+  - shape: www.town.ogose.saitama.jp/ogoseikatsu/kurasu/akiyabanku/N.html
+    n: 4
+    ok: 0/1
+  - shape: www.town.ogose.saitama.jp/ogoseikatsu/kurasu/N.html
+    n: 3
+    ok: 0/1
+  - shape: www.town.ogose.saitama.jp/ogoseikatsu/index.html
+    n: 2
+    ok: 0/1
+  result: no listings found
+- id: chiba-www-city-chiba-jp-6b4378
+  name: すまいのリユースネット(千葉市空家等情報提供制度)
+  prefecture: chiba
+  census_list: https://www.city.chiba.jp/toshi/kenchiku/jutakuseisaku/akiyatoujouhouteikyouseido.html
+  tried:
+  - shape: www.city.chiba.jp/search/result.html?cx=&q=
+    n: 5
+    ok: 0/1
+  result: no listings found
+- id: chiba-www-vill-chosei-chiba-jp-69841f
+  name: 長生村空家バンク
+  prefecture: chiba
+  census_list: http://www.vill.chosei.chiba.jp/category/1-3-9-0-0.html
+  tried:
+  - shape: www.vill.chosei.chiba.jp/N.html
+    n: 83
+    ok: 0/1
+  - shape: www.vill.chosei.chiba.jp/site_policy/N.html
+    n: 4
+    ok: 0/1
+  - shape: www.vill.chosei.chiba.jp/
+    n: 2
+    ok: 0/1
+  - shape: www.vill.chosei.chiba.jp/soshiki_list.html
+    n: 2
+    ok: 0/1
+  result: no listings found
+- id: tokyo-kyoju-shien-toshima-com-e5096e
+  name: 豊島区居住支援バンク
+  prefecture: tokyo
+  census_list: https://kyoju-shien-toshima.com
+  tried:
+  - shape: kyoju-shien-toshima.com/N/N/
+    n: 58
+    ok: 0/1
+  - shape: kyoju-shien-toshima.com/%eN%Na%ae%eN%N%N%eN%N%N%eN%N%ae%eN%N%ba%eN%bc%bN%eN%Nb%bN%eN%ab%N%eN%bc%Na-in-%eN%N%bf%eN%N%N%eN%N%aa%eN%N%ae%eN%N%N%eN%N%N%eN%N%Nc%eN%N%Nf%eN%bN%aN%eN%aN%Nb-%eN%ac%aN%eN%Nb%Ne-N/
+    n: 2
+    ok: 0/1
+  result: no listings found
+- id: kanagawa-www-town-hakone-kanagawa-jp-ab16bf
+  name: 箱根町空き家バンク
+  prefecture: kanagawa
+  census_list: http://www.town.hakone.kanagawa.jp/index.cfm/6,7487,19,html
+  tried:
+  - shape: www.town.hakone.kanagawa.jp/www/contents/N/index.html
+    n: 20
+    ok: 0/1
+  - shape: www.town.hakone.kanagawa.jp/www/genre/N/index.html
+    n: 25
+    ok: 0/1
+  - shape: translate.google.co.jp/translate?hl=&sl=&tl=&u=
+    n: 2
+    ok: 0/0
+  result: no listings found
+- id: niigata-www-city-myoko-niigata-jp-f34ac9
+  name: 妙高ぐらし
+  prefecture: niigata
+  census_list: https://www.city.myoko.niigata.jp/myoko-life/
+  tried: []
+  result: no listings found
+- id: toyama-toyama-teiju-jp-2f40c7
+  name: 市町村空き家情報バンク
+  prefecture: toyama
+  census_list: https://toyama-teiju.jp/living/
+  tried:
+  - shape: toyama-teiju.jp/interview/N/
+    n: 3
+    ok: 0/1
+  - shape: toyama-teiju.jp/iju_support/search/N/
+    n: 3
+    ok: 0/1
+  - shape: toyama-teiju.jp/?s=
+    n: 6
+    ok: 0/1
+  - shape: toyama-teiju.jp/?paged=&s=
+    n: 4
+    ok: 0/1
+  result: no listings found
+- id: ishikawa-iju-ishikawa-jp-1a5cd5
+  name: いしかわ暮らし情報ひろば/空き家情報ナビ
+  prefecture: ishikawa
+  census_list: https://iju.ishikawa.jp/akiya/
+  tried:
+  - shape: iju.ishikawa.jp/akiya/ak_detail.php?ak_id=
+    n: 10
+    ok: 0/1
+  - shape: iju.ishikawa.jp/akiyacase/N.html
+    n: 9
+    ok: 0/1
+  - shape: iju.ishikawa.jp/map/map/map.php?t=
+    n: 2
+    ok: 0/1
+  - shape: iju.ishikawa.jp/map/map/map.php?filterexe_list=&t=
+    n: 2
+    ok: 0/1
+  result: no listings found
+- id: fukui-www-e-ikeda-jp-a551e0
+  name: いけだガイド
+  prefecture: fukui
+  census_list: https://www.e-ikeda.jp/iju/
+  tried:
+  - shape: www.e-ikeda.jp/iju/interview/pN.html
+    n: 8
+    ok: 0/1
+  - shape: translate.google.co.jp/translate?hl=&sl=&tl=&u=
+    n: 3
+    ok: 0/0
+  - shape: www.town.ikeda.fukui.jp/shisetsu/sonota/pN.html
+    n: 3
+    ok: 0/1
+  - shape: www.e-ikeda.jp/iju/matome/pN.html
+    n: 3
+    ok: 0/1
+  - shape: www.town.ikeda.fukui.jp/pick/pickjukyo/pN.html
+    n: 2
+    ok: 0/1
+  - shape: www.e-ikeda.jp/kyoukai/pN.html
+    n: 2
+    ok: 0/1
+  result: no listings found
+- id: yamanashi-www-city-hokuto-yamanashi-jp-37d63f
+  name: 北杜市空き家バンク
+  prefecture: yamanashi
+  census_list: https://www.city.hokuto.yamanashi.jp/docs/1727.html
+  tried:
+  - shape: www.city.hokuto.yamanashi.jp/docs/N.html
+    n: 53
+    ok: 0/1
+  - shape: www.city.hokuto.yamanashi.jp/life/hokuto/shiyakusyo/kouhouN/
+    n: 41
+    ok: 0/1
+  - shape: www.city.hokuto.yamanashi.jp/life/ad/N.html?redirect=
+    n: 12
+    ok: 0/1
+  - shape: www.city.hokuto.yamanashi.jp/konkatsu/info/N.html
+    n: 7
+    ok: 0/1
+  - shape: www.city.hokuto.yamanashi.jp/life/hokuto/arc-list/index.pN.html
+    n: 5
+    ok: 0/1
+  - shape: www.city.hokuto.yamanashi.jp/life/kenko/arc-list/index.pN.html
+    n: 5
+    ok: 0/1
+  result: no listings found
+- id: nagano-shinanomachi-iju-jp-6ccef7
+  name: ありえない、いなかまち。
+  prefecture: nagano
+  census_list: https://shinanomachi-iju.jp/housing/
+  tried:
+  - shape: shinanomachi-iju.jp/akiya/N/
+    n: 6
+    ok: 0/1
+  - shape: shinanomachi-iju.jp/akiya/land-N/
+    n: 5
+    ok: 0/1
+  - shape: shinanomachi-iju.jp/journal/N/
+    n: 5
+    ok: 0/1
+  - shape: shinanomachi-iju.jp/akiya/?property_type=
+    n: 3
+    ok: 0/1
+  - shape: shinanomachi-iju.jp/akiya/?area=
+    n: 6
+    ok: 0/1
+  result: no listings found
+- id: nagano-akiya-city-chikuma-lg-jp-33bd20
+  name: 千曲市空き家バンク
+  prefecture: nagano
+  census_list: http://akiya.city.chikuma.lg.jp
+  tried: []
+  result: no listings found
+- id: nagano-www-town-kiso-com-e9ddb5
+  name: 木曽駒高原保健休養地物件情報
+  prefecture: nagano
+  census_list: https://www.town-kiso.com/kurashi/sumai/jyutaku/
+  tried: []
+  result: no listings found
+- id: nagano-chikuhoku-akiyabank-jp-e8a386
+  name: 筑北村空き家バンク
+  prefecture: nagano
+  census_list: http://chikuhoku-akiyabank.jp/
+  tried:
+  - shape: chikuhoku-akiyabank.jp/report/N.php
+    n: 3
+    ok: 0/1
+  - shape: www.vill.chikuhoku.lg.jp/docs/N.html
+    n: 2
+    ok: 0/1
+  result: no listings found
+- id: nagano-www-city-saku-nagano-jp-2dd657
+  name: 長野県佐久市空き家バンク おいでなんし!佐久
+  prefecture: nagano
+  census_list: https://www.city.saku.nagano.jp/sakunikurasu/kanko/oidenanshi/index.html
+  tried:
+  - shape: www.city.saku.nagano.jp/sakunikurasu/kanko/oidenanshi/all.php?kubun=
+    n: 2
+    ok: 0/1
+  - shape: www.city.saku.nagano.jp/sakunikurasu/kanko/oidenanshi/indexN.php?kubun=
+    n: 2
+    ok: 0/1
+  - shape: www.city.saku.nagano.jp/sakunikurasu/kanko/oidenanshi/area.php?id=&kubun=
+    n: 7
+    ok: 0/1
+  - shape: www.city.saku.nagano.jp/sakunikurasu/kanko/oidenanshi/detail.php?id=&kubun=
+    n: 4
+    ok: 0/1
+  - shape: www.city.saku.nagano.jp/sakunikurasu/kanko/oidenanshi/info.php?syubetsu=
+    n: 2
+    ok: 0/1
+  result: no listings found
+- id: gifu-www2-city-ogaki-lg-jp-de41c9
+  name: 大垣市空家バンク
+  prefecture: gifu
+  census_list: https://www2.city.ogaki.lg.jp/ogakikurasi/akiya/
+  result: unreachable
+- id: gifu-godo-akiya-jp-69a1a5
+  name: 神戸町空家バンク
+  prefecture: gifu
+  census_list: http://godo-akiya.jp/
+  tried:
+  - shape: godo-akiya.jp/search/noN/
+    n: 5
+    ok: 4/4
+  result: ok
+  entry:
+    id: gifu-godo-akiya-jp-69a1a5
+    name: 神戸町空家バンク
+    prefecture: gifu
+    list: http://godo-akiya.jp/search.html
+    detail: godo\-akiya\.jp/search/no\d+/(\?|$)
+    status: ok
+  links: 5
+  samples:
+  - url: http://godo-akiya.jp/search/no009/
+    price: 4800000
+    building_m2: 81.69
+    land_m2: 200.04
+    title: 庭付き2階建て住宅No. 009
+    address: 岐阜県安八郡神戸町 更屋敷字村前70番19
+  - url: http://godo-akiya.jp/search/no014/
+    price: 2500000
+    building_m2: 55.7
+    land_m2: 92.56
+    title: 便利な物置付き・2階建て住宅No. 014
+    address: 岐阜県安八郡神戸町 西浦160番地27
+  - url: http://godo-akiya.jp/search/no018/
+    price: 5500000
+    building_m2: 116.18
+    land_m2: 482.64
+    title: 古民家の風情のある住宅No. 018
+    address: 岐阜県安八郡神戸町 末守字中島574番地1
+  - url: http://godo-akiya.jp/search/no020/
+    price: 5300000
+    building_m2: 94.07
+    land_m2: 177.24
+    title: 幼児園すぐ!木造2階建て住宅No. 020
+    address: 岐阜県安八郡神戸町 神戸字昭和1425番地4
+- id: shizuoka-www-city-mishima-shizuoka-jp-79d836
+  name: 住むなら三島 中古住宅情報サイト
+  prefecture: shizuoka
+  census_list: https://www.city.mishima.shizuoka.jp/life/1/6/41/
+  tried:
+  - shape: www.city.mishima.shizuoka.jp/life/N/N/N/
+    n: 162
+    ok: 0/1
+  - shape: www.city.mishima.shizuoka.jp/site/userguide/N.html
+    n: 4
+    ok: 0/1
+  - shape: www.city.mishima.shizuoka.jp/life/N/N/
+    n: 3
+    ok: 0/1
+  result: no listings found
+- id: shizuoka-www-city-makinohara-shizuoka-jp-16669d
+  name: 牧之原市移住定住サイト「空き家・空き地バンクについて」
+  prefecture: shizuoka
+  census_list: https://www.city.makinohara.shizuoka.jp/site/makinohara-life/list8-229.html
+  tried:
+  - shape: www.city.makinohara.shizuoka.jp/site/makinohara-life/N.html
+    n: 7
+    ok: 0/1
+  - shape: www.city.makinohara.shizuoka.jp/site/makinohara-life/listN-N.html
+    n: 2
+    ok: 0/1
+  result: no listings found
+- id: aichi-akiyabk-com-89a7d4
+  name: 名古屋市空き家バンク
+  prefecture: aichi
+  census_list: https://akiyabk.com/nagoya/
+  tried:
+  - shape: akiyabk.com/information_N.html
+    n: 45
+    ok: 0/1
+  result: no listings found
+- id: aichi-akiyabk-com-512354
+  name: 尾張旭市空き家バンク
+  prefecture: aichi
+  census_list: https://akiyabk.com/owariasahi/
+  tried:
+  - shape: akiyabk.com/information_N.html
+    n: 45
+    ok: 0/1
+  result: no listings found
+- id: aichi-akiyabk-com-2a1d8c
+  name: 愛知県空き家・空き地バンクポータルサイト
+  prefecture: aichi
+  census_list: https://akiyabk.com/
+  tried:
+  - shape: akiyabk.com/information_N.html
+    n: 45
+    ok: 0/1
+  result: no listings found
+- id: aichi-akiyabk-com-eda55e
+  name: 東海市空き家バンク
+  prefecture: aichi
+  census_list: https://akiyabk.com/toukai/
+  tried:
+  - shape: akiyabk.com/information_N.html
+    n: 45
+    ok: 0/1
+  - shape: akiyabk.com/toukai/contents_N.html
+    n: 5
+    ok: 0/1
+  result: no listings found
+- id: aichi-akiyabk-com-e1812c
+  name: 碧南市空き家バンク
+  prefecture: aichi
+  census_list: http://akiyabk.com/hekinan/
+  tried:
+  - shape: akiyabk.com/information_N.html
+    n: 45
+    ok: 0/1
+  - shape: www.city.hekinan.aichi.jp/secN/cateN.html
+    n: 3
+    ok: 0/1
+  result: no listings found
+- id: aichi-akiyabk-com-0eb527
+  name: 豊明市空き家バンク
+  prefecture: aichi
+  census_list: https://akiyabk.com/toyoake/
+  tried:
+  - shape: akiyabk.com/information_N.html
+    n: 45
+    ok: 0/1
+  - shape: akiyabk.com/toyoake/contents_N.html
+    n: 2
+    ok: 0/1
+  result: no listings found
+- id: mie-owasegurashi-xsrv-jp-a65d09
+  name: 尾鷲暮らしサポートセンター
+  prefecture: mie
+  census_list: http://owasegurashi.xsrv.jp/
+  tried:
+  - shape: owasegurashi.xsrv.jp/interview/N/
+    n: 2
+    ok: 0/1
+  result: no listings found
+- id: shiga-www-hikone-machiya-com-d5cbaf
+  name: 小江戸ひこね町屋情報バンク
+  prefecture: shiga
+  census_list: https://www.hikone-machiya.com/
+  tried: []
+  result: no listings found
+- id: kyoto-yawata-akiya-com-cec3c1
+  name: 一般社団法人 八幡市空き家バンク
+  prefecture: kyoto
+  census_list: http://yawata-akiya.com/
+  tried:
+  - shape: yawata-akiya.com/?page_id=
+    n: 7
+    ok: 0/1
+  result: no listings found
+- id: osaka-www-town-kanan-osaka-jp-05a1db
+  name: 河南町空家バンク
+  prefecture: osaka
+  census_list: http://www.town.kanan.osaka.jp/
+  tried:
+  - shape: www.town.kanan.osaka.jp/cgi-bin/smart_alert.php/N/detail/N
+    n: 20
+    ok: 0/1
+  - shape: www.town.kanan.osaka.jp/cgi-bin/smart_alert.php/N/list?continue=&from=&month=&page=&to=&year=
+    n: 20
+    ok: 0/1
+  - shape: www.town.kanan.osaka.jp/cgi-bin/smart_alert.php/N/list?continue=&page=
+    n: 3
+    ok: 0/1
+  result: no listings found
+- id: hyogo-www-city-shiso-lg-jp-129307
+  name: 宍粟市空き家バンク
+  prefecture: hyogo
+  census_list: https://www.city.shiso.lg.jp/kurashi/sumai/akiyabank/6948.html
+  tried: []
+  result: no listings found
+- id: nara-www-vill-totsukawa-lg-jp-28fcc8
+  name: 十津川村 空き家バンク
+  prefecture: nara
+  census_list: https://www.vill.totsukawa.lg.jp/akiyabank/index.php
+  tried:
+  - shape: www.vill.totsukawa.lg.jp/akiyabank/index.php?c=&pk=
+    n: 20
+    ok: 0/1
+  - shape: www.vill.totsukawa.lg.jp/akiyabank/index.php?c=&sort_key=&sort_type=
+    n: 22
+    ok: 0/1
+  - shape: www.vill.totsukawa.lg.jp/akiyabank/index.php?s_type=
+    n: 4
+    ok: 0/1
+  - shape: www.vill.totsukawa.lg.jp/akiyabank/index.php?c=&s_type=&sk=
+    n: 2
+    ok: 0/1
+  - shape: houmukyoku.moj.go.jp/nara/pageN_N.html
+    n: 2
+    ok: 0/1
+  - shape: www.vill.totsukawa.lg.jp/akiyabank/index.php?c=&sk=&sort_key=&sort_type=
+    n: 2
+    ok: 0/1
+  result: no listings found
+- id: wakayama-teijyu-town-katsuragi-wakayama-jp-a527a4
+  name: かつらぎ暮らし
+  prefecture: wakayama
+  census_list: http://teijyu.town.katsuragi.wakayama.jp/iju001/030/010/20150214164453.html
+  tried:
+  - shape: teijyu.town.katsuragi.wakayama.jp/ijuN/N/N/N/index.html
+    n: 48
+    ok: 0/1
+  - shape: teijyu.town.katsuragi.wakayama.jp/ijuN/N/N/N/N/index.html
+    n: 53
+    ok: 0/1
+  - shape: teijyu.town.katsuragi.wakayama.jp/ijuN/N/N/N/N/N/index.html
+    n: 48
+    ok: 0/1
+  - shape: teijyu.town.katsuragi.wakayama.jp/ijuN/N/N/N/N-N-N-N.html
+    n: 2
+    ok: 0/1
+  - shape: teijyu.town.katsuragi.wakayama.jp/ijuN/N/N/N/N/N-N-N-N.html
+    n: 2
+    ok: 0/1
+  - shape: teijyu.town.katsuragi.wakayama.jp/ijuN/N/N/N/N/N/N-N-N-N.html
+    n: 2
+    ok: 0/1
+  result: no listings found
+- id: tottori-hayabusa-lab-com-2ba771
+  name: 八頭町移住定住センター
+  prefecture: tottori
+  census_list: https://hayabusa-lab.com/iju/
+  tried:
+  - shape: www.yyp.or.jp/bukkenN/
+    n: 3
+    ok: 0/1
+  - shape: www.town.yazu.tottori.jp/site/lifestage/N.html
+    n: 2
+    ok: 0/1
+  result: no listings found
+- id: tottori-www-town-wakasa-tottori-jp-392b5a
+  name: 若桜町空き家情報
+  prefecture: tottori
+  census_list: http://www.town.wakasa.tottori.jp/?page_id=23245
+  tried:
+  - shape: www.town.wakasa.tottori.jp/saiyo_boshu/N.html
+    n: 6
+    ok: 0/1
+  - shape: www.town.wakasa.tottori.jp/soshikikarasagasu/somuka/N/somugyosei/N.html
+    n: 2
+    ok: 0/1
+  - shape: www.town.wakasa.tottori.jp/soshikikarasagasu/somuka/N/shouboubousai/N.html
+    n: 2
+    ok: 0/1
+  - shape: www.town.wakasa.tottori.jp/shigoto_sangyo/nogyo_ringyo_suisangyo/N.html
+    n: 2
+    ok: 0/1
+  result: no listings found
+- id: shimane-www-matsue-akiyabank-jp-a460b0
+  name: 松江市空き家バンク
+  prefecture: shimane
+  census_list: http://www.matsue-akiyabank.jp/
+  tried:
+  - shape: www.matsue-akiyabank.jp/detail/?hdata1=
+    n: 4
+    ok: 4/4
+  result: ok
+  entry:
+    id: shimane-www-matsue-akiyabank-jp-a460b0
+    name: 松江市空き家バンク
+    prefecture: shimane
+    list: http://www.matsue-akiyabank.jp/
+    detail: www\.matsue\-akiyabank\.jp/detail/\?.*\bhdata1=\d+
+    status: ok
+  links: 4
+  samples:
+  - url: http://www.matsue-akiyabank.jp/detail/?hdata1=12608270939322861053
+    price: 16000000
+    building_m2: 131.81
+    land_m2: 229.48
+    title: 空き家情報を検索する
+    address: 島根県松江市古志原4丁目19番17-3
+  - url: http://www.matsue-akiyabank.jp/detail/?hdata1=1250603163949241256
+    price: 2800000
+    building_m2: 120.09
+    land_m2: 183.08
+    title: 空き家情報を検索する
+    address: 島根県松江市東津田町2261-9
+  - url: http://www.matsue-akiyabank.jp/detail/?hdata1=1260729155734876057
+    price: 2000000
+    building_m2: 226.63
+    land_m2: null
+    title: 空き家情報を検索する
+    address: 島根県松江市秋鹿町2880他
+  - url: http://www.matsue-akiyabank.jp/detail/?hdata1=1260722151641392533
+    price: 550000
+    building_m2: 68.09
+    land_m2: 45.57
+    title: 空き家情報を検索する
+    address: 島根県松江市美保関町美保関336
+- id: okayama-www-town-yakage-okayama-jp-efe8bf
+  name: 矢掛町移住支援サイト
+  prefecture: okayama
+  census_list: http://www.town.yakage.okayama.jp/ijyu/
+  tried:
+  - shape: www.town.yakage.okayama.jp/ijyu/vacant-house/N.html
+    n: 44
+    ok: 0/1
+  - shape: www.town.yakage.okayama.jp/ijyu/vacant-house/Nvr.html
+    n: 4
+    ok: 0/1
+  - shape: www.town.yakage.okayama.jp/ijyu/interview/N.html
+    n: 4
+    ok: 0/1
+  result: no listings found
+- id: hiroshima-mitsugiakiya-jp-30b891
+  name: みつぎ空き家バンク
+  prefecture: hiroshima
+  census_list: http://mitsugiakiya.jp/
+  tried:
+  - shape: mitsugiakiya.jp/stepN/
+    n: 3
+    ok: 0/1
+  - shape: mitsugiakiya.jp/N/N/N/N/
+    n: 3
+    ok: 0/1
+  result: no listings found
+- id: kagawa-www-town-shodoshima-lg-jp-e528c9
+  name: 小豆島町空き家バンク
+  prefecture: kagawa
+  census_list: https://www.town.shodoshima.lg.jp/gyousei/kurashi/ijyu_teiju/2608.html
+  tried:
+  - shape: www.town.shodoshima.lg.jp/gyousei/kakuka/sumaiseisakuka/N_N/N.html
+    n: 5
+    ok: 0/1
+  - shape: www.town.shodoshima.lg.jp/gyousei/kurashi_navi/N/sumai/N.html
+    n: 3
+    ok: 0/1
+  - shape: www.town.shodoshima.lg.jp/gyousei/kurashi_navi/N/index.html
+    n: 11
+    ok: 0/1
+  - shape: www.town.shodoshima.lg.jp/gyousei/kurashi_navi/N/hikkosi/N.html
+    n: 3
+    ok: 0/1
+  result: no listings found
+- id: ehime-www-town-ikata-ehime-jp-42d9f1
+  name: 伊方町空き家バンク
+  prefecture: ehime
+  census_list: https://www.town.ikata.ehime.jp/akiya/search/search.php
+  tried:
+  - shape: www.town.ikata.ehime.jp/site/iju-teiju/listN-N.html
+    n: 13
+    ok: 0/1
+  - shape: www.town.ikata.ehime.jp/site/iju-teiju/listN.html
+    n: 4
+    ok: 0/1
+  - shape: www.town.ikata.ehime.jp/site/userguide/N.html
+    n: 3
+    ok: 0/1
+  result: no listings found
+- id: kochi-www-town-yasuda-kochi-jp-6ba1a5
+  name: 不動産情報
+  prefecture: kochi
+  census_list: https://www.town.yasuda.kochi.jp/life/list.php?hdnSKBN=I&hdnKeyword=%C9%D4%C6%B0%BB%BA%BE%F0%CA%F3
+  tried:
+  - shape: www.town.yasuda.kochi.jp/life/dtl.php?hdnKey=
+    n: 6
+    ok: 0/1
+  - shape: www.town.yasuda.kochi.jp/life/list.php?hdnJPN=&hdnKeyword=
+    n: 9
+    ok: 0/1
+  - shape: www.town.yasuda.kochi.jp/life/list.php?hdnCat=&hdnSKBN=
+    n: 3
+    ok: 0/1
+  result: no listings found
+- id: kochi-www-city-tosa-lg-jp-a9bfc6
+  name: 土佐市空き家バンク
+  prefecture: kochi
+  census_list: http://www.city.tosa.lg.jp/life/detail.php?hdnKey=3692
+  tried:
+  - shape: www.city.tosa.lg.jp/life/detail.php?hdnKey=
+    n: 15
+    ok: 0/1
+  - shape: www.city.tosa.lg.jp/download/?fid=&id=&t=
+    n: 11
+    ok: 0/1
+  - shape: www.city.tosa.lg.jp/life/catglist.php?hdnCat=
+    n: 10
+    ok: 0/1
+  - shape: www.city.tosa.lg.jp/life/list.php?hdnKeyword=
+    n: 5
+    ok: 0/1
+  - shape: www-city-tosa-lg-jp.translate.goog/?_x_tr_hl=&_x_tr_sl=&_x_tr_tl=
+    n: 4
+    ok: 0/0
+  result: no listings found
+- id: kochi-www-city-kochi-konan-lg-jp-4e087f
+  name: 香南住む~ず
+  prefecture: kochi
+  census_list: https://www.city.kochi-konan.lg.jp/sumuzu/live/
+  tried:
+  - shape: www.city.kochi-konan.lg.jp/sumuzu/live/akiyabank/N.html
+    n: 15
+    ok: 4/4
+  result: ok
+  entry:
+    id: kochi-www-city-kochi-konan-lg-jp-4e087f
+    name: 香南住む~ず
+    prefecture: kochi
+    list: https://www.city.kochi-konan.lg.jp/sumuzu/live/akiyabank/index.html
+    detail: www\.city\.kochi\-konan\.lg\.jp/sumuzu/live/akiyabank/\d+\.html(\?|$)
+    status: ok
+  links: 15
+  samples:
+  - url: https://www.city.kochi-konan.lg.jp/sumuzu/live/akiyabank/13335.html
+    price: 6500000
+    building_m2: 62.98
+    land_m2: 198.35
+    title: No.106夜須町(売)空き家バンク情報
+    address: ''
+  - url: https://www.city.kochi-konan.lg.jp/sumuzu/live/akiyabank/13191.html
+    price: 12000000
+    building_m2: 124.07
+    land_m2: 1144.27
+    title: No.105香我美町(売)空き家バンク情報
+    address: ''
+  - url: https://www.city.kochi-konan.lg.jp/sumuzu/live/akiyabank/13121.html
+    price: 1700000
+    building_m2: 97.62
+    land_m2: 515.11
+    title: No.104香我美町(売)空き家バンク情報
+    address: ''
+  - url: https://www.city.kochi-konan.lg.jp/sumuzu/live/akiyabank/12666.html
+    price: 8000000
+    building_m2: 221.82
+    land_m2: 753.72
+    title: No.101赤岡町(売)空き家バンク情報
+    address: ''
+- id: fukuoka-www-city-koga-fukuoka-jp-7eaccc
+  name: 古賀市空き家・空き地バンク
+  prefecture: fukuoka
+  census_list: https://www.city.koga.fukuoka.jp/cityhall/work/toshikeikaku/bank/
+  tried:
+  - shape: www.city.koga.fukuoka.jp/cityhall/work/toshikeikaku/bank/N.php
+    n: 3
+    ok: 0/1
+  - shape: www.city.koga.fukuoka.jp/lifestyle/stages/N/
+    n: 9
+    ok: 0/1
+  - shape: www.city.koga.fukuoka.jp/cityhall/work/yobou/N.php
+    n: 2
+    ok: 0/1
+  result: no listings found
+- id: fukuoka-town-kotake-lg-jp-bef1bc
+  name: 小竹で暮らそう空家情報
+  prefecture: fukuoka
+  census_list: http://town.kotake.lg.jp/migration/hpkiji/pub/detail.aspx?c_id=3&type=top&id=1359
+  tried:
+  - shape: town.kotake.lg.jp/hpkiji/pub/detail.aspx?c_id=&class_id=&class_set_id=&id=
+    n: 2
+    ok: 0/1
+  - shape: town.kotake.lg.jp/hpkiji/pub/List.aspx?c_id=&class_id=&class_set_id=
+    n: 134
+    ok: 0/1
+  - shape: town.kotake.lg.jp/common/UploadFileOutput.ashx?c_id=&flid=&id=&sub_id=
+    n: 44
+    ok: 0/1
+  - shape: town.kotake.lg.jp/migration/hpkiji/pub/hpkiji/pub/List.aspx?c_id=&class_id=&class_set_id=
+    n: 27
+    ok: 0/1
+  - shape: town.kotake.lg.jp/migration/hpkiji/pub/kinkyu/pub/hpkiji/pub/List.aspx?c_id=&class_id=&class_set_id=
+    n: 27
+    ok: 0/1
+  - shape: town.kotake.lg.jp/migration/hpkiji/pub/hpkiji/pub/hpkiji/pub/List.aspx?c_id=&class_id=&class_set_id=
+    n: 27
+    ok: 0/1
+  result: no listings found
+- id: fukuoka-www-town-soeda-fukuoka-jp-f8b167
+  name: 添田町空き家・空き地バンク
+  prefecture: fukuoka
+  census_list: https://www.town.soeda.fukuoka.jp/bunya/akiya-bank/
+  tried:
+  - shape: www.town.soeda.fukuoka.jp/site/soeda-life/N.html
+    n: 22
+    ok: 0/1
+  - shape: www.town.soeda.fukuoka.jp/site/soeda-life/listN-N.html
+    n: 6
+    ok: 0/1
+  - shape: www.town.soeda.fukuoka.jp/site/userguide/N.html
+    n: 5
+    ok: 0/1
+  - shape: www.town.soeda.fukuoka.jp/site/soeda-life/listN.html
+    n: 3
+    ok: 0/1
+  result: no listings found
+- id: fukuoka-www-town-koge-lg-jp-b9d5fc
+  name: 空き家・空き地バンク
+  prefecture: fukuoka
+  census_list: https://www.town.koge.lg.jp/ijyu_teiju/akiyaakitibank/index.html
+  tried:
+  - shape: www.town.koge.lg.jp/cgi-bin/recruit.php/N/detail/N?ck=
+    n: 8
+    ok: 4/4
+  result: ok
+  entry:
+    id: fukuoka-www-town-koge-lg-jp-b9d5fc
+    name: 空き家・空き地バンク
+    prefecture: fukuoka
+    list: https://www.town.koge.lg.jp/cgi-bin/recruit.php/1/list
+    detail: www\.town\.koge\.lg\.jp/cgi\-bin/recruit\.php/\d+/detail/\d+\?.*\bck=\d+
+    status: ok
+  links: 8
+  samples:
+  - url: https://www.town.koge.lg.jp/cgi-bin/recruit.php/1/detail/61?ck=1
+    price: 1000000
+    building_m2: null
+    land_m2: 483.49
+    title: 古民家の物件
+    address: 福岡県上毛町大字上唐原
+  - url: https://www.town.koge.lg.jp/cgi-bin/recruit.php/1/detail/54?ck=1
+    price: 10000000
+    building_m2: null
+    land_m2: null
+    title: 立地条件〇の物件
+    address: 福岡県上毛町大字宇野
+  - url: https://www.town.koge.lg.jp/cgi-bin/recruit.php/1/detail/60?ck=1
+    price: 900000
+    building_m2: null
+    land_m2: 410.17
+    title: 自然豊かな場所にある物件
+    address: 福岡県上毛町大字東上
+  - url: https://www.town.koge.lg.jp/cgi-bin/recruit.php/1/detail/62?ck=1
+    price: 1500000
+    building_m2: null
+    land_m2: 612.99
+    title: 古民家の物件
+    address: 福岡県上毛町大字成恒
+- id: saga-www-city-taku-lg-jp-9dc073
+  name: 多久市空き家バンク
+  prefecture: saga
+  census_list: https://www.city.taku.lg.jp/soshiki/14/1412.html
+  tried:
+  - shape: www.city.taku.lg.jp/life/N/N/
+    n: 35
+    ok: 0/1
+  - shape: www.city.taku.lg.jp/life/N/
+    n: 6
+    ok: 0/1
+  - shape: www.city.taku.lg.jp/site/userguide/N.html
+    n: 4
+    ok: 0/1
+  result: no listings found
+- id: saga-www-city-saga-kashima-lg-jp-894a63
+  name: 鹿島市空き家バンク
+  prefecture: saga
+  census_list: https://www.city.saga-kashima.lg.jp/main/85.html
+  tried:
+  - shape: www.city.saga-kashima.lg.jp/main/N.html
+    n: 99
+    ok: 0/1
+  result: no listings found
+- id: kumamoto-www-city-kikuchi-lg-jp-4e5052
+  name: きくち暮らしのすすめ
+  prefecture: kumamoto
+  census_list: https://www.city.kikuchi.lg.jp/ijuteiju/
+  tried:
+  - shape: www.city.kikuchi.lg.jp/iju/article/view/N/N.html
+    n: 48
+    ok: 0/1
+  - shape: www.city.kikuchi.lg.jp/iju/article/list/N.html
+    n: 8
+    ok: 0/1
+  result: no listings found
+- id: kumamoto-www-town-nankan-lg-jp-6916e3
+  name: 南関町空き家バンク
+  prefecture: kumamoto
+  census_list: https://www.town.nankan.lg.jp/kurashi/kurashisodan/4283.html
+  tried:
+  - shape: kumamoto-akiya360.jp/property/pN/
+    n: 24
+    ok: 4/4
+  result: ok
+  entry:
+    id: kumamoto-www-town-nankan-lg-jp-6916e3
+    name: 南関町空き家バンク
+    prefecture: kumamoto
+    list: https://www.town.nankan.lg.jp/kurashi/kurashisodan/4283.html
+    detail: kumamoto\-akiya\d+\.jp/property/p\d+/(\?|$)
+    status: ok
+  links: 24
+  samples:
+  - url: https://kumamoto-akiya360.jp/property/p1000000345/
+    price: 2000000
+    building_m2: null
+    land_m2: 912.02
+    title: 南関町長山宅地、農地(No69)
+    address: 熊本県 南関町 長山
+  - url: https://kumamoto-akiya360.jp/property/p1000000025/
+    price: 1000000
+    building_m2: 158.29
+    land_m2: 613.88
+    title: 南関町長山戸建住宅(No77)
+    address: 熊本県 南関町 長山
+  - url: https://kumamoto-akiya360.jp/property/p1000000452/
+    price: 1500000
+    building_m2: 146.37
+    land_m2: 544.26
+    title: 南関町関東戸建住宅(No91)
+    address: 熊本県 南関町 関東
+  - url: https://kumamoto-akiya360.jp/property/p1000000492/
+    price: 4500000
+    building_m2: null
+    land_m2: 1413.35
+    title: 南関町宮尾宅地(No94)
+    address: 熊本県 南関町 宮尾
+- id: kumamoto-www-town-mifune-kumamoto-jp-d5edf3
+  name: 御船町空き家バンク
+  prefecture: kumamoto
+  census_list: https://www.town.mifune.kumamoto.jp/iju/info/pub/default.aspx?c_id=40
+  tried:
+  - shape: www.town.mifune.kumamoto.jp/iju/pageN.html
+    n: 2
+    ok: 0/1
+  - shape: www.town.mifune.kumamoto.jp/iju/hpkiji/pub/List.aspx?c_id=&class_id=&class_set_id=
+    n: 11
+    ok: 0/1
+  - shape: 'www.town.mifune.kumamoto.jp/iju/pageN.html '
+    n: 8
+    ok: 0/1
+  - shape: translate.google.co.jp/translate?hl=&sl=&tl=&u=
+    n: 4
+    ok: 0/0
+  - shape: www.town.mifune.kumamoto.jp/iju/hpkiji/pub/default.aspx?c_id=&class_set_id=
+    n: 3
+    ok: 0/1
+  result: no listings found
+- id: kumamoto-akiya-reihoku-kumamoto-jp-8e2d4f
+  name: 苓北町空き家バンク
+  prefecture: kumamoto
+  census_list: https://akiya.reihoku-kumamoto.jp/
+  tried:
+  - shape: akiya.reihoku-kumamoto.jp/kijiN/index.html
+    n: 19
+    ok: 0/1
+  - shape: akiya.reihoku-kumamoto.jp/listN.html
+    n: 10
+    ok: 0/1
+  - shape: akiya.reihoku-kumamoto.jp/dynamic/ijyu/hpkiji/pub/List.aspx?c_id=&class_id=&class_set_id=
+    n: 11
+    ok: 0/1
+  - shape: translate.google.co.jp/translate?hl=&sl=&tl=&u=
+    n: 4
+    ok: 0/0
+  - shape: reihoku-kumamoto.jp/listN.html
+    n: 4
+    ok: 0/1
+  result: no listings found
+- id: oita-www-city-kitsuki-lg-jp-eda0f1
+  name: 杵築市移住定住ポータルサイト
+  prefecture: oita
+  census_list: https://www.city.kitsuki.lg.jp/teijuusokushin/index.html
+  tried:
+  - shape: www.city.kitsuki.lg.jp/cgi-bin/recruit.php/N/detail/N?ck=
+    n: 20
+    ok: 4/4
+  result: ok
+  entry:
+    id: oita-www-city-kitsuki-lg-jp-eda0f1
+    name: 杵築市移住定住ポータルサイト
+    prefecture: oita
+    list: https://www.city.kitsuki.lg.jp/cgi-bin/recruit.php/1/list
+    detail: www\.city\.kitsuki\.lg\.jp/cgi\-bin/recruit\.php/\d+/detail/\d+\?.*\bck=\d+
+    status: ok
+  links: 20
+  samples:
+  - url: https://www.city.kitsuki.lg.jp/cgi-bin/recruit.php/1/detail/452?ck=1
+    price: 8000000
+    building_m2: null
+    land_m2: null
+    title: 空き家バンクNo. 590
+    address: 大分県杵築市大字相原【R8年10月1日up】
+  - url: https://www.city.kitsuki.lg.jp/cgi-bin/recruit.php/1/detail/451?ck=1
+    price: 2500000
+    building_m2: null
+    land_m2: null
+    title: 空き家バンクNo. 593
+    address: 大分県杵築市大字八坂【R8年10月1日UP】
+  - url: https://www.city.kitsuki.lg.jp/cgi-bin/recruit.php/1/detail/447?ck=1
+    price: 3800000
+    building_m2: null
+    land_m2: null
+    title: 空き家バンクNo. 588
+    address: 大分県杵築市大田永松【R8年9月1日UP】
+  - url: https://www.city.kitsuki.lg.jp/cgi-bin/recruit.php/1/detail/453?ck=1
+    price: 14800000
+    building_m2: null
+    land_m2: null
+    title: 空き家バンクNo. 594
+    address: 大分県杵築市大字南杵築【R8年10月15日UP】
+- id: miyazaki-www-ebikyan-jp-f2314f
+  name: えびの市定住促進サイト「きゃんせ!えびの」
+  prefecture: miyazaki
+  census_list: http://www.ebikyan.jp/
+  tried:
+  - shape: www.ebikyan.jp/vacant/%eN%aN%ba%eN%N%Nd%eN%ae%bN%ef%bc%Nc%eN%N%N%eN%bN%Nf%ef%bc%Ne/
+    n: 3
+    ok: 3/3
+  - shape: www.ebikyan.jp/vacant/%eN%aN%ba%eN%N%Nd%eN%ae%bN%ef%bc%Nc%eN%N%N%eN%ab%aa%ef%bc%Ne/
+    n: 2
+    ok: 2/2
+  - shape: www.ebikyan.jp/vacant/%eN%aN%ba%eN%N%Nd%eN%ae%bN%ef%bc%Nc%eN%Ne%Nf%eN%N%bN%ef%bc%Ne/
+    n: 2
+    ok: 2/2
+  - shape: www.hatomarksite.com/search/miyazaki/agent/N/
+    n: 2
+    ok: 0/1
+  result: no listings found
+- id: miyazaki-www-tenandoproject-com-af41f4
+  name: 小林市空き家バンク
+  prefecture: miyazaki
+  census_list: http://www.tenandoproject.com/akiyabank_list
+  tried:
+  - shape: www.tenandoproject.com/akiya_bank/%eN%aN%ba%eN%N%Nd%eN%ae%bN%eN%ac%acN%eN%Nf%bN
+    n: 2
+    ok: 2/2
+  - shape: cms.city.kobayashi.lg.jp/display.php?cont=
+    n: 4
+    ok: 0/1
+  - shape: cms.city.kobayashi.lg.jp/display.php?clist=
+    n: 2
+    ok: 0/1
+  - shape: www.tenandoproject.com/wp/result_landscape_N
+    n: 2
+    ok: 0/1
+  - shape: www.tenandoproject.com/wp/result_people_N
+    n: 2
+    ok: 0/1
+  result: no listings found
+- id: miyazaki-www-town-miyazaki-misato-lg-jp-211f6e
+  name: 美郷町空家等情報バンク
+  prefecture: miyazaki
+  census_list: http://www.town.miyazaki-misato.lg.jp/dynamic/info/pub/default.aspx?c_id=26
+  tried:
+  - shape: www.town.miyazaki-misato.lg.jp/listN.html
+    n: 133
+    ok: 0/1
+  - shape: www.town.miyazaki-misato.lg.jp/dynamic/hpkiji/pub/List.aspx?c_id=&class_id=&class_set_id=
+    n: 127
+    ok: 0/1
+  - shape: www.town.miyazaki-misato.lg.jp/kijiN/index.html
+    n: 8
+    ok: 0/1
+  - shape: www.town.miyazaki-misato.lg.jp/classsetN.html
+    n: 5
+    ok: 0/1
+  - shape: translate.google.co.jp/translate?hl=&sl=&tl=&u=
+    n: 4
+    ok: 0/0
+  - shape: www.town.miyazaki-misato.lg.jp/dynamic/hpkiji/pub/default.aspx?c_id=&class_set_id=
+    n: 2
+    ok: 0/1
+  result: no listings found
+- id: kagoshima-www-city-makurazaki-lg-jp-dee1f4
+  name: 住もう!まくらざき 空き家バンク
+  prefecture: kagoshima
+  census_list: http://www.city.makurazaki.lg.jp/site/ijyu/list17-363.html
+  tried:
+  - shape: www.city.makurazaki.lg.jp/site/ijyu/N.html
+    n: 38
+    ok: 0/1
+  - shape: www.city.makurazaki.lg.jp/site/ijyu/listN-N.html
+    n: 12
+    ok: 0/1
+  - shape: www.city.makurazaki.lg.jp/site/userguide/N.html
+    n: 5
+    ok: 0/1
+  - shape: www.city.makurazaki.lg.jp/site/ijyu/listN.html
+    n: 3
+    ok: 0/1
+  result: no listings found
+- id: kagoshima-www-kurasu-wadomari-info-eda5a7
+  name: 鹿児島県 沖永良部島 和泊町の移住情報サイトくらすわどまり 空き家バンク
+  prefecture: kagoshima
+  census_list: http://www.kurasu-wadomari.info/category/ca-sumai
+  tried:
+  - shape: kurasu-wadomari.info/archives/N
+    n: 24
+    ok: 0/1
+  result: no listings found
+- id: okinawa-okinawa-iju-jp-2d2a17
+  name: 沖縄県公式移住応援サイト おきなわ島ぐらし
+  prefecture: okinawa
+  census_list: https://okinawa-iju.jp/guide/
+  tried: []
+  result: no listings found
