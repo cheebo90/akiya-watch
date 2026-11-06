@@ -54,3 +54,22 @@ sites:
   - {id: miyazaki-kunitomi, name: 国富町空き家バンク, prefecture: miyazaki, list: "http://sousei.town.kunitomi.miyazaki.jp/houselist/", detail: "/houselist/\\d+/\\d+/\\d+/house_\\d+\\.html$", status: ok}
   - {id: kagoshima-kanoya, name: 鹿屋市空き家バンク, prefecture: kagoshima, list: "https://www.city.kanoya.lg.jp/iju/akiyabank/search/", detail: "/iju/akiyabank/search/\\d+\\.html$", status: ok}
   - {id: kagoshima-tarumizu, name: 垂水市空き家バンク, prefecture: kagoshima, list: "http://www.city.tarumizu.lg.jp/chiiki/kurashi/sangyo/akiya/sokushin.html", detail: "/akiya-bank/baikyaku/baikyaku\\d+\\.html$", status: ok}
+
+  # ---- trovate da scripts/discover_banks.py (3 annunci su 4 letti come vendite), novembre 2026
+  - {detail: 'akiyabank\.kuriyama\-iju\.com/property/vacant\-house/\d+/(\?|$)', id: hokkaido-www-kuriyama-iju-com-e69a65, list: 'http://www.kuriyama-iju.com/akiya/index.html', name: 北海道栗山町空き家バンク公式WEBサイト, prefecture: hokkaido, status: ok}
+  - {detail: 'ju\-pita\.com/\d+(\?|$)', id: miyagi-ju-pita-com-ca13a9, list: 'https://ju-pita.com/category/akiyabank', name: 丸森町移住・定住サポートセンター, prefecture: miyagi, status: ok}
+  - {detail: 'fukushima\-akiyabank\.jp/bukken/\d+/(\?|$)', id: fukushima-fukushima-akiyabank-jp-7bb9b5, list: 'https://fukushima-akiyabank.jp/', name: 福島市空き家バンク, prefecture: fukushima, status: ok}
+  - {detail: 'godo\-akiya\.jp/search/no\d+/(\?|$)', id: gifu-godo-akiya-jp-69a1a5, list: 'http://godo-akiya.jp/search.html', name: 神戸町空家バンク, prefecture: gifu, status: ok}
+  - {detail: 'www\.matsue\-akiyabank\.jp/detail/\?.*\bhdata1=\d+', id: shimane-www-matsue-akiyabank-jp-a460b0, list: 'http://www.matsue-akiyabank.jp/', name: 松江市空き家バンク, prefecture: shimane, status: ok}
+  - {detail: 'www\.city\.kochi\-konan\.lg\.jp/sumuzu/live/akiyabank/\d+\.html(\?|$)', id: kochi-www-city-kochi-konan-lg-jp-4e087f, list: 'https://www.city.kochi-konan.lg.jp/sumuzu/live/akiyabank/index.html', name: 香南住む~ず, prefecture: kochi, status: ok}
+  - {detail: 'chichibuakiyabank\.com/property/\d+(\?|$)', id: saitama-www-chichibuakiyabank-com-839e55, list: 'http://www.chichibuakiyabank.com', name: ちちぶ空き家バンクホームページ, prefecture: saitama, status: ok}
+  - {detail: 'himi\-akiya\.net/property/\d+/(\?|$)', id: toyama-himi-akiya-net-cce862, list: 'https://himi-akiya.net/property/', name: 氷見市空き家情報バンク, prefecture: toyama, status: ok}
+  - {detail: 'azumino\-ijyu\.jp/bukken/\d+/(\?|$)', id: nagano-azumino-ijyu-jp-6f20a9, list: 'https://azumino-ijyu.jp/akiyabank/', name: 安曇野市空き家バンク, prefecture: nagano, status: ok}
+  - {detail: 'www\.city\.takayama\.lg\.jp/shisei/\d+/\d+/\d+/\d+/\d+\.html(\?|$)', id: gifu-www-city-takayama-lg-jp-2b30ff, list: 'https://www.city.takayama.lg.jp/shisei/1015214/1015625/1018203/1018223/index.html', name: 移住希望者向け空き家バンク, prefecture: gifu, status: ok}
+  - {detail: 'kyotohokuburenkei\.jp/akiyasearch/akiyadetail\?.*\bbname=\d+', id: kyoto-kyotohokuburenkei-jp-a7a10f, list: 'http://kyotohokuburenkei.jp/akiyasearch/?kubun=buyrent&city=yosano', name: 京都府北部UIターンプロジェクト たんたんターン, prefecture: kyoto, status: ok}
+  - {detail: 'www\.town\.mashike\.hokkaido\.jp/migration/housing/jutaku\-tochi/detail_R\d+\-C\-\d+\.html(\?|$)', id: hokkaido-www-town-mashike-hokkaido-jp-af2025, list: 'https://www.town.mashike.hokkaido.jp/migration/housing/jutaku-tochi/index.html', name: 増毛町空き家・空き地情報, prefecture: hokkaido, status: ok}
+  - {detail: 'iitoko\-hanamaki\.jp/housebank/\d+/(\?|$)', id: iwate-www-iitoko-hanamaki-jp-100e74, list: 'http://www.iitoko-hanamaki.jp/', name: いいトコ花巻, prefecture: iwate, status: ok}
+  - {detail: 'www\.nichinan\-life\.jp/house/no\-\d+/(\?|$)', id: tottori-www-nichinan-life-jp-223aaf, list: 'https://www.nichinan-life.jp/house/', name: 日南町まるごとバンク, prefecture: tottori, status: ok}
+  - {detail: 'www\.hokkori\-unnan\.jp/akiyabank/akiya\-info\.php\?.*\bid=\d+', id: shimane-www-kurashimanet-jp-4f9410, list: 'https://www.kurashimanet.jp/lifestyle/house/shimane-akiya.html', name: くらしまねっと 市町村の空き家情報, prefecture: shimane, status: ok}
+  - {detail: 'shirakawa\-ijuu\.com/property/\d+/(\?|$)', id: gifu-shirakawa-ijuu-com-719a6d, list: 'https://shirakawa-ijuu.com/', name: 白川町移住・交流サポートセンター, prefecture: gifu, status: ok}
+  - {detail: 'deep\-town\-okuizumo\.jp/bank/\d+(\?|$)', id: shimane-deep-town-okuizumo-jp-e61437, list: 'https://deep-town-okuizumo.jp/bank', name: 奥出雲町定住支援サイトDeep Town Okuizumo/空き家バンク制度, prefecture: shimane, status: ok}
