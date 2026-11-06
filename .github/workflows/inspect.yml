@@ -20,7 +20,7 @@ jobs:
         with: { python-version: "3.12", cache: pip }
       - run: pip install -r requirements.txt
       - run: |
-          ARGS=$(python3 -c "import json;d=json.load(open('trigger/inspect.json'));print('--try '+d['try'] if d.get('try') else ' '.join('--pref '+p for p in d['prefs']))")
+          ARGS=$(python3 -c "import json;d=json.load(open('trigger/inspect.json'));print('--try '+d['try'] if d.get('try') else ' '.join('--pref '+p for p in d.get('prefs',[])))")
           SCRIPT=$(python3 -c "import json;print(json.load(open('trigger/inspect.json')).get('script',''))")
           if [ -n "$SCRIPT" ]; then python "scripts/$SCRIPT"; else python scripts/inspect_todo.py $ARGS; fi
       - run: |
