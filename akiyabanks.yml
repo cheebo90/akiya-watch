@@ -73,3 +73,34 @@ sites:
   - {detail: 'www\.hokkori\-unnan\.jp/akiyabank/akiya\-info\.php\?.*\bid=\d+', id: shimane-www-kurashimanet-jp-4f9410, list: 'https://www.kurashimanet.jp/lifestyle/house/shimane-akiya.html', name: くらしまねっと 市町村の空き家情報, prefecture: shimane, status: ok}
   - {detail: 'shirakawa\-ijuu\.com/property/\d+/(\?|$)', id: gifu-shirakawa-ijuu-com-719a6d, list: 'https://shirakawa-ijuu.com/', name: 白川町移住・交流サポートセンター, prefecture: gifu, status: ok}
   - {detail: 'deep\-town\-okuizumo\.jp/bank/\d+(\?|$)', id: shimane-deep-town-okuizumo-jp-e61437, list: 'https://deep-town-okuizumo.jp/bank', name: 奥出雲町定住支援サイトDeep Town Okuizumo/空き家バンク制度, prefecture: shimane, status: ok}
+
+  # ---- schede PDF (testo letto, foto ritagliate e cifrate): prova scripts/pdf_probe.py, novembre 2026
+  - {id: fukushima-www-city-kitakata-fukushima-jp-da9bed, list: 'https://www.city.kitakata.fukushima.jp/soshiki/toshiseibi/13812.html', max_details: 120, name: 喜多方市空き家バンク, pdf: true, prefecture: fukushima, status: ok}
+  - {id: tochigi-www-city-ohtawara-tochigi-jp-96f95c, list: 'https://www.city.ohtawara.tochigi.jp/docs/2014092500025/', max_details: 120, name: 大田原市空き家バンク登録物件, pdf: true, prefecture: tochigi, status: ok}
+  - {id: kyoto-www-town-kasagi-lg-jp-73fe6a, list: 'https://www.town.kasagi.lg.jp/contents_detail.php?co=new&frmId=1130', max_details: 120, name: 笠置町空き家バンク制度, pdf: true, prefecture: kyoto, status: ok}
+  - {id: osaka-www-city-izumisano-lg-jp-20a63b, list: 'http://www.city.izumisano.lg.jp/kakuka/toshi/toshi/menu/teijuijusokusin/1427458826008.html', max_details: 120, name: 泉佐野市空家バンク登録台帳, pdf: true, prefecture: osaka, status: ok}
+  - {id: tokushima-www-miyoshi-i-tokushima-jp-d221ad, list: 'https://www.miyoshi.i-tokushima.jp/docs/4873.html', max_details: 120, name: 三好市空き家バンク, pdf: true, prefecture: tokushima, status: ok}
+  - {id: ehime-www-city-saijo-ehime-jp-65f742, list: 'http://www.city.saijo.ehime.jp/soshiki/ijyusuishin/akiya-bank.html', max_details: 120, name: 西条市空き家バンク, pdf: true, prefecture: ehime, status: ok}
+  - {id: fukushima-www-town-shimogo-fukushima-jp-667cc0, list: 'https://www.town.shimogo.fukushima.jp/life/sumai/1153.html', max_details: 120, name: 下郷町空き家・空き地バンク, pdf: true, prefecture: fukushima, status: ok}
+  - {id: fukushima-www-town-yanaizu-fukushima-jp-53e523, list: 'http://www.town.yanaizu.fukushima.jp/docs/2016032200019/', max_details: 120, name: 柳津町移住・定住ページ, pdf: true, prefecture: fukushima, status: ok}
+  - {id: fukui-www-city-awara-lg-jp-4e7ef1, list: 'http://www.city.awara.lg.jp/mokuteki/life/jyutaku1/p001478.html', max_details: 120, name: あわら市空き家情報バンク, pdf: true, prefecture: fukui, status: ok}
+  - {id: fukui-www-town-minamiechizen-lg-jp-f2d1a9, list: 'http://www.town.minamiechizen.lg.jp/izyu/akiyajyouhou/p001143.html', max_details: 120, name: 南越前町空き家・空き地情報バンク, pdf: true, prefecture: fukui, status: ok}
+  - {id: kagawa-www-city-kanonji-kagawa-jp-b3096b, list: 'https://www.city.kanonji.kagawa.jp/soshiki/48/14824.html', max_details: 120, name: 観音寺市空き家バンク, pdf: true, prefecture: kagawa, status: ok}
+  - {id: yamagata-www-city-tendo-yamagata-jp-f7e4e5, list: 'https://www.city.tendo.yamagata.jp/lifeinfo/sumai/akiyabanku_tourokuakiya.html', max_details: 120, name: 天童市空き家バンク, pdf: true, prefecture: yamagata, status: ok}
+  - {id: fukushima-www-city-fukushima-date-lg-jp-45929d, list: 'https://www.city.fukushima-date.lg.jp/soshiki/11/11412.html', max_details: 120, name: 空き家バンク登録物件一覧, pdf: true, prefecture: fukushima, status: ok}
+  - {id: gunma-www-city-shibukawa-lg-jp-acaab9, list: 'http://www.city.shibukawa.lg.jp/ijyu-site/kurashi/000048/000052/p005590.html', max_details: 120, name: 渋川市空き家バンク, pdf: true, prefecture: gunma, status: ok}
+  - {id: fukui-www-town-ohi-fukui-jp-34156d, list: 'https://www.town.ohi.fukui.jp/1221/7029/p18959.html', max_details: 120, name: おおい町空き家情報バンク, pdf: true, prefecture: fukui, status: ok}
+  - {id: nagano-www-vill-tenryu-jp-a92b90, list: 'http://www.vill-tenryu.jp/notice/administrative/ijyu/ijyu_kurasu/ijyu_akiyabank/', max_details: 120, name: 天龍村空き家バンク, pdf: true, prefecture: nagano, status: ok}
+  - {id: kagawa-www-town-tonosho-kagawa-jp-c2eb66, list: 'https://www.town.tonosho.kagawa.jp/gyosei/iju/akiyabanku2/1510.html', max_details: 120, name: 香川県土庄町空き家バンク登録物件, pdf: true, prefecture: kagawa, status: ok}
+  - {id: iwate-www-city-takizawa-iwate-jp-f1cebe, list: 'http://www.city.takizawa.iwate.jp/life/taki_kurashi/toshikei/_12872.html', max_details: 120, name: 滝沢市空き家バンク, pdf: true, prefecture: iwate, status: ok}
+  - {id: yamagata-www-city-yamagata-yamagata-lg-jp-2584f7, list: 'https://www.city.yamagata-yamagata.lg.jp/kurashi/tochi/1006582/1006583/1002505.html', max_details: 120, name: 山形市空き家バンク, pdf: true, prefecture: yamagata, status: ok}
+  - {id: shizuoka-www-town-morimachi-shizuoka-jp-ec2747, list: 'https://www.town.morimachi.shizuoka.jp/gyosei/machinososhiki/teijusuishinka/ijukoryugakari/2/2/380.html', max_details: 120, name: 森町空き家・空き地バンク, pdf: true, prefecture: shizuoka, status: ok}
+  - {id: wakayama-www-town-wakayama-inami-lg-jp-a869c6, list: 'http://www.town.wakayama-inami.lg.jp/contents_detail.php?co=cat&frmId=179&frmCd=3-6-8-0-0', max_details: 120, name: 和歌山県印南町空き家バンク, pdf: true, prefecture: wakayama, status: ok}
+  - {id: hiroshima-www-town-osakikamijima-hiroshima-jp-6f03e4, list: 'https://www.town.osakikamijima.hiroshima.jp/kurashi/sumai/1/1/2513.html', max_details: 120, name: 大崎上島町空き家情報バンク, pdf: true, prefecture: hiroshima, status: ok}
+  - {id: ehime-www-town-ainan-ehime-jp-958b12, list: 'https://www.town.ainan.ehime.jp/kurashi/tetsuduki/sumai/iju/ijujoho.html', max_details: 120, name: 愛南町空き家情報バンク, pdf: true, prefecture: ehime, status: ok}
+  - {id: mie-www-city-kameyama-mie-jp-daa9f2, list: 'https://www.city.kameyama.mie.jp/docs/2021010500012/akiya_bank.html', max_details: 120, name: 亀山市空き家情報バンク, pdf: true, prefecture: mie, status: ok}
+  - {id: fukui-www-city-katsuyama-fukui-jp-2e8d9a, list: 'https://www.city.katsuyama.fukui.jp/soshiki/16/410.html', max_details: 120, name: 勝山市 空き家情報バンク, pdf: true, prefecture: fukui, status: ok}
+  - {id: saga-www-city-kanzaki-saga-jp-4a1df1, list: 'https://www.city.kanzaki.saga.jp/main/5359.html', max_details: 120, name: 神埼市空き家・空き地バンク(物件情報), pdf: true, prefecture: saga, status: ok}
+  - {id: hokkaido-www-town-kembuchi-hokkaido-jp-24e6c1, list: 'https://www.town.kembuchi.hokkaido.jp/kurashi/まちづくり/住まいに関すること/空き地・空き家情報/', max_details: 120, name: 剣淵町空き家空き地情報, pdf: true, prefecture: hokkaido, status: ok}
+  - {id: aomori-www-town-hashikami-lg-jp-0f5e33, list: 'http://www.town.hashikami.lg.jp/index.cfm/7,9759,107,304,html', max_details: 120, name: 階上町ホームページ, pdf: true, prefecture: aomori, status: ok}
+  - {id: hokkaido-www-city-hokuto-hokkaido-jp-a6694e, list: 'https://www.city.hokuto.hokkaido.jp/docs/akiyabank.html', max_details: 120, name: 北斗市空き家バンク, pdf: true, prefecture: hokkaido, status: ok}
