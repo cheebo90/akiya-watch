@@ -140,8 +140,26 @@ def dedupe_groups(listings: dict) -> dict[str, str]:
 _COMPLETENESS = ("building_m2", "land_m2", "layout", "year_built", "access", "images", "latlng")
 
 
+def _fix_generic_titles(L: dict):
+    """Akiya-bank pages whose heading is site navigation: the same title on many listings of one bank."""
+    from .sources.akiyabank import fallback_title, is_generic_title
+    count: dict = {}
+    for l in L.values():
+        if l["source"] == "akiyabank":
+            k = ((l.get("extra") or {}).get("bank"), l.get("title"))
+            count[k] = count.get(k, 0) + 1
+    for l in L.values():
+        if l["source"] != "akiyabank":
+            continue
+        ex = l.get("extra") or {}
+        if count.get((ex.get("bank"), l.get("title")), 0) >= 3 or is_generic_title(l.get("title"), ex.get("bank", "")):
+            l["title"] = fallback_title(l.get("address", ""), l.get("prefecture", ""),
+                                        ex.get("物件番号") or ex.get("登録番号") or "")
+
+
 def export(state: dict, aud_per_jpy: float) -> dict:
     L = state["listings"]
+    _fix_generic_titles(L)
     gid_of = dedupe_groups(L)
     groups: dict[str, list] = {}
     for k, g in gid_of.items():

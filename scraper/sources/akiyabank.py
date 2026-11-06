@@ -52,6 +52,31 @@ PLATFORM_HOSTS = ("homes.co.jp", "akiya-athome.jp", "athome.co.jp", "suumo.jp")
 
 # ------------------------------------------------------------------ parsing
 
+# page headings that are site navigation, not the property's name
+GENERIC_TITLE = re.compile(r"(メニュー|を探す|ステップ|買いたい|売りたい|借りたい|VACANT|一覧|トップ|ホーム|お知らせ|"
+                           r"^(空き家|空家|空き地|物件)(バンク|情報|詳細)?$|^物件(情報|詳細)|^詳細|^移住|^定住)", re.I)
+
+
+def town_of(address: str, pref: str = "") -> str:
+    """'鹿児島県鹿屋市古江町123番地' -> '鹿屋市古江町'"""
+    a = re.sub(r"\s+", "", address or "")
+    if pref and a.startswith(ja_name(pref)):
+        a = a[len(ja_name(pref)):]
+    a = re.sub(r"[（(【\[].*$", "", a)
+    a = re.sub(r"(\d|[０-９]|[一二三四五六七八九十]+丁目|番地).*$", "", a)
+    return a[:24]
+
+
+def fallback_title(address: str, pref: str, number: str = "") -> str:
+    town = town_of(address, pref)
+    num = re.sub(r"\s+", "", number or "")[:12]
+    return " ".join(x for x in ((f"No.{num}" if num and not num.lower().startswith("no") else num), town) if x) or "空き家"
+
+
+def is_generic_title(t: str, site_name: str = "") -> bool:
+    t = norm(t or "")
+    return not t or len(t) < 3 or bool(GENERIC_TITLE.search(t)) or (site_name and t in site_name)
+
 def pairs(soup) -> dict[str, str]:
     """All label -> value pairs on a page: th/td, dt/dd, and 'ラベル：値' lines."""
     out: dict[str, str] = {}
@@ -132,6 +157,10 @@ def parse_detail(html: str, url: str, site: dict) -> Listing | None:
     extra["bank"] = site.get("name", site["id"])
     if price_s and price is None:
         extra["価格"] = price_s[:60]
+    title = name or (norm(title_el.get_text()) if title_el else "")
+    if is_generic_title(title, site.get("name", "")):
+        num = next((v for k, v in p.items() if re.search(r"(物件(番号|No)|登録番号|^No)", k, re.I) and len(k) < 12), "")
+        title = fallback_title(address, pref, num)
     return Listing(
         source=NAME,
         source_id=f"{site['id']}-{hashlib.sha1(url.encode()).hexdigest()[:10]}",
@@ -140,7 +169,7 @@ def parse_detail(html: str, url: str, site: dict) -> Listing | None:
         price_yen=price,
         address=address,
         prefecture=pref,
-        title=(name or (norm(title_el.get_text()) if title_el else ""))[:120],
+        title=title[:120],
         land_m2=land,
         building_m2=building,
         layout=parse_layout(pick(p, "layout")),

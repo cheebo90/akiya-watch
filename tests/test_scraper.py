@@ -234,3 +234,10 @@ def test_akiyabank_combined_price_rent_label():
 def test_layout_ignores_long_numbers():
     from scraper.common import parse_layout
     assert parse_layout("369K") == "" and parse_layout("4SLDK") == "4SLDK"
+
+
+def test_akiyabank_generic_titles():
+    from scraper.sources.akiyabank import fallback_title, is_generic_title
+    assert is_generic_title("空き家を探すVACANT HOUSE") and is_generic_title("メニュー")
+    assert not is_generic_title("南関町長山戸建住宅(No77)")
+    assert fallback_title("鹿児島県鹿屋市古江町123番地", "kagoshima", "399") == "No.399 鹿屋市古江町"
