@@ -1,0 +1,36 @@
+name: Controlla akiya-athome.jp
+
+# 3 volte al giorno: avvisa (ntfy) solo quando il sito torna raggiungibile, o se cade di nuovo
+on:
+  schedule:
+    - cron: "23 1,9,17 * * *"   # 12:23, 20:23, 04:23 a Sydney (un'ora prima con l'ora solare)
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with: { ref: main }
+      - env:
+          NTFY_TOPIC: ${{ secrets.NTFY_TOPIC }}
+        run: |
+          CODE=$(curl -s -o page.html -w "%{http_code}" -m 30 -A "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0 Safari/537.36" https://www.akiya-athome.jp/ || echo 000)
+          if [ "$CODE" = 200 ] && ! grep -qiE "awswaf|captcha|challenge" page.html; then NOW=up; else NOW=down; fi
+          OLD=$(cat status/akiya-athome.txt 2>/dev/null || echo down)
+          echo "HTTP $CODE -> $NOW (prima: $OLD)"
+          echo "::notice::akiya-athome.jp HTTP $CODE ($NOW)"
+          if [ "$NOW" != "$OLD" ]; then
+            if [ "$NOW" = up ]; then MSG="akiya-athome.jp è di nuovo raggiungibile (HTTP 200). Possiamo leggerne le condizioni d'uso."; else MSG="akiya-athome.jp non è più raggiungibile (HTTP $CODE)."; fi
+            [ -n "$NTFY_TOPIC" ] && curl -s -H "Title: Akiya bank At Home" -H "Tags: house" -d "$MSG" "https://ntfy.sh/$NTFY_TOPIC" > /dev/null
+            echo "$NOW" > status/akiya-athome.txt
+            git config user.name "akiya-watch bot"
+            git config user.email "actions@users.noreply.github.com"
+            git add status/akiya-athome.txt
+            git commit -m "akiya-athome.jp: $NOW"
+            git pull --rebase -q origin main && git push
+          fi
