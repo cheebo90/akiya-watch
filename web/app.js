@@ -28,6 +28,10 @@ function sized(u, w) {
       url.searchParams.set("w", w); url.searchParams.set("h", Math.round(w * 3 / 4));
       return url.toString();
     }
+    if (url.hostname.endsWith("yimg.jp") && url.pathname.includes("/bld_image/")) {
+      url.searchParams.set("w", w); url.searchParams.set("h", Math.round(w * 3 / 4));
+      return url.toString();
+    }
     return u.replace(/resized-bukken-\d+x\d+-/, w > 600 ? "resized-bukken-1124x836-" : "resized-bukken-562x418-");
   } catch { return u; }
 }

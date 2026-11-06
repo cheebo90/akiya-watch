@@ -122,22 +122,23 @@ def cmd_scrape(source: str, cfg: dict, pw: str, part: str = "1/1"):
 
 
 def full_gallery(http: Http, targets: list[dict], listings: dict, limit: int):
-    """Open the SUUMO page of listings that triggered an alert and keep their whole photo gallery."""
+    """Open the listing page (SUUMO or Yahoo) of listings that triggered an alert and keep their whole photo gallery."""
     done = 0
     page = Http(delay=2.0, max_requests=limit, retries=2)
     for l in targets:
         if done >= limit:
             break
-        # the alert may come from another source: use the SUUMO copy of the same property if we have one
-        url = l["url"] if l["source"] == "suumo" else None
-        if not url:
+        if l["source"] not in ("suumo", "yahoo"):
             continue
         try:
-            html = page.get(url)
+            html = page.get(l["url"])
         except Exception:  # noqa: BLE001  budget reached / blocked: stop quietly
             break
         done += 1
-        imgs = suumo.parse_detail_images(html) if html else []
+        if not html:
+            continue
+        imgs = suumo.parse_detail_images(html) if l["source"] == "suumo" else \
+            yahoo.parse_detail_images(html, l.get("images") or [])
         if len(imgs) > len(l.get("images") or []):
             l["images"] = imgs
             listings[l["key"]]["images"] = imgs

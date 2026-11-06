@@ -87,3 +87,20 @@ def scrape(http: Http, categories: list[str], prefs: list[str], part: tuple[int,
                 yield from (l for l in items if l.prefecture in wanted)
             page += n
         log.info("yahoo %s part %d/%d: %d pages with listings", cat, i, n, read)
+
+
+_BLD = re.compile(r"https://realestate-pctr\.c\.yimg\.jp/ds/realestate-buy-image/bld_image/[^\"'\s,?]+\.jpe?g")
+
+
+def parse_detail_images(html: str, known: list[str]) -> list[str]:
+    """Photos of this listing on its Yahoo page. The page also shows other properties, so keep only the
+    image folders already seen on the listing's card (bld_image/00/2474/6123/0001/...)."""
+    dirs = {m.group(0).rsplit("/", 1)[0] + "/" for u in known for m in [_BLD.search(u)] if m}
+    if not dirs:
+        return []
+    out = []
+    for m in _BLD.finditer(html.replace("\\/", "/")):
+        u = m.group(0)
+        if u.rsplit("/", 1)[0] + "/" in dirs:
+            out.append(u)
+    return [u + "?w=1024&h=768&fmt=webp" for u in dict.fromkeys(out)][:40]

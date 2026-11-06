@@ -241,3 +241,13 @@ def test_akiyabank_generic_titles():
     assert is_generic_title("空き家を探すVACANT HOUSE") and is_generic_title("メニュー")
     assert not is_generic_title("南関町長山戸建住宅(No77)")
     assert fallback_title("鹿児島県鹿屋市古江町123番地", "kagoshima", "399") == "No.399 鹿屋市古江町"
+
+
+def test_yahoo_detail_images_keep_own_folder():
+    from scraper.sources.yahoo import parse_detail_images
+    base = "https://realestate-pctr.c.yimg.jp/ds/realestate-buy-image/bld_image/00/2474/6123/0001/"
+    other = "https://realestate-pctr.c.yimg.jp/ds/realestate-buy-image/bld_image/00/9999/1111/0002/"
+    html = (f'<img src="{base}aa11_01_01.jpg?w=70&h=60"><img src="{base}bb22_02_01.jpg?w=640">'
+            f'<img src="{other}cc33_01_01.jpg"><img src="{base}aa11_01_01.jpg?w=640">')
+    imgs = parse_detail_images(html, [base + "aa11_01_01.jpg?w=184&h=124"])
+    assert [u.split("?")[0] for u in imgs] == [base + "aa11_01_01.jpg", base + "bb22_02_01.jpg"]
