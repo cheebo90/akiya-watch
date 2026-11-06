@@ -100,12 +100,78 @@ def inspect(http: Http, robots: ab.Robots, site: dict) -> dict:
     return rep
 
 
+def try_site(http: Http, robots: ab.Robots, site: dict) -> dict:
+    """Run a hand-written site entry: list -> detail links -> read up to 4 detail pages."""
+    from scraper.census import terms_ban
+    rep = {"id": site["id"], "lists": []}
+    links = []
+    for lu in ab.as_list(site["list"]):
+        if not robots.allowed(lu):
+            rep["lists"].append({lu: "robots"})
+            continue
+        h = http.get(lu)
+        if not h:
+            rep["lists"].append({lu: "unreachable"})
+            continue
+        found = ab.detail_links(h, lu, site)
+        rep["lists"].append({lu: len(found)})
+        ban = terms_ban(http, robots, BeautifulSoup(h, "lxml"), lu)
+        if ban:
+            rep["terms"] = ban[:160]
+        if site.get("pages"):
+            h2 = http.get(lu + site["pages"].format(n=2))
+            rep["page2"] = len(ab.detail_links(h2, lu, site)) if h2 else 0
+        links += [l for l in found if l not in links]
+    rep["reads"] = []
+    hosts_checked = {urlparse(lu).netloc for lu in ab.as_list(site["list"])}
+    for u in links[:4]:
+        host = urlparse(u).netloc
+        if not robots.allowed(u):
+            rep["reads"].append({"url": u, "result": "robots"})
+            continue
+        h = http.get(u)
+        if not h:
+            rep["reads"].append({"url": u, "result": "unreachable"})
+            continue
+        if host not in hosts_checked:
+            hosts_checked.add(host)
+            ban = terms_ban(http, robots, BeautifulSoup(h, "lxml"), u)
+            if ban:
+                rep["terms"] = ban[:160]
+        l = ab.parse_detail(h, u, site)
+        if l:
+            rep["reads"].append({"url": u, "price": l.price_yen, "building_m2": l.building_m2, "land_m2": l.land_m2,
+                                 "layout": l.layout, "year": l.year_built, "address": l.address, "title": l.title[:40],
+                                 "images": len(l.images), "type": l.type})
+        else:
+            soup = BeautifulSoup(h, "lxml")
+            rep["reads"].append({"url": u, "result": "not read", "labels": list(ab.pairs(soup))[:25],
+                                 "text": norm(soup.get_text(" "))[:600]})
+    return rep
+
+
 def main():
     logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s %(message)s")
     ap = argparse.ArgumentParser()
-    ap.add_argument("--pref", action="append", required=True)
+    ap.add_argument("--pref", action="append")
+    ap.add_argument("--try", dest="try_file")
     ap.add_argument("--status", default="todo")
     a = ap.parse_args()
+    if a.try_file:
+        sites = yaml.safe_load((ROOT / a.try_file).read_text(encoding="utf-8"))["sites"]
+        http = Http(delay=1.5, max_requests=2000, timeout=15, retries=1)
+        robots = ab.Robots(http)
+        out = []
+        for s in sites:
+            try:
+                out.append(try_site(http, robots, s))
+            except Exception as e:  # noqa: BLE001
+                out.append({"id": s["id"], "error": str(e)[:120]})
+            http.blocked = 0
+            logging.info("tried %s", s["id"])
+        (ROOT / "inspect-try.yml").write_text(yaml.safe_dump({"sites": out}, allow_unicode=True, sort_keys=False, width=200),
+                                              encoding="utf-8")
+        return
     census = yaml.safe_load((ROOT / "census.yml").read_text(encoding="utf-8"))["sites"]
     todo = [s for s in census if s["prefecture"] in a.pref and s["status"] == a.status]
     http = Http(delay=1.5, max_requests=3000, timeout=15, retries=1)

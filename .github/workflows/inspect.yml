@@ -20,11 +20,11 @@ jobs:
         with: { python-version: "3.12", cache: pip }
       - run: pip install -r requirements.txt
       - run: |
-          ARGS=$(python3 -c "import json;print(' '.join('--pref '+p for p in json.load(open('trigger/inspect.json'))['prefs']))")
+          ARGS=$(python3 -c "import json;d=json.load(open('trigger/inspect.json'));print('--try '+d['try'] if d.get('try') else ' '.join('--pref '+p for p in d['prefs']))")
           python scripts/inspect_todo.py $ARGS
       - run: |
           git config user.name "akiya-watch bot"
           git config user.email "actions@users.noreply.github.com"
-          git add inspect.yml
+          git add inspect*.yml
           git commit -m "Ispezione akiya bank $(date -u +%F)" || echo "nessuna modifica"
           git pull --rebase -q origin main && git push
