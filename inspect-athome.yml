@@ -1,0 +1,40 @@
+robots:
+  status: 403
+  len: 520
+  final: https://www.akiya-athome.jp/robots.txt
+  challenge: false
+  title: 403 Forbidden
+  text: "<html>\r\n<head><title>403 Forbidden</title></head>\r\n<body>\r\n<center><h1>403 Forbidden</h1></center>\r\n</body>\r\n</html>\r\n<!-- a padding to disable MSIE and Chrome friendly error page -->\r\
+    \n<!-- a padding to disable MSIE and Chrome friendly error page -->\r\n<!-- a padding to disable MSIE and Chrome friendly error page -->\r\n<!-- a padding to disable MSIE and Chrome friendly error page\
+    \ -->\r\n<!-- a padding to disable MSIE and Chrome friendly error page -->\r\n<!-- a padding to disable MSIE and Chrome friendly error page -->\r\n"
+robots_amami:
+  status: 403
+  len: 520
+  final: https://amami-c46222.akiya-athome.jp/robots.txt
+  challenge: false
+  title: 403 Forbidden
+  text: "<html>\r\n<head><title>403 Forbidden</title></head>\r\n<body>\r\n<center><h1>403 Forbidden</h1></center>\r\n</body>\r\n</html>\r\n<!-- a padding to disable MSIE and Chrome friendly error page -->\r\
+    \n<!-- a padding to disable MSIE and Chrome friendly error page -->\r\n<!-- a padding to disable MSIE and Chrome friendly error page -->\r\n<!-- a padding to disable MSIE and Chrome friendly error page\
+    \ -->\r\n<!-- a padding to disable MSIE and Chrome friendly error page -->\r\n<!-- a padding to disable MSIE and Chrome friendly error page -->\r\n"
+top:
+  status: 403
+  len: 520
+  final: https://www.akiya-athome.jp/
+  challenge: false
+  title: 403 Forbidden
+  links_sample: []
+  terms_links: []
+amami_list:
+  status: 403
+  len: 520
+  final: https://amami-c46222.akiya-athome.jp/bukken/search/list/?search_type=area&br_kbn=buy
+  challenge: false
+  title: 403 Forbidden
+  links_sample: []
+amami_home:
+  status: 403
+  len: 520
+  final: https://amami-c46222.akiya-athome.jp/
+  challenge: false
+  title: 403 Forbidden
+  links_sample: []
