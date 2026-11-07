@@ -696,6 +696,7 @@ function openViewer(imgs, start) {
     for (const d of [1, -1, 2]) { const u = imgs[(i + d + imgs.length) % imgs.length]; if (u && !u.startsWith("enc:")) new Image().src = sized(u, 1600); }
   };
   v.querySelector(".v-close").onclick = () => v.close();
+  v.addEventListener("click", (e) => { if (e.target === v) v.close(); });  // click on the dark area around the photo closes it
   v.querySelector(".v-prev").onclick = () => { i--; show(); };
   v.querySelector(".v-next").onclick = () => { i++; show(); };
   // keyboard on the whole page while the viewer is open (focus may be anywhere)
