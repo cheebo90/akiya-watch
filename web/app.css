@@ -221,3 +221,16 @@ body.resizing #map { pointer-events: none; }
   .ml-items { grid-template-columns: 1fr 1fr; }
   .ml-item { grid-template-columns: 160px 1fr; }
 }
+
+/* map pins: price + type label above the dot */
+.pin { overflow: visible; }
+.pin .dot { position: absolute; inset: 0; }
+.pin-label { position: absolute; bottom: 15px; left: 7px; transform: translateX(-50%); white-space: nowrap; pointer-events: auto;
+  background: #fff; color: #1d1b18; border-radius: 999px; padding: 2px 7px; font: 600 11px/1.35 var(--font);
+  box-shadow: 0 1px 3px rgb(0 0 0 / .35); border: 1.5px solid var(--c); }
+.pin-label i { font-style: normal; font-weight: 500; color: #6d675e; margin-left: 4px; }
+.far .pin-label i { display: none; }
+.far .pin-label { font-size: 10px; padding: 1px 5px; }
+.leaflet-marker-icon.pin:hover { z-index: 100000 !important; }
+.leaflet-marker-icon.pin:hover .pin-label { background: var(--c); color: #fff; }
+.leaflet-marker-icon.pin:hover .pin-label i { color: #fff; }

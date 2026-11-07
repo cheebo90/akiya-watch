@@ -272,6 +272,18 @@ function mapboxLayer(style) {
   });
 }
 
+/* label above each dot: compact price + type */
+const SHORT_TYPE = { house: "Casa", akiya: "Akiya", apartment: "Appart.", land: "Terreno", building: "Edificio", commercial: "Comm." };
+function shortAud(p) {
+  if (p.price_yen === 0) return "Gratis";
+  const n = p.price_aud;
+  if (n == null) return p.price_yen ? "¥" + Math.round(p.price_yen / 1e4) + "万" : "—";
+  if (n >= 1e6) return "A$" + (n / 1e6).toFixed(n < 1e7 ? 1 : 0).replace(/\.0$/, "") + "M";
+  if (n >= 1e4) return "A$" + Math.round(n / 1e3) + "k";
+  if (n >= 1e3) return "A$" + (n / 1e3).toFixed(1).replace(/\.0$/, "") + "k";
+  return "A$" + Math.round(n);
+}
+
 function renderMap(list) {
   if (!map) {
     map = L.map("map", { preferCanvas: true }).setView([36.2, 138.2], 5);
@@ -326,7 +338,8 @@ function renderMap(list) {
     const k = p.latlng[0].toFixed(5) + "," + p.latlng[1].toFixed(5), n = stacked[k] = (stacked[k] || 0) + 1;
     const r = n > 1 ? 0.0006 * Math.sqrt(n - 1) : 0, a = (n - 1) * 2.4;
     const pos = [p.latlng[0] + r * Math.sin(a), p.latlng[1] + r * Math.cos(a) * 1.2];
-    const m = L.marker(pos, { icon: L.divIcon({ className: "", html: `<div class="dot" data-pid="${p.id}" style="background:${color}"></div>`, iconSize: [14, 14] }) });
+    const m = L.marker(pos, { riseOnHover: true, icon: L.divIcon({ className: "pin", iconSize: [14, 14], iconAnchor: [7, 7],
+      html: `<span class="pin-label" style="--c:${color}"><b>${shortAud(p)}</b><i>${esc(SHORT_TYPE[p.type] || "")}</i></span><div class="dot" data-pid="${p.id}" style="background:${color}"></div>` }) });
     m.prop = p;
     m.bindPopup(() => mapPopup(p), { minWidth: 260, maxWidth: 280, className: "pop" });
     markers.push(m);
@@ -341,6 +354,8 @@ function renderMap(list) {
   mapMarkers = markers;
   if (!map._listHooked) {
     map.on("moveend", renderMapList);
+    const zc = () => map.getContainer().classList.toggle("far", map.getZoom() < 11);
+    map.on("zoomend", zc); zc();
     map.on("popupopen", (e) => { popId = e.popup._source?.prop?.id || null; markListItem(true); });
     map.on("popupclose", () => { popId = null; markListItem(false); });
     map._listHooked = true;
