@@ -263,6 +263,53 @@ function render() {
   $("#more").hidden = list.length <= shown;
 }
 
+/* Google Map Tiles API (2D tiles in Leaflet): English labels = romaji in Japan.
+   The key is public by design (static site) and restricted in Google Cloud to this site and to the Map Tiles API. */
+const GOOGLE_KEY = "AIzaSyBlUiVZ9lu2kzbzIgjb7kvxFopYpLF7WF0";
+async function googleSession(mapType, layerTypes) {
+  const id = "gsess-" + mapType + (layerTypes || []).join(",");
+  const old = store.get(id, null);
+  if (old && old.expiry * 1000 > Date.now() + 3600e3) return old.session;  // sessions last ~2 weeks: reuse them
+  const r = await fetch(`https://tile.googleapis.com/v1/createSession?key=${GOOGLE_KEY}`, {
+    method: "POST", headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ mapType, language: "en-US", region: "JP", highDpi: true, ...(layerTypes ? { layerTypes } : {}) }),
+  });
+  if (!r.ok) throw new Error("Google " + r.status);
+  const j = await r.json();
+  store.set(id, { session: j.session, expiry: +j.expiry });
+  return j.session;
+}
+function googleLayer(mapType, layerTypes) {
+  const layer = L.tileLayer(BLANK, { maxZoom: 21, maxNativeZoom: mapType === "satellite" ? 20 : 21, tileSize: 256,
+    attribution: "Map data © Google" });
+  let session = null;
+  const credit = async () => {  // Google requires the copyright of the visible area
+    if (!session || !layer._map) return;
+    const b = layer._map.getBounds(), z = layer._map.getZoom();
+    try {
+      const r = await fetch(`https://tile.googleapis.com/tile/v1/viewport?session=${session}&key=${GOOGLE_KEY}&zoom=${z}` +
+        `&north=${b.getNorth()}&south=${b.getSouth()}&east=${b.getEast()}&west=${b.getWest()}`);
+      const j = await r.json();
+      const ctl = layer._map.attributionControl, txt = "Google" + (j.copyright ? " · " + j.copyright : "");
+      if (layer._credit) ctl.removeAttribution(layer._credit);
+      layer._credit = txt; ctl.addAttribution(txt);
+    } catch {}
+  };
+  layer.on("add", async () => {
+    try {
+      session = session || await googleSession(mapType, layerTypes);
+      layer.setUrl(`https://tile.googleapis.com/v1/2dtiles/{z}/{x}/{y}?session=${session}&key=${GOOGLE_KEY}`);
+      layer._map?.on("moveend", credit); credit();
+    } catch (e) { layer.fire("gfail"); }
+  });
+  layer.on("remove", () => {
+    map?.off("moveend", credit);
+    if (layer._credit) map?.attributionControl.removeAttribution(layer._credit);
+    layer._credit = null;
+  });
+  return layer;
+}
+
 function renderMap(list) {
   if (!map) {
     map = L.map("map", { preferCanvas: true }).setView([36.2, 138.2], 5);
@@ -272,6 +319,8 @@ function renderMap(list) {
       { maxZoom: 19, attribution: "Tiles © Esri — Esri, HERE, Garmin, Maxar, © OpenStreetMap", ...o });
     const labels = () => esri("Reference/World_Boundaries_and_Places", { pane: "overlayPane" });
     const styles = {
+      "Google stradale": googleLayer("roadmap"),
+      "Google satellite": googleLayer("satellite", ["layerRoadmap"]),
       "Stradale": esri("World_Street_Map"),
       "Satellite": L.layerGroup([esri("World_Imagery"), labels()]),
       "Topografica": esri("World_Topo_Map"),
@@ -279,19 +328,26 @@ function renderMap(list) {
       "Scura": L.layerGroup([esri("Canvas/World_Dark_Gray_Base", { maxZoom: 16 }), esri("Canvas/World_Dark_Gray_Reference", { maxZoom: 16 })]),
       "OpenStreetMap (kanji)": L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", { maxZoom: 19, attribution: "© OpenStreetMap" }),
     };
-    const pick = styles[store.get("mapStyle", "Stradale")] ? store.get("mapStyle", "Stradale") : "Stradale";
+    const pick = styles[store.get("mapStyle", "Google stradale")] ? store.get("mapStyle", "Google stradale") : "Google stradale";
     styles[pick].addTo(map);
     L.control.layers(styles, null, { position: "topright" }).addTo(map);
     map.on("baselayerchange", (e) => store.set("mapStyle", e.name));
     // Esri unreachable: switch to OpenStreetMap so the map is never blank
-    let bad = 0;
-    const onErr = () => {
-      if (++bad !== 8 || map.hasLayer(styles["OpenStreetMap (kanji)"])) return;
+    // a style that doesn't load (Google key/quota, Esri down) gives way: Google -> Esri, Esri -> OpenStreetMap
+    const fallback = (name) => {
+      const to = name.startsWith("Google") ? "Stradale" : "OpenStreetMap (kanji)";
+      if (map.hasLayer(styles[to])) return;
       Object.values(styles).forEach((l) => map.removeLayer(l));
-      styles["OpenStreetMap (kanji)"].addTo(map);
+      styles[to].addTo(map);
     };
-    for (const [name, l] of Object.entries(styles))
-      if (!name.startsWith("OpenStreetMap")) (l.getLayers ? l.getLayers() : [l]).forEach((t) => t.on("tileerror", onErr));
+    for (const [name, l] of Object.entries(styles)) {
+      if (name.startsWith("OpenStreetMap")) continue;
+      let errs = 0;
+      (l.getLayers ? l.getLayers() : [l]).forEach((t) => {
+        t.on("tileerror", () => { if (++errs === 8 && map.hasLayer(t)) fallback(name); });
+        t.on("gfail", () => fallback(name));
+      });
+    }
   }
   map.invalidateSize();
   setTimeout(() => map.invalidateSize(), 50);
