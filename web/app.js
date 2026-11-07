@@ -432,7 +432,7 @@ function renderMap(list) {
       userMove = false;
       clearTimeout(redoT);
       redoT = setTimeout(() => {
-        const b = map.getBounds();
+        const b = visibleBounds();
         const tag = { k: "bbox", label: "Area visibile", b: [b.getSouth(), b.getWest(), b.getNorth(), b.getEast()] };
         F = { ...F, places: [tag] }; store.set("filters", F); shown = PAGE;
         keepView = true; mapTags?.draw(); render();
@@ -567,9 +567,20 @@ document.addEventListener("click", (e) => {
   new Image().src = sized(pics[(n + 1) % pics.length], 480);  // next one ready
 }, true);
 
+/* the part of the map you can actually see: not under the search bar, not cut off at the edges */
+function visibleBounds() {
+  const size = map.getSize(), el = map.getContainer();
+  const bar = el.querySelector(".map-search-top");
+  const top = bar ? bar.getBoundingClientRect().bottom - el.getBoundingClientRect().top + 6 : 0;
+  const m = 14;  // a pin cut in half at the border doesn't count
+  const nw = map.containerPointToLatLng([m, Math.max(m, Math.min(top, size.y / 2))]);
+  const se = map.containerPointToLatLng([size.x - m, size.y - m]);
+  return L.latLngBounds(se, nw);
+}
+
 function renderMapList() {
   if (!map || VIEW !== "map") return;
-  const b = map.getBounds();
+  const b = visibleBounds();
   mlInView = mapMarkers.filter((m) => b.contains(m.getLatLng())).map((m) => m.prop);
   mlShown = 0;
   $("#ml-count").textContent = `${mlInView.length.toLocaleString("it-IT")} in questa zona`;
