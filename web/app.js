@@ -409,18 +409,20 @@ function renderMap(list) {
       return box;
     } });
     const sc = new Search().addTo(map).getContainer(); sc.parentNode.prepend(sc);  // above the zoom buttons
-    // after the user pans or zooms: offer to search only inside the visible area
-    const redo = L.DomUtil.create("button", "map-redo", map.getContainer());
-    redo.id = "map-redo"; redo.type = "button"; redo.textContent = "↻ Cerca in questa zona";
-    L.DomEvent.disableClickPropagation(redo);
-    map.on("movestart", () => { if (!autoMove) redo.dataset.user = "1"; });
-    map.on("moveend", () => { if (redo.dataset.user) redo.classList.add("show"); delete redo.dataset.user; });
-    redo.onclick = () => {
-      const b = map.getBounds();
-      const tag = { k: "bbox", label: "Area della mappa", b: [b.getSouth(), b.getWest(), b.getNorth(), b.getEast()] };
-      F = { ...F, places: [tag] }; store.set("filters", F); shown = PAGE;
-      keepView = true; redo.classList.remove("show"); mapTags?.draw(); render();
-    };
+    // the user pans or zooms: search again inside the visible area, automatically (like realestate.com.au)
+    let userMove = false, redoT = null;
+    map.on("movestart", () => { userMove = !autoMove && Date.now() > mapQuietUntil; });
+    map.on("moveend", () => {
+      if (!userMove) return;
+      userMove = false;
+      clearTimeout(redoT);
+      redoT = setTimeout(() => {
+        const b = map.getBounds();
+        const tag = { k: "bbox", label: "Area della mappa", b: [b.getSouth(), b.getWest(), b.getNorth(), b.getEast()] };
+        F = { ...F, places: [tag] }; store.set("filters", F); shown = PAGE;
+        keepView = true; mapTags?.draw(); render();
+      }, 350);
+    });
     // Esri unreachable: switch to OpenStreetMap so the map is never blank
     // a style that doesn't load (Mapbox token/quota, Esri down) gives way: Mapbox -> Esri, Esri -> OpenStreetMap
     const fallback = (name) => {
@@ -442,7 +444,7 @@ function renderMap(list) {
   // same results as last time (e.g. a property card was just closed): keep zoom, position and the side list as they are
   const sig = list.length + "|" + list.map((p) => p.id).join(",");
   if (cluster && sig === mapSig) {
-    if (keepView) { keepView = false; $("#map-redo")?.classList.remove("show"); }
+    if (keepView) keepView = false;
     $$(".ml-item", $("#ml-items")).forEach((el) => el.classList.toggle("seen", seen.has(el.dataset.id)));
     return;
   }
@@ -466,11 +468,10 @@ function renderMap(list) {
   // "search this area" keeps the view the user chose; any other change of results re-centres the map
   if (keepView) keepView = false;
   else if (markers.length) { autoMove = true; map.fitBounds(L.latLngBounds(markers.map((m) => m.getLatLng())), { padding: [30, 30], maxZoom: 12, animate: false }); autoMove = false; }
-  $("#map-redo")?.classList.remove("show");
   const z0 = map.getZoom();
   cluster = L.markerClusterGroup({ chunkedLoading: true, maxClusterRadius: 50, spiderfyOnMaxZoom: false,
     // inside a searched zone (location tags) every property is its own dot right away
-    disableClusteringAtZoom: F.places?.length ? 1 : Math.min(z0 + 1, 13) });
+    disableClusteringAtZoom: F.places?.length && markers.length <= 2500 ? 1 : Math.min(z0 + 1, 13) });
   cluster.addLayers(markers);
   map.addLayer(cluster);
   mapMarkers = markers;
@@ -488,7 +489,7 @@ function renderMap(list) {
 }
 
 /* side list: the properties inside the current map view, in the chosen sort order, loaded as you scroll */
-let keepView = false, autoMove = false, mapTags = null, mapMarkers = [], mlInView = [], mlShown = 0, mapSig = "";
+let keepView = false, autoMove = false, mapQuietUntil = 0, mapTags = null, mapMarkers = [], mlInView = [], mlShown = 0, mapSig = "";
 function mapItem(p) {
   const bits = [(TYPE[p.type] || [p.type])[0]];
   if (p.building_m2) bits.push(`${fmtNum(p.building_m2)} m² casa`);
@@ -509,6 +510,7 @@ function mapItem(p) {
       </div></div></div>`;
 }
 function mapPopup(p) {
+  mapQuietUntil = Date.now() + 1000;  // the popup may nudge the map into view: that isn't the user moving it
   const bits = [];
   if (p.building_m2) bits.push(`${fmtNum(p.building_m2)} m² casa`);
   if (p.land_m2) bits.push(`${fmtNum(p.land_m2)} m² terreno`);
