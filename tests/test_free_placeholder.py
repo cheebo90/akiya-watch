@@ -18,3 +18,10 @@ def test_real_free_house_kept_and_tracker_skipped():
     l = parse_detail(page("無償譲渡", "85.2㎡"), "https://niigatakurashi.com/akiya/2/", SITE)
     assert l and l.price_yen == 0 and l.building_m2 == 85.2
     assert all("pagead" not in u for u in l.images) and any("house1" in u for u in l.images)
+
+
+def test_export_hides_stored_placeholders():
+    import inspect
+    from scraper import store
+    src = inspect.getsource(store)
+    assert "not (p.get(\"building_m2\") or p.get(\"land_m2\"))" in src and "TRACKER.search" in src

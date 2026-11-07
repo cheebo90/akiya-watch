@@ -5,6 +5,7 @@ the AKIYA_PASSPHRASE secret, so the public GitHub repo and Pages site never expo
 """
 from __future__ import annotations
 
+from .sources.akiyabank import TRACKER
 import base64
 import datetime as dt
 import gzip
@@ -181,6 +182,12 @@ def export(state: dict, aud_per_jpy: float) -> dict:
             if not prices:
                 continue
             p["price_yen"] = prices[0]
+        for f in ("building_m2", "land_m2"):
+            if p.get(f) is not None and p[f] < 5:
+                p[f] = None  # '0㎡'/'1㎡' placeholders
+        if p["price_yen"] == 0 and not (p.get("building_m2") or p.get("land_m2")):
+            continue  # '0円' on a portal/link page, not a real free house
+        p["images"] = [u for u in (p.get("images") or []) if not TRACKER.search(u)]
         p["id"] = gid
         p["links"] = [{"source": m["source"], "url": m["url"]} for m in members]
         p["keys"] = [m["key"] for m in members]

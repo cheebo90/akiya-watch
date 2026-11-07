@@ -275,6 +275,10 @@ def test_export_hides_listings_without_price():
     L = {"a": {"key": "a", "source": "akiyabank", "url": "u1", "type": "akiya", "price_yen": None, "address": "x町1",
                "prefecture": "kyoto", "first_seen": "2026-11-06"},
          "b": {"key": "b", "source": "akiyabank", "url": "u2", "type": "akiya", "price_yen": 0, "address": "y町1",
-               "prefecture": "kyoto", "first_seen": "2026-11-06"}}
+               "prefecture": "kyoto", "first_seen": "2026-11-06", "building_m2": 80.0},
+         "c": {"key": "c", "source": "akiyabank", "url": "u3", "type": "akiya", "price_yen": 0, "address": "z町1",
+               "prefecture": "niigata", "first_seen": "2026-11-06", "building_m2": 1.0,
+               "images": ["https://b97.yahoo.co.jp/pagead/conversion/1/"]}}
     out = store.export({"listings": L}, 0.01)
-    assert [p["keys"] for p in out["properties"]] == [["b"]]  # "free" (¥0) stays, no price goes
+    # real free house (¥0 with an area) stays; no price goes; '0円'+'1㎡' placeholder goes
+    assert [p["keys"] for p in out["properties"]] == [["b"]]
