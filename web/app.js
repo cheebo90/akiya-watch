@@ -26,10 +26,12 @@ function sized(u, w) {
   try {
     const url = new URL(u);
     if (url.pathname.endsWith("/resizeImage")) {
+      w = Math.min(w, 1024);  // SUUMO answers bigger sizes with a "NO IMAGE" picture
       url.searchParams.set("w", w); url.searchParams.set("h", Math.round(w * 3 / 4));
       return url.toString();
     }
     if (url.hostname.endsWith("yimg.jp") && url.pathname.includes("/bld_image/")) {
+      w = Math.min(w, 1024);
       url.searchParams.set("w", w); url.searchParams.set("h", Math.round(w * 3 / 4));
       return url.toString();
     }
