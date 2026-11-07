@@ -325,3 +325,18 @@ details.zones .regions { margin-top: 6px; }
 .map-search-top .suggest li { font-size: 16px; }
 .map-search-top .suggest li small { font-size: 12.5px; }
 @media (max-width: 760px) { .leaflet-control.map-search.map-search-top { left: 54px; right: 62px; width: auto; transform: none; } }
+
+/* "+" bubble after the tags: you can add more places */
+.tag-add { width: 28px; height: 28px; border-radius: 50%; border: 0; background: #e6e3dd; color: #6d675e; font-size: 20px; line-height: 1;
+  cursor: pointer; display: inline-grid; place-items: center; flex: 0 0 auto; }
+.tag-add:hover { background: #d9d5cd; color: #1d1b18; }
+.tagbox.has-tags:not(.adding) .tag-field input { flex: 0 0 0; min-width: 0; width: 0; padding: 0 !important; }
+.tagbox.has-tags.adding .tag-add { display: none; }
+.map-search-top .tag-add { width: 32px; height: 32px; font-size: 22px; }
+/* phones: the map search stays on one line (tags scroll sideways) */
+@media (max-width: 760px) {
+  .map-search-top .tag-field { flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; min-height: 46px; }
+  .map-search-top .tag-field::-webkit-scrollbar { display: none; }
+  .map-search-top .tag { flex: 0 0 auto; white-space: nowrap; font-size: 14px; }
+  .map-search-top .tag-field input { min-width: 90px; font-size: 16px; }
+}

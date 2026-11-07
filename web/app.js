@@ -304,8 +304,10 @@ function tagSearch(root, { get, set, placeholder }) {
   const field = root.querySelector(".tag-field"), tagsEl = root.querySelector(".tags"), input = root.querySelector("input"), list = root.querySelector("ul");
   let items = [], sel = 0, t = null, seq = 0;
   const draw = () => {
-    tagsEl.innerHTML = get().map((x, i) => `<span class="tag">${esc(x.label)}<button type="button" data-rm="${i}" aria-label="Togli ${esc(x.label)}">×</button></span>`).join("");
-    input.placeholder = get().length ? "Aggiungi un altro luogo…" : placeholder;
+    tagsEl.innerHTML = get().map((x, i) => `<span class="tag">${esc(x.label)}<button type="button" data-rm="${i}" aria-label="Togli ${esc(x.label)}">×</button></span>`).join("")
+      + (get().length ? `<button type="button" class="tag-add" aria-label="Aggiungi un altro luogo">+</button>` : "");
+    input.placeholder = get().length ? "" : placeholder;
+    root.classList.toggle("has-tags", get().length > 0);
   };
   const close = () => { list.hidden = true; items = []; };
   const show = () => {
@@ -345,11 +347,13 @@ function tagSearch(root, { get, set, placeholder }) {
     if (li) { e.preventDefault(); pick(items[+li.dataset.i]); }
   });
   tagsEl.addEventListener("click", (e) => {
+    if (e.target.closest(".tag-add")) { e.stopPropagation(); root.classList.add("adding"); input.focus(); return; }
     const b = e.target.closest("[data-rm]");
     if (b) { e.stopPropagation(); const v = get().slice(); v.splice(+b.dataset.rm, 1); set(v); draw(); input.focus(); }
   });
   field.addEventListener("click", () => input.focus());
-  input.addEventListener("blur", () => setTimeout(close, 150));
+  input.addEventListener("focus", () => root.classList.add("adding"));
+  input.addEventListener("blur", () => setTimeout(() => { close(); if (!input.value) root.classList.remove("adding"); }, 150));
   draw();
   return { draw };
 }
@@ -419,7 +423,7 @@ function renderMap(list) {
       clearTimeout(redoT);
       redoT = setTimeout(() => {
         const b = map.getBounds();
-        const tag = { k: "bbox", label: "Area della mappa", b: [b.getSouth(), b.getWest(), b.getNorth(), b.getEast()] };
+        const tag = { k: "bbox", label: "Area visibile", b: [b.getSouth(), b.getWest(), b.getNorth(), b.getEast()] };
         F = { ...F, places: [tag] }; store.set("filters", F); shown = PAGE;
         keepView = true; mapTags?.draw(); render();
       }, 350);
