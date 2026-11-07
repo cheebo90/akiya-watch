@@ -95,9 +95,20 @@
         </div>
       </fieldset>
       <fieldset class="field">
-        <legend>Zone <span class="muted" id="zone-summary">Tutto il Giappone</span></legend>
-        <div id="regions" class="regions"></div>
+        <legend>Vicino a un luogo</legend>
+        <div class="place-search">
+          <input type="search" id="place-q" placeholder="Città, paese, quartiere… es. Beppu, 別府市, Shibuya" autocomplete="off">
+          <ul class="suggest" id="place-suggest" hidden></ul>
+        </div>
+        <div class="place-chosen" id="place-chosen" hidden>
+          Entro <select name="nearKm"><option>5</option><option>10</option><option selected>20</option><option>50</option><option>100</option></select> km da
+          <b id="place-name"></b> <button type="button" class="link" id="place-clear">rimuovi</button>
+        </div>
       </fieldset>
+      <details class="zones field" id="zones">
+        <summary>Zone <span class="muted" id="zone-summary">Tutto il Giappone</span></summary>
+        <div id="regions" class="regions"></div>
+      </details>
       <div class="grid2">
         <label class="field">Casa min (m²)<input type="number" name="minBuild" min="0" inputmode="numeric"></label>
         <label class="field">Terreno min (m²)<input type="number" name="minLand" min="0" inputmode="numeric"></label>

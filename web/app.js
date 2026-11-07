@@ -43,7 +43,7 @@ const RETIRED = new Set(["athome", "lifull"]);
 let DATA = null, VIEW = "list", shown = PAGE, map = null, cluster = null;
 const favs = new Set(store.get("favs", []));
 const seen = new Set(store.get("seen", []));
-const DEFAULT_FILTERS = { maxAud: 80000, type: [], pref: [], minBuild: "", minLand: "", maxWalk: "", builtAfter: "", q: "", withPhotos: false, hideSeen: false, newOnly: false, tenant: "all", noRebuild: "all", freeOnly: false };
+const DEFAULT_FILTERS = { maxAud: 80000, type: [], pref: [], minBuild: "", minLand: "", maxWalk: "", builtAfter: "", q: "", withPhotos: false, hideSeen: false, newOnly: false, tenant: "all", noRebuild: "all", freeOnly: false, near: null };
 let F = { ...DEFAULT_FILTERS, ...store.get("filters", {}) };
 const ASSUME_DEFAULT = { rentPerM2: "", buyCostPct: 8, taxPct: 1.0, mgmtPct: 8, maintAud: 800, vacancyPct: 10 };
 let A = { ...ASSUME_DEFAULT, ...store.get("assume", {}) };
@@ -180,6 +180,10 @@ function filtered() {
       if (F.maxAud && p.price_aud != null && p.price_aud > F.maxAud) return false;
       if (F.type.length && !F.type.includes(p.type)) return false;
       if (F.pref.length && !F.pref.includes(p.prefecture)) return false;
+      if (F.near) {
+        if (p.latlng) { if (kmBetween(p.latlng, [F.near.lat, F.near.lng]) > F.near.km) return false; }
+        else if (!(F.near.ja && (p.address || "").includes(F.near.ja))) return false;
+      }
       if (F.minBuild && (p.building_m2 || 0) < +F.minBuild) return false;
       if (F.minLand && (p.land_m2 || 0) < +F.minLand) return false;
       if (F.maxWalk && (p.walk_min == null || p.walk_min > +F.maxWalk)) return false;
@@ -212,6 +216,7 @@ function activeFilterCount() {
   let n = 0;
   if (F.maxAud !== DEFAULT_FILTERS.maxAud) n++;
   for (const k of ["type", "pref"]) if (F[k].length) n++;
+  if (F.near) n++;
   for (const k of ["minBuild", "minLand", "maxWalk", "builtAfter", "q"]) if (F[k]) n++;
   if (F.withPhotos) n++; if (F.hideSeen) n++; if (F.newOnly) n++; if (F.tenant && F.tenant !== "all") n++; if (F.noRebuild && F.noRebuild !== "all") n++; if (F.freeOnly) n++;
   return n;
@@ -267,6 +272,53 @@ function render() {
   $("#more").hidden = list.length <= shown;
 }
 
+/* place search (Mapbox geocoding, Japan only): names in romaji and kanji */
+async function geoSearch(q) {
+  const u = `https://api.mapbox.com/geocoding/v5/mapbox.places/${encodeURIComponent(q)}.json?country=jp&language=en,ja` +
+    `&types=region,district,place,locality,neighborhood,poi&limit=6&access_token=${MAPBOX_TOKEN}`;
+  const r = await fetch(u);
+  if (!r.ok) throw new Error("geocoding " + r.status);
+  const j = await r.json();
+  return (j.features || []).map((f) => ({
+    name: f.text_en || f.text, ja: f.text_ja || "", full: f.place_name_en || f.place_name,
+    lat: f.center[1], lng: f.center[0], bbox: f.bbox ? [[f.bbox[1], f.bbox[0]], [f.bbox[3], f.bbox[2]]] : null,
+  }));
+}
+/* search box with suggestions; onPick(place) when one is chosen */
+function placeSearch(input, list, onPick) {
+  let t = null, items = [];
+  const close = () => { list.hidden = true; list.innerHTML = ""; };
+  input.addEventListener("input", () => {
+    clearTimeout(t);
+    const q = input.value.trim();
+    if (q.length < 2) return close();
+    t = setTimeout(async () => {
+      try { items = await geoSearch(q); } catch { items = []; }
+      if (input.value.trim() !== q) return;
+      list.innerHTML = items.length ? items.map((p, i) => `<li data-i="${i}"><b>${esc(p.name)}</b>${p.ja && p.ja !== p.name ? ` <span>${esc(p.ja)}</span>` : ""}<small>${esc(p.full)}</small></li>`).join("")
+        : `<li class="none">Nessun luogo trovato</li>`;
+      list.hidden = false;
+    }, 300);
+  });
+  list.addEventListener("mousedown", (e) => {  // mousedown: before the input loses focus
+    const li = e.target.closest("li[data-i]");
+    if (!li) return;
+    e.preventDefault();
+    const p = items[+li.dataset.i];
+    input.value = p.name; close(); onPick(p);
+  });
+  input.addEventListener("keydown", (e) => {
+    if (e.key === "Enter") { e.preventDefault(); if (items[0] && !list.hidden) { const p = items[0]; input.value = p.name; close(); onPick(p); } }
+    if (e.key === "Escape") close();
+  });
+  input.addEventListener("blur", () => setTimeout(close, 150));
+}
+const kmBetween = (a, b) => {
+  const R = 6371, dLat = (b[0] - a[0]) * Math.PI / 180, dLng = (b[1] - a[1]) * Math.PI / 180;
+  const x = Math.sin(dLat / 2) ** 2 + Math.cos(a[0] * Math.PI / 180) * Math.cos(b[0] * Math.PI / 180) * Math.sin(dLng / 2) ** 2;
+  return 2 * R * Math.asin(Math.sqrt(x));
+};
+
 /* Mapbox raster styles: English names (romaji in Japan). Public token, restricted in Mapbox to this site. */
 const MAPBOX_TOKEN = "pk.eyJ1IjoiaGVucnkiLCJhIjoiY213NjlwYWZiMGhpczJ6cHdtcTMwN3JhOSJ9.S77NzfXqlMR-gvXberEsjw";
 function mapboxLayer(style) {
@@ -308,6 +360,17 @@ function renderMap(list) {
     const pick = "Mapbox stradale";  // always opens on Mapbox streets; other styles from the layer switcher
     styles[pick].addTo(map);
     L.control.layers(styles, null, { position: "topright" }).addTo(map);
+    // search a place and fly there (doesn't change the filters)
+    const Search = L.Control.extend({ options: { position: "topleft" }, onAdd() {
+      const box = L.DomUtil.create("div", "map-search");
+      box.innerHTML = `<input type="search" placeholder="Cerca un luogo… es. Beppu, 別府市" autocomplete="off" aria-label="Cerca un luogo sulla mappa"><ul class="suggest" hidden></ul>`;
+      L.DomEvent.disableClickPropagation(box); L.DomEvent.disableScrollPropagation(box);
+      placeSearch(box.querySelector("input"), box.querySelector("ul"), (p) => {
+        if (p.bbox) map.fitBounds(p.bbox, { maxZoom: 14 }); else map.setView([p.lat, p.lng], 13);
+      });
+      return box;
+    } });
+    const sc = new Search().addTo(map).getContainer(); sc.parentNode.prepend(sc);  // above the zoom buttons
     // Esri unreachable: switch to OpenStreetMap so the map is never blank
     // a style that doesn't load (Mapbox token/quota, Esri down) gives way: Mapbox -> Esri, Esri -> OpenStreetMap
     const fallback = (name) => {
@@ -634,7 +697,16 @@ function initFilters() {
     t.setAttribute("aria-expanded", el.classList.contains("open"));
   });
   const out = form.querySelector(".range output");
+  let near = F.near || null;  // place chosen in the filters, applied with "Mostra risultati"
+  const showNear = () => {
+    $("#place-chosen").hidden = !near; $("#place-name").textContent = near ? near.name + (near.ja && near.ja !== near.name ? ` (${near.ja})` : "") : "";
+    if (near) form.elements.nearKm.value = String(near.km);
+  };
+  placeSearch($("#place-q"), $("#place-suggest"), (p) => { near = { name: p.name, ja: p.ja, lat: p.lat, lng: p.lng, km: +form.elements.nearKm.value || 20 }; showNear(); });
+  $("#place-clear").onclick = () => { near = null; $("#place-q").value = ""; showNear(); };
   const write = () => {
+    near = F.near || null; $("#place-q").value = near ? near.name : ""; showNear();
+    $("#zones").open = F.pref.length > 0;
     form.elements.maxAud.value = F.maxAud; out.textContent = fmtAud(F.maxAud);
     $$("input[name=type]", form).forEach((c) => (c.checked = F.type.includes(c.value)));
     drawRegions(F.pref);
@@ -655,6 +727,7 @@ function initFilters() {
       maxWalk: form.elements.maxWalk.value, builtAfter: form.elements.builtAfter.value,
       q: form.elements.q.value, withPhotos: form.elements.withPhotos.checked, hideSeen: form.elements.hideSeen.checked,
       newOnly: form.elements.newOnly.checked, tenant: form.elements.tenant.value, noRebuild: form.elements.noRebuild.value, freeOnly: form.elements.freeOnly.checked,
+      near: near ? { ...near, km: +form.elements.nearKm.value || 20 } : null,
     };
     store.set("filters", F); shown = PAGE; render();
   });

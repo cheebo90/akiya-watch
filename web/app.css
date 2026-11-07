@@ -238,3 +238,30 @@ body.resizing #map { pointer-events: none; }
 .leaflet-marker-icon.pin:hover .pin-label i { color: #fff; }
 
 .flags { display: flex; gap: 4px; flex-wrap: wrap; margin-top: 2px; }
+
+/* place search (filters and map) */
+.place-search, .map-search { position: relative; }
+.place-search input { width: 100%; padding: 9px 10px; border: 1px solid var(--line); border-radius: 10px; background: var(--bg); }
+.suggest { position: absolute; left: 0; right: 0; top: calc(100% + 4px); z-index: 1000; list-style: none; margin: 0; padding: 4px;
+  background: var(--surface); color: var(--text); border: 1px solid var(--line); border-radius: 10px; box-shadow: 0 8px 24px rgb(0 0 0 / .25); max-height: 300px; overflow: auto; }
+.suggest li { padding: 8px 10px; border-radius: 8px; cursor: pointer; display: grid; gap: 1px; font-size: 14px; }
+.suggest li span { color: var(--muted); font-size: 13px; }
+.suggest li small { color: var(--muted); font-size: 11px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.suggest li:hover { background: var(--surface-2); }
+.suggest li.none { cursor: default; color: var(--muted); }
+.place-chosen { font-size: 14px; display: flex; gap: 6px; align-items: center; flex-wrap: wrap; }
+.place-chosen select { padding: 4px 6px; border-radius: 8px; border: 1px solid var(--line); background: var(--bg); }
+button.link { background: none; border: 0; color: var(--accent); cursor: pointer; padding: 0; text-decoration: underline; font-size: 13px; }
+.map-search { width: min(320px, calc(100vw - 120px)); }
+.map-search input { width: 100%; padding: 9px 12px; border-radius: 10px; border: 0; box-shadow: 0 1px 5px rgb(0 0 0 / .35);
+  background: #fff; color: #1d1b18; font: 14px var(--font); }
+.map-search .suggest { background: #fff; color: #1d1b18; }
+.map-search .suggest li span, .map-search .suggest li small { color: #6d675e; }
+.map-search .suggest li:hover { background: #efe9df; }
+/* zones block: closed until opened */
+details.zones { border: 0; }
+details.zones > summary { cursor: pointer; font-size: 14px; padding: 6px 0; list-style: none; display: flex; gap: 8px; align-items: center; }
+details.zones > summary::before { content: "▸"; transition: transform .15s; }
+details.zones[open] > summary::before { transform: rotate(90deg); }
+details.zones > summary::-webkit-details-marker { display: none; }
+details.zones .regions { margin-top: 6px; }
