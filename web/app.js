@@ -342,10 +342,9 @@ function renderMap(list) {
       "Scura": L.layerGroup([esri("Canvas/World_Dark_Gray_Base", { maxZoom: 16 }), esri("Canvas/World_Dark_Gray_Reference", { maxZoom: 16 })]),
       "OpenStreetMap (kanji)": L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", { maxZoom: 19, attribution: "© OpenStreetMap" }),
     };
-    const pick = styles[store.get("mapStyle", "Mapbox stradale")] ? store.get("mapStyle", "Mapbox stradale") : "Mapbox stradale";
+    const pick = "Mapbox stradale";  // always opens on Mapbox streets; other styles from the layer switcher
     styles[pick].addTo(map);
     L.control.layers(styles, null, { position: "topright" }).addTo(map);
-    map.on("baselayerchange", (e) => store.set("mapStyle", e.name));
     // Esri unreachable: switch to OpenStreetMap so the map is never blank
     // a style that doesn't load (Google key/quota, Esri down) gives way: Google -> Esri, Esri -> OpenStreetMap
     const fallback = (name) => {
