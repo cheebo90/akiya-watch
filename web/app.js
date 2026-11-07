@@ -155,6 +155,17 @@ const ppm = (p) => p.price_yen && (p.building_m2 || p.land_m2) ? p.price_yen / (
 let NEW_KEYS = new Set();
 const isNew = (p) => (p._new ??= (p.keys || []).some((k) => NEW_KEYS.has(k)) || daysSince(p.first_seen) <= 2);
 const daysSince = (d) => (Date.now() - new Date(d).getTime()) / 864e5;
+/* macro-regions, prefectures by importance (population, main cities) */
+const REGIONS = [
+  ["hokkaido", "Hokkaido", "北海道", ["hokkaido"]],
+  ["tohoku", "Tohoku", "東北", ["miyagi", "fukushima", "aomori", "iwate", "yamagata", "akita"]],
+  ["kanto", "Kanto (Tokyo)", "関東", ["tokyo", "kanagawa", "saitama", "chiba", "ibaraki", "tochigi", "gunma"]],
+  ["chubu", "Chubu (Nagoya)", "中部", ["aichi", "shizuoka", "niigata", "nagano", "gifu", "ishikawa", "toyama", "yamanashi", "fukui"]],
+  ["kansai", "Kansai (Osaka, Kyoto)", "関西", ["osaka", "hyogo", "kyoto", "mie", "shiga", "nara", "wakayama"]],
+  ["chugoku", "Chugoku (Hiroshima)", "中国", ["hiroshima", "okayama", "yamaguchi", "shimane", "tottori"]],
+  ["shikoku", "Shikoku", "四国", ["ehime", "kagawa", "tokushima", "kochi"]],
+  ["kyushu", "Kyushu e Okinawa", "九州・沖縄", ["fukuoka", "kumamoto", "kagoshima", "okinawa", "nagasaki", "oita", "miyazaki", "saga"]],
+];
 const prefName = (s) => PREF[s] ? PREF[s].en : s;
 
 /* ---------------------------------------------------------------- filtering */
@@ -384,13 +395,55 @@ function toggleFav(id) {
 /* ---------------------------------------------------------------- filters UI */
 function initFilters() {
   const form = $("#filter-form");
-  const sel = form.elements.pref;
-  sel.innerHTML = PREFS.map(([s, en, ja]) => `<option value="${s}">${en} ${ja}</option>`).join("");
+  const box = $("#regions");
+  const prefBoxes = () => $$("input[name=pref]", box);
+  const drawRegions = (selected) => {
+    const n = {};
+    for (const p of DATA?.properties || []) if (p.active !== false) n[p.prefecture] = (n[p.prefecture] || 0) + 1;
+    const fmt = (x) => (x || 0).toLocaleString("it-IT");
+    box.innerHTML = REGIONS.map(([r, name, ja, prefs]) => {
+      const tot = prefs.reduce((a, s) => a + (n[s] || 0), 0);
+      const open = prefs.some((s) => selected.includes(s)) && prefs.length > 1;
+      return `<div class="region ${open ? "open" : ""}" data-r="${r}">
+        <div class="region-head">
+          <label class="rcheck"><input type="checkbox" data-region="${r}"><span><b>${name}</b> <small class="muted">${ja}</small></span></label>
+          <span class="rcount muted">${fmt(tot)}</span>
+          ${prefs.length > 1 ? `<button type="button" class="rtoggle" aria-label="Mostra prefetture di ${name}" aria-expanded="${open}">▾</button>` : ""}
+        </div>
+        <div class="chips region-prefs" ${prefs.length > 1 ? "" : "hidden"}>${prefs.map((s) => `<label><input type="checkbox" name="pref" value="${s}" ${selected.includes(s) ? "checked" : ""}><span>${PREF[s].en} <small>${PREF[s].ja} · ${fmt(n[s])}</small></span></label>`).join("")}</div>
+      </div>`;
+    }).join("");
+    syncRegions();
+  };
+  const syncRegions = () => {
+    const names = [];
+    for (const el of $$(".region", box)) {
+      const boxes = $$("input[name=pref]", el), on = boxes.filter((c) => c.checked).length;
+      const rc = el.querySelector("[data-region]");
+      rc.checked = on === boxes.length; rc.indeterminate = on > 0 && on < boxes.length;
+      const reg = REGIONS.find((x) => x[0] === el.dataset.r);
+      if (on === boxes.length) names.push(reg[1].split(" (")[0]);
+      else boxes.filter((c) => c.checked).forEach((c) => names.push(PREF[c.value].en));
+    }
+    $("#zone-summary").textContent = names.length ? (names.length > 4 ? `${names.slice(0, 3).join(", ")} +${names.length - 3}` : names.join(", ")) : "Tutto il Giappone";
+  };
+  box.addEventListener("change", (e) => {
+    const r = e.target.dataset.region;
+    if (r) $$(`.region[data-r="${r}"] input[name=pref]`, box).forEach((c) => (c.checked = e.target.checked));
+    syncRegions();
+  });
+  box.addEventListener("click", (e) => {
+    const t = e.target.closest(".rtoggle");
+    if (!t) return;
+    const el = t.closest(".region");
+    el.classList.toggle("open");
+    t.setAttribute("aria-expanded", el.classList.contains("open"));
+  });
   const out = form.querySelector(".range output");
   const write = () => {
     form.elements.maxAud.value = F.maxAud; out.textContent = fmtAud(F.maxAud);
     $$("input[name=type]", form).forEach((c) => (c.checked = F.type.includes(c.value)));
-    [...sel.options].forEach((o) => (o.selected = F.pref.includes(o.value)));
+    drawRegions(F.pref);
     for (const k of ["minBuild", "minLand", "maxWalk", "builtAfter", "q"]) form.elements[k].value = F[k];
     form.elements.withPhotos.checked = F.withPhotos; form.elements.hideSeen.checked = F.hideSeen;
     form.elements.newOnly.checked = F.newOnly; form.elements.withYield.checked = F.withYield; form.elements.freeOnly.checked = F.freeOnly;
@@ -403,7 +456,7 @@ function initFilters() {
     F = {
       maxAud: +form.elements.maxAud.value,
       type: $$("input[name=type]:checked", form).map((c) => c.value),
-      pref: [...sel.selectedOptions].map((o) => o.value),
+      pref: prefBoxes().filter((c) => c.checked).map((c) => c.value),
       minBuild: form.elements.minBuild.value, minLand: form.elements.minLand.value,
       maxWalk: form.elements.maxWalk.value, builtAfter: form.elements.builtAfter.value,
       q: form.elements.q.value, withPhotos: form.elements.withPhotos.checked, hideSeen: form.elements.hideSeen.checked,

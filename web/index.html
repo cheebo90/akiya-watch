@@ -85,9 +85,10 @@
           <label><input type="checkbox" name="type" value="land"><span>Terreno</span></label>
         </div>
       </fieldset>
-      <label class="field">Prefetture <span class="muted">(nessuna = tutte)</span>
-        <select name="pref" multiple size="6"></select>
-      </label>
+      <fieldset class="field">
+        <legend>Zone <span class="muted" id="zone-summary">Tutto il Giappone</span></legend>
+        <div id="regions" class="regions"></div>
+      </fieldset>
       <div class="grid2">
         <label class="field">Casa min (m²)<input type="number" name="minBuild" min="0" inputmode="numeric"></label>
         <label class="field">Terreno min (m²)<input type="number" name="minLand" min="0" inputmode="numeric"></label>
