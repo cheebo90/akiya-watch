@@ -15,7 +15,8 @@ from scraper.common import Http  # noqa: E402
 from scraper.sources import akiyabank  # noqa: E402
 
 sites = [s for s in yaml.safe_load((ROOT / "akiyabanks.yml").read_text(encoding="utf-8"))["sites"] if s.get("pdf")]
-pick = [s for s in sites if any(k in s["id"] for k in ("tonosho", "saijo", "kasagi", "tendo", "city-awara", "takizawa"))]
+KEYS = tuple(os.environ.get("PDF_KEYS", "tonosho,saijo,kasagi,tendo,city-awara,takizawa").split(","))
+pick = [s for s in sites if any(k in s["id"] for k in KEYS)]
 http = Http(delay=1.5, max_requests=400, timeout=30, retries=1)
 for s in pick:
     s = {**s, "max_details": 3}
