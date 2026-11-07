@@ -223,3 +223,21 @@ class Listing:
         d = asdict(self)
         d["key"] = self.key
         return d
+
+
+# --- conditions that change what a listing is worth to the buyer ---------------------------------
+# rented with a tenant inside (owner change): bought as an investment, you can't move in
+TENANT_RX = re.compile(r"(オーナーチェンジ|賃貸中|入居者(付|あり|有)|現況[:：\s]*賃貸|利回り\s*[:：]?\s*\d)")
+# can't be rebuilt (no legal road access): price is low for a reason
+NO_REBUILD_RX = re.compile(r"再建築不可|再建築できません|再建築不能")
+
+
+def condition_flags(text: str) -> dict:
+    """{'tenant': True, 'no_rebuild': True} from any listing text (card, detail page, PDF)."""
+    t = norm(text or "")
+    out = {}
+    if TENANT_RX.search(t):
+        out["tenant"] = True
+    if NO_REBUILD_RX.search(t):
+        out["no_rebuild"] = True
+    return out

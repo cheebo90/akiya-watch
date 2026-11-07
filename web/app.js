@@ -43,7 +43,7 @@ const RETIRED = new Set(["athome", "lifull"]);
 let DATA = null, VIEW = "list", shown = PAGE, map = null, cluster = null;
 const favs = new Set(store.get("favs", []));
 const seen = new Set(store.get("seen", []));
-const DEFAULT_FILTERS = { maxAud: 80000, type: [], pref: [], minBuild: "", minLand: "", maxWalk: "", builtAfter: "", q: "", withPhotos: false, hideSeen: false, newOnly: false, withYield: false, freeOnly: false };
+const DEFAULT_FILTERS = { maxAud: 80000, type: [], pref: [], minBuild: "", minLand: "", maxWalk: "", builtAfter: "", q: "", withPhotos: false, hideSeen: false, newOnly: false, tenant: "all", noRebuild: "all", freeOnly: false };
 let F = { ...DEFAULT_FILTERS, ...store.get("filters", {}) };
 const ASSUME_DEFAULT = { rentPerM2: "", buyCostPct: 8, taxPct: 1.0, mgmtPct: 8, maintAud: 800, vacancyPct: 10 };
 let A = { ...ASSUME_DEFAULT, ...store.get("assume", {}) };
@@ -186,7 +186,9 @@ function filtered() {
       if (F.builtAfter && (p.year_built || 0) < +F.builtAfter) return false;
       if (F.withPhotos && !p.images?.length) return false;
       if (F.newOnly && !p.new_build) return false;
-      if (F.withYield && !p.yield_pct) return false;
+      const tri = (v, has) => v === "all" || !v || (v === "hide" ? !has : has);
+      if (!tri(F.tenant, p.tenant)) return false;
+      if (!tri(F.noRebuild, p.no_rebuild)) return false;
       if (F.freeOnly && p.price_yen !== 0) return false;
       if (F.hideSeen && seen.has(p.id)) return false;
       if (q && !(`${p.title} ${p.address} ${prefName(p.prefecture)} ${p.access} ${p.layout}`.toLowerCase().includes(q))) return false;
@@ -211,7 +213,7 @@ function activeFilterCount() {
   if (F.maxAud !== DEFAULT_FILTERS.maxAud) n++;
   for (const k of ["type", "pref"]) if (F[k].length) n++;
   for (const k of ["minBuild", "minLand", "maxWalk", "builtAfter", "q"]) if (F[k]) n++;
-  if (F.withPhotos) n++; if (F.hideSeen) n++; if (F.newOnly) n++; if (F.withYield) n++; if (F.freeOnly) n++;
+  if (F.withPhotos) n++; if (F.hideSeen) n++; if (F.newOnly) n++; if (F.tenant && F.tenant !== "all") n++; if (F.noRebuild && F.noRebuild !== "all") n++; if (F.freeOnly) n++;
   return n;
 }
 
@@ -237,6 +239,8 @@ function card(p) {
       <div class="badges">
         ${isNew(p) ? '<span class="badge new">Nuovo</span>' : ""}
         ${p.yield_pct ? `<span class="badge yield">Rend. ${p.yield_pct.toFixed(1)}%</span>` : ""}
+        ${p.tenant ? '<span class="badge warn" title="Venduto con l\'inquilino dentro (オーナーチェンジ): investimento, non ci puoi abitare">Con inquilino</span>' : ""}
+        ${p.no_rebuild ? '<span class="badge bad" title="再建築不可: se demolita non si può ricostruire">Non ricostruibile</span>' : ""}
         ${p.new_build ? '<span class="badge">Nuova costruzione</span>' : ""}
         ${drop ? '<span class="badge drop">Prezzo ribassato</span>' : ""}
         ${p.active === false ? '<span class="badge gone">Non più online</span>' : ""}
@@ -378,6 +382,7 @@ function mapItem(p) {
     <div class="ph">${img ? `<img loading="lazy" referrerpolicy="no-referrer" src="${esc(img)}" alt="" data-rest="${esc(JSON.stringify((p.images || []).slice(1, 6)))}" onerror="nextPhoto(this)">` : ""}</div>
     <div class="t"><div class="price">${fmtAud(p.price_aud, p.price_yen)}<small>${fmtYen(p.price_yen)}</small></div>
       <div class="meta">${bits.map(esc).join(" · ")}</div><div class="addr">${esc(p.address || "")}</div>
+      ${p.tenant || p.no_rebuild ? `<div class="flags">${p.tenant ? '<span class="badge warn">Con inquilino</span>' : ""}${p.no_rebuild ? '<span class="badge bad">Non ricostruibile</span>' : ""}</div>` : ""}
       <div class="more">
         ${p.title ? `<div class="ttl">${esc(p.title)}</div>` : ""}
         ${p.access ? `<div>🚉 ${esc(p.access)}</div>` : p.walk_min != null ? `<div>🚉 ${p.walk_min}′ a piedi</div>` : ""}
@@ -401,6 +406,7 @@ function mapPopup(p) {
       <div class="muted">${esc((TYPE[p.type] || [p.type])[0])} · ${esc(prefName(p.prefecture))}</div>
       ${bits.length ? `<div>${bits.map(esc).join(" · ")}</div>` : ""}
       <div class="addr">${esc(p.address || "")}</div>
+      ${p.tenant || p.no_rebuild ? `<div class="flags">${p.tenant ? '<span class="badge warn">Con inquilino</span>' : ""}${p.no_rebuild ? '<span class="badge bad">Non ricostruibile</span>' : ""}</div>` : ""}
       <div class="pop-foot"><span class="muted">${esc(srcs)}</span><span class="open">Apri scheda →</span></div>
     </div></a>`;
 }
@@ -473,6 +479,8 @@ function openDetail(id) {
   const rows = [
     ["Prezzo", `${fmtAud(p.price_aud, p.price_yen)} · ${fmtYen(p.price_yen)}`],
     ["Tipo", (TYPE[p.type] || [p.type])[0] + (p.subtype ? ` (${p.subtype})` : "") + (p.new_build ? " · nuova costruzione" : "")],
+    ...(p.tenant ? [["Inquilino", "Venduto con l'inquilino dentro (オーナーチェンジ): è un investimento, di norma non ci puoi andare ad abitare finché c'è il contratto"]] : []),
+    ...(p.no_rebuild ? [["Ricostruzione", "再建築不可: il terreno non confina con una strada a norma, se demolisci la casa non puoi ricostruirla. Prezzo basso per questo, mutuo difficile"]] : []),
     ...(p.yield_pct ? [["Rendimento dichiarato", `${p.yield_pct.toFixed(2)}% lordo (dal venditore: da verificare)`]] : []),
     ["Prefettura", p.prefecture ? `${prefName(p.prefecture)} (${PREF[p.prefecture]?.ja || ""})` : "—"],
     ["Indirizzo", p.address],
@@ -632,7 +640,7 @@ function initFilters() {
     drawRegions(F.pref);
     for (const k of ["minBuild", "minLand", "maxWalk", "builtAfter", "q"]) form.elements[k].value = F[k];
     form.elements.withPhotos.checked = F.withPhotos; form.elements.hideSeen.checked = F.hideSeen;
-    form.elements.newOnly.checked = F.newOnly; form.elements.withYield.checked = F.withYield; form.elements.freeOnly.checked = F.freeOnly;
+    form.elements.newOnly.checked = F.newOnly; form.elements.tenant.value = F.tenant || "all"; form.elements.noRebuild.value = F.noRebuild || "all"; form.elements.freeOnly.checked = F.freeOnly;
   };
   form.elements.maxAud.addEventListener("input", (e) => (out.textContent = fmtAud(+e.target.value)));
   $("#btn-filters").onclick = () => { write(); $("#filters").showModal(); };
@@ -646,7 +654,7 @@ function initFilters() {
       minBuild: form.elements.minBuild.value, minLand: form.elements.minLand.value,
       maxWalk: form.elements.maxWalk.value, builtAfter: form.elements.builtAfter.value,
       q: form.elements.q.value, withPhotos: form.elements.withPhotos.checked, hideSeen: form.elements.hideSeen.checked,
-      newOnly: form.elements.newOnly.checked, withYield: form.elements.withYield.checked, freeOnly: form.elements.freeOnly.checked,
+      newOnly: form.elements.newOnly.checked, tenant: form.elements.tenant.value, noRebuild: form.elements.noRebuild.value, freeOnly: form.elements.freeOnly.checked,
     };
     store.set("filters", F); shown = PAGE; render();
   });

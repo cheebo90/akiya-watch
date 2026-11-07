@@ -65,3 +65,21 @@ def test_export_respects_lowered_ceiling():
          for i, (k, v) in enumerate({"a": 12_900_000, "b": 13_400_000}.items())}
     out = store.export({"listings": L}, 0.01, 13_000_000)
     assert [p["keys"] for p in out["properties"]] == [["a"]]
+
+
+def test_condition_flags():
+    from scraper.common import condition_flags as c
+    assert c("この物件は賃貸中のため、原則ご自身でお住まいいただくことができません") == {"tenant": True}
+    assert c("オーナーチェンジ 表面利回り 8.03%")["tenant"]
+    assert c("※再建築不可") == {"no_rebuild": True}
+    assert c("即入居可") == {} and c("居住中（引渡し時空室）") == {}
+
+
+def test_export_carries_flags():
+    from scraper import store
+    L = {"y": {"key": "y", "source": "yahoo", "url": "u", "type": "house", "price_yen": 11_800_000, "address": "東京都板橋区西台2",
+               "prefecture": "tokyo", "first_seen": "2026-11-07", "building_m2": 49.6, "extra": {"tenant": True}},
+         "s": {"key": "s", "source": "suumo", "url": "v", "type": "house", "price_yen": 13_000_000, "address": "東京都板橋区x",
+               "prefecture": "tokyo", "first_seen": "2026-11-07", "building_m2": 59.5, "extra": {"no_rebuild": True}}}
+    out = {p["keys"][0]: p for p in store.export({"listings": L}, 0.01)["properties"]}
+    assert out["y"]["tenant"] and not out["y"]["no_rebuild"] and out["s"]["no_rebuild"] and not out["s"]["tenant"]

@@ -197,6 +197,9 @@ def export(state: dict, aud_per_jpy: float, max_yen: int | None = None) -> dict:
         p["images"] = [u for u in (p.get("images") or []) if not TRACKER.search(u) and u not in shared]
         if max_yen and p["price_yen"] > max_yen:
             continue  # above the archive ceiling (it may have been lowered after the listing was stored)
+        ex = [m.get("extra") or {} for m in members]
+        p["tenant"] = any(e.get("tenant") for e in ex) or bool(p.get("yield_pct"))
+        p["no_rebuild"] = any(e.get("no_rebuild") for e in ex)
         p["id"] = gid
         p["links"] = [{"source": m["source"], "url": m["url"]} for m in members]
         p["keys"] = [m["key"] for m in members]

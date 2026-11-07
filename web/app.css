@@ -64,6 +64,8 @@ main { max-width: 1200px; margin: 0 auto; padding: 0 16px; }
 .badge.new { background: var(--gold); color: #fff; }
 .badge.drop { background: var(--accent); color: var(--accent-ink); }
 .badge.gone { background: var(--red); color: #fff; }
+.badge.warn { background: #3f5f9a; color: #fff; }
+.badge.bad { background: var(--red); color: #fff; }
 .fav { position: absolute; top: 8px; right: 8px; width: 38px; height: 38px; border-radius: 50%; border: 0; background: rgb(0 0 0 / .45); color: #fff; font-size: 18px; cursor: pointer; }
 .fav.on { color: #ffd257; }
 .empty { padding: 48px 16px; text-align: center; color: var(--muted); }
@@ -234,3 +236,5 @@ body.resizing #map { pointer-events: none; }
 .leaflet-marker-icon.pin:hover { z-index: 100000 !important; }
 .leaflet-marker-icon.pin:hover .pin-label { background: var(--c); color: #fff; }
 .leaflet-marker-icon.pin:hover .pin-label i { color: #fff; }
+
+.flags { display: flex; gap: 4px; flex-wrap: wrap; margin-top: 2px; }

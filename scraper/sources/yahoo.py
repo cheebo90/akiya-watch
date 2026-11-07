@@ -13,7 +13,7 @@ from typing import Iterator
 
 from bs4 import BeautifulSoup
 
-from ..common import (Http, Listing, log, norm, parse_layout, parse_price_yen, parse_walk_min, parse_year)
+from ..common import (condition_flags, Http, Listing, log, norm, parse_layout, parse_price_yen, parse_walk_min, parse_year)
 from ..prefectures import slug_from_address
 
 BASE = "https://realestate.yahoo.co.jp"
@@ -64,6 +64,7 @@ def parse_list(html: str, cat: str) -> list[Listing]:
             layout=parse_layout(layout_s), year_built=parse_year(year_s),
             access=access, walk_min=parse_walk_min(access),
             images=list(dict.fromkeys(imgs))[:6],
+            extra=condition_flags(card.get_text(" ")),
         ))
     return out
 

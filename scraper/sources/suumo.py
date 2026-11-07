@@ -13,7 +13,7 @@ from urllib.parse import urljoin
 
 from bs4 import BeautifulSoup
 
-from ..common import (Http, Listing, log, norm, parse_area_m2, parse_layout,
+from ..common import (condition_flags, Http, Listing, log, norm, parse_area_m2, parse_layout,
                       parse_price_yen, parse_walk_min, parse_year)
 
 BASE = "https://suumo.jp"
@@ -91,7 +91,7 @@ def parse_list(html: str, cat: str, pref: str) -> list[Listing]:
             access=fields.get("沿線・駅", ""),
             walk_min=parse_walk_min(fields.get("沿線・駅")),
             images=list(dict.fromkeys(imgs))[:6],
-            extra={"物件名": fields["物件名"]} if fields.get("物件名") else {},
+            extra={**({"物件名": fields["物件名"]} if fields.get("物件名") else {}), **condition_flags(unit.get_text(" "))},
         ))
     return out
 

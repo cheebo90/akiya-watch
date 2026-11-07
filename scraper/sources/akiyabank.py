@@ -24,7 +24,7 @@ from urllib.parse import urljoin, urlparse
 
 from bs4 import BeautifulSoup
 
-from ..common import (Http, Listing, log, norm, parse_area_m2, parse_layout,
+from ..common import (condition_flags, Http, Listing, log, norm, parse_area_m2, parse_layout,
                       parse_price_yen, parse_walk_min, parse_year)
 from ..prefectures import ja_name
 from . import akiyapdf
@@ -181,6 +181,7 @@ def parse_detail(html: str, url: str, site: dict) -> Listing | None:
         ltype = "land"
     extra = {k: v[:200] for k, v in p.items() if k in ("現況", "構造", "備考", "設備", "物件番号", "登録番号")}
     extra["bank"] = site.get("name", site["id"])
+    extra.update(condition_flags(" ".join(p.values())))  # the listing's own fields, not menus/sidebars
     if price_s and price is None:
         extra["価格"] = price_s[:60]
     title = name or (norm(title_el.get_text()) if title_el else "")

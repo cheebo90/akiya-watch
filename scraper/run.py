@@ -8,6 +8,8 @@ Needs the AKIYA_PASSPHRASE environment variable (and optionally NTFY_TOPIC, SMTP
 """
 from __future__ import annotations
 
+from bs4 import BeautifulSoup
+from .common import condition_flags
 import argparse
 import datetime as dt
 import json
@@ -144,6 +146,9 @@ def full_gallery(http: Http, targets: list[dict], listings: dict, limit: int):
             yahoo.parse_detail_images(html, l.get("images") or [])
         rec = listings[l["key"]]
         rec["gallery_at"] = store.today()
+        flags = condition_flags(BeautifulSoup(html, "lxml").get_text(" "))  # the full page says more than the list card
+        if flags:
+            rec.setdefault("extra", {}).update(flags)
         if len(imgs) > len(rec.get("images") or []):
             rec["gallery"] = imgs  # own field: the daily list scrape (first 3 photos) never overwrites it
     log.info("full gallery fetched for %d listings", done)

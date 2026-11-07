@@ -11,7 +11,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.5.3/MarkerCluster.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.5.3/MarkerCluster.Default.css">
-<link rel="stylesheet" href="app.css?v=32">
+<link rel="stylesheet" href="app.css?v=33">
 </head>
 <body>
 
@@ -105,7 +105,12 @@
         <label class="field">Costruita dopo il<input type="number" name="builtAfter" min="1900" max="2030" inputmode="numeric"></label>
       </div>
       <label class="field">Cerca nel testo <input type="search" name="q" placeholder="es. 鹿児島, 古民家, Beppu"></label>
-      <label class="check"><input type="checkbox" name="withYield"> Solo con rendimento dichiarato (con inquilino)</label>
+      <div class="grid2">
+        <label class="field">Con inquilino <span class="muted">(オーナーチェンジ)</span>
+          <select name="tenant"><option value="all">Includi</option><option value="hide">Escludi</option><option value="only">Solo questi</option></select></label>
+        <label class="field">Non ricostruibili <span class="muted">(再建築不可)</span>
+          <select name="noRebuild"><option value="all">Includi</option><option value="hide">Escludi</option><option value="only">Solo questi</option></select></label>
+      </div>
       <label class="check"><input type="checkbox" name="newOnly"> Solo nuove costruzioni</label>
       <label class="check"><input type="checkbox" name="freeOnly"> Solo case gratis (¥0, 無償譲渡)</label>
       <label class="check"><input type="checkbox" name="withPhotos"> Solo con foto</label>
@@ -123,6 +128,6 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.5.3/leaflet.markercluster.js"></script>
-<script src="app.js?v=32"></script>
+<script src="app.js?v=33"></script>
 </body>
 </html>
