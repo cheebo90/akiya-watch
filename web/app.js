@@ -328,7 +328,7 @@ function renderMap(list) {
       "Scura": L.layerGroup([esri("Canvas/World_Dark_Gray_Base", { maxZoom: 16 }), esri("Canvas/World_Dark_Gray_Reference", { maxZoom: 16 })]),
       "OpenStreetMap (kanji)": L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", { maxZoom: 19, attribution: "© OpenStreetMap" }),
     };
-    const pick = styles[store.get("mapStyle", "Google stradale")] ? store.get("mapStyle", "Google stradale") : "Google stradale";
+    const pick = styles[store.get("mapStyle", "Stradale")] ? store.get("mapStyle", "Stradale") : "Stradale";
     styles[pick].addTo(map);
     L.control.layers(styles, null, { position: "topright" }).addTo(map);
     map.on("baselayerchange", (e) => store.set("mapStyle", e.name));
