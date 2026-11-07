@@ -165,6 +165,12 @@ def export(state: dict, aud_per_jpy: float) -> dict:
     groups: dict[str, list] = {}
     for k, g in gid_of.items():
         groups.setdefault(g, []).append(L[k])
+    # an image on 3+ different properties is site chrome (banners, "no photo", buy/rent buttons), not a photo
+    seen: dict[str, int] = {}
+    for members in groups.values():
+        for u in {u for m in members for u in (m.get("images") or [])}:
+            seen[u] = seen.get(u, 0) + 1
+    shared = {u for u, n in seen.items() if n >= 3 and not u.startswith("enc:")}
     props = []
     for gid, members in groups.items():
         members.sort(key=lambda l: -sum(bool(l.get(f)) for f in _COMPLETENESS))
@@ -187,7 +193,7 @@ def export(state: dict, aud_per_jpy: float) -> dict:
                 p[f] = None  # '0㎡'/'1㎡' placeholders
         if p["price_yen"] == 0 and not (p.get("building_m2") or p.get("land_m2")):
             continue  # '0円' on a portal/link page, not a real free house
-        p["images"] = [u for u in (p.get("images") or []) if not TRACKER.search(u)]
+        p["images"] = [u for u in (p.get("images") or []) if not TRACKER.search(u) and u not in shared]
         p["id"] = gid
         p["links"] = [{"source": m["source"], "url": m["url"]} for m in members]
         p["keys"] = [m["key"] for m in members]

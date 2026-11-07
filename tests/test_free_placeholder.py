@@ -25,3 +25,13 @@ def test_export_hides_stored_placeholders():
     from scraper import store
     src = inspect.getsource(store)
     assert "not (p.get(\"building_m2\") or p.get(\"land_m2\"))" in src and "TRACKER.search" in src
+
+
+def test_export_drops_images_shared_by_many_properties():
+    from scraper import store
+    banner = "https://www.town.nankan.lg.jp/akiya/img/kau.png"
+    L = {k: {"key": k, "source": "akiyabank", "url": "u" + k, "type": "akiya", "price_yen": 1_000_000,
+             "address": f"熊本県南関町{k}{i}", "prefecture": "kumamoto", "first_seen": "2026-11-07", "building_m2": 80.0 + i,
+             "images": [banner, f"https://x/{k}.jpg"]} for i, k in enumerate("abc")}
+    out = store.export({"listings": L}, 0.01)
+    assert out["properties"] and all(p["images"] == [f"https://x/{p['keys'][0]}.jpg"] for p in out["properties"])
