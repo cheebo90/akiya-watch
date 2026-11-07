@@ -1,5 +1,5 @@
 // Offline shell + network-first for data, so the app opens instantly and still shows the last data offline.
-const CACHE = "akiya-v30";
+const CACHE = "akiya-v31";
 const SHELL = ["./", "index.html", "app.css", "app.js", "manifest.webmanifest", "icons/icon.svg", "icons/icon-192.png"];
 
 self.addEventListener("install", (e) => {

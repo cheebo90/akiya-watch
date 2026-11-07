@@ -284,13 +284,9 @@ function renderMap(list) {
       "Mapbox stradale": mapboxLayer("streets-v12"),
       "Mapbox satellite": mapboxLayer("satellite-streets-v12"),
       "Mapbox outdoor": mapboxLayer("outdoors-v12"),
-      "Mapbox chiara": mapboxLayer("light-v11"),
-      "Mapbox scura": mapboxLayer("dark-v11"),
       "Stradale": esri("World_Street_Map"),
       "Satellite": L.layerGroup([esri("World_Imagery"), labels()]),
       "Topografica": esri("World_Topo_Map"),
-      "Chiara": L.layerGroup([esri("Canvas/World_Light_Gray_Base", { maxZoom: 16 }), esri("Canvas/World_Light_Gray_Reference", { maxZoom: 16 })]),
-      "Scura": L.layerGroup([esri("Canvas/World_Dark_Gray_Base", { maxZoom: 16 }), esri("Canvas/World_Dark_Gray_Reference", { maxZoom: 16 })]),
       "OpenStreetMap (kanji)": L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", { maxZoom: 19, attribution: "© OpenStreetMap" }),
     };
     const pick = "Mapbox stradale";  // always opens on Mapbox streets; other styles from the layer switcher
