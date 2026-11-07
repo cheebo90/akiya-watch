@@ -35,7 +35,7 @@ request_delay_sec: 2.0
 max_requests_per_run: 9000
 # Galleria completa SUUMO/Yahoo (le liste mostrano solo ~3 foto): pagine annuncio aperte per giro di unione,
 # dai più recenti. Gli annunci degli avvisi hanno la precedenza (full_gallery_per_run).
-gallery_backfill_per_run: 400
+gallery_backfill_per_run: 750
 
 # Avvisi: un annuncio NUOVO che rispetta almeno uno di questi filtri genera una notifica.
 # Campi possibili: max_price_aud, min_price_aud, types [house, apartment, land, akiya, building, commercial],

@@ -201,6 +201,11 @@ def export(state: dict, aud_per_jpy: float, max_yen: int | None = None) -> dict:
         ex = [m.get("extra") or {} for m in members]
         p["tenant"] = any(e.get("tenant") for e in ex) or bool(p.get("yield_pct"))
         p["no_rebuild"] = any(e.get("no_rebuild") for e in ex)
+        p["senior"] = any(e.get("senior") for e in ex)
+        kanri = next((e["fee_kanri"] for e in ex if e.get("fee_kanri")), None)
+        shuzen = next((e["fee_shuzen"] for e in ex if e.get("fee_shuzen")), None)
+        if kanri or shuzen:
+            p["fees"] = {"kanri": kanri, "shuzen": shuzen, "total": (kanri or 0) + (shuzen or 0)}
         p["address_ro"] = romaji.address(p.get("address") or "")
         p["access_ro"] = romaji.access(p.get("access") or "")
         p["title_ro"] = romaji.title(p.get("title") or "")

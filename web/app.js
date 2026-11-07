@@ -243,6 +243,7 @@ function card(p) {
         ${p.yield_pct ? `<span class="badge yield">Rend. ${p.yield_pct.toFixed(1)}%</span>` : ""}
         ${p.tenant ? '<span class="badge warn" title="Venduto con l\'inquilino dentro (オーナーチェンジ): investimento, non ci puoi abitare">Con inquilino</span>' : ""}
         ${p.no_rebuild ? '<span class="badge bad" title="再建築不可: se demolita non si può ricostruire">Non ricostruibile</span>' : ""}
+        ${extraBadges(p)}
         ${p.new_build ? '<span class="badge">Nuova costruzione</span>' : ""}
         ${drop ? '<span class="badge drop">Prezzo ribassato</span>' : ""}
         ${p.active === false ? '<span class="badge gone">Non più online</span>' : ""}
@@ -370,6 +371,15 @@ function mapboxLayer(style) {
     tileSize: 512, zoomOffset: -1, maxZoom: 20,
     attribution: '<b>mapbox</b> © <a href="https://www.mapbox.com/about/maps/" target="_blank" rel="noopener">Mapbox</a> © <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a> <a href="https://www.mapbox.com/map-feedback/" target="_blank" rel="noopener"><b>Improve this map</b></a>',
   });
+}
+
+/* minimal line icons */
+const ICON_CANE = `<svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="9.5" cy="4" r="2"/><path d="M9.5 7.5 8.5 13l2.5 3v5M8.5 13 6.5 21M9.8 9l3 2.5 2.4-.8M16.5 10.2c0-1.6 2.4-1.6 2.4 0V21"/></svg>`;
+const ICON_FEE = `<svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><ellipse cx="9" cy="6.5" rx="6" ry="2.5"/><path d="M3 6.5v4.5c0 1.4 2.7 2.5 6 2.5s6-1.1 6-2.5V6.5M3 11v4.5c0 1.4 2.7 2.5 6 2.5 1 0 2-.1 2.8-.3M19 13.5v7M15.5 17h7"/></svg>`;
+const fmtYenK = (n) => "¥" + Math.round(n).toLocaleString("it-IT");
+function extraBadges(p) {
+  return (p.senior ? `<span class="badge senior" title="Residenza per anziani (シニア向け): spesso limiti di età per chi ci abita e servizi obbligatori a pagamento">${ICON_CANE}</span>` : "")
+    + (p.fees?.total ? `<span class="badge fee" title="Spese mensili fisse: gestione (管理費) e fondo manutenzione (修繕積立金)">${ICON_FEE}+${fmtYenK(p.fees.total)}/mese</span>` : "");
 }
 
 /* label above each dot: compact price + type */
@@ -506,7 +516,7 @@ function mapItem(p) {
     <div class="ph">${img ? `<img loading="lazy" referrerpolicy="no-referrer" src="${esc(img)}" alt="" data-rest="${esc(JSON.stringify((p.images || []).slice(1, 6)))}" onerror="nextPhoto(this)">` : ""}</div>
     <div class="t"><div class="price">${fmtAud(p.price_aud, p.price_yen)}<small>${fmtYen(p.price_yen)}</small></div>
       <div class="meta">${bits.map(esc).join(" · ")}</div><div class="addr" title="${esc(p.address || "")}">${esc(p.address_ro || p.address || "")}</div>
-      ${p.tenant || p.no_rebuild ? `<div class="flags">${p.tenant ? '<span class="badge warn">Con inquilino</span>' : ""}${p.no_rebuild ? '<span class="badge bad">Non ricostruibile</span>' : ""}</div>` : ""}
+      ${p.tenant || p.no_rebuild || p.senior || p.fees?.total ? `<div class="flags">${p.tenant ? '<span class="badge warn">Con inquilino</span>' : ""}${p.no_rebuild ? '<span class="badge bad">Non ricostruibile</span>' : ""}${extraBadges(p)}</div>` : ""}
       <div class="more">
         ${p.title ? `<div class="ttl" title="${esc(p.title)}">${esc(p.title_ro || p.title)}</div>` : ""}
         ${p.access ? `<div>🚉 ${esc(p.access_ro || p.access)}</div>` : p.walk_min != null ? `<div>🚉 ${p.walk_min}′ a piedi</div>` : ""}
@@ -531,7 +541,7 @@ function mapPopup(p) {
       <div class="muted">${esc((TYPE[p.type] || [p.type])[0])} · ${esc(prefName(p.prefecture))}</div>
       ${bits.length ? `<div>${bits.map(esc).join(" · ")}</div>` : ""}
       <div class="addr">${esc(p.address_ro || p.address || "")}</div>
-      ${p.tenant || p.no_rebuild ? `<div class="flags">${p.tenant ? '<span class="badge warn">Con inquilino</span>' : ""}${p.no_rebuild ? '<span class="badge bad">Non ricostruibile</span>' : ""}</div>` : ""}
+      ${p.tenant || p.no_rebuild || p.senior || p.fees?.total ? `<div class="flags">${p.tenant ? '<span class="badge warn">Con inquilino</span>' : ""}${p.no_rebuild ? '<span class="badge bad">Non ricostruibile</span>' : ""}${extraBadges(p)}</div>` : ""}
       <div class="pop-foot"><span class="muted">${esc(srcs)}</span><span class="open">Apri scheda →</span></div>
     </div></a>`;
 }
@@ -606,6 +616,8 @@ function openDetail(id) {
     ["Prezzo", `${fmtAud(p.price_aud, p.price_yen)} · ${fmtYen(p.price_yen)}`],
     ["Tipo", (TYPE[p.type] || [p.type])[0] + (p.subtype ? ` (${p.subtype})` : "") + (p.new_build ? " · nuova costruzione" : "")],
     ...(p.tenant ? [["Inquilino", "Venduto con l'inquilino dentro (オーナーチェンジ): è un investimento, di norma non ci puoi andare ad abitare finché c'è il contratto"]] : []),
+    ...(p.fees?.total ? [["Spese mensili", [p.fees.kanri ? `${fmtYenK(p.fees.kanri)} gestione (管理費)` : "", p.fees.shuzen ? `${fmtYenK(p.fees.shuzen)} fondo manutenzione (修繕積立金)` : ""].filter(Boolean).join(" + ") + ` = ${fmtYenK(p.fees.total)}/mese (≈ ${fmtAud(p.fees.total * DATA.aud_per_jpy)})`]] : []),
+    ...(p.senior ? [["Residenza per anziani", "Annuncio per anziani (シニア向け): di solito limiti di età per chi ci abita e servizi obbligatori (reception, pasti) compresi nelle spese mensili"]] : []),
     ...(p.no_rebuild ? [["Ricostruzione", "再建築不可: il terreno non confina con una strada a norma, se demolisci la casa non puoi ricostruirla. Prezzo basso per questo, mutuo difficile"]] : []),
     ...(p.yield_pct ? [["Rendimento dichiarato", `${p.yield_pct.toFixed(2)}% lordo (dal venditore: da verificare)`]] : []),
     ["Prefettura", p.prefecture ? `${prefName(p.prefecture)} (${PREF[p.prefecture]?.ja || ""})` : "—"],
@@ -628,7 +640,7 @@ function openDetail(id) {
   d.innerHTML = `<form method="dialog">
     <header class="sheet-head"><h2>${fmtAud(p.price_aud, p.price_yen)} <span class="muted" style="font-weight:400;font-size:14px">${esc((TYPE[p.type] || [p.type])[0])} · ${esc(prefName(p.prefecture))}</span></h2>
       <div><button type="button" class="btn ghost" id="d-fav">${favs.has(p.id) ? "★" : "☆"}</button><button class="btn ghost" value="close" aria-label="Chiudi">✕</button></div></header>
-    ${imgs.length ? `<div class="gallery">${imgs.map((u, i) => `<img loading="lazy" referrerpolicy="no-referrer" src="${esc(sized(u, 1024))}" data-i="${i}" alt="Foto ${i + 1} di ${imgs.length}" onerror="this.remove()">`).join("")}</div>
+    ${imgs.length ? `<div class="gwrap">${imgs.length > 1 ? '<button type="button" class="g-prev" aria-label="Foto precedente">‹</button><button type="button" class="g-next" aria-label="Foto successiva">›</button>' : ""}<div class="gallery">${imgs.map((u, i) => `<img loading="lazy" referrerpolicy="no-referrer" src="${esc(sized(u, 1024))}" data-i="${i}" alt="Foto ${i + 1} di ${imgs.length}" onerror="this.remove()">`).join("")}</div></div>
       <div class="gallery-count">${imgs.length} foto · tocca per ingrandire</div>` : `<div class="noimg">Nessuna foto: guarda l'annuncio originale</div>`}
     <div class="sheet-body">
       ${p.title ? `<p style="margin:0">${esc(p.title)}</p>` : ""}
@@ -658,6 +670,20 @@ function openDetail(id) {
     $("#y-net", d).textContent = y ? y.net.toFixed(1) + "%" : "—";
   };
   $("#rent", d).addEventListener("input", upd); upd();
+  const gal = d.querySelector(".gallery");
+  if (gal) {  // arrows and mouse wheel move one photo at a time
+    const step = (dir) => gal.scrollBy({ left: dir * gal.clientWidth, behavior: "smooth" });
+    d.querySelector(".g-prev")?.addEventListener("click", () => step(-1));
+    d.querySelector(".g-next")?.addEventListener("click", () => step(1));
+    let lock = 0;
+    gal.addEventListener("wheel", (e) => {
+      const dy = Math.abs(e.deltaY) > Math.abs(e.deltaX) ? e.deltaY : e.deltaX;
+      if (Math.abs(dy) < 4) return;
+      e.preventDefault();
+      if (Date.now() < lock) return;
+      lock = Date.now() + 350; step(dy > 0 ? 1 : -1);
+    }, { passive: false });
+  }
   d.querySelectorAll(".gallery img").forEach((im) => im.addEventListener("click", () => {
     const ok = [...d.querySelectorAll(".gallery img")];  // photos dropped as banners/broken are not in the viewer
     openViewer(ok.map((x) => imgs[+x.dataset.i]), Math.max(0, ok.indexOf(im)));

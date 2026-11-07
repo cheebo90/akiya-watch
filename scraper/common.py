@@ -232,12 +232,36 @@ TENANT_RX = re.compile(r"(オーナーチェンジ|賃貸中|入居者(付|あ�
 NO_REBUILD_RX = re.compile(r"再建築不可|再建築できません|再建築不能")
 
 
+# flats for seniors (age limits, compulsory services, often high monthly fees)
+SENIOR_RX = re.compile(r"シニア向け|高齢者向け|サービス付き高齢者|サ高住|シニアマンション|介護付|ケア付")
+# monthly running costs of a flat: management fee and repair reserve
+_YEN = r"(\d[\d,]*(?:\.\d+)?\s*万\s*[\d,]*\s*円|\d[\d,]*\s*円)"
+FEE_RX = {"fee_kanri": re.compile(r"管理費(?:等)?[\s:：]{0,3}" + _YEN), "fee_shuzen": re.compile(r"修繕積立金[\s:：]{0,3}" + _YEN)}
+
+
+def _fee_yen(s: str):
+    """'1万2000円' -> 12000, '8,500円' -> 8500."""
+    s = s.replace(",", "").replace(" ", "")
+    m = re.match(r"(\d+(?:\.\d+)?)万(\d*)円", s)
+    if m:
+        return int(float(m.group(1)) * 10_000 + (int(m.group(2)) if m.group(2) else 0))
+    m = re.match(r"(\d+)円", s)
+    return int(m.group(1)) if m else None
+
+
 def condition_flags(text: str) -> dict:
-    """{'tenant': True, 'no_rebuild': True} from any listing text (card, detail page, PDF)."""
+    """{'tenant', 'no_rebuild', 'senior': True, 'fee_kanri'/'fee_shuzen': yen per month} from any listing text."""
     t = norm(text or "")
     out = {}
     if TENANT_RX.search(t):
         out["tenant"] = True
     if NO_REBUILD_RX.search(t):
         out["no_rebuild"] = True
+    if SENIOR_RX.search(t):
+        out["senior"] = True
+    for k, rx in FEE_RX.items():
+        m = rx.search(t)
+        v = _fee_yen(m.group(1)) if m else None
+        if v and 100 <= v <= 300_000:  # a monthly fee, not a price picked by mistake
+            out[k] = v
     return out

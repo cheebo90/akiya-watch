@@ -90,3 +90,10 @@ def test_romaji():
     assert r.address("静岡県伊東市川奈") == "Shizuoka, Ito-shi, Kawana"
     assert r.address("東京都板橋区西台2丁目") == "Tokyo, Itabashi-ku, Nishidai 2-chome"
     assert "Kawana" in r.access("伊豆急行「川奈」徒歩10分") and "10′ a piedi" in r.access("伊豆急行「川奈」徒歩10分")
+
+
+def test_fees_and_senior():
+    from scraper.common import condition_flags as c
+    assert c("管理費 1万2000円／月 修繕積立金 1万5000円／月") == {"fee_kanri": 12000, "fee_shuzen": 15000}
+    f = c("管理費等：8,500円 修繕積立金：12,300円 シニア向け分譲マンション")
+    assert f["senior"] and f["fee_kanri"] == 8500 and f["fee_shuzen"] == 12300

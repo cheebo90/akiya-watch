@@ -231,7 +231,10 @@ def cmd_merge(cfg: dict, pw: str):
         # the rest of the archive, a slice per night: newest listings first
         todo = [l for l in state["listings"].values() if l["source"] in ("suumo", "yahoo") and l.get("active", True)
                 and not l.get("gallery_at")]
+        # within budget first (what you actually look at), then the newest
+        budget_yen = cfg.get("budget_aud", 80000) / aud_per_jpy
         todo.sort(key=lambda l: l.get("first_seen", ""), reverse=True)
+        todo.sort(key=lambda l: not (l.get("price_yen") is not None and l["price_yen"] <= budget_yen))  # stable: keeps newest-first
         full_gallery(http, todo, state["listings"], int(cfg.get("gallery_backfill_per_run", 500)))
     except Exception:  # noqa: BLE001
         log.exception("gallery backfill failed, continuing")
