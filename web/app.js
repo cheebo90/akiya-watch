@@ -408,7 +408,8 @@ function renderMap(list) {
         set: (v) => { F = { ...F, places: v }; store.set("filters", F); shown = PAGE; render(); } });
       return box;
     } });
-    const sc = new Search().addTo(map).getContainer(); sc.parentNode.prepend(sc);  // above the zoom buttons
+    // centred at the top of the map, outside Leaflet's corner stacks
+    const sc = new Search().addTo(map).getContainer(); sc.classList.add("map-search-top"); map.getContainer().appendChild(sc);
     // the user pans or zooms: search again inside the visible area, automatically (like realestate.com.au)
     let userMove = false, redoT = null;
     map.on("movestart", () => { userMove = !autoMove && Date.now() > mapQuietUntil; });

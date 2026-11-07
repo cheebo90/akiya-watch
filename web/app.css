@@ -313,3 +313,15 @@ details.zones .regions { margin-top: 6px; }
 .ml-sort select { padding: 5px 8px; border-radius: 8px; border: 1px solid var(--line); background: var(--surface); font-size: 13px; }
 @media (min-width: 761px) { .map-wrap { height: calc(100dvh - 112px); } }
 #ml-count { white-space: nowrap; }
+
+/* map search: centred on top, 20% bigger */
+.leaflet-control.map-search.map-search-top { position: absolute; top: 12px; left: 50%; transform: translateX(-50%); margin: 0;
+  width: min(456px, calc(100% - 140px)); z-index: 1001; }
+.map-search-top .tag-field { min-height: 50px; padding: 7px 10px; border-radius: 12px; }
+.map-search-top .tag-field input { font-size: 16.8px; }
+.map-search-top .tag-field input::placeholder { font-size: 16.8px; }
+.map-search-top .tag { font-size: 15.5px; padding: 4px 5px 4px 12px; }
+.map-search-top .tag button { width: 22px; height: 22px; font-size: 16px; }
+.map-search-top .suggest li { font-size: 16px; }
+.map-search-top .suggest li small { font-size: 12.5px; }
+@media (max-width: 760px) { .leaflet-control.map-search.map-search-top { left: 54px; right: 62px; width: auto; transform: none; } }
