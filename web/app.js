@@ -469,7 +469,8 @@ function renderMap(list) {
   $("#map-redo")?.classList.remove("show");
   const z0 = map.getZoom();
   cluster = L.markerClusterGroup({ chunkedLoading: true, maxClusterRadius: 50, spiderfyOnMaxZoom: false,
-    disableClusteringAtZoom: Math.min(z0 + 1, 13) });
+    // inside a searched zone (location tags) every property is its own dot right away
+    disableClusteringAtZoom: F.places?.length ? 1 : Math.min(z0 + 1, 13) });
   cluster.addLayers(markers);
   map.addLayer(cluster);
   mapMarkers = markers;
