@@ -12,7 +12,7 @@ urls = json.loads((ROOT / "trigger/inspect.json").read_text())["urls"]
 state = store.load_state(ROOT / "data/state.enc", os.environ["AKIYA_PASSPHRASE"])
 http = Http(delay=2.0, max_requests=10, timeout=30, retries=1)
 for u in urls:
-    nc = re.search(r"nc_(\d+)", u)
+    nc = re.search(r"nc_(\d+)", u) or re.search(r"/(b\d{6,})/", u)
     hits = [l for l in state["listings"].values() if u.rstrip("/") in l.get("url", "") or (nc and nc.group(1) in l.get("url", ""))]
     lines = [u]
     for l in hits:
