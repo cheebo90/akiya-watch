@@ -11,8 +11,8 @@ from scraper.common import Http  # noqa: E402
 from scraper.sources import akiyabank as ab  # noqa: E402
 
 keys = json.loads((ROOT / "trigger/inspect.json").read_text())["keys"].split(",")
-sites = [s for s in yaml.safe_load((ROOT / "akiyabanks.yml").read_text(encoding="utf-8"))["sites"]
-         if any(k in s["id"] for k in keys)]
+from scraper.run import load_sites  # noqa: E402
+sites = [s for s in load_sites() if any(k in s["id"] for k in keys)]
 http = Http(delay=1.2, max_requests=900, timeout=30, retries=1)
 for s in sites:
     s = {**s, "max_pages": min(int(s.get("max_pages", 10)), 6), "max_details": 80}

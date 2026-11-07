@@ -121,6 +121,11 @@ def pick(p: dict[str, str], field: str) -> str:
     return ""
 
 
+# ad/analytics pixels that sit in <img> tags
+TRACKER = re.compile(r"(pagead|conversion|doubleclick|google-analytics|googletagmanager|facebook\.com/tr|"
+                     r"/pixel|beacon|analytics|b\d+\.yahoo\.co\.jp|bat\.bing|1x1|blank\.gif)", re.I)
+
+
 def parse_detail(html: str, url: str, site: dict) -> Listing | None:
     soup = BeautifulSoup(html, "lxml")
     for bad in soup.select("script, style, nav, header, footer"):
@@ -141,14 +146,19 @@ def parse_detail(html: str, url: str, site: dict) -> Listing | None:
             else ja_name(pref) + address
     building = parse_area_m2(pick(p, "building"))
     land = parse_area_m2(pick(p, "land"))
+    building = building if building and building >= 5 else None   # '0㎡' / '1㎡' placeholders
+    land = land if land and land >= 5 else None
     if not (price_s or building or land):
         return None  # not a listing page
+    if price == 0 and not (building or land):
+        return None  # '0円' placeholder on a portal/link page, not a real free house
     title_el = soup.select_one("h1") or soup.select_one("h2") or soup.title
     name = pick(p, "name")
     imgs = []
     for img in soup.select("img"):
         src = img.get("data-src") or img.get("src") or ""
-        if not src or src.startswith("data:") or re.search(r"(logo|icon|btn|banner|common|spacer|arrow)", src, re.I):
+        if not src or src.startswith("data:") or re.search(r"(logo|icon|btn|banner|common|spacer|arrow)", src, re.I) \
+                or TRACKER.search(src):
             continue
         imgs.append(urljoin(url, src))
     ltype = "akiya"

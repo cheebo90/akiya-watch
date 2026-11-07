@@ -185,7 +185,7 @@ def export(state: dict, aud_per_jpy: float) -> dict:
         p["links"] = [{"source": m["source"], "url": m["url"]} for m in members]
         p["keys"] = [m["key"] for m in members]
         p["first_seen"] = min(m.get("first_seen", today()) for m in members)
-        p["price_aud"] = round(p["price_yen"] * aud_per_jpy) if p.get("price_yen") else None
+        p["price_aud"] = round(p["price_yen"] * aud_per_jpy) if p.get("price_yen") is not None else None
         p["active"] = any(m.get("active", True) for m in members)
         for drop in ("key", "source_id", "last_seen"):
             p.pop(drop, None)

@@ -9,7 +9,7 @@ const store = {
   del(k) { try { localStorage.removeItem("aw:" + k); } catch {} },
 };
 const esc = (s) => String(s ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
-const fmtAud = (n) => n == null ? "—" : n === 0 ? "Gratis" : "A$" + Math.round(n).toLocaleString("en-AU");
+const fmtAud = (n, yen) => (n == null && yen === 0) ? "Gratis" : n == null ? "—" : n === 0 ? "Gratis" : "A$" + Math.round(n).toLocaleString("en-AU");
 const fmtYen = (n) => n == null ? "" : n === 0 ? "¥0 (無償)" : "¥" + Math.round(n).toLocaleString("ja-JP");
 const fmtNum = (n, d = 0) => n == null ? "—" : Number(n).toLocaleString("it-IT", { maximumFractionDigits: d });
 
@@ -200,7 +200,7 @@ function card(p) {
     <div class="ph">${img ? `<img loading="lazy" referrerpolicy="no-referrer" src="${esc(img)}" alt="" onerror="this.parentNode.classList.add('nophoto')">` : ""}<a class="orig" target="_blank" rel="noopener" href="${esc(p.links[0].url)}">Foto sul sito originale ↗</a></div>
     <button class="fav ${favs.has(p.id) ? "on" : ""}" data-fav="${p.id}" aria-label="Preferito">${favs.has(p.id) ? "★" : "☆"}</button>
     <div class="body">
-      <div class="price">${fmtAud(p.price_aud)}<small>${fmtYen(p.price_yen)}</small></div>
+      <div class="price">${fmtAud(p.price_aud, p.price_yen)}<small>${fmtYen(p.price_yen)}</small></div>
       <div class="meta">${bits.map(esc).join(" · ")}</div>
       <div class="addr">${esc(p.address)}</div>
       <div class="badges">
@@ -246,7 +246,7 @@ function renderMap(list) {
     if (!p.latlng) continue;
     const color = (TYPE[p.type] || [, "#555"])[1];
     const m = L.marker(p.latlng, { icon: L.divIcon({ className: "", html: `<div class="dot" style="background:${color}"></div>`, iconSize: [14, 14] }) });
-    m.bindPopup(`<b>${fmtAud(p.price_aud)}</b> ${fmtYen(p.price_yen)}<br>${esc((TYPE[p.type] || [p.type])[0])} · ${esc(p.address)}<br><a href="#/p/${p.id}">Apri scheda</a>`);
+    m.bindPopup(`<b>${fmtAud(p.price_aud, p.price_yen)}</b> ${fmtYen(p.price_yen)}<br>${esc((TYPE[p.type] || [p.type])[0])} · ${esc(p.address)}<br><a href="#/p/${p.id}">Apri scheda</a>`);
     markers.push(m);
   }
   cluster.addLayers(markers);
@@ -262,7 +262,7 @@ function openDetail(id) {
   seen.add(p.id); store.set("seen", [...seen]);
   const imgs = p.images || [];
   const rows = [
-    ["Prezzo", `${fmtAud(p.price_aud)} · ${fmtYen(p.price_yen)}`],
+    ["Prezzo", `${fmtAud(p.price_aud, p.price_yen)} · ${fmtYen(p.price_yen)}`],
     ["Tipo", (TYPE[p.type] || [p.type])[0] + (p.subtype ? ` (${p.subtype})` : "") + (p.new_build ? " · nuova costruzione" : "")],
     ...(p.yield_pct ? [["Rendimento dichiarato", `${p.yield_pct.toFixed(2)}% lordo (dal venditore: da verificare)`]] : []),
     ["Prefettura", p.prefecture ? `${prefName(p.prefecture)} (${PREF[p.prefecture]?.ja || ""})` : "—"],
@@ -283,7 +283,7 @@ function openDetail(id) {
     : A.rentPerM2 && p.building_m2 ? Math.round(A.rentPerM2 * p.building_m2) : "");
   const d = $("#detail");
   d.innerHTML = `<form method="dialog">
-    <header class="sheet-head"><h2>${fmtAud(p.price_aud)} <span class="muted" style="font-weight:400;font-size:14px">${esc((TYPE[p.type] || [p.type])[0])} · ${esc(prefName(p.prefecture))}</span></h2>
+    <header class="sheet-head"><h2>${fmtAud(p.price_aud, p.price_yen)} <span class="muted" style="font-weight:400;font-size:14px">${esc((TYPE[p.type] || [p.type])[0])} · ${esc(prefName(p.prefecture))}</span></h2>
       <div><button type="button" class="btn ghost" id="d-fav">${favs.has(p.id) ? "★" : "☆"}</button><button class="btn ghost" value="close" aria-label="Chiudi">✕</button></div></header>
     ${imgs.length ? `<div class="gallery">${imgs.map((u, i) => `<img loading="lazy" referrerpolicy="no-referrer" src="${esc(sized(u, 1024))}" data-i="${i}" alt="Foto ${i + 1} di ${imgs.length}" onerror="this.remove()">`).join("")}</div>
       <div class="gallery-count">${imgs.length} foto · tocca per ingrandire</div>` : `<div class="noimg">Nessuna foto: guarda l'annuncio originale</div>`}
