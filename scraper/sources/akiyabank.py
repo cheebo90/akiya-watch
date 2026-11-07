@@ -126,6 +126,21 @@ TRACKER = re.compile(r"(pagead|conversion|doubleclick|google-analytics|googletag
                      r"/pixel|beacon|analytics|b\d+\.yahoo\.co\.jp|bat\.bing|1x1|blank\.gif)", re.I)
 
 
+def _is_ad(img, page_url: str) -> bool:
+    """Banner/ad: marked as such, or wrapped in a link to another site."""
+    if re.search(r"(広告|バナー|banner|PR|sponsor)", " ".join([img.get("alt") or "", " ".join(img.get("class") or [])]), re.I):
+        return True
+    a = img.find_parent("a")
+    href = a.get("href", "") if a else ""
+    if href.startswith("http") and urlparse(href).netloc != urlparse(page_url).netloc \
+            and not re.search(r"\.(jpe?g|png|webp)(\?|$)", href, re.I):
+        return True
+    w, h = img.get("width"), img.get("height")
+    if w and h and str(w).isdigit() and str(h).isdigit() and int(h) and int(w) / int(h) > 2.3:
+        return True
+    return False
+
+
 def parse_detail(html: str, url: str, site: dict) -> Listing | None:
     soup = BeautifulSoup(html, "lxml")
     for bad in soup.select("script, style, nav, header, footer"):
@@ -158,7 +173,7 @@ def parse_detail(html: str, url: str, site: dict) -> Listing | None:
     for img in soup.select("img"):
         src = img.get("data-src") or img.get("src") or ""
         if not src or src.startswith("data:") or re.search(r"(logo|icon|btn|banner|common|spacer|arrow|no_?image|no_?photo|now_?printing)", src, re.I) \
-                or TRACKER.search(src):
+                or TRACKER.search(src) or re.search(r"\.gif(\?|$)", src, re.I) or _is_ad(img, url):
             continue
         imgs.append(urljoin(url, src))
     ltype = "akiya"

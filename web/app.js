@@ -80,6 +80,24 @@ function loadEnc(ref) {
   }
   return photoCache.get(ref);
 }
+/* banners, ads and buttons sneak in as "photos": drop images with a banner/icon shape once loaded */
+function badShape(img) {
+  const w = img.naturalWidth, h = img.naturalHeight;
+  return w > 1 && h > 1 && (w < 150 || h < 100 || w / h > 2.3 || h / w > 2.3);
+}
+function nextPhoto(img) {  // card: try the listing's next photo, else show the "photo on the original site" link
+  let rest = [];
+  try { rest = JSON.parse(img.dataset.rest || "[]"); } catch {}
+  if (rest.length) { img.dataset.rest = JSON.stringify(rest.slice(1)); img.src = sized(rest[0], 480); }
+  else img.parentNode.classList.add("nophoto");
+}
+document.addEventListener("load", (e) => {
+  const t = e.target;
+  if (t.tagName !== "IMG" || t.src.startsWith("data:") || !badShape(t)) return;
+  if (t.closest(".ph")) nextPhoto(t);
+  else if (t.closest(".gallery")) t.remove();
+}, true);
+
 function hydrate(img) {
   const s = img.getAttribute("src") || "";
   const at = s.indexOf("#enc:");
@@ -199,7 +217,7 @@ function card(p) {
   if (p.walk_min != null) bits.push(`${p.walk_min}′ stazione`);
   if (p.subtype && !["中古一戸建て", "中古マンション"].includes(p.subtype)) bits.push(p.subtype);
   return `<article class="card ${seen.has(p.id) ? "seen" : ""}" data-id="${p.id}">
-    <div class="ph">${img ? `<img loading="lazy" referrerpolicy="no-referrer" src="${esc(img)}" alt="" onerror="this.parentNode.classList.add('nophoto')">` : ""}<a class="orig" target="_blank" rel="noopener" href="${esc(p.links[0].url)}">Foto sul sito originale ↗</a></div>
+    <div class="ph">${img ? `<img loading="lazy" referrerpolicy="no-referrer" src="${esc(img)}" alt="" data-rest="${esc(JSON.stringify((p.images || []).slice(1, 6)))}" onerror="nextPhoto(this)">` : ""}<a class="orig" target="_blank" rel="noopener" href="${esc(p.links[0].url)}">Foto sul sito originale ↗</a></div>
     <button class="fav ${favs.has(p.id) ? "on" : ""}" data-fav="${p.id}" aria-label="Preferito">${favs.has(p.id) ? "★" : "☆"}</button>
     <div class="body">
       <div class="price">${fmtAud(p.price_aud, p.price_yen)}<small>${fmtYen(p.price_yen)}</small></div>
@@ -317,7 +335,10 @@ function openDetail(id) {
     $("#y-net", d).textContent = y ? y.net.toFixed(1) + "%" : "—";
   };
   $("#rent", d).addEventListener("input", upd); upd();
-  d.querySelectorAll(".gallery img").forEach((im) => im.addEventListener("click", () => openViewer(imgs, +im.dataset.i)));
+  d.querySelectorAll(".gallery img").forEach((im) => im.addEventListener("click", () => {
+    const ok = [...d.querySelectorAll(".gallery img")];  // photos dropped as banners/broken are not in the viewer
+    openViewer(ok.map((x) => imgs[+x.dataset.i]), Math.max(0, ok.indexOf(im)));
+  }));
   $("#d-fav", d).onclick = (e) => { toggleFav(p.id); e.target.textContent = favs.has(p.id) ? "★" : "☆"; };
   d.addEventListener("close", () => { if (location.hash.startsWith("#/p/")) history.replaceState(null, "", "#"); render(); }, { once: true });
   if (!d.open) d.showModal();

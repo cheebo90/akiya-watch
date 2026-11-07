@@ -35,3 +35,13 @@ def test_export_drops_images_shared_by_many_properties():
              "images": [banner, f"https://x/{k}.jpg"]} for i, k in enumerate("abc")}
     out = store.export({"listings": L}, 0.01)
     assert out["properties"] and all(p["images"] == [f"https://x/{p['keys'][0]}.jpg"] for p in out["properties"])
+
+
+def test_ad_banners_skipped():
+    html = """<html><h1>物件</h1>
+    <a href="https://jutaku-ryutsu.example.com/"><img src="/img/ad1.jpg"></a>
+    <img src="/img/anim.gif"><img src="/img/wide.jpg" width="600" height="100"><img src="/img/pr.jpg" alt="広告">
+    <a href="/up/big1.jpg"><img src="/up/house1.jpg"></a>
+    <table><tr><th>価格</th><td>500万円</td></tr><tr><th>建物面積</th><td>90㎡</td></tr></table></html>"""
+    l = parse_detail(html, "https://www.example-akiya.jp/bukken/1", SITE)
+    assert [u.rsplit("/", 1)[-1] for u in l.images] == ["house1.jpg"]
