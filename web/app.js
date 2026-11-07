@@ -532,10 +532,12 @@ function mapPopup(p) {
   if (p.layout) bits.push(p.layout);
   if (p.year_built) bits.push(String(p.year_built));
   if (p.walk_min != null) bits.push(`${p.walk_min}′ stazione`);
-  const img = p.images?.[0] && sized(p.images[0], 480);
+  const pics = uniquePhotos(p.images || []);
+  const img = pics[0] && sized(pics[0], 480);
   const srcs = [...new Set((p.links || []).map((l) => SOURCE[l.source] || l.source))].join(" · ");
   return `<a class="pop-card" href="#/p/${p.id}">
-    ${img ? `<div class="ph"><img referrerpolicy="no-referrer" src="${esc(img)}" alt="" data-rest="${esc(JSON.stringify((p.images || []).slice(1, 6)))}" onerror="nextPhoto(this)"></div>` : ""}
+    ${img ? `<div class="ph" data-pics="${esc(JSON.stringify(pics))}" data-n="0"><img referrerpolicy="no-referrer" src="${esc(img)}" alt="" data-rest="${esc(JSON.stringify(pics.slice(1, 6)))}" onerror="nextPhoto(this)">
+      ${pics.length > 1 ? `<button type="button" class="pp-prev" aria-label="Foto precedente">‹</button><button type="button" class="pp-next" aria-label="Foto successiva">›</button><span class="pp-count">1 / ${pics.length}</span>` : ""}</div>` : ""}
     <div class="pop-body">
       <div class="price">${fmtAud(p.price_aud, p.price_yen)} <small>${fmtYen(p.price_yen)}</small></div>
       <div class="muted">${esc((TYPE[p.type] || [p.type])[0])} · ${esc(prefName(p.prefecture))}</div>
@@ -551,6 +553,20 @@ function markListItem(scroll) {  // the property whose map popup is open stands 
   const it = popId && $(`.ml-item[data-id="${popId}"]`);
   if (it) { it.classList.add("hl"); if (scroll) it.scrollIntoView({ block: "nearest", behavior: "smooth" }); }
 }
+/* arrows on the popup photo: browse without opening the card */
+document.addEventListener("click", (e) => {
+  const b = e.target.closest(".pp-prev, .pp-next");
+  if (!b) return;
+  e.preventDefault(); e.stopPropagation();
+  const ph = b.closest(".ph"), pics = JSON.parse(ph.dataset.pics || "[]");
+  if (!pics.length) return;
+  const n = ((+ph.dataset.n || 0) + (b.classList.contains("pp-next") ? 1 : -1) + pics.length) % pics.length;
+  ph.dataset.n = n; ph.classList.remove("nophoto");
+  const im = ph.querySelector("img"); im.dataset.rest = "[]"; im.src = sized(pics[n], 480);
+  ph.querySelector(".pp-count").textContent = `${n + 1} / ${pics.length}`;
+  new Image().src = sized(pics[(n + 1) % pics.length], 480);  // next one ready
+}, true);
+
 function renderMapList() {
   if (!map || VIEW !== "map") return;
   const b = map.getBounds();
