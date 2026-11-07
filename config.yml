@@ -4,7 +4,7 @@
 # Il tuo budget (dollari australiani): usato dagli avvisi e come filtro iniziale dell'app.
 budget_aud: 80000
 # Tetto dell'archivio (yen): lo script salva solo annunci fino a questo prezzo.
-max_price_yen: 13000000
+max_price_yen: 13500000
 
 # Prefetture da leggere: "all" oppure una lista, es. [kagoshima, miyazaki, kumamoto, oita, fukuoka]
 prefectures: all
