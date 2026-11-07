@@ -83,3 +83,10 @@ def test_export_carries_flags():
                "prefecture": "tokyo", "first_seen": "2026-11-07", "building_m2": 59.5, "extra": {"no_rebuild": True}}}
     out = {p["keys"][0]: p for p in store.export({"listings": L}, 0.01)["properties"]}
     assert out["y"]["tenant"] and not out["y"]["no_rebuild"] and out["s"]["no_rebuild"] and not out["s"]["tenant"]
+
+
+def test_romaji():
+    from scraper import romaji as r
+    assert r.address("静岡県伊東市川奈") == "Shizuoka, Ito-shi, Kawana"
+    assert r.address("東京都板橋区西台2丁目") == "Tokyo, Itabashi-ku, Nishidai 2-chome"
+    assert "Kawana" in r.access("伊豆急行「川奈」徒歩10分") and "10′ a piedi" in r.access("伊豆急行「川奈」徒歩10分")

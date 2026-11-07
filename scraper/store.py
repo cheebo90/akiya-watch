@@ -5,6 +5,7 @@ the AKIYA_PASSPHRASE secret, so the public GitHub repo and Pages site never expo
 """
 from __future__ import annotations
 
+from . import romaji
 from .sources.akiyabank import TRACKER
 import base64
 import datetime as dt
@@ -200,6 +201,9 @@ def export(state: dict, aud_per_jpy: float, max_yen: int | None = None) -> dict:
         ex = [m.get("extra") or {} for m in members]
         p["tenant"] = any(e.get("tenant") for e in ex) or bool(p.get("yield_pct"))
         p["no_rebuild"] = any(e.get("no_rebuild") for e in ex)
+        p["address_ro"] = romaji.address(p.get("address") or "")
+        p["access_ro"] = romaji.access(p.get("access") or "")
+        p["title_ro"] = romaji.title(p.get("title") or "")
         p["id"] = gid
         p["links"] = [{"source": m["source"], "url": m["url"]} for m in members]
         p["keys"] = [m["key"] for m in members]

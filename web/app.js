@@ -498,11 +498,11 @@ function mapItem(p) {
   return `<div class="ml-item ${seen.has(p.id) ? "seen" : ""}" data-id="${p.id}">
     <div class="ph">${img ? `<img loading="lazy" referrerpolicy="no-referrer" src="${esc(img)}" alt="" data-rest="${esc(JSON.stringify((p.images || []).slice(1, 6)))}" onerror="nextPhoto(this)">` : ""}</div>
     <div class="t"><div class="price">${fmtAud(p.price_aud, p.price_yen)}<small>${fmtYen(p.price_yen)}</small></div>
-      <div class="meta">${bits.map(esc).join(" · ")}</div><div class="addr">${esc(p.address || "")}</div>
+      <div class="meta">${bits.map(esc).join(" · ")}</div><div class="addr" title="${esc(p.address || "")}">${esc(p.address_ro || p.address || "")}</div>
       ${p.tenant || p.no_rebuild ? `<div class="flags">${p.tenant ? '<span class="badge warn">Con inquilino</span>' : ""}${p.no_rebuild ? '<span class="badge bad">Non ricostruibile</span>' : ""}</div>` : ""}
       <div class="more">
-        ${p.title ? `<div class="ttl">${esc(p.title)}</div>` : ""}
-        ${p.access ? `<div>🚉 ${esc(p.access)}</div>` : p.walk_min != null ? `<div>🚉 ${p.walk_min}′ a piedi</div>` : ""}
+        ${p.title ? `<div class="ttl" title="${esc(p.title)}">${esc(p.title_ro || p.title)}</div>` : ""}
+        ${p.access ? `<div>🚉 ${esc(p.access_ro || p.access)}</div>` : p.walk_min != null ? `<div>🚉 ${p.walk_min}′ a piedi</div>` : ""}
         ${p.price_yen && p.building_m2 ? `<div>${fmtYen(Math.round(p.price_yen / p.building_m2))}/m² casa</div>` : ""}
         <div class="src">${[...new Set((p.links || []).map((l) => SOURCE[l.source] || l.source))].map((x) => `<span class="badge">${esc(x)}</span>`).join(" ")}</div>
       </div></div></div>`;
@@ -522,7 +522,7 @@ function mapPopup(p) {
       <div class="price">${fmtAud(p.price_aud, p.price_yen)} <small>${fmtYen(p.price_yen)}</small></div>
       <div class="muted">${esc((TYPE[p.type] || [p.type])[0])} · ${esc(prefName(p.prefecture))}</div>
       ${bits.length ? `<div>${bits.map(esc).join(" · ")}</div>` : ""}
-      <div class="addr">${esc(p.address || "")}</div>
+      <div class="addr">${esc(p.address_ro || p.address || "")}</div>
       ${p.tenant || p.no_rebuild ? `<div class="flags">${p.tenant ? '<span class="badge warn">Con inquilino</span>' : ""}${p.no_rebuild ? '<span class="badge bad">Non ricostruibile</span>' : ""}</div>` : ""}
       <div class="pop-foot"><span class="muted">${esc(srcs)}</span><span class="open">Apri scheda →</span></div>
     </div></a>`;
