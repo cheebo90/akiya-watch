@@ -295,6 +295,13 @@ function renderMap(list) {
   }
   map.invalidateSize();
   setTimeout(() => map.invalidateSize(), 50);
+  // same results as last time (e.g. a property card was just closed): keep zoom, position and the side list as they are
+  const sig = list.length + "|" + list.map((p) => p.id).join(",");
+  if (cluster && sig === mapSig) {
+    $$(".ml-item", $("#ml-items")).forEach((el) => el.classList.toggle("seen", seen.has(el.dataset.id)));
+    return;
+  }
+  mapSig = sig;
   if (cluster) map.removeLayer(cluster);
   const markers = [], stacked = {};
   for (const p of list) {
@@ -324,7 +331,7 @@ function renderMap(list) {
 }
 
 /* side list: the properties inside the current map view, in the chosen sort order, loaded as you scroll */
-let mapMarkers = [], mlInView = [], mlShown = 0;
+let mapMarkers = [], mlInView = [], mlShown = 0, mapSig = "";
 function mapItem(p) {
   const bits = [(TYPE[p.type] || [p.type])[0]];
   if (p.building_m2) bits.push(`${fmtNum(p.building_m2)} m² casa`);
