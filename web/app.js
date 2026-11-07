@@ -266,17 +266,24 @@ function render() {
 function renderMap(list) {
   if (!map) {
     map = L.map("map", { preferCanvas: true }).setView([36.2, 138.2], 5);
-    L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", { maxZoom: 18, attribution: "© OpenStreetMap" }).addTo(map);
-    cluster = L.markerClusterGroup({ chunkedLoading: true, maxClusterRadius: 50 });
+    // CARTO Voyager: OpenStreetMap data with place names in Latin script (romaji) instead of kanji
+    L.tileLayer("https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png",
+      { maxZoom: 19, subdomains: "abcd", attribution: "© OpenStreetMap © CARTO" }).addTo(map);
+    // grouped with a count when far away; from regional zoom on every property is its own dot
+    cluster = L.markerClusterGroup({ chunkedLoading: true, maxClusterRadius: 50, disableClusteringAtZoom: 8, spiderfyOnMaxZoom: false });
     map.addLayer(cluster);
   }
   setTimeout(() => map.invalidateSize(), 50);
   cluster.clearLayers();
-  const markers = [];
+  const markers = [], stacked = {};
   for (const p of list) {
     if (!p.latlng) continue;
     const color = (TYPE[p.type] || [, "#555"])[1];
-    const m = L.marker(p.latlng, { icon: L.divIcon({ className: "", html: `<div class="dot" style="background:${color}"></div>`, iconSize: [14, 14] }) });
+    // many listings share the same point (town centre): spread them on a small spiral so each dot can be tapped
+    const k = p.latlng[0].toFixed(5) + "," + p.latlng[1].toFixed(5), n = stacked[k] = (stacked[k] || 0) + 1;
+    const r = n > 1 ? 0.0006 * Math.sqrt(n - 1) : 0, a = (n - 1) * 2.4;
+    const pos = [p.latlng[0] + r * Math.sin(a), p.latlng[1] + r * Math.cos(a) * 1.2];
+    const m = L.marker(pos, { icon: L.divIcon({ className: "", html: `<div class="dot" style="background:${color}"></div>`, iconSize: [14, 14] }) });
     m.bindPopup(`<b>${fmtAud(p.price_aud, p.price_yen)}</b> ${fmtYen(p.price_yen)}<br>${esc((TYPE[p.type] || [p.type])[0])} · ${esc(p.address)}<br><a href="#/p/${p.id}">Apri scheda</a>`);
     markers.push(m);
   }
