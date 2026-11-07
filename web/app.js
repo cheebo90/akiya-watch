@@ -266,16 +266,32 @@ function render() {
 function renderMap(list) {
   if (!map) {
     map = L.map("map", { preferCanvas: true }).setView([36.2, 138.2], 5);
-    // Esri World Street Map: place names in Latin script (romaji), no key needed.
-    // If it doesn't load, fall back to OpenStreetMap (kanji labels) so the map is never blank.
-    const esri = L.tileLayer("https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}",
-      { maxZoom: 19, attribution: "Tiles © Esri — Esri, HERE, Garmin, © OpenStreetMap" }).addTo(map);
+    // map styles without API key, Latin-script (romaji) labels; the choice is remembered
+    const ESRI = "https://server.arcgisonline.com/ArcGIS/rest/services/";
+    const esri = (name, o = {}) => L.tileLayer(ESRI + name + "/MapServer/tile/{z}/{y}/{x}",
+      { maxZoom: 19, attribution: "Tiles © Esri — Esri, HERE, Garmin, Maxar, © OpenStreetMap", ...o });
+    const labels = () => esri("Reference/World_Boundaries_and_Places", { pane: "overlayPane" });
+    const styles = {
+      "Stradale": esri("World_Street_Map"),
+      "Satellite": L.layerGroup([esri("World_Imagery"), labels()]),
+      "Topografica": esri("World_Topo_Map"),
+      "Chiara": L.layerGroup([esri("Canvas/World_Light_Gray_Base", { maxZoom: 16 }), esri("Canvas/World_Light_Gray_Reference", { maxZoom: 16 })]),
+      "Scura": L.layerGroup([esri("Canvas/World_Dark_Gray_Base", { maxZoom: 16 }), esri("Canvas/World_Dark_Gray_Reference", { maxZoom: 16 })]),
+      "OpenStreetMap (kanji)": L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", { maxZoom: 19, attribution: "© OpenStreetMap" }),
+    };
+    const pick = styles[store.get("mapStyle", "Stradale")] ? store.get("mapStyle", "Stradale") : "Stradale";
+    styles[pick].addTo(map);
+    L.control.layers(styles, null, { position: "topright" }).addTo(map);
+    map.on("baselayerchange", (e) => store.set("mapStyle", e.name));
+    // Esri unreachable: switch to OpenStreetMap so the map is never blank
     let bad = 0;
-    esri.on("tileerror", () => {
-      if (++bad !== 6) return;
-      map.removeLayer(esri);
-      L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", { maxZoom: 18, attribution: "© OpenStreetMap" }).addTo(map);
-    });
+    const onErr = () => {
+      if (++bad !== 8 || map.hasLayer(styles["OpenStreetMap (kanji)"])) return;
+      Object.values(styles).forEach((l) => map.removeLayer(l));
+      styles["OpenStreetMap (kanji)"].addTo(map);
+    };
+    for (const [name, l] of Object.entries(styles))
+      if (!name.startsWith("OpenStreetMap")) (l.getLayers ? l.getLayers() : [l]).forEach((t) => t.on("tileerror", onErr));
     // grouped with a count when far away; from regional zoom on every property is its own dot
     cluster = L.markerClusterGroup({ chunkedLoading: true, maxClusterRadius: 50, disableClusteringAtZoom: 8, spiderfyOnMaxZoom: false });
     map.addLayer(cluster);
