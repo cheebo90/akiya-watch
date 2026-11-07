@@ -266,9 +266,16 @@ function render() {
 function renderMap(list) {
   if (!map) {
     map = L.map("map", { preferCanvas: true }).setView([36.2, 138.2], 5);
-    // CARTO Voyager: OpenStreetMap data with place names in Latin script (romaji) instead of kanji
-    L.tileLayer("https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png",
-      { maxZoom: 19, subdomains: "abcd", attribution: "© OpenStreetMap © CARTO" }).addTo(map);
+    // Esri World Street Map: place names in Latin script (romaji), no key needed.
+    // If it doesn't load, fall back to OpenStreetMap (kanji labels) so the map is never blank.
+    const esri = L.tileLayer("https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}",
+      { maxZoom: 19, attribution: "Tiles © Esri — Esri, HERE, Garmin, © OpenStreetMap" }).addTo(map);
+    let bad = 0;
+    esri.on("tileerror", () => {
+      if (++bad !== 6) return;
+      map.removeLayer(esri);
+      L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", { maxZoom: 18, attribution: "© OpenStreetMap" }).addTo(map);
+    });
     // grouped with a count when far away; from regional zoom on every property is its own dot
     cluster = L.markerClusterGroup({ chunkedLoading: true, maxClusterRadius: 50, disableClusteringAtZoom: 8, spiderfyOnMaxZoom: false });
     map.addLayer(cluster);
