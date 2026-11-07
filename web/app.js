@@ -307,11 +307,11 @@ function renderMap(list) {
     m.bindPopup(`<b>${fmtAud(p.price_aud, p.price_yen)}</b> ${fmtYen(p.price_yen)}<br>${esc((TYPE[p.type] || [p.type])[0])} · ${esc(p.address)}<br><a href="#/p/${p.id}">Apri scheda</a>`);
     markers.push(m);
   }
-  // grouped with counts at the starting view and the next two zoom steps; from the third step every property is a dot
+  // grouped with counts at the starting view; from the first zoom step every property is a dot
   if (markers.length) map.fitBounds(L.latLngBounds(markers.map((m) => m.getLatLng())), { padding: [30, 30], maxZoom: 12, animate: false });
   const z0 = map.getZoom();
   cluster = L.markerClusterGroup({ chunkedLoading: true, maxClusterRadius: 50, spiderfyOnMaxZoom: false,
-    disableClusteringAtZoom: Math.min(z0 + 3, 13) });
+    disableClusteringAtZoom: Math.min(z0 + 1, 13) });
   cluster.addLayers(markers);
   map.addLayer(cluster);
   const missing = list.length - markers.length;
