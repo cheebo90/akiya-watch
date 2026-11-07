@@ -157,7 +157,7 @@ def parse_detail(html: str, url: str, site: dict) -> Listing | None:
     imgs = []
     for img in soup.select("img"):
         src = img.get("data-src") or img.get("src") or ""
-        if not src or src.startswith("data:") or re.search(r"(logo|icon|btn|banner|common|spacer|arrow)", src, re.I) \
+        if not src or src.startswith("data:") or re.search(r"(logo|icon|btn|banner|common|spacer|arrow|no_?image|no_?photo|now_?printing)", src, re.I) \
                 or TRACKER.search(src):
             continue
         imgs.append(urljoin(url, src))
@@ -214,6 +214,22 @@ def detail_links(html: str, base: str, site: dict) -> list[str]:
         if re.search(r"(万円|円|㎡|m2|m²|坪|LDK|DK|物件)", t):
             out.append(u)
     return list(dict.fromkeys(out))
+
+
+HTTP_PHOTO_BUDGET = {"left": 300}  # listings per run (≤4 downloads each); the rest are done on later nights
+
+
+def _copy_http_photos(http: Http, l: Listing, link: str) -> None:
+    """The app is served over https: browsers block http:// photos, so copy them (encrypted) into our own store."""
+    import os
+    from .. import photos
+    pw = os.getenv("AKIYA_PASSPHRASE")
+    if not pw or HTTP_PHOTO_BUDGET["left"] <= 0:
+        return
+    HTTP_PHOTO_BUDGET["left"] -= 1
+    refs = photos.save(photos.from_urls(http, l.images), link, pw)
+    if refs:
+        l.images = refs
 
 
 def _pdf_listing(http: Http, link: str, site: dict):
@@ -307,6 +323,8 @@ def scrape(http: Http, sites: list[dict], prefs: list[str], known_urls: set[str]
                     if not html:
                         continue
                     l = parse_detail(html, link, site)
+                    if l and any(u.startswith("http://") for u in l.images):
+                        _copy_http_photos(http, l, link)
                 if l:
                     found += 1
                     yield l

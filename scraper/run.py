@@ -94,7 +94,9 @@ def cmd_scrape(source: str, cfg: dict, pw: str, part: str = "1/1"):
         gen = suumo.scrape(http, prefs, scfg.get("categories", list(suumo.CATEGORIES)), mm)
     else:
         sites = load_sites()
-        urls = {l["url"] for l in state["listings"].values() if l["source"] == "akiyabank"}
+        # listings whose photos are still http:// links get read again once, so the photos are copied
+        urls = {l["url"] for l in state["listings"].values() if l["source"] == "akiyabank"
+                and not any(u.startswith("http://") for u in (l.get("images") or []))}
         gen = akiyabank.scrape(http, sites, prefs, urls)
 
     listings, completed, blocked, t0 = {}, True, None, time.time()

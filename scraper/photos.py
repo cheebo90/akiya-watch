@@ -82,6 +82,38 @@ def from_pdf(data: bytes) -> list[bytes]:
     return out[:MAX_PHOTOS]
 
 
+def _photo_key(u: str) -> str:
+    """Same photo in several sizes ('IMG_7-thumb-560xauto-70.jpg' / '-thumb-173xauto-') -> one key."""
+    import re
+    return re.sub(r"[-_](thumb|resize|small|s|m|l)?[-_]?\d{2,4}x(\d{2,4}|auto)([-_]\d+)?", "", u.rsplit("/", 1)[-1].split("?")[0], flags=re.I)
+
+
+def from_urls(http, urls: list[str]) -> list[bytes]:
+    """Download photos (e.g. from http-only sites the https app can't show) and re-encode them as WebP."""
+    from PIL import Image
+    out, done = [], set()
+    for u in urls:
+        if len(out) >= MAX_PHOTOS:
+            break
+        k = _photo_key(u)
+        if k in done:
+            continue
+        data = http.get(u, raw=True)
+        if not data:
+            continue
+        try:
+            img = Image.open(io.BytesIO(data))
+            img.load()
+        except Exception:  # noqa: BLE001  not an image
+            continue
+        w, h = img.size
+        if w < 160 or h < 120 or not (0.4 <= w / h <= 2.6):
+            continue  # icons, buttons, banners
+        done.add(k)
+        out.append(_webp(img))
+    return out
+
+
 def save(images: list[bytes], key: str, passphrase: str) -> list[str]:
     """Encrypt and write images; returns the references to put in listing.images."""
     OUT.mkdir(parents=True, exist_ok=True)
