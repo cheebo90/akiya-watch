@@ -292,12 +292,9 @@ function renderMap(list) {
     };
     for (const [name, l] of Object.entries(styles))
       if (!name.startsWith("OpenStreetMap")) (l.getLayers ? l.getLayers() : [l]).forEach((t) => t.on("tileerror", onErr));
-    // grouped with a count when far away; from regional zoom on every property is its own dot
-    cluster = L.markerClusterGroup({ chunkedLoading: true, maxClusterRadius: 50, disableClusteringAtZoom: 8, spiderfyOnMaxZoom: false });
-    map.addLayer(cluster);
   }
   setTimeout(() => map.invalidateSize(), 50);
-  cluster.clearLayers();
+  if (cluster) map.removeLayer(cluster);
   const markers = [], stacked = {};
   for (const p of list) {
     if (!p.latlng) continue;
@@ -310,8 +307,13 @@ function renderMap(list) {
     m.bindPopup(`<b>${fmtAud(p.price_aud, p.price_yen)}</b> ${fmtYen(p.price_yen)}<br>${esc((TYPE[p.type] || [p.type])[0])} · ${esc(p.address)}<br><a href="#/p/${p.id}">Apri scheda</a>`);
     markers.push(m);
   }
+  // grouped with counts at the starting view and the next two zoom steps; from the third step every property is a dot
+  if (markers.length) map.fitBounds(L.latLngBounds(markers.map((m) => m.getLatLng())), { padding: [30, 30], maxZoom: 12, animate: false });
+  const z0 = map.getZoom();
+  cluster = L.markerClusterGroup({ chunkedLoading: true, maxClusterRadius: 50, spiderfyOnMaxZoom: false,
+    disableClusteringAtZoom: Math.min(z0 + 3, 13) });
   cluster.addLayers(markers);
-  if (markers.length) map.fitBounds(cluster.getBounds(), { padding: [30, 30], maxZoom: 12 });
+  map.addLayer(cluster);
   const missing = list.length - markers.length;
   $("#result-count").textContent = `${list.length.toLocaleString("it-IT")} immobili` + (missing ? ` (${missing} senza posizione)` : "");
 }
