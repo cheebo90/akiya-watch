@@ -181,3 +181,19 @@ code { background: var(--surface-2); padding: 1px 6px; border-radius: 6px; }
 .region-prefs small { opacity: .7; font-size: 11px; }
 legend { padding: 0; margin-bottom: 6px; font-size: 14px; }
 legend .muted { margin-left: 6px; }
+
+/* map popup: small preview card */
+.pop .leaflet-popup-content-wrapper { padding: 0; border-radius: 12px; overflow: hidden; }
+.pop .leaflet-popup-content { margin: 0; width: 270px !important; }
+.leaflet-container a.pop-card, .pop-card { display: block; color: #1d1b18; text-decoration: none; font: 13px/1.4 var(--font); }
+.pop-card .ph { aspect-ratio: 16/10; background: #efe9df; }
+.pop-card .ph img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.pop-card .ph.nophoto { display: none; }
+.pop-body { padding: 10px 12px 12px; display: grid; gap: 3px; }
+.pop-body .price { font-weight: 700; font-size: 16px; }
+.pop-body .price small { font-weight: 400; color: #6d675e; font-size: 12px; }
+.pop-body .muted { color: #6d675e; }
+.pop-body .addr { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.pop-foot { display: flex; justify-content: space-between; gap: 8px; margin-top: 4px; font-size: 12px; }
+.pop-foot .open { color: #1f3b2d; font-weight: 600; white-space: nowrap; }
+.pop .leaflet-popup-close-button { background: rgb(255 255 255 / .85); border-radius: 50%; width: 24px; height: 24px; top: 6px; right: 6px; line-height: 22px; z-index: 2; }

@@ -313,7 +313,7 @@ function renderMap(list) {
     const pos = [p.latlng[0] + r * Math.sin(a), p.latlng[1] + r * Math.cos(a) * 1.2];
     const m = L.marker(pos, { icon: L.divIcon({ className: "", html: `<div class="dot" data-pid="${p.id}" style="background:${color}"></div>`, iconSize: [14, 14] }) });
     m.prop = p;
-    m.bindPopup(`<b>${fmtAud(p.price_aud, p.price_yen)}</b> ${fmtYen(p.price_yen)}<br>${esc((TYPE[p.type] || [p.type])[0])} · ${esc(p.address)}<br><a href="#/p/${p.id}">Apri scheda</a>`);
+    m.bindPopup(() => mapPopup(p), { minWidth: 260, maxWidth: 280, className: "pop" });
     markers.push(m);
   }
   // grouped with counts at the starting view; from the first zoom step every property is a dot
@@ -324,7 +324,12 @@ function renderMap(list) {
   cluster.addLayers(markers);
   map.addLayer(cluster);
   mapMarkers = markers;
-  if (!map._listHooked) { map.on("moveend", renderMapList); map._listHooked = true; }
+  if (!map._listHooked) {
+    map.on("moveend", renderMapList);
+    map.on("popupopen", (e) => { popId = e.popup._source?.prop?.id || null; markListItem(true); });
+    map.on("popupclose", () => { popId = null; markListItem(false); });
+    map._listHooked = true;
+  }
   renderMapList();
   const missing = list.length - markers.length;
   $("#result-count").textContent = `${list.length.toLocaleString("it-IT")} immobili` + (missing ? ` (${missing} senza posizione)` : "");
@@ -344,6 +349,31 @@ function mapItem(p) {
     <div class="t"><div class="price">${fmtAud(p.price_aud, p.price_yen)}<small>${fmtYen(p.price_yen)}</small></div>
       <div class="meta">${bits.map(esc).join(" · ")}</div><div class="addr">${esc(p.address || "")}</div></div></div>`;
 }
+function mapPopup(p) {
+  const bits = [];
+  if (p.building_m2) bits.push(`${fmtNum(p.building_m2)} m² casa`);
+  if (p.land_m2) bits.push(`${fmtNum(p.land_m2)} m² terreno`);
+  if (p.layout) bits.push(p.layout);
+  if (p.year_built) bits.push(String(p.year_built));
+  if (p.walk_min != null) bits.push(`${p.walk_min}′ stazione`);
+  const img = p.images?.[0] && sized(p.images[0], 480);
+  const srcs = [...new Set((p.links || []).map((l) => SOURCE[l.source] || l.source))].join(" · ");
+  return `<a class="pop-card" href="#/p/${p.id}">
+    ${img ? `<div class="ph"><img referrerpolicy="no-referrer" src="${esc(img)}" alt="" data-rest="${esc(JSON.stringify((p.images || []).slice(1, 6)))}" onerror="nextPhoto(this)"></div>` : ""}
+    <div class="pop-body">
+      <div class="price">${fmtAud(p.price_aud, p.price_yen)} <small>${fmtYen(p.price_yen)}</small></div>
+      <div class="muted">${esc((TYPE[p.type] || [p.type])[0])} · ${esc(prefName(p.prefecture))}</div>
+      ${bits.length ? `<div>${bits.map(esc).join(" · ")}</div>` : ""}
+      <div class="addr">${esc(p.address || "")}</div>
+      <div class="pop-foot"><span class="muted">${esc(srcs)}</span><span class="open">Apri scheda →</span></div>
+    </div></a>`;
+}
+let popId = null;
+function markListItem(scroll) {  // the property whose map popup is open stands out in the side list
+  $$(".ml-item.hl").forEach((x) => x.classList.remove("hl"));
+  const it = popId && $(`.ml-item[data-id="${popId}"]`);
+  if (it) { it.classList.add("hl"); if (scroll) it.scrollIntoView({ block: "nearest", behavior: "smooth" }); }
+}
 function renderMapList() {
   if (!map || VIEW !== "map") return;
   const b = map.getBounds();
@@ -353,6 +383,7 @@ function renderMapList() {
   $("#ml-items").innerHTML = mlInView.length ? "" : `<div class="empty">Nessun immobile in questa parte della mappa.</div>`;
   $("#ml-items").scrollTop = 0;
   moreMapList();
+  markListItem(true);
 }
 function moreMapList() {
   if (mlShown >= mlInView.length) return;
