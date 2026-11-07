@@ -73,6 +73,22 @@ def to_html(text: str, tables) -> str:
     return f"<html><body><h1>{escape(title)}</h1><table>{''.join(rows)}</table><div>{body.replace(chr(10), '<br>' + chr(10))}</div></body></html>"
 
 
+SHEET_PRICE = re.compile(r"(?:■|☑|✓|レ)\s*売[却買]希望[^\n]{0,12}?(?:希望)?(?:価格|金額)\s*[:：]?\s*([\d,，.０-９]+)\s*(万|千)?円")
+
+
+def sheet_price(text: str):
+    """'■売却希望 希望価格 90 万円' (ticked box in the owner's-wishes cell) -> yen."""
+    m = SHEET_PRICE.search(norm(text) if callable(norm) else text)
+    if not m:
+        return None
+    try:
+        v = float(m.group(1).replace(",", "").replace("，", ""))
+    except ValueError:
+        return None
+    mult = {"万": 10_000, "千": 1_000}.get(m.group(2) or "", 1)
+    return int(v * mult)
+
+
 def parse_pdf(data: bytes, url: str, site: dict):
     """Listing from a PDF sheet, or (None, reason)."""
     if len(data) > MAX_BYTES:
@@ -89,6 +105,8 @@ def parse_pdf(data: bytes, url: str, site: dict):
     from . import akiyabank as ab
     l = ab.parse_detail(soup_html, url, site)
     if l:
+        if l.price_yen is None:
+            l.price_yen = sheet_price(text)
         l.extra["pdf"] = True
         l.images = []
         return l, "ok"
