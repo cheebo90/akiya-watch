@@ -347,7 +347,13 @@ function mapItem(p) {
   return `<div class="ml-item ${seen.has(p.id) ? "seen" : ""}" data-id="${p.id}">
     <div class="ph">${img ? `<img loading="lazy" referrerpolicy="no-referrer" src="${esc(img)}" alt="" data-rest="${esc(JSON.stringify((p.images || []).slice(1, 6)))}" onerror="nextPhoto(this)">` : ""}</div>
     <div class="t"><div class="price">${fmtAud(p.price_aud, p.price_yen)}<small>${fmtYen(p.price_yen)}</small></div>
-      <div class="meta">${bits.map(esc).join(" · ")}</div><div class="addr">${esc(p.address || "")}</div></div></div>`;
+      <div class="meta">${bits.map(esc).join(" · ")}</div><div class="addr">${esc(p.address || "")}</div>
+      <div class="more">
+        ${p.title ? `<div class="ttl">${esc(p.title)}</div>` : ""}
+        ${p.access ? `<div>🚉 ${esc(p.access)}</div>` : p.walk_min != null ? `<div>🚉 ${p.walk_min}′ a piedi</div>` : ""}
+        ${p.price_yen && p.building_m2 ? `<div>${fmtYen(Math.round(p.price_yen / p.building_m2))}/m² casa</div>` : ""}
+        <div class="src">${[...new Set((p.links || []).map((l) => SOURCE[l.source] || l.source))].map((x) => `<span class="badge">${esc(x)}</span>`).join(" ")}</div>
+      </div></div></div>`;
 }
 function mapPopup(p) {
   const bits = [];
@@ -391,7 +397,31 @@ function moreMapList() {
   mlShown += next.length;
   $("#ml-items").insertAdjacentHTML("beforeend", next.map(mapItem).join(""));
 }
+function initMapResize() {
+  const wrap = $(".map-wrap"), bar = $("#ml-resize");
+  const set = (w) => {
+    w = Math.max(300, Math.min(w, innerWidth - 320));
+    wrap.style.setProperty("--ml-w", w + "px");
+    return w;
+  };
+  set(store.get("mlWidth", 380));
+  let x0 = 0, w0 = 0;
+  const move = (e) => { set(w0 + e.clientX - x0); map && map.invalidateSize(); };
+  const up = () => {
+    document.removeEventListener("pointermove", move); document.removeEventListener("pointerup", up);
+    document.body.classList.remove("resizing");
+    store.set("mlWidth", $(".map-list").getBoundingClientRect().width);
+    map && map.invalidateSize(); renderMapList();
+  };
+  bar.addEventListener("pointerdown", (e) => {
+    e.preventDefault(); x0 = e.clientX; w0 = $(".map-list").getBoundingClientRect().width;
+    document.body.classList.add("resizing");
+    document.addEventListener("pointermove", move); document.addEventListener("pointerup", up);
+  });
+  bar.addEventListener("dblclick", () => { store.set("mlWidth", set(380)); map && map.invalidateSize(); });
+}
 function initMapList() {
+  initMapResize();
   const box = $("#ml-items");
   const nearEnd = (el) => el.scrollHeight - el.scrollTop - el.clientHeight < 400;
   box.addEventListener("scroll", () => { if (nearEnd(box)) moreMapList(); });
@@ -504,6 +534,14 @@ function openViewer(imgs, start) {
   show();
   v.showModal();
 }
+
+/* clicking the dimmed area around a card or the filters closes it (the ✕ still works) */
+document.addEventListener("click", (e) => {
+  const d = e.target;
+  if (d.tagName !== "DIALOG" || !d.open || d.classList.contains("viewer")) return;
+  const r = d.getBoundingClientRect();
+  if (e.clientX < r.left || e.clientX > r.right || e.clientY < r.top || e.clientY > r.bottom) d.close();
+});
 
 function toggleFav(id) {
   favs.has(id) ? favs.delete(id) : favs.add(id);
