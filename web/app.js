@@ -285,10 +285,11 @@ async function geoSearch(q) {
 function tagMatches(t, p) {
   if (t.k === "pref") return p.prefecture === t.v;
   if (t.k === "region") return (REGIONS.find((r) => r[0] === t.v)?.[3] || []).includes(p.prefecture);
+  if (t.k === "bbox") return !!p.latlng && p.latlng[0] >= t.b[0] && p.latlng[0] <= t.b[2] && p.latlng[1] >= t.b[1] && p.latlng[1] <= t.b[3];
   if (p.latlng) return kmBetween(p.latlng, [t.lat, t.lng]) <= (+F.nearKm || 20);
   return !!(t.ja && (p.address || "").includes(t.ja));
 }
-const tagKey = (t) => t.k + ":" + (t.v || `${t.lat.toFixed(3)},${t.lng.toFixed(3)}`);
+const tagKey = (t) => t.k + ":" + (t.v || (t.b ? t.b.map((x) => x.toFixed(3)).join(",") : `${t.lat.toFixed(3)},${t.lng.toFixed(3)}`));
 function localSuggestions(q) {
   const s = q.toLowerCase(), hit = (...xs) => xs.some((x) => x && x.toLowerCase().includes(s));
   const out = [];
@@ -408,6 +409,18 @@ function renderMap(list) {
       return box;
     } });
     const sc = new Search().addTo(map).getContainer(); sc.parentNode.prepend(sc);  // above the zoom buttons
+    // after the user pans or zooms: offer to search only inside the visible area
+    const redo = L.DomUtil.create("button", "map-redo", map.getContainer());
+    redo.id = "map-redo"; redo.type = "button"; redo.textContent = "↻ Cerca in questa zona";
+    L.DomEvent.disableClickPropagation(redo);
+    map.on("movestart", () => { if (!autoMove) redo.dataset.user = "1"; });
+    map.on("moveend", () => { if (redo.dataset.user) redo.classList.add("show"); delete redo.dataset.user; });
+    redo.onclick = () => {
+      const b = map.getBounds();
+      const tag = { k: "bbox", label: "Area della mappa", b: [b.getSouth(), b.getWest(), b.getNorth(), b.getEast()] };
+      F = { ...F, places: [tag] }; store.set("filters", F); shown = PAGE;
+      keepView = true; redo.classList.remove("show"); mapTags?.draw(); render();
+    };
     // Esri unreachable: switch to OpenStreetMap so the map is never blank
     // a style that doesn't load (Mapbox token/quota, Esri down) gives way: Mapbox -> Esri, Esri -> OpenStreetMap
     const fallback = (name) => {
@@ -429,6 +442,7 @@ function renderMap(list) {
   // same results as last time (e.g. a property card was just closed): keep zoom, position and the side list as they are
   const sig = list.length + "|" + list.map((p) => p.id).join(",");
   if (cluster && sig === mapSig) {
+    if (keepView) { keepView = false; $("#map-redo")?.classList.remove("show"); }
     $$(".ml-item", $("#ml-items")).forEach((el) => el.classList.toggle("seen", seen.has(el.dataset.id)));
     return;
   }
@@ -449,7 +463,10 @@ function renderMap(list) {
     markers.push(m);
   }
   // grouped with counts at the starting view; from the first zoom step every property is a dot
-  if (markers.length) map.fitBounds(L.latLngBounds(markers.map((m) => m.getLatLng())), { padding: [30, 30], maxZoom: 12, animate: false });
+  // "search this area" keeps the view the user chose; any other change of results re-centres the map
+  if (keepView) keepView = false;
+  else if (markers.length) { autoMove = true; map.fitBounds(L.latLngBounds(markers.map((m) => m.getLatLng())), { padding: [30, 30], maxZoom: 12, animate: false }); autoMove = false; }
+  $("#map-redo")?.classList.remove("show");
   const z0 = map.getZoom();
   cluster = L.markerClusterGroup({ chunkedLoading: true, maxClusterRadius: 50, spiderfyOnMaxZoom: false,
     disableClusteringAtZoom: Math.min(z0 + 1, 13) });
@@ -470,7 +487,7 @@ function renderMap(list) {
 }
 
 /* side list: the properties inside the current map view, in the chosen sort order, loaded as you scroll */
-let mapTags = null, mapMarkers = [], mlInView = [], mlShown = 0, mapSig = "";
+let keepView = false, autoMove = false, mapTags = null, mapMarkers = [], mlInView = [], mlShown = 0, mapSig = "";
 function mapItem(p) {
   const bits = [(TYPE[p.type] || [p.type])[0]];
   if (p.building_m2) bits.push(`${fmtNum(p.building_m2)} m² casa`);
