@@ -265,3 +265,24 @@ details.zones > summary::before { content: "▸"; transition: transform .15s; }
 details.zones[open] > summary::before { transform: rotate(90deg); }
 details.zones > summary::-webkit-details-marker { display: none; }
 details.zones .regions { margin-top: 6px; }
+.leaflet-control.map-search { z-index: 1001; position: relative; }
+.place-chosen select { width: auto; padding: 4px 6px; }
+
+/* location tag box */
+.tagbox { position: relative; }
+.tag-field { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; padding: 6px 8px; min-height: 42px; cursor: text;
+  border: 1px solid var(--line); border-radius: 10px; background: var(--bg); }
+.tag-field:focus-within { border-color: var(--accent); }
+.tag-field .tags { display: contents; }
+.tag-field input { flex: 1; min-width: 140px; border: 0 !important; outline: 0; background: transparent; padding: 4px 2px !important; font: inherit; color: inherit; }
+.tag { display: inline-flex; align-items: center; gap: 4px; padding: 3px 4px 3px 10px; border-radius: 999px; background: var(--accent); color: var(--accent-ink); font-size: 13px; font-weight: 600; }
+.tag button { border: 0; background: rgb(0 0 0 / .15); color: inherit; width: 20px; height: 20px; border-radius: 50%; cursor: pointer; line-height: 1; font-size: 14px; }
+.suggest li.on { background: var(--surface-2); }
+.near-row { font-size: 13px; display: flex; align-items: center; gap: 6px; }
+.near-row select { width: auto !important; padding: 3px 6px !important; }
+/* on the map: white box */
+.map-search { width: min(380px, calc(100vw - 80px)); }
+.map-search .tag-field { background: #fff; color: #1d1b18; border: 0; box-shadow: 0 1px 5px rgb(0 0 0 / .35); }
+.map-search .tag { background: #1f3b2d; color: #fff; }
+.map-search .suggest li.on { background: #efe9df; }
+.map-search .tag-field input { box-shadow: none; background: transparent; border-radius: 0; padding: 4px 2px; }
