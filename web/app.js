@@ -293,6 +293,7 @@ function renderMap(list) {
     for (const [name, l] of Object.entries(styles))
       if (!name.startsWith("OpenStreetMap")) (l.getLayers ? l.getLayers() : [l]).forEach((t) => t.on("tileerror", onErr));
   }
+  map.invalidateSize();
   setTimeout(() => map.invalidateSize(), 50);
   if (cluster) map.removeLayer(cluster);
   const markers = [], stacked = {};
@@ -303,7 +304,8 @@ function renderMap(list) {
     const k = p.latlng[0].toFixed(5) + "," + p.latlng[1].toFixed(5), n = stacked[k] = (stacked[k] || 0) + 1;
     const r = n > 1 ? 0.0006 * Math.sqrt(n - 1) : 0, a = (n - 1) * 2.4;
     const pos = [p.latlng[0] + r * Math.sin(a), p.latlng[1] + r * Math.cos(a) * 1.2];
-    const m = L.marker(pos, { icon: L.divIcon({ className: "", html: `<div class="dot" style="background:${color}"></div>`, iconSize: [14, 14] }) });
+    const m = L.marker(pos, { icon: L.divIcon({ className: "", html: `<div class="dot" data-pid="${p.id}" style="background:${color}"></div>`, iconSize: [14, 14] }) });
+    m.prop = p;
     m.bindPopup(`<b>${fmtAud(p.price_aud, p.price_yen)}</b> ${fmtYen(p.price_yen)}<br>${esc((TYPE[p.type] || [p.type])[0])} · ${esc(p.address)}<br><a href="#/p/${p.id}">Apri scheda</a>`);
     markers.push(m);
   }
@@ -314,8 +316,54 @@ function renderMap(list) {
     disableClusteringAtZoom: Math.min(z0 + 1, 13) });
   cluster.addLayers(markers);
   map.addLayer(cluster);
+  mapMarkers = markers;
+  if (!map._listHooked) { map.on("moveend", renderMapList); map._listHooked = true; }
+  renderMapList();
   const missing = list.length - markers.length;
   $("#result-count").textContent = `${list.length.toLocaleString("it-IT")} immobili` + (missing ? ` (${missing} senza posizione)` : "");
+}
+
+/* side list: the properties inside the current map view, in the chosen sort order, loaded as you scroll */
+let mapMarkers = [], mlInView = [], mlShown = 0;
+function mapItem(p) {
+  const bits = [(TYPE[p.type] || [p.type])[0]];
+  if (p.building_m2) bits.push(`${fmtNum(p.building_m2)} m² casa`);
+  if (p.land_m2) bits.push(`${fmtNum(p.land_m2)} m² terreno`);
+  if (p.layout) bits.push(p.layout);
+  if (p.year_built) bits.push(String(p.year_built));
+  const img = p.images?.[0] && sized(p.images[0], 320);
+  return `<div class="ml-item ${seen.has(p.id) ? "seen" : ""}" data-id="${p.id}">
+    <div class="ph">${img ? `<img loading="lazy" referrerpolicy="no-referrer" src="${esc(img)}" alt="" data-rest="${esc(JSON.stringify((p.images || []).slice(1, 6)))}" onerror="nextPhoto(this)">` : ""}</div>
+    <div class="t"><div class="price">${fmtAud(p.price_aud, p.price_yen)}<small>${fmtYen(p.price_yen)}</small></div>
+      <div class="meta">${bits.map(esc).join(" · ")}</div><div class="addr">${esc(p.address || "")}</div></div></div>`;
+}
+function renderMapList() {
+  if (!map || VIEW !== "map") return;
+  const b = map.getBounds();
+  mlInView = mapMarkers.filter((m) => b.contains(m.getLatLng())).map((m) => m.prop);
+  mlShown = 0;
+  $("#ml-count").textContent = `${mlInView.length.toLocaleString("it-IT")} in questa zona`;
+  $("#ml-items").innerHTML = mlInView.length ? "" : `<div class="empty">Nessun immobile in questa parte della mappa.</div>`;
+  $("#ml-items").scrollTop = 0;
+  moreMapList();
+}
+function moreMapList() {
+  if (mlShown >= mlInView.length) return;
+  const next = mlInView.slice(mlShown, mlShown + 30);
+  mlShown += next.length;
+  $("#ml-items").insertAdjacentHTML("beforeend", next.map(mapItem).join(""));
+}
+function initMapList() {
+  const box = $("#ml-items");
+  const nearEnd = (el) => el.scrollHeight - el.scrollTop - el.clientHeight < 400;
+  box.addEventListener("scroll", () => { if (nearEnd(box)) moreMapList(); });
+  window.addEventListener("scroll", () => {  // phones: the list flows with the page
+    if (VIEW === "map" && innerHeight + scrollY > document.body.scrollHeight - 400) moreMapList();
+  }, { passive: true });
+  box.addEventListener("click", (e) => { const it = e.target.closest(".ml-item"); if (it) location.hash = "#/p/" + it.dataset.id; });
+  const hl = (id, on) => document.querySelectorAll(`.dot[data-pid="${id}"]`).forEach((d) => d.classList.toggle("hl", on));
+  box.addEventListener("mouseover", (e) => { const it = e.target.closest(".ml-item"); if (it) hl(it.dataset.id, true); });
+  box.addEventListener("mouseout", (e) => { const it = e.target.closest(".ml-item"); if (it) hl(it.dataset.id, false); });
 }
 
 /* ---------------------------------------------------------------- detail */
@@ -557,6 +605,7 @@ function boot() {
     if (c) location.hash = "#/p/" + c.dataset.id;
   });
   initFilters();
+  initMapList();
   window.addEventListener("hashchange", route);
   setView("list");
   route();

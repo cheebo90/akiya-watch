@@ -11,7 +11,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.5.3/MarkerCluster.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.5.3/MarkerCluster.Default.css">
-<link rel="stylesheet" href="app.css?v=22">
+<link rel="stylesheet" href="app.css?v=23">
 </head>
 <body>
 
@@ -62,7 +62,15 @@
       </label>
     </div>
     <section id="view-list" class="view"><div id="cards" class="cards"></div><button id="more" class="btn ghost wide" hidden>Mostra altri</button></section>
-    <section id="view-map" class="view" hidden><div id="map"></div></section>
+    <section id="view-map" class="view" hidden>
+      <div class="map-wrap">
+        <aside class="map-list" aria-label="Immobili visibili sulla mappa">
+          <div class="ml-head"><span id="ml-count"></span><span class="muted">sposta o zooma la mappa</span></div>
+          <div id="ml-items" class="ml-items"></div>
+        </aside>
+        <div id="map"></div>
+      </div>
+    </section>
     <section id="view-settings" class="view settings" hidden></section>
   </main>
 </div>
@@ -114,6 +122,6 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.5.3/leaflet.markercluster.js"></script>
-<script src="app.js?v=22"></script>
+<script src="app.js?v=23"></script>
 </body>
 </html>
