@@ -22,6 +22,7 @@ jobs:
       - run: |
           ARGS=$(python3 -c "import json;d=json.load(open('trigger/inspect.json'));print('--try '+d['try'] if d.get('try') else ' '.join('--pref '+p for p in d.get('prefs',[])))")
           SCRIPT=$(python3 -c "import json;print(json.load(open('trigger/inspect.json')).get('script',''))")
+          export AKIYA_PASSPHRASE="${{ secrets.AKIYA_PASSPHRASE }}"
           if [ -n "$SCRIPT" ]; then PDF_KEYS=$(python3 -c "import json;print(json.load(open('trigger/inspect.json')).get('keys','') or 'tonosho,saijo,kasagi,tendo,city-awara,takizawa')") python "scripts/$SCRIPT"; else python scripts/inspect_todo.py $ARGS; fi
       - run: |
           git config user.name "akiya-watch bot"
