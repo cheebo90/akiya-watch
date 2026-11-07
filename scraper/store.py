@@ -158,7 +158,7 @@ def _fix_generic_titles(L: dict):
                                         ex.get("物件番号") or ex.get("登録番号") or "")
 
 
-def export(state: dict, aud_per_jpy: float) -> dict:
+def export(state: dict, aud_per_jpy: float, max_yen: int | None = None) -> dict:
     L = state["listings"]
     _fix_generic_titles(L)
     gid_of = dedupe_groups(L)
@@ -195,6 +195,8 @@ def export(state: dict, aud_per_jpy: float) -> dict:
         if p["price_yen"] == 0 and not (p.get("building_m2") or p.get("land_m2")):
             continue  # '0円' on a portal/link page, not a real free house
         p["images"] = [u for u in (p.get("images") or []) if not TRACKER.search(u) and u not in shared]
+        if max_yen and p["price_yen"] > max_yen:
+            continue  # above the archive ceiling (it may have been lowered after the listing was stored)
         p["id"] = gid
         p["links"] = [{"source": m["source"], "url": m["url"]} for m in members]
         p["keys"] = [m["key"] for m in members]

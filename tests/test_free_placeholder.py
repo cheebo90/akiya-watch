@@ -56,3 +56,12 @@ def test_full_gallery_survives_daily_scrape():
                       "address": "大阪府松原市一津屋5", "prefecture": "osaka", "images": ["a", "b", "c"]}])
     out = store.export(st, 0.01)
     assert len(out["properties"][0]["images"]) == 12 and "gallery" not in out["properties"][0]
+
+
+def test_export_respects_lowered_ceiling():
+    from scraper import store
+    L = {k: {"key": k, "source": "suumo", "url": "u" + k, "type": "house", "price_yen": v, "address": f"東京都板橋区{k}",
+             "prefecture": "tokyo", "first_seen": "2026-11-07", "building_m2": 60.0 + i}
+         for i, (k, v) in enumerate({"a": 12_900_000, "b": 13_400_000}.items())}
+    out = store.export({"listings": L}, 0.01, 13_000_000)
+    assert [p["keys"] for p in out["properties"]] == [["a"]]

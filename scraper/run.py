@@ -237,7 +237,7 @@ def cmd_merge(cfg: dict, pw: str):
     store.save_encrypted(state, STATE, pw)
     # photos cut from PDFs still used by stored listings: the workflow deletes the others
     (DATA / "photos-keep.txt").write_text("\n".join(sorted(photos.referenced(state["listings"].values()))))
-    exp = store.export(state, aud_per_jpy)
+    exp = store.export(state, aud_per_jpy, max_price_yen(cfg, 1 / aud_per_jpy))
     exp["runs"] = state["runs"][-10:]
     exp["new_keys"] = new_keys
     out = ROOT / "web" / "data.enc"
