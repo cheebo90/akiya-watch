@@ -582,7 +582,8 @@ function initMapList() {
     if (VIEW === "map" && innerHeight + scrollY > document.body.scrollHeight - 400) moreMapList();
   }, { passive: true });
   box.addEventListener("click", (e) => { const it = e.target.closest(".ml-item"); if (it) location.hash = "#/p/" + it.dataset.id; });
-  const hl = (id, on) => document.querySelectorAll(`.dot[data-pid="${id}"]`).forEach((d) => d.classList.toggle("hl", on));
+  // the whole pin (dot + price label) of the hovered property stands out on the map
+  const hl = (id, on) => document.querySelectorAll(`.dot[data-pid="${id}"]`).forEach((d) => (d.closest(".pin") || d).classList.toggle("hl", on));
   box.addEventListener("mouseover", (e) => { const it = e.target.closest(".ml-item"); if (it) hl(it.dataset.id, true); });
   box.addEventListener("mouseout", (e) => { const it = e.target.closest(".ml-item"); if (it) hl(it.dataset.id, false); });
 }

@@ -92,7 +92,14 @@ main { max-width: 1200px; margin: 0 auto; padding: 0 16px; }
 .ml-item .price small { font-weight: 400; color: var(--muted); margin-left: 6px; font-size: 12px; }
 .ml-item .meta, .ml-item .addr { color: var(--muted); overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; }
 .ml-item .addr { color: var(--text); -webkit-line-clamp: 1; }
-.dot.hl { transform: scale(1.6); box-shadow: 0 0 0 3px var(--gold); }
+.dot.hl { transform: scale(1.2); box-shadow: 0 0 0 3px var(--gold); }
+/* hovered in the side list: the whole pin grows 20% and comes to the front */
+.leaflet-marker-icon.pin.hl { z-index: 100000 !important; }
+.pin.hl .dot { transform: scale(1.2); box-shadow: 0 0 0 3px var(--gold), 0 2px 8px rgb(0 0 0 / .5); }
+.pin.hl .pin-label { background: var(--c); color: #fff; border-color: #fff; transform: translateX(-50%) scale(1.2); transform-origin: 50% 100%;
+  box-shadow: 0 0 0 2px var(--gold), 0 4px 12px rgb(0 0 0 / .45); }
+.pin.hl .pin-label i { color: #fff; display: inline; }
+.pin .pin-label, .pin .dot { transition: transform .12s, background .12s; }
 @media (max-width: 760px) {
   .map-wrap { height: auto; grid-template-columns: 1fr; }
   #map { height: 62dvh; order: -1; }
