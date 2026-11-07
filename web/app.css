@@ -293,3 +293,9 @@ details.zones .regions { margin-top: 6px; }
   box-shadow: 0 2px 10px rgb(0 0 0 / .35); cursor: pointer; transition: opacity .15s, transform .15s; }
 .map-redo.show { opacity: 1; pointer-events: auto; transform: translate(-50%, 0); }
 .map-redo:hover { background: #2a5340; }
+
+.ml-head { align-items: center; }
+.ml-sort label { display: flex; align-items: center; gap: 6px; font-size: 13px; color: var(--muted); }
+.ml-sort select { padding: 5px 8px; border-radius: 8px; border: 1px solid var(--line); background: var(--surface); font-size: 13px; }
+@media (min-width: 761px) { .map-wrap { height: calc(100dvh - 112px); } }
+#ml-count { white-space: nowrap; }

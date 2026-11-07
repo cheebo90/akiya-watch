@@ -816,7 +816,10 @@ function setView(v) {
   $("#view-list").hidden = !["list", "new", "favs"].includes(v);
   $("#view-map").hidden = v !== "map";
   $("#view-settings").hidden = v !== "settings";
-  $(".toolbar").hidden = v === "settings";
+  $(".toolbar").hidden = v === "settings" || v === "map";
+  // on the map the sort menu lives in the side list header; elsewhere back in the toolbar
+  const sortLabel = $("#sort").closest("label");
+  (v === "map" ? $("#ml-sort") : $(".toolbar")).appendChild(sortLabel);
   if (v === "settings") renderSettings(); else render();
 }
 
