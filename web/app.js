@@ -592,7 +592,7 @@ function openDetail(id) {
   const p = DATA.properties.find((x) => x.id === id || x.keys?.includes(id));
   if (!p) return;
   seen.add(p.id); store.set("seen", [...seen]);
-  const imgs = p.images || [];
+  const imgs = uniquePhotos(p.images || []);
   const rows = [
     ["Prezzo", `${fmtAud(p.price_aud, p.price_yen)} · ${fmtYen(p.price_yen)}`],
     ["Tipo", (TYPE[p.type] || [p.type])[0] + (p.subtype ? ` (${p.subtype})` : "") + (p.new_build ? " · nuova costruzione" : "")],
@@ -659,8 +659,24 @@ function openDetail(id) {
 }
 
 /* full-screen photo viewer: arrows, swipe, keyboard, Esc to close */
+/* same photo listed twice (different sizes/params) would need two clicks to move on: keep one */
+function samePhotoKey(u) {
+  if (u.startsWith("enc:")) return u;
+  try {
+    const x = new URL(u, location.href);
+    if (x.searchParams.get("src")) return x.searchParams.get("src");
+    for (const k of ["w", "h", "fmt", "q"]) x.searchParams.delete(k);
+    return x.origin + x.pathname.replace(/resized-bukken-\d+x\d+-/, "") + x.search;
+  } catch { return u; }
+}
+function uniquePhotos(list) {
+  const seen = new Set();
+  return list.filter((u) => { const k = samePhotoKey(u); if (seen.has(k)) return false; seen.add(k); return true; });
+}
 function openViewer(imgs, start) {
-  let i = start;
+  const first = imgs[start];
+  imgs = uniquePhotos(imgs);
+  let i = Math.max(0, imgs.indexOf(first));
   const v = document.createElement("dialog");
   v.className = "viewer";
   v.innerHTML = `<img referrerpolicy="no-referrer" alt="">
@@ -672,11 +688,19 @@ function openViewer(imgs, start) {
     i = (i + imgs.length) % imgs.length;
     img.src = sized(imgs[i], 1600);
     v.querySelector(".v-count").textContent = `${i + 1} / ${imgs.length}`;
+    // load the next and previous photo in the background, so moving on is instant
+    for (const d of [1, -1, 2]) { const u = imgs[(i + d + imgs.length) % imgs.length]; if (u && !u.startsWith("enc:")) new Image().src = sized(u, 1600); }
   };
   v.querySelector(".v-close").onclick = () => v.close();
   v.querySelector(".v-prev").onclick = () => { i--; show(); };
   v.querySelector(".v-next").onclick = () => { i++; show(); };
-  v.addEventListener("keydown", (e) => { if (e.key === "ArrowLeft") { i--; show(); } if (e.key === "ArrowRight") { i++; show(); } });
+  // keyboard on the whole page while the viewer is open (focus may be anywhere)
+  const onKey = (e) => {
+    if (e.key === "ArrowLeft") { e.preventDefault(); e.stopPropagation(); i--; show(); }
+    else if (e.key === "ArrowRight") { e.preventDefault(); e.stopPropagation(); i++; show(); }
+  };
+  document.addEventListener("keydown", onKey, true);
+  v.addEventListener("close", () => document.removeEventListener("keydown", onKey, true));
   let x0 = null;
   img.addEventListener("touchstart", (e) => (x0 = e.touches[0].clientX), { passive: true });
   img.addEventListener("touchend", (e) => {
