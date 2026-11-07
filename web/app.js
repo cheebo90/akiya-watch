@@ -263,6 +263,15 @@ function render() {
   $("#more").hidden = list.length <= shown;
 }
 
+/* Mapbox raster styles: English names (romaji in Japan). Public token, restricted in Mapbox to this site. */
+const MAPBOX_TOKEN = "pk.eyJ1IjoiaGVucnkiLCJhIjoiY213NjlwYWZiMGhpczJ6cHdtcTMwN3JhOSJ9.S77NzfXqlMR-gvXberEsjw";
+function mapboxLayer(style) {
+  return L.tileLayer(`https://api.mapbox.com/styles/v1/mapbox/${style}/tiles/512/{z}/{x}/{y}{r}?access_token=${MAPBOX_TOKEN}`, {
+    tileSize: 512, zoomOffset: -1, maxZoom: 20,
+    attribution: '<b>mapbox</b> © <a href="https://www.mapbox.com/about/maps/" target="_blank" rel="noopener">Mapbox</a> © <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a> <a href="https://www.mapbox.com/map-feedback/" target="_blank" rel="noopener"><b>Improve this map</b></a>',
+  });
+}
+
 /* Google Map Tiles API (2D tiles in Leaflet): English labels = romaji in Japan.
    The key is public by design (static site) and restricted in Google Cloud to this site and to the Map Tiles API. */
 const GOOGLE_KEY = "AIzaSyBlUiVZ9lu2kzbzIgjb7kvxFopYpLF7WF0";
@@ -319,6 +328,11 @@ function renderMap(list) {
       { maxZoom: 19, attribution: "Tiles © Esri — Esri, HERE, Garmin, Maxar, © OpenStreetMap", ...o });
     const labels = () => esri("Reference/World_Boundaries_and_Places", { pane: "overlayPane" });
     const styles = {
+      "Mapbox stradale": mapboxLayer("streets-v12"),
+      "Mapbox satellite": mapboxLayer("satellite-streets-v12"),
+      "Mapbox outdoor": mapboxLayer("outdoors-v12"),
+      "Mapbox chiara": mapboxLayer("light-v11"),
+      "Mapbox scura": mapboxLayer("dark-v11"),
       "Google stradale": googleLayer("roadmap"),
       "Google satellite": googleLayer("satellite", ["layerRoadmap"]),
       "Stradale": esri("World_Street_Map"),
@@ -328,14 +342,14 @@ function renderMap(list) {
       "Scura": L.layerGroup([esri("Canvas/World_Dark_Gray_Base", { maxZoom: 16 }), esri("Canvas/World_Dark_Gray_Reference", { maxZoom: 16 })]),
       "OpenStreetMap (kanji)": L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", { maxZoom: 19, attribution: "© OpenStreetMap" }),
     };
-    const pick = styles[store.get("mapStyle", "Stradale")] ? store.get("mapStyle", "Stradale") : "Stradale";
+    const pick = styles[store.get("mapStyle", "Mapbox stradale")] ? store.get("mapStyle", "Mapbox stradale") : "Mapbox stradale";
     styles[pick].addTo(map);
     L.control.layers(styles, null, { position: "topright" }).addTo(map);
     map.on("baselayerchange", (e) => store.set("mapStyle", e.name));
     // Esri unreachable: switch to OpenStreetMap so the map is never blank
     // a style that doesn't load (Google key/quota, Esri down) gives way: Google -> Esri, Esri -> OpenStreetMap
     const fallback = (name) => {
-      const to = name.startsWith("Google") ? "Stradale" : "OpenStreetMap (kanji)";
+      const to = /^(Google|Mapbox)/.test(name) ? "Stradale" : "OpenStreetMap (kanji)";
       if (map.hasLayer(styles[to])) return;
       Object.values(styles).forEach((l) => map.removeLayer(l));
       styles[to].addTo(map);
