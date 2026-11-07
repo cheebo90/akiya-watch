@@ -125,7 +125,7 @@ def cmd_scrape(source: str, cfg: dict, pw: str, part: str = "1/1"):
 
 
 def full_gallery(http: Http, targets: list[dict], listings: dict, limit: int):
-    """Open the listing page (SUUMO or Yahoo) of listings that triggered an alert and keep their whole photo gallery."""
+    """Open the listing page (SUUMO or Yahoo) and keep its whole photo gallery (list pages show only ~3 photos)."""
     done = 0
     page = Http(delay=2.0, max_requests=limit, retries=2)
     for l in targets:
@@ -142,10 +142,11 @@ def full_gallery(http: Http, targets: list[dict], listings: dict, limit: int):
             continue
         imgs = suumo.parse_detail_images(html) if l["source"] == "suumo" else \
             yahoo.parse_detail_images(html, l.get("images") or [])
-        if len(imgs) > len(l.get("images") or []):
-            l["images"] = imgs
-            listings[l["key"]]["images"] = imgs
-    log.info("full gallery fetched for %d alert listings", done)
+        rec = listings[l["key"]]
+        rec["gallery_at"] = store.today()
+        if len(imgs) > len(rec.get("images") or []):
+            rec["gallery"] = imgs  # own field: the daily list scrape (first 3 photos) never overwrites it
+    log.info("full gallery fetched for %d listings", done)
 
 
 def cmd_merge(cfg: dict, pw: str):
@@ -221,6 +222,14 @@ def cmd_merge(cfg: dict, pw: str):
             notify.send(new, cfg, aud_per_jpy, os.getenv("APP_URL"), warnings, hits=hits)
         except Exception:  # noqa: BLE001
             log.exception("alerts failed, continuing")
+    try:
+        # the rest of the archive, a slice per night: newest listings first
+        todo = [l for l in state["listings"].values() if l["source"] in ("suumo", "yahoo") and l.get("active", True)
+                and not l.get("gallery_at")]
+        todo.sort(key=lambda l: l.get("first_seen", ""), reverse=True)
+        full_gallery(http, todo, state["listings"], int(cfg.get("gallery_backfill_per_run", 500)))
+    except Exception:  # noqa: BLE001
+        log.exception("gallery backfill failed, continuing")
 
     state["runs"] = (state.get("runs") or [])[-60:] + [{
         "at": dt.datetime.now(dt.timezone.utc).isoformat(timespec="minutes"),

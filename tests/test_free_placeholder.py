@@ -45,3 +45,14 @@ def test_ad_banners_skipped():
     <table><tr><th>価格</th><td>500万円</td></tr><tr><th>建物面積</th><td>90㎡</td></tr></table></html>"""
     l = parse_detail(html, "https://www.example-akiya.jp/bukken/1", SITE)
     assert [u.rsplit("/", 1)[-1] for u in l.images] == ["house1.jpg"]
+
+
+def test_full_gallery_survives_daily_scrape():
+    from scraper import store
+    st = {"listings": {"suumo:1": {"key": "suumo:1", "source": "suumo", "url": "u", "type": "house", "price_yen": 5_000_000,
+                                   "address": "大阪府松原市一津屋5", "prefecture": "osaka", "first_seen": "2026-11-06",
+                                   "images": ["a", "b", "c"], "gallery": [f"g{i}" for i in range(12)]}}}
+    store.merge(st, [{"key": "suumo:1", "source": "suumo", "url": "u", "type": "house", "price_yen": 5_000_000,
+                      "address": "大阪府松原市一津屋5", "prefecture": "osaka", "images": ["a", "b", "c"]}])
+    out = store.export(st, 0.01)
+    assert len(out["properties"][0]["images"]) == 12 and "gallery" not in out["properties"][0]

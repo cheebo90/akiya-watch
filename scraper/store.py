@@ -165,10 +165,10 @@ def export(state: dict, aud_per_jpy: float) -> dict:
     groups: dict[str, list] = {}
     for k, g in gid_of.items():
         groups.setdefault(g, []).append(L[k])
-    # an image on 3+ different properties is site chrome (banners, "no photo", buy/rent buttons), not a photo
+    # an akiya-bank image on 3+ different properties is site chrome (banners, "no photo", buy/rent buttons), not a photo
     seen: dict[str, int] = {}
     for members in groups.values():
-        for u in {u for m in members for u in (m.get("images") or [])}:
+        for u in {u for m in members if m.get("source") == "akiyabank" for u in (m.get("images") or [])}:
             seen[u] = seen.get(u, 0) + 1
     shared = {u for u, n in seen.items() if n >= 3 and not u.startswith("enc:")}
     props = []
@@ -179,9 +179,10 @@ def export(state: dict, aud_per_jpy: float) -> dict:
             for f in _COMPLETENESS + ("title",):
                 if not p.get(f) and m.get(f):
                     p[f] = m[f]
-        richest = max((m.get("images") or [] for m in members), key=len)
+        richest = max((g for m in members for g in (m.get("gallery") or [], m.get("images") or [])), key=len)
         if len(richest) > len(p.get("images") or []):
-            p["images"] = richest  # e.g. the full SUUMO gallery fetched for an alert
+            p["images"] = richest  # e.g. the full SUUMO gallery
+        p.pop("gallery", None)
         if p.get("price_yen") is None:
             # no price, or "da trattare" (応相談): not shown. Kept in the archive so the page isn't re-read daily.
             prices = [m["price_yen"] for m in members if m.get("price_yen") is not None]
