@@ -31,4 +31,20 @@ for i, l in enumerate(hits[:60]):
             pass
     lines.append(f"{i:02d} ¥{l['price_yen']:,} {l.get('type')} b={l.get('building_m2')} t={l.get('land_m2')} {l.get('year_built')} "
                  f"{'attivo' if l.get('active', True) else 'NON attivo'} {l['source']} {l.get('address')} {l['url']}")
+# one contact sheet, numbered like the list
+from PIL import Image, ImageDraw  # noqa: E402
+import io  # noqa: E402
+tiles = []
+for f in sorted(out.glob("*.jpg")):
+    try:
+        im = Image.open(io.BytesIO(f.read_bytes())).convert("RGB"); im.thumbnail((320, 240)); tiles.append((f.stem, im))
+    except Exception:  # noqa: BLE001
+        pass
+if tiles:
+    W = 4; rows = (len(tiles) + W - 1) // W
+    sheet = Image.new("RGB", (W * 320, rows * 260), (30, 30, 30)); d = ImageDraw.Draw(sheet)
+    for k, (name, im) in enumerate(tiles):
+        x, y = (k % W) * 320, (k // W) * 260
+        sheet.paste(im, (x, y)); d.text((x + 6, y + 242), name, fill=(255, 220, 0))
+    sheet.save(out / "sheet.jpg", quality=80)
 print("::notice::" + " %0A".join(lines))

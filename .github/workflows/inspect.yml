@@ -24,9 +24,12 @@ jobs:
           SCRIPT=$(python3 -c "import json;print(json.load(open('trigger/inspect.json')).get('script',''))")
           export AKIYA_PASSPHRASE="${{ secrets.AKIYA_PASSPHRASE }}"
           if [ -n "$SCRIPT" ]; then PDF_KEYS=$(python3 -c "import json;print(json.load(open('trigger/inspect.json')).get('keys','') or 'tonosho,saijo,kasagi,tendo,city-awara,takizawa')") python "scripts/$SCRIPT"; else python scripts/inspect_todo.py $ARGS; fi
-      - uses: actions/upload-artifact@v4
+      - name: Foto da confrontare (branch inspect-out)
         if: hashFiles('out/**') != ''
-        with: { name: inspect-out, path: out/, retention-days: 1 }
+        run: |
+          cd out && git init -q -b inspect-out && git add -A
+          git -c user.name="akiya-watch bot" -c user.email="actions@users.noreply.github.com" commit -qm "foto ispezione"
+          git push -qf "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}.git" inspect-out
       - run: |
           git config user.name "akiya-watch bot"
           git config user.email "actions@users.noreply.github.com"
