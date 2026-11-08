@@ -1,1 +1,1 @@
-{"script": "why_missing.py", "urls": ["https://suumo.jp/ms/chuko/shizuoka/sc_atami/nc_20991520/"], "n": 19}
+{"script": "find_listings.py", "place": "熱海市", "min_yen": 2500000, "max_yen": 5000000, "types": ["house", "akiya"], "n": 20}
