@@ -482,11 +482,11 @@ function renderMap(list) {
   // grouped with counts at the starting view; from the first zoom step every property is a dot
   // "search this area" keeps the view the user chose; any other change of results re-centres the map
   if (keepView) keepView = false;
-  else if (markers.length) { autoMove = true; map.fitBounds(L.latLngBounds(markers.map((m) => m.getLatLng())), { padding: [30, 30], maxZoom: 12, animate: false }); autoMove = false; }
-  const z0 = map.getZoom();
+  else if (markers.length) { autoMove = true; map.fitBounds(L.latLngBounds(markers.map((m) => m.getLatLng())), { padding: [30, 30], maxZoom: 12, animate: false }); autoMove = false; fitZoom = map.getZoom(); }
+  // grouped with counts at the starting view and the next two zoom steps; every property a dot from the third
+  // (never before zoom 8, ~a prefecture, or the map gets too heavy); a small result set is never grouped
   cluster = L.markerClusterGroup({ chunkedLoading: true, maxClusterRadius: 50, spiderfyOnMaxZoom: false,
-    // inside a searched zone (location tags) every property is its own dot right away
-    disableClusteringAtZoom: F.places?.length && markers.length <= 2500 ? 1 : Math.min(z0 + 1, 13) });
+    disableClusteringAtZoom: markers.length <= 300 ? 1 : Math.min(Math.max(fitZoom + 3, 8), 14) });
   cluster.addLayers(markers);
   map.addLayer(cluster);
   mapMarkers = markers;
@@ -504,7 +504,7 @@ function renderMap(list) {
 }
 
 /* side list: the properties inside the current map view, in the chosen sort order, loaded as you scroll */
-let keepView = false, autoMove = false, mapQuietUntil = 0, mapTags = null, mapMarkers = [], mlInView = [], mlShown = 0, mapSig = "";
+let fitZoom = 5, keepView = false, autoMove = false, mapQuietUntil = 0, mapTags = null, mapMarkers = [], mlInView = [], mlShown = 0, mapSig = "";
 function mapItem(p) {
   const bits = [(TYPE[p.type] || [p.type])[0]];
   if (p.building_m2) bits.push(`${fmtNum(p.building_m2)} m² casa`);
