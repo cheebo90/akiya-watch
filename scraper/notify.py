@@ -79,9 +79,13 @@ def email(subject: str, html: str):
     msg = MIMEText(html, "html", "utf-8")
     msg["Subject"], msg["From"], msg["To"] = subject, user, to
     host = os.getenv("SMTP_HOST", "smtp.gmail.com")
-    with smtplib.SMTP_SSL(host, int(os.getenv("SMTP_PORT", "465"))) as s:
-        s.login(user, pw)
-        s.send_message(msg)
+    try:
+        with smtplib.SMTP_SSL(host, int(os.getenv("SMTP_PORT", "465")), timeout=30) as s:
+            s.login(user, pw)
+            s.send_message(msg)
+    except Exception as e:  # noqa: BLE001  the push notifications already went out: don't fail the run for the email
+        log.warning("email digest not sent (%s): check SMTP_USER/SMTP_PASS (Gmail app password)", e)
+        return False
     return True
 
 
