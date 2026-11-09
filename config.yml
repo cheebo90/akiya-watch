@@ -56,4 +56,4 @@ alerts:
     min_yield_pct: 10
 
 max_push_per_run: 15
-email_digest: true
+email_digest: false
