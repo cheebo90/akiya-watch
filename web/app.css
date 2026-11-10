@@ -360,3 +360,13 @@ details.zones .regions { margin-top: 6px; }
   box-shadow: 0 1px 6px rgb(0 0 0 / .4); z-index: 2; }
 .pop-card .ph .pp-prev { left: 8px; } .pop-card .ph .pp-next { right: 8px; }
 .pop-card .ph .pp-count { position: absolute; bottom: 6px; right: 8px; background: rgb(0 0 0 / .55); color: #fff; font-size: 11px; padding: 1px 7px; border-radius: 999px; }
+
+/* yield calculator */
+.calc-in { display: grid; grid-template-columns: repeat(auto-fill, minmax(190px, 1fr)); gap: 8px 12px; }
+.calc-in .field { font-size: 12.5px; }
+.calc-t { width: 100%; border-collapse: collapse; margin-top: 8px; font-size: 14px; font-variant-numeric: tabular-nums; }
+.calc-t td { padding: 6px 4px; border-bottom: 1px solid var(--line); }
+.calc-t td:nth-child(2) { text-align: right; white-space: nowrap; }
+.calc-t td:nth-child(3) { text-align: right; font-size: 12.5px; }
+.calc-t tr.tot td { font-weight: 600; border-bottom: 0; }
+.warn-note { background: rgb(200 120 30 / .15); border-left: 3px solid #c8781e; padding: 8px 10px; border-radius: 6px; font-size: 13px; margin: 8px 0 0; }

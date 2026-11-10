@@ -143,14 +143,17 @@ async function unlock(pass, remember) {
 
 /* ---------------------------------------------------------------- derived values */
 function yieldOf(p, rentYenMonth) {
-  const rent = rentYenMonth ?? (A.rentPerM2 && p.building_m2 ? A.rentPerM2 * p.building_m2 : null);
+  const rent = rentYenMonth ?? (p.yield_pct && p.price_yen ? p.price_yen * p.yield_pct / 100 / 12 : null) ?? p.rent_month ?? (A.rentPerM2 && p.building_m2 ? A.rentPerM2 * p.building_m2 : null);
   if (!rent || !p.price_yen) return null;
   const annual = rent * 12;
   const cost = p.price_yen * (1 + A.buyCostPct / 100);
-  const net = annual * (1 - A.vacancyPct / 100) * (1 - A.mgmtPct / 100) - p.price_yen * (A.taxPct / 100) - A.maintAud / DATA.aud_per_jpy;
+  // flats: the building's upkeep is already in the condo fees, so only insurance/small repairs on top
+  const net = annual * (1 - A.vacancyPct / 100) * (1 - A.mgmtPct / 100) - p.price_yen * (A.taxPct / 100)
+    - (p.fees?.total ? 15000 + p.fees.total * 12 : A.maintAud / DATA.aud_per_jpy);
   return { gross: annual / p.price_yen * 100, net: net / cost * 100, rent };
 }
 const rents = store.get("rents", {});
+const calcs = store.get("calcs", {});  // per-property overrides of the yield calculator
 const ppm = (p) => p.price_yen && (p.building_m2 || p.land_m2) ? p.price_yen / (p.building_m2 || p.land_m2) : null;
 let NEW_KEYS = new Set();
 const isNew = (p) => (p._new ??= (p.keys || []).some((k) => NEW_KEYS.has(k)) || daysSince(p.first_seen) <= 2);
@@ -661,8 +664,14 @@ function openDetail(id) {
   const hist = (p.price_history || []).map(([d, y]) => `<li>${new Date(d).toLocaleDateString("it-IT")}: ${fmtYen(y)} → ${fmtYen(p.price_yen)}</li>`).join("");
   const gmaps = p.latlng ? `https://www.google.com/maps/search/?api=1&query=${p.latlng[0]},${p.latlng[1]}` : `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(p.address)}`;
   const tr = (u) => `https://translate.google.com/translate?sl=ja&tl=it&u=${encodeURIComponent(u)}`;
-  const rentDefault = rents[p.id] ?? (p.yield_pct && p.price_yen ? Math.round(p.price_yen * p.yield_pct / 100 / 12)
-    : A.rentPerM2 && p.building_m2 ? Math.round(A.rentPerM2 * p.building_m2) : "");
+  // rent: what you typed > rent implied by the declared gross yield (precise) > declared rent > your ¥/m² estimate
+  const rentFromYield = p.yield_pct && p.price_yen ? Math.round(p.price_yen * p.yield_pct / 100 / 12) : null;
+  const rentDefault = rents[p.id] ?? rentFromYield ?? p.rent_month ?? (A.rentPerM2 && p.building_m2 ? Math.round(A.rentPerM2 * p.building_m2) : "");
+  const rentNote = rentFromYield && p.rent_month && Math.abs(rentFromYield - p.rent_month) > 500
+    ? `Annuncio: ${fmtYenK(p.rent_month)}/mese, rendimento dichiarato ${p.yield_pct}% → ${fmtYenK(rentFromYield)}/mese (più preciso).`
+    : rentFromYield ? `Dal rendimento dichiarato nell'annuncio (${p.yield_pct}%).` : p.rent_month ? "Affitto dichiarato nell'annuncio." : "Scrivi l'affitto che ti aspetti.";
+  const C = { fees: p.fees?.total || 0, tax: p.price_yen ? Math.round(p.price_yen * A.taxPct / 100) : 0, mgmt: A.mgmtPct,
+    vac: A.vacancyPct, other: p.fees?.total ? 15000 : Math.round(A.maintAud / DATA.aud_per_jpy), buy: A.buyCostPct, ...(calcs[p.id] || {}) };
   const d = $("#detail");
   d.innerHTML = `<form method="dialog">
     <header class="sheet-head"><h2>${fmtAud(p.price_aud, p.price_yen)} <span class="muted" style="font-weight:400;font-size:14px">${esc((TYPE[p.type] || [p.type])[0])} · ${esc(prefName(p.prefecture))}</span></h2>
@@ -679,24 +688,58 @@ function openDetail(id) {
       ${hist ? `<h3>Storico prezzo</h3><ul>${hist}</ul>` : ""}
       <h3>Rendimento stimato</h3>
       <div class="calc">
-        <div class="grid2">
-          <label class="field">Affitto mensile atteso (¥)<input id="rent" type="number" inputmode="numeric" value="${esc(rentDefault)}" placeholder="es. 45000"></label>
-          <label class="field">Equivale a<output id="rent-aud">—</output></label>
+        <div class="calc-in">
+          <label class="field">Affitto (¥/mese)<input data-c="rent" type="number" inputmode="numeric" value="${esc(rentDefault)}" placeholder="es. 45000"></label>
+          <label class="field">Spese condominio (¥/mese)<input data-c="fees" type="number" inputmode="numeric" value="${C.fees}"></label>
+          <label class="field">Tasse proprietà (¥/anno)<input data-c="tax" type="number" inputmode="numeric" value="${C.tax}"></label>
+          <label class="field">Assicurazione + manutenzione (¥/anno)<input data-c="other" type="number" inputmode="numeric" value="${C.other}"></label>
+          <label class="field">Agenzia affitti (% affitto)<input data-c="mgmt" type="number" step="0.5" value="${C.mgmt}"></label>
+          <label class="field">Sfitto (% affitto)<input data-c="vac" type="number" step="0.5" value="${C.vac}"></label>
+          <label class="field">Costi d'acquisto (% prezzo)<input data-c="buy" type="number" step="0.5" value="${C.buy}"></label>
         </div>
-        <div class="grid2"><div>Lordo<br><output id="y-gross">—</output></div><div>Netto stimato<br><output id="y-net">—</output></div></div>
-        <p class="note">Netto = affitto × (1 − sfitto ${A.vacancyPct}%) × (1 − gestione ${A.mgmtPct}%) − tasse ${A.taxPct}% del prezzo − manutenzione A$${A.maintAud}/anno, diviso per prezzo + costi d'acquisto ${A.buyCostPct}%. Sono ipotesi tue, che puoi cambiare in ⚙︎. Non è una consulenza finanziaria.</p>
+        <p class="note" id="rent-note">${esc(rentNote)}</p>
+        <div id="calc-out"></div>
+        <p class="note">Spese condominio dall'annuncio (管理費 + 修繕積立金) quando ci sono; tasse, agenzia, sfitto e acquisto sono stime che puoi cambiare qui (per questo immobile) o in ⚙︎ (per tutti). Non considera le tasse sul reddito da affitto. Non è una consulenza finanziaria.</p>
+        <button type="button" class="link" id="calc-reset">Ripristina valori dell'annuncio</button>
       </div>
     </div></form>`;
   const upd = () => {
-    const v = +$("#rent", d).value || null;
-    if (v) rents[p.id] = v; else delete rents[p.id];
+    const val = (k) => +d.querySelector(`[data-c="${k}"]`).value || 0;
+    const rent = val("rent");
+    if (rent) rents[p.id] = rent; else delete rents[p.id];
     store.set("rents", rents);
-    const y = yieldOf(p, v);
-    $("#rent-aud", d).textContent = v ? fmtAud(v * DATA.aud_per_jpy) + "/mese" : "—";
-    $("#y-gross", d).textContent = y ? y.gross.toFixed(1) + "%" : "—";
-    $("#y-net", d).textContent = y ? y.net.toFixed(1) + "%" : "—";
+    const mine = {};
+    for (const k of ["fees", "tax", "other", "mgmt", "vac", "buy"]) if (val(k) !== C0[k]) mine[k] = val(k);
+    if (Object.keys(mine).length) calcs[p.id] = mine; else delete calcs[p.id];
+    store.set("calcs", calcs);
+    const out = $("#calc-out", d);
+    if (!rent || !p.price_yen) { out.innerHTML = '<p class="muted">Scrivi l\'affitto mensile per vedere il calcolo.</p>'; return; }
+    const year = rent * 12, aud = (y) => fmtAud(y * DATA.aud_per_jpy);
+    const lines = [
+      ["Spese condominio", val("fees") * 12], ["Tasse proprietà", val("tax")], ["Agenzia affitti", year * val("mgmt") / 100],
+      ["Assicurazione + manutenzione", val("other")], ["Sfitto", year * val("vac") / 100]];
+    const net = year - lines.reduce((t, [, v]) => t + v, 0);
+    const invest = p.price_yen * (1 + val("buy") / 100);
+    const feeShare = val("fees") / rent * 100;
+    out.innerHTML = `<table class="calc-t">
+      <tr><td>Affitto annuo</td><td>${fmtYenK(year)}</td><td class="muted">lordo <b>${(year / p.price_yen * 100).toFixed(1)}%</b></td></tr>
+      ${lines.filter(([, v]) => v).map(([k, v]) => `<tr><td>${k}</td><td>−${fmtYenK(v)}</td><td class="muted">${(v / year * 100).toFixed(0)}% dell'affitto</td></tr>`).join("")}
+      <tr class="tot"><td>Netto annuo</td><td>${fmtYenK(net)}</td><td>${aud(net)}</td></tr>
+      <tr class="tot"><td>Rendimento netto</td><td><b>${(net / p.price_yen * 100).toFixed(1)}%</b> sul prezzo</td><td><b>${(net / invest * 100).toFixed(1)}%</b> con costi d'acquisto</td></tr>
+    </table>
+    ${feeShare >= 35 ? `<p class="warn-note">⚠ Le spese condominio sono il ${feeShare.toFixed(0)}% dell'affitto: un rendimento lordo alto diventa molto più basso al netto, e queste spese di solito aumentano negli anni.</p>` : ""}
+    ${net <= 0 ? '<p class="warn-note">⚠ Con queste ipotesi l\'affitto non copre le spese.</p>' : ""}`;
   };
-  $("#rent", d).addEventListener("input", upd); upd();
+  const C0 = { fees: p.fees?.total || 0, tax: p.price_yen ? Math.round(p.price_yen * A.taxPct / 100) : 0, mgmt: A.mgmtPct,
+    vac: A.vacancyPct, other: p.fees?.total ? 15000 : Math.round(A.maintAud / DATA.aud_per_jpy), buy: A.buyCostPct };
+  d.querySelectorAll("[data-c]").forEach((i) => i.addEventListener("input", upd));
+  $("#calc-reset", d).onclick = () => {
+    delete rents[p.id]; delete calcs[p.id]; store.set("rents", rents); store.set("calcs", calcs);
+    d.querySelector('[data-c="rent"]').value = rentFromYield ?? p.rent_month ?? "";
+    for (const k of Object.keys(C0)) d.querySelector(`[data-c="${k}"]`).value = C0[k];
+    upd();
+  };
+  upd();
   const gal = d.querySelector(".gallery");
   if (gal) {  // arrows and mouse wheel move one photo at a time
     const step = (dir) => gal.scrollBy({ left: dir * gal.clientWidth, behavior: "smooth" });

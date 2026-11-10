@@ -199,6 +199,9 @@ def export(state: dict, aud_per_jpy: float, max_yen: int | None = None) -> dict:
         if max_yen and p["price_yen"] > max_yen:
             continue  # above the archive ceiling (it may have been lowered after the listing was stored)
         ex = [m.get("extra") or {} for m in members]
+        if not p.get("yield_pct"):
+            p["yield_pct"] = next((e["yield_pct"] for e in ex if e.get("yield_pct")), None)
+        p["rent_month"] = next((e["rent_month"] for e in ex if e.get("rent_month")), None)
         p["tenant"] = any(e.get("tenant") for e in ex) or bool(p.get("yield_pct"))
         p["no_rebuild"] = any(e.get("no_rebuild") for e in ex)
         p["senior"] = any(e.get("senior") for e in ex)

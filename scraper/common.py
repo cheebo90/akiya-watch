@@ -239,6 +239,11 @@ _YEN = r"(\d[\d,]*(?:\.\d+)?\s*万\s*[\d,]*\s*円|\d[\d,]*\s*円)"
 FEE_RX = {"fee_kanri": re.compile(r"管理費(?:等)?[\s:：]{0,3}" + _YEN), "fee_shuzen": re.compile(r"修繕積立金[\s:：]{0,3}" + _YEN)}
 
 
+# investment listings: declared gross yield and current monthly rent
+YIELD_RX = re.compile(r"(?:表面)?利回り[\s:：]{0,3}(\d{1,2}(?:\.\d+)?)\s*[%％]")
+RENT_RX = re.compile(r"(?:月額収入|現行賃料|賃料収入|現況賃料|月額賃料)(?:\s*[（(]月額[)）])?[\s:：]{0,3}" + _YEN)
+
+
 def _fee_yen(s: str):
     """'1万2000円' -> 12000, '8,500円' -> 8500."""
     s = s.replace(",", "").replace(" ", "")
@@ -259,6 +264,13 @@ def condition_flags(text: str) -> dict:
         out["no_rebuild"] = True
     if SENIOR_RX.search(t):
         out["senior"] = True
+    m = YIELD_RX.search(t)
+    if m and 1 <= float(m.group(1)) <= 40:
+        out["yield_pct"] = float(m.group(1))
+    m = RENT_RX.search(t)
+    v = _fee_yen(m.group(1)) if m else None
+    if v and 5_000 <= v <= 2_000_000:
+        out["rent_month"] = v
     for k, rx in FEE_RX.items():
         m = rx.search(t)
         v = _fee_yen(m.group(1)) if m else None

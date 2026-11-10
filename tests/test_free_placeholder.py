@@ -97,3 +97,9 @@ def test_fees_and_senior():
     assert c("管理費 1万2000円／月 修繕積立金 1万5000円／月") == {"fee_kanri": 12000, "fee_shuzen": 15000}
     f = c("管理費等：8,500円 修繕積立金：12,300円 シニア向け分譲マンション")
     assert f["senior"] and f["fee_kanri"] == 8500 and f["fee_shuzen"] == 12300
+
+
+def test_rent_and_yield_from_listing():
+    from scraper.common import condition_flags as c
+    f = c("月額収入 5万円 表面利回り 10.91% 管理費 11,000円/月 修繕積立金 12,080円/月")
+    assert f["yield_pct"] == 10.91 and f["rent_month"] == 50000 and f["fee_kanri"] == 11000
