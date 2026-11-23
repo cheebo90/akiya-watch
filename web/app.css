@@ -370,3 +370,5 @@ details.zones .regions { margin-top: 6px; }
 .calc-t td:nth-child(3) { text-align: right; font-size: 12.5px; }
 .calc-t tr.tot td { font-weight: 600; border-bottom: 0; }
 .warn-note { background: rgb(200 120 30 / .15); border-left: 3px solid #c8781e; padding: 8px 10px; border-radius: 6px; font-size: 13px; margin: 8px 0 0; }
+/* layer switcher icon drawn inline (the CDN image can fail on slow connections) */
+.leaflet-control-layers-toggle { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23333' stroke-width='1.8' stroke-linejoin='round'%3E%3Cpath d='M12 3 2 8l10 5 10-5-10-5Z'/%3E%3Cpath d='m2 13 10 5 10-5M2 17.5l10 5 10-5'/%3E%3C/svg%3E") !important; background-size: 26px 26px !important; }

@@ -451,9 +451,12 @@ function renderMap(list) {
     };
     for (const [name, l] of Object.entries(styles)) {
       if (name.startsWith("OpenStreetMap")) continue;
-      let errs = 0;
+      // give way only if the style is really down (mostly errors), not for a few failed tiles on a slow phone connection
+      let errs = 0, loads = 0;
       (l.getLayers ? l.getLayers() : [l]).forEach((t) => {
-        t.on("tileerror", () => { if (++errs === 8 && map.hasLayer(t)) fallback(name); });
+        t.on("add", () => { errs = 0; loads = 0; });
+        t.on("tileload", () => { loads++; });
+        t.on("tileerror", () => { if (++errs >= 12 && errs > loads * 3 && map.hasLayer(t)) fallback(name); });
       });
     }
   }
